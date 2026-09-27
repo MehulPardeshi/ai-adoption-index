@@ -13,7 +13,7 @@ Phone numbers live only in the signed contract (kept local, not committed). Use 
 ### Client communication: Snehal Paliwal (de facto lead)
 - **In practice, Snehal is already handling client communication with Julie Agnew.** The PM confirmed this; it is not on the contract.
 - **Mismatch worth raising:** on the contract, Snehal listed *"Client communication"* as an **area to watch**, not as a preferred role. Snehal may not realize how that reads on paper, or may want the role formally reflected (or may want support or backup on it).
-- **Suggested action:** confirm this directly with Snehal before Sunday's meeting. If Snehal agrees, log it in `09-decisions-log.md` as a formal role, and consider naming a backup client contact.
+- **Suggested action:** confirm this directly with Snehal before the **Thursday, Oct 1, 2026** meeting. If Snehal agrees, log it in `09-decisions-log.md` as a formal role, and consider naming a backup client contact.
 
 ---
 

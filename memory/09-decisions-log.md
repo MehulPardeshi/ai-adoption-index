@@ -24,3 +24,10 @@
 ## Log
 
 <!-- Append new entries below this line, newest at the bottom. -->
+
+### 2026-09-24 — Team contract adopted
+- **Decision:** Team contract agreed at a Sunday internal meeting and signed by all five members (09/20–09/24/2026). Its norms are summarized in `02-team-norms.md`.
+- **Context / why:** Required for Team Project #1 (due Fri 2026-10-02).
+- **Decided by:** All members (signed).
+- **Supersedes:** —
+- **Follow-ups:** Next meeting is Thu 2026-10-01. Open items: role picks from `01-team-and-roles.md`, formalizing Snehal's client-communication role, the shared spreadsheet link, the blank "Expectations / Attendance" section of the contract.

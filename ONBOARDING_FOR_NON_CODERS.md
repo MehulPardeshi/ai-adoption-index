@@ -53,7 +53,7 @@ Help me draft section 2 (robots.txt and Terms of Service review) of docs/part1-s
 
 **Reviewing a metric definition**
 ```
-Read docs/part3-metrics/metrics.md and memory/05-metrics-draft.md. Our team is considering "AI mention density". What are the ways this metric could mislead us, especially comparing a 10-K to a press release? Give me questions to bring to Sunday's meeting, not a final definition.
+Read docs/part3-metrics/metrics.md and memory/05-metrics-draft.md. Our team is considering "AI mention density". What are the ways this metric could mislead us, especially comparing a 10-K to a press release? Give me questions to bring to our next team meeting, not a final definition.
 ```
 
 **Prepping for the client meeting**
