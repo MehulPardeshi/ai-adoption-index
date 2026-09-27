@@ -34,7 +34,9 @@ Write in the imperative and keep it short: `Add recordkeeper firms to universe`,
 ## GitHub Project board
 The course grades a **kanban board** (TP3: 7%; TP1 must link to it; TP2 needs a snapshot).
 
-**Status:** see the setup summary in the first commit or ask the PM. If the board doesn't exist yet, create it manually:
+**Status (2026-09-27):** ❌ **Not created yet.** Automated creation failed because the `gh` token lacks the `project` scope. The Week 1–6 issues (#1–#6) and the course-requirements checklist (#7) already exist. Once the board is created, log its link in `memory/09-decisions-log.md` and update this line.
+
+To create it manually:
 
 1. Go to github.com → your profile (or the repo) → **Projects** tab → **New project**.
 2. Choose the **Board** template and name it **"AI Adoption Index"**.
