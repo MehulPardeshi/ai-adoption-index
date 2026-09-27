@@ -38,3 +38,10 @@
 - **Decided by:** PM setup (infrastructure only; no project-content decisions).
 - **Supersedes:** —
 - **Follow-ups:** Invite teammates to the repo and the board; add the spreadsheet link to `docs/TASK_TRACKER.md`.
+
+### 2026-09-27 — Thu Oct 1 meeting is the first client requirements meeting
+- **Decision:** The Thu 2026-10-01 meeting (2:00–3:00 pm slot) is with the client, Julie Agnew. It serves as the course's "first client requirements meeting."
+- **Context / why:** TP1 (due Fri 2026-10-02) needs a client-meeting prep doc (client, problem as understood, questions) and a scope document with the kanban board link. The scope doc goes to the client for approval.
+- **Decided by:** PM (confirmed schedule).
+- **Supersedes:** Clarifies the "next meeting" follow-up in the 2026-09-24 entry.
+- **Follow-ups:** Prepare client questions before Thursday. Snehal (de facto client comms) to confirm the role formally.
