@@ -1,0 +1,6 @@
+# PLACEHOLDER — intentionally (almost) empty.
+# Real dependencies get added once the team chooses its tooling
+# (EDGAR client library, NLP stack, dashboard framework). Log that choice in
+# memory/09-decisions-log.md, then pin versions here.
+#
+# Only add a package when code in src/ actually imports it.

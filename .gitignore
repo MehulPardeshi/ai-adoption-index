@@ -1,0 +1,54 @@
+# ---- Secrets ----
+.env
+.env.*
+!.env.example
+
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+env/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+.coverage
+htmlcov/
+
+# ---- Data ----
+# Raw source text is NOT committed by default: licensed/ToS-restricted content
+# must not be redistributed. Retention rules live in docs/part1-sourcing/ethics_memo.md.
+data/raw/*
+!data/raw/.gitkeep
+!data/raw/README.md
+# Large or binary data files anywhere
+*.parquet
+*.feather
+*.h5
+*.sqlite
+*.db
+*.zip
+*.gz
+
+# ---- Personal info ----
+# The signed contract contains teammates' phone numbers and signatures. Keep it local only.
+docs/source-materials/team-contract-signed.docx
+
+# ---- Dashboards / tool artifacts ----
+*.twbx.bak
+.streamlit/secrets.toml
+
+# ---- OS / editor junk ----
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/*
+!.vscode/extensions.json
+*.swp
+~$*
