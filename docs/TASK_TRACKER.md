@@ -22,5 +22,6 @@ Once the spreadsheet exists, paste the link above **and** add a dated entry to [
 4. **Each week-milestone issue** (Week 1–6) links to its `docs/partX` folder, which is where the actual work product lives.
 
 ## GitHub Project board
+- **Link:** https://github.com/users/MehulPardeshi/projects/1
 - Columns: **To Do / In Progress / Done**
 - Setup steps and status: see [`CONTRIBUTING.md`](../CONTRIBUTING.md#github-project-board)

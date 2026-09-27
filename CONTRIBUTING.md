@@ -34,17 +34,18 @@ Write in the imperative and keep it short: `Add recordkeeper firms to universe`,
 ## GitHub Project board
 The course grades a **kanban board** (TP3: 7%; TP1 must link to it; TP2 needs a snapshot).
 
-**Status (2026-09-27):** ❌ **Not created yet.** Automated creation failed because the `gh` token lacks the `project` scope. The Week 1–6 issues (#1–#6) and the course-requirements checklist (#7) already exist. Once the board is created, log its link in `memory/09-decisions-log.md` and update this line.
+**Board:** https://github.com/users/MehulPardeshi/projects/1 (private; linked to this repo)
 
-To create it manually:
+**Status (2026-09-27):** ✅ Created. It has a **Board** view (columns **To Do / In Progress / Done**) and a **Table** view. Issues #1–#7 start in To Do.
 
-1. Go to github.com → your profile (or the repo) → **Projects** tab → **New project**.
-2. Choose the **Board** template and name it **"AI Adoption Index"**.
-3. Make sure the **Status** field has the columns **To Do**, **In Progress**, and **Done** (rename "Todo" if needed).
-4. In the project's **⋯ → Settings → Manage access**, add all five teammates as **Write** collaborators. The repo also needs them as collaborators: repo **Settings → Collaborators**.
-5. Link it to the repo: repo → **Projects** tab → **Link a project**.
-6. Add the Week 1–6 milestone issues: in the board, click **+ Add item** → type `#` → pick each issue.
-7. Optional: enable the built-in workflows (**⋯ → Workflows**) so closed issues move to Done automatically.
+**Still to do by hand (web UI):**
+1. **Share the board with teammates:** project **⋯ → Settings → Manage access** → add each teammate as **Write**. Being a repo collaborator does *not* automatically give access to a private user-owned project.
+2. **Check the automations:** **⋯ → Workflows** → make sure "Item closed" and "Pull request merged" set Status to **Done**, and "Item added" sets **To Do**. The columns were renamed, so re-select the target option if a workflow shows a blank value.
+
+**Recreating the board from scratch** (only if it's ever deleted):
+1. Repo → **Projects** tab → **New project** → **Board** template → name it **"AI Adoption Index"**.
+2. Rename the Status options to **To Do / In Progress / Done**.
+3. Link it to the repo, and add issues with **+ Add item** → `#`.
 
 CLI alternative (the token needs the `project` scope first):
 ```bash
@@ -53,4 +54,4 @@ gh auth refresh -s project,read:project
 ```bash
 gh project create --owner MehulPardeshi --title "AI Adoption Index"
 ```
-Then do steps 3–7 in the web UI (the CLI can't switch a view to Board layout).
+Then finish the setup in the web UI.

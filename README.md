@@ -40,7 +40,7 @@ The **course** grades the team project separately (TP1 due 10/2, TP2 due 11/6, f
 
 ## How we track work
 - **Shared spreadsheet:** ownership and deadlines (source of truth, per the team contract)
-- **GitHub Issues + Project board:** engineering-level detail
+- **GitHub Issues + [Project board](https://github.com/users/MehulPardeshi/projects/1):** engineering-level detail
 
 Details: [`docs/TASK_TRACKER.md`](docs/TASK_TRACKER.md). Contribution workflow: [`CONTRIBUTING.md`](CONTRIBUTING.md).
 
