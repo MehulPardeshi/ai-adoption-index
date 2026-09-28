@@ -35,4 +35,4 @@ Deep coding. I'll pair with the AI/NLP owner when guardrail tools get implemente
 2. Which claims about AI in retirement would you need the evidence to be most careful about (e.g., robo-advice to participants)?
 
 ## Short bio
-<!-- TODO: 2–3 lines for the final README author list. -->
+MS in Artificial Intelligence Systems Management student at CMU Heinz College, and a Block Center Student Fellow on AI and Society. Builds AI products for high-stakes settings: designed the LLM-assistant architecture for Rudhiraksh, a live blood-bank platform where code computes every clinical fact and the model only explains it. Previously led Loopin (#38 Product of the Day on Product Hunt) and built MaverickAI, an open-source content-moderation tool. Focused on AI product, responsible AI, and AI risk and governance.
