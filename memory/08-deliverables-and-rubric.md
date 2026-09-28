@@ -26,6 +26,7 @@
 The team project is **20% of the course grade** (200 pts), plus **peer evaluation at 5%**.
 
 ### Key dates (from the syllabus; due Fridays at 5:00 pm)
+> **How these dates were derived:** the syllabus schedule has a "Due Friday 5:00pm" column. It lists *Team Project #1* in the **Week 6** row (classes Tue 9/29 and Thu 10/1), which makes the due date **Fri Oct 2, 5:00 pm**. *Team Project #2* is in the **Week 10** row (classes 11/3 and 11/5), which makes it **Fri Nov 6**. The syllabus doesn't print these calendar dates itself, and its schedule is labeled "draft." **Confirm the exact deadlines in Canvas.**
 | Item | Date |
 |---|---|
 | First client requirements meeting | Late September |
@@ -34,6 +35,12 @@ The team project is **20% of the course grade** (200 pts), plus **peer evaluatio
 | **Team Project #2** (progress update: 1–3 page report + repo link + board snapshot) + early-Nov client meeting | **Fri Nov 6, 2026** |
 | **Final project presentations** (TP3) | **Thu Dec 3, 2026** |
 
+### TP1 before submitting (from the latest course instructions PDF)
+- **Research the client's organization** (William & Mary) and the client (Julie Agnew) **before** the first client meeting.
+- The first client requirements meeting must happen **before TP1 is due**. Ours is Thu 10/1; TP1 is due Fri 10/2.
+- At that meeting, ask about: a specific actionable problem; constraints/context/examples; data needed (simulated/public) and whether an NDA is required; what success looks like by December; **a date/time for the progress-update meeting (late October or early November)**; and invite the client to the final poster presentation (then send a calendar invite; if she's remote, schedule a separate time to present).
+- **TP1 rubric:** 30 points, criteria still "TBD" in the instructions.
+
 ### TP1 submission (3 docs)
 1. Signed team contract
 2. About 1-page client-meeting prep doc: who the client is, the problem as understood, and questions for the client
@@ -41,6 +48,16 @@ The team project is **20% of the course grade** (200 pts), plus **peer evaluatio
 
 ### TP2 submission
 Progress vs. plan · working prototype/partial demo · blockers · updated scope · **project board snapshot** · repo link. Presented to the client in early November.
+
+### TP2 rubric (50 pts; from the latest course instructions PDF)
+| Criterion | Pts | What they look for |
+|---|---|---|
+| Progress vs. plan | 10 | Honest, specific comparison of TP1 scope to actual progress; meaningful work done |
+| Working prototype/demo | 12 | A functioning (even if rough) **agentic AI component**: real build progress, not just planning docs |
+| Blockers & problem-solving | 8 | Blockers clearly identified, with a credible plan to resolve them |
+| Scope updates | 5 | If scope changed, the reasoning is sound and clearly explained |
+| Project board upkeep | 5 | The kanban board reflects real, current task status |
+| Client meeting quality | 10 | Client meeting held; team came away with clear, confirmed direction |
 
 ### Course technical requirements (TP3 must demonstrate all of these)
 1. Accomplished using an **agentic workflow** (and/or helped the client set one up)

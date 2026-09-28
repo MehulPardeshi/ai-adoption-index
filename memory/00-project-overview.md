@@ -19,7 +19,7 @@ Build an **AI Adoption Index** that tracks how **financial services firms** talk
 
 ## Two sets of requirements (both apply)
 1. **Client assignment brief:** `docs/source-materials/AI Adoption Index project requirements.docx` (text copy: [`ai-adoption-index-requirements.md`](../docs/source-materials/ai-adoption-index-requirements.md)). This defines Parts 1–5, the 6-week timeline, and the deliverable weights.
-2. **Course project requirements:** `docs/source-materials/i2ai course project instructions.docx` (text copy: [`i2ai-course-project-instructions.md`](../docs/source-materials/i2ai-course-project-instructions.md)). This defines TP1/TP2/TP3 and the **agentic-AI technical requirements**: 5+ custom agentic tools, a skill folder, guardrails, evaluation, a GitHub kanban board, and a hosted app.
+2. **Course project requirements:** `docs/source-materials/i2ai course project instructions (latest).pdf` (text copy: [`i2ai-course-project-instructions-latest.md`](../docs/source-materials/i2ai-course-project-instructions-latest.md)). This is **newer than the older .docx version** and takes precedence where they differ. This defines TP1/TP2/TP3 and the **agentic-AI technical requirements**: 5+ custom agentic tools, a skill folder, guardrails, evaluation, a GitHub kanban board, and a hosted app.
 
 Both are summarized in [`08-deliverables-and-rubric.md`](08-deliverables-and-rubric.md).
 
