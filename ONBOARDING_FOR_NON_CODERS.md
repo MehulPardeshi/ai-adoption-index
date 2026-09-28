@@ -82,6 +82,18 @@ Read memory/07-dashboard-spec.md and docs/part5-dashboard/dashboard_spec.md. Usi
 
 ---
 
+## Your everyday routine (how we all stay on the same page)
+`main` on GitHub is the **one official version** of the project. Nobody edits it directly; changes reach it only through reviewed pull requests.
+
+1. **Start of every session:** ask your AI tool: `Switch to main and pull the latest changes from GitHub.` Now you have everyone's merged work.
+2. **Start a task:** `Create a new branch called <yourname>/<topic>.` Your branch is your private workspace, so you can't break anyone else's work.
+3. **Work:** edit, write, build (with the AI's help).
+4. **Save and share:** `Commit my changes, push the branch, and open a pull request.`
+5. **Review:** a teammate looks at the pull request and approves it. It gets merged into `main`.
+6. **Everyone else** picks up your work the next time they do step 1.
+
+Keep branches small and short-lived (a day or two). If two people need to change the same file, say so in the WhatsApp group first.
+
 ## Ground rules (the tools know these too, but you should as well)
 - **The taxonomy and metrics are ours to derive.** If an AI tool offers to "finalize the taxonomy" or "write the scoring logic," say no until the team has voted. Part 2 and Part 3 are graded on *us* doing this from real documents.
 - **Record decisions.** After a meeting, append to `memory/09-decisions-log.md` (you can ask the AI: *"Add a decisions-log entry for: …"*).
