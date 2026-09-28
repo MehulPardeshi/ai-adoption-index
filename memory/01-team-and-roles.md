@@ -23,7 +23,8 @@ Phone numbers live only in the signed contract (kept local, not committed). Use 
 - **Strengths:** strategy, product thinking, client-facing communication, leadership, public speaking, team coordination
 - **Areas to watch:** less hands-on with deep coding; may need to lean on teammates or deliberately carve out a technical piece
 - **Stated interest:** Project Manager (coordination, timeline, deliverables), open to a defined technical-build task alongside PM duties
-- **Role options:**
+- **Proposed (2026-09-28, pending team vote):** **Project Manager + Responsible AI lead.** See [`team/mehul-pardeshi.md`](../team/mehul-pardeshi.md). This covers course requirement #7 (guardrails, with the with-vs-without comparison) and the README's Responsible AI section. It overlaps with Yen-Chu's option 3 below; if both want it, split it (e.g., Yen-Chu: data protection / req #6; Mehul: guardrails / req #7) and settle by vote.
+- **Other role options:**
   1. **Project manager:** timeline, spreadsheet tracker, GitHub board hygiene, deliverable QA, TA liaison
   2. **PM + a scoped technical piece:** e.g., the refresh-protocol doc plus the dashboard's filter/drill-down layer, built with AI coding tools
   3. **Final presentation and narrative lead:** owns the "defend our design choices" story (10% of the client rubric) and the poster
@@ -73,5 +74,7 @@ Phone numbers live only in the signed contract (kept local, not committed). Use 
 - **Everyone must be able to discuss the entire project** at the final presentation (course policy), so rotate knowledge even when owners are set.
 
 ---
+
+**How to pick:** create your own profile in [`team/`](../team/) (see [`team/README.md`](../team/README.md)) and open a pull request.
 
 Remaining roles: TBD — to be picked by each person, logged in 09-decisions-log.md once chosen, decided by majority vote per the team contract.

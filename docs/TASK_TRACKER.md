@@ -11,9 +11,11 @@ The team contract says work is tracked in a **shared spreadsheet**. The course a
 | **Graded?** | Part of team process | **Yes:** the kanban board is graded in TP3 (7%) and a snapshot goes in TP2 |
 
 ## Shared spreadsheet link
-**➡️ Spreadsheet: `TODO — paste link here once created`**
+**➡️ Spreadsheet: `TODO — paste Google Sheets link here`**
 
-Once the spreadsheet exists, paste the link above **and** add a dated entry to [`memory/09-decisions-log.md`](../memory/09-decisions-log.md).
+**Master format:** [`docs/tracker/team_tracker.xlsx`](tracker/team_tracker.xlsx). It has **README / Tasks / Roles / Meetings** tabs and is pre-filled with this week's TP1 tasks and the Week 1–6 milestones. The live copy is a Google Sheet imported from this file (Google Sheets → File → Import → Upload → "Replace spreadsheet"). After import, the Google Sheet is the live version; the .xlsx is only the starting template.
+
+Once the Google Sheet is shared, paste its link above **and** add a dated entry to [`memory/09-decisions-log.md`](../memory/09-decisions-log.md).
 
 ## Rules of thumb
 1. **Ownership conflict?** The spreadsheet wins. Update the GitHub issue's assignee to match.

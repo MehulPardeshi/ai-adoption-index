@@ -29,13 +29,20 @@
 1. Install the Codex CLI or use the Codex app, and sign in.
 2. Clone the repo as above and open the folder. Codex reads `AGENTS.md`, which points to `/memory/`.
 
-## Step 2: Your first prompt (copy and paste this)
+## Step 2: Your setup prompt (copy and paste this, filling in your name)
 
 ```
-Read /memory/ in order, then tell me what I could help with given my role options in 01-team-and-roles.md
+I'm <YOUR FULL NAME>. Read memory/09-decisions-log.md first, then every file in /memory/ in numeric order, then team/README.md. Then, step by step:
+1. Explain this project to me in plain language (5 bullets max), plus what is due before our client meeting on Thu Oct 1.
+2. Show me my role options from memory/01-team-and-roles.md and help me choose. Ask me; don't decide for me.
+3. Create team/<first>-<last>.md from team/_TEMPLATE.md using my answers. Ask me for my GitHub username, a 2–3 line bio, and 1–2 questions for our client, Julie.
+4. Create a branch called <first>/profile, commit ONLY that new file, push it, and open a pull request (or give me the GitHub link to open one).
+Don't edit any other files, and don't draft or finalize the taxonomy or metrics.
 ```
 
-Add your name at the end, e.g. "…given my role options in 01-team-and-roles.md. I'm Logan."
+This takes about 15 minutes. By the end you'll understand the project, have a proposed role, and have your profile in `team/` as a pull request. Mehul reviews and merges it.
+
+**Want to just explore later?** Try: `Read /memory/ in order, then tell me what I could help with given my role in team/<my-file>.md`.
 
 ---
 

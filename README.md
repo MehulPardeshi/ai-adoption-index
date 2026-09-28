@@ -46,7 +46,8 @@ Details: [`docs/TASK_TRACKER.md`](docs/TASK_TRACKER.md). Contribution workflow: 
 
 ## Repository layout
 ```
-docs/            deliverable drafts per Part + source briefs + TASK_TRACKER.md
+docs/            deliverable drafts per Part, TP1 templates (docs/tp1), tracker template, source briefs
+team/            one profile per teammate (proposed role, bio, client questions)
 memory/          project memory for humans and AI agents (read 09 first)
 data/raw/        downloaded source text (gitignored; see the ethics memo)
 data/processed/  derived metrics and cited evidence
