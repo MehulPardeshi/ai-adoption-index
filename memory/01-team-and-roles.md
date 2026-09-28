@@ -19,7 +19,7 @@ Phone numbers live only in the signed contract (kept local, not committed). Use 
 
 ## Role menu by person
 
-### Mehul Pardeshi (mppardes@andrew.cmu.edu)
+### Mehul Pardeshi (mppardes@andrew.cmu.edu · GitHub [@MehulPardeshi](https://github.com/MehulPardeshi))
 - **Strengths:** strategy, product thinking, client-facing communication, leadership, public speaking, team coordination
 - **Areas to watch:** less hands-on with deep coding; may need to lean on teammates or deliberately carve out a technical piece
 - **Stated interest:** Project Manager (coordination, timeline, deliverables), open to a defined technical-build task alongside PM duties
@@ -29,7 +29,7 @@ Phone numbers live only in the signed contract (kept local, not committed). Use 
   2. **PM + a scoped technical piece:** e.g., the refresh-protocol doc plus the dashboard's filter/drill-down layer, built with AI coding tools
   3. **Final presentation and narrative lead:** owns the "defend our design choices" story (10% of the client rubric) and the poster
 
-### Yen-Chu Chen (yenchuc2@andrew.cmu.edu)
+### Yen-Chu Chen (yenchuc2@andrew.cmu.edu · GitHub [@teddy0-0y](https://github.com/teddy0-0y))
 - **Strengths:** information security, AI-related work, some PM experience
 - **Areas to watch:** client communication
 - **Stated interest:** open ("help with creating dataset, or anything")
@@ -38,7 +38,7 @@ Phone numbers live only in the signed contract (kept local, not committed). Use 
   2. **Dataset builder:** EDGAR pulls, backfill of 8–12 quarters, and data-quality checks
   3. **Safety guardrails and data-protection lead:** course technical requirements #6 and #7 (protecting data, guardrails with vs. without comparison)
 
-### Logan Mai (loganmai@andrew.cmu.edu)
+### Logan Mai (loganmai@andrew.cmu.edu · GitHub [@MaiJialong](https://github.com/MaiJialong))
 - **Strengths:** AI-related work, user/market research
 - **Areas to watch (self-reported):** analysis, research, evaluation
 - **Stated interest:** business analyst, product management
@@ -48,7 +48,7 @@ Phone numbers live only in the signed contract (kept local, not committed). Use 
   3. **Existing-trackers research:** compare our index against existing AI-adoption trackers and find the required recent research paper (course TP3)
   - *Note:* Logan listed analysis, research, and evaluation as areas to watch. Pairing with a teammate on any evaluation-heavy piece (e.g., the inter-rater check) may help.
 
-### Shu Pu (shup@andrew.cmu.edu)
+### Shu Pu (shup@andrew.cmu.edu · GitHub [@seanpushu](https://github.com/seanpushu))
 - **Strengths:** AI agents, LLMs, ML development, backend/API development
 - **Areas to watch:** client-facing communication; translating technical detail into concise explanations
 - **Stated interest:** AI Engineer responsible for AI solution design
@@ -57,7 +57,7 @@ Phone numbers live only in the signed contract (kept local, not committed). Use 
   2. **NLP and metrics implementation lead:** once the team finalizes the metrics, implement scoring (mention density, sentiment, framing)
   3. **EDGAR pipeline and backend lead:** API client, storage, and the quarterly refresh job
 
-### Snehal Paliwal (snehalp@andrew.cmu.edu)
+### Snehal Paliwal (snehalp@andrew.cmu.edu · GitHub [@snehalpaliwal](https://github.com/snehalpaliwal))
 - **Strengths:** product management, UI/UX, agentic workflows, communication
 - **Areas to watch (self-reported):** client communication, product specs, AI build
 - **Stated interest:** Product Management

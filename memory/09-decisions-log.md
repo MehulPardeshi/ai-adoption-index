@@ -52,3 +52,10 @@
 - **Decided by:** PM setup (the tracker itself was already agreed in the contract).
 - **Supersedes:** —
 - **Follow-ups:** Teammates add their rows to the Roles tab; owners for TP1 tasks T08, T10, T11, T13 to be set at the setup call.
+
+### 2026-09-28 — Teammates invited to repo and board
+- **Decision:** All five members have access. Invites (write access) went to the repo and the kanban board for @teddy0-0y (Yen-Chu Chen), @MaiJialong (Logan Mai), @seanpushu (Shu Pu) and @snehalpaliwal (Snehal Paliwal); Mehul (@MehulPardeshi) is the owner.
+- **Context / why:** Needed before teammates clone the repo and submit their `team/` profiles.
+- **Decided by:** PM setup.
+- **Supersedes:** —
+- **Follow-ups:** Each member accepts the invite email, then runs the setup prompt (ONBOARDING_FOR_NON_CODERS.md, Step 2).
