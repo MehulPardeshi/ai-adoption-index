@@ -45,3 +45,10 @@
 - **Decided by:** PM (confirmed schedule).
 - **Supersedes:** Clarifies the "next meeting" follow-up in the 2026-09-24 entry.
 - **Follow-ups:** Prepare client questions before Thursday. Snehal (de facto client comms) to confirm the role formally.
+
+### 2026-09-28 — Shared tracker created
+- **Decision:** The contract-mandated shared spreadsheet is an Excel Online workbook on CMU OneDrive: https://andrewcmu-my.sharepoint.com/:x:/g/personal/mppardes_andrew_cmu_edu/IQBkCeheAvmPSrU1SkxKTJkZAdr85cdpnKE8PpNSuGpDSG4?e=OGs7Ky. It has Tasks / Roles / Meetings tabs, and its format comes from `docs/tracker/team_tracker.xlsx`. It syncs with GitHub through links plus a weekly reconcile (see `docs/TASK_TRACKER.md`).
+- **Context / why:** The PM created it so its format matches the repo structure.
+- **Decided by:** PM setup (the tracker itself was already agreed in the contract).
+- **Supersedes:** —
+- **Follow-ups:** Teammates add their rows to the Roles tab; owners for TP1 tasks T08, T10, T11, T13 to be set at the setup call.

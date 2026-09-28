@@ -11,11 +11,20 @@ The team contract says work is tracked in a **shared spreadsheet**. The course a
 | **Graded?** | Part of team process | **Yes:** the kanban board is graded in TP3 (7%) and a snapshot goes in TP2 |
 
 ## Shared spreadsheet link
-**➡️ Spreadsheet: `TODO — paste Google Sheets link here`**
+**➡️ Tracker (Excel Online, CMU OneDrive):** https://andrewcmu-my.sharepoint.com/:x:/g/personal/mppardes_andrew_cmu_edu/IQBkCeheAvmPSrU1SkxKTJkZAdr85cdpnKE8PpNSuGpDSG4?e=OGs7Ky
 
-**Master format:** [`docs/tracker/team_tracker.xlsx`](tracker/team_tracker.xlsx). It has **README / Tasks / Roles / Meetings** tabs and is pre-filled with this week's TP1 tasks and the Week 1–6 milestones. The live copy is a Google Sheet imported from this file (Google Sheets → File → Import → Upload → "Replace spreadsheet"). After import, the Google Sheet is the live version; the .xlsx is only the starting template.
+Tabs: **README / Tasks / Roles / Meetings**. The original format lives in [`docs/tracker/team_tracker.xlsx`](tracker/team_tracker.xlsx). **The online sheet is the live version.** The .xlsx is only the starting template and is not kept up to date.
 
-Once the Google Sheet is shared, paste its link above **and** add a dated entry to [`memory/09-decisions-log.md`](../memory/09-decisions-log.md).
+## Keeping the spreadsheet and GitHub in sync
+They track **different levels** of work, so they don't need to mirror each other row for row. They connect through links:
+
+1. **The spreadsheet links down.** When a spreadsheet task has engineering work under it, paste the GitHub issue URL in its **GitHub issue** column.
+2. **GitHub links up.** When an issue belongs to a spreadsheet task, put the task ID in the issue title, e.g. `[T11] Draft scope doc`.
+3. **Whoever changes a status updates both.** Closing an issue that finishes a spreadsheet task means setting that row to **Done** too. (Closed issues move to **Done** on the board automatically.)
+4. **Weekly reconcile at the Sunday meeting (PM, ~5 min):** open the board and the Tasks tab side by side and fix mismatches: owners, statuses, missing links.
+5. **Ownership conflict?** The spreadsheet wins.
+
+Optional automation (not set up): Microsoft Power Automate, which CMU provides through Microsoft 365, can add a Tasks row whenever a GitHub issue is opened. It is one-way only, needs the Tasks tab formatted as an Excel table, and the GitHub connector may require a license CMU doesn't include. Only worth trying if the manual routine above starts slipping.
 
 ## Rules of thumb
 1. **Ownership conflict?** The spreadsheet wins. Update the GitHub issue's assignee to match.
