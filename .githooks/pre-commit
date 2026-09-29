@@ -1,0 +1,33 @@
+#!/bin/sh
+# Team guardrail: stop the two most common git mistakes before they happen.
+# Installed per clone with:  git config core.hooksPath .githooks
+# Emergency bypass (PM only):  git commit --no-verify
+
+branch=$(git rev-parse --abbrev-ref HEAD)
+
+# 1) Never commit directly to main.
+if [ "$branch" = "main" ]; then
+  echo ""
+  echo "STOP: you're committing directly to 'main'."
+  echo "Make your own branch first. Ask your AI tool:"
+  echo "  \"Move my changes to a new branch called <yourname>/<topic>\""
+  echo ""
+  exit 1
+fi
+
+# 2) Never commit on top of an out-of-date copy of main.
+if ! git fetch --quiet origin main 2>/dev/null; then
+  echo "Warning: couldn't reach GitHub to check for new changes (offline?). Committing anyway."
+  exit 0
+fi
+missing=$(git rev-list --count HEAD..origin/main 2>/dev/null || echo 0)
+if [ "$missing" -gt 0 ]; then
+  echo ""
+  echo "STOP: your branch is missing $missing new change(s) that teammates added to main."
+  echo "Pull them in first so we don't get merge conflicts. Ask your AI tool:"
+  echo "  \"Pull the latest main into my branch, then commit again\""
+  echo "(or run:  git pull origin main )"
+  echo ""
+  exit 1
+fi
+exit 0

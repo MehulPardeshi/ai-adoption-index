@@ -1,0 +1,12 @@
+#!/bin/sh
+# Team guardrail: block pushes straight to main (use a pull request instead).
+# Emergency bypass (PM only):  git push --no-verify
+while read local_ref local_sha remote_ref remote_sha; do
+  if [ "$remote_ref" = "refs/heads/main" ]; then
+    echo ""
+    echo "STOP: you're pushing directly to 'main'. Push your own branch and open a pull request."
+    echo ""
+    exit 1
+  fi
+done
+exit 0
