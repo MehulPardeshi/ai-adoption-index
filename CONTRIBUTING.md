@@ -5,6 +5,17 @@
 2. Check the **shared spreadsheet** to see what you own and when it's due ([`docs/TASK_TRACKER.md`](docs/TASK_TRACKER.md)).
 3. Non-coders: [`ONBOARDING_FOR_NON_CODERS.md`](ONBOARDING_FOR_NON_CODERS.md) walks you through everything.
 
+## Git guardrails (because GitHub's own branch protection needs a paid plan on private repos)
+| Layer | What it does | Where |
+|---|---|---|
+| **Local git hooks** | Refuse commits on `main`; refuse commits when your branch is missing new commits from `main`; refuse pushes to `main` | `.githooks/`, turned on per clone with `git config core.hooksPath .githooks` |
+| **AI-tool rules** | Cursor, Claude Code and Codex are told to install the hooks, pull first, work on a branch, and never push to `main` | `CLAUDE.md`, `AGENTS.md`, `.cursor/rules/project-context.mdc` |
+| **PR checks (GitHub Actions)** | A red ❌ on any PR that's behind `main` (fix: click **Update branch**) or that commits `.env`, raw data, or the signed contract | `.github/workflows/pr-checks.yml` |
+
+**Rule for reviewers:** don't merge a PR with a red ❌. The checks can't physically block the merge until branch protection is on (see below), so this relies on us.
+
+**Upgrade path:** if the repo owner gets **GitHub Pro** (free with the GitHub Student Developer Pack, education.github.com), turn on branch protection for `main`: require a pull request, require the two PR checks to pass, and require branches to be up to date. That makes the rules impossible to skip.
+
 ## Branches and pull requests
 - **Don't commit directly to `main`.** Create a branch named `<your-name>/<short-topic>`, e.g. `logan/firm-universe-recordkeepers`.
 - Open a pull request (PR) and link the issue it addresses (write `Closes #<n>` in the PR description).

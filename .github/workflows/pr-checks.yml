@@ -1,0 +1,39 @@
+name: PR checks
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  up-to-date-with-main:
+    name: Branch includes latest main
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.sha }}
+      - name: Check the PR contains every commit on main
+        run: |
+          git fetch origin main
+          missing=$(git rev-list --count HEAD..origin/main)
+          if [ "$missing" -gt 0 ]; then
+            echo "::error::This branch is missing $missing commit(s) from main. Click 'Update branch' on the PR page (or pull main into your branch) before merging."
+            exit 1
+          fi
+          echo "Branch is up to date with main."
+
+  repo-hygiene:
+    name: No secrets or raw data committed
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check for files that must never be committed
+        run: |
+          bad=$(git ls-files | grep -E '(^|/)\.env$|^data/raw/[^.]|team-contract-signed\.docx$' | grep -v '^data/raw/README.md$' || true)
+          if [ -n "$bad" ]; then
+            echo "::error::These files must not be committed (secrets, raw licensed data, or personal info):"
+            echo "$bad"
+            exit 1
+          fi
+          echo "No forbidden files found."

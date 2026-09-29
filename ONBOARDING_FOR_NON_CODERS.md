@@ -85,7 +85,8 @@ Read memory/07-dashboard-spec.md and docs/part5-dashboard/dashboard_spec.md. Usi
 ## Your everyday routine (how we all stay on the same page)
 `main` on GitHub is the **one official version** of the project. Nobody edits it directly; changes reach it only through reviewed pull requests.
 
-1. **Start of every session:** ask your AI tool: `Switch to main and pull the latest changes from GitHub.` Now you have everyone's merged work.
+0. **One time only, right after cloning:** ask your AI tool: `Run git config core.hooksPath .githooks`. This turns on our safety guardrails: git will refuse to commit on `main`, or on a branch that's missing teammates' latest changes, and tells you what to do instead.
+1. **Start of every session:** ask your AI tool: `Switch to main and pull the latest changes from GitHub.` Now you have everyone's merged work. (Our AI rules files tell Cursor, Claude Code and Codex to do this automatically, but saying it doesn't hurt.)
 2. **Start a task:** `Create a new branch called <yourname>/<topic>.` Your branch is your private workspace, so you can't break anyone else's work.
 3. **Work:** edit, write, build (with the AI's help).
 4. **Save and share:** `Commit my changes, push the branch, and open a pull request.`
