@@ -17,7 +17,7 @@ I'd like to apply my programming and data analytics experience to building a rel
 I'd appreciate support with client communication and clarifying requirements. I'd also like to coordinate with the pipeline/backend owner so our responsibilities are clear.
 
 ## My questions for the client (Julie), for the Thu Oct 1 meeting
-1. What motivated this project, and what research question do you most want the AI Adoption Index to help answer? What should a higher index score tell us about a firm, and are there any existing indices or approaches you would like us to consider?
+1. When you say “AI Adoption Index,” what exactly do you mean by AI adoption, and what would you like the index to measure? Do you have an existing definition or calculation method in mind, or do you expect our team to develop both? In particular, should it reflect what firms publicly say about AI, evidence of actual deployment, or demonstrated business impact?
 2. How should we define the initial firm universe—for example, U.S.-headquartered firms, particular sectors, or a specific size range? To keep the project manageable, would you prefer a smaller sample with deeper historical coverage? How should we handle firms that do not file 10-Ks or 10-Qs or have limited public disclosures?
 
 ## Short bio (for the final README author list, 2–3 lines)
