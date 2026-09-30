@@ -18,6 +18,7 @@ The course's "get started properly" checkpoint. Before building anything, show t
 - [x] Outreach to client / kickoff meeting scheduled (Thu 10/1, 2–3 pm)
 - [x] GitHub kanban board: https://github.com/users/MehulPardeshi/projects/1
 - [ ] **Research the client** (Julie Agnew, William & Mary) before the meeting
+- [x] Kickoff agenda prepared: [`client_meeting_agenda.md`](client_meeting_agenda.md) (see its "Team notes" for TP1 items to raise)
 - [ ] Hold the first client requirements meeting. **It must happen before TP1 is due.** Ask about:
   - a specific, actionable problem
   - constraints, context, examples
