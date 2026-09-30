@@ -14,6 +14,8 @@ Build an **AI Adoption Index** that tracks how **financial services firms** talk
 
 ## Client
 - **Julie Agnew, William & Mary.** The dataset feeds a **book chapter she is writing on AI in retirement**.
+- **Co-client:** the kickoff agenda also lists **Dr. Rachel Chung (Heinz College)**, our course instructor, as a client.
+- **Two teams, one client:** **Team 15** (Megan Lin, Trisha Sharma, Vidushi Bist, Yu-Hsuan Li, Han Yang) has the same client and topic. Per the course instructions, teams work on the topic **separately**. Both attended the joint kickoff on 2026-10-01.
 - That's why **Retirement Plan Providers / Recordkeepers are the primary sector** (see [`03-sectors-and-firms.md`](03-sectors-and-firms.md)).
 - **Confidentiality:** the course says client identity is confidential by default. The repo is private. **Before making it public, presenting outside the class, or posting on LinkedIn, get the client's permission** (per the course project instructions). The final README must not name the client without that permission.
 
