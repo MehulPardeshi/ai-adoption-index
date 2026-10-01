@@ -66,3 +66,10 @@
 - **Decided by:** Team (agenda prepared for the client).
 - **Supersedes:** —
 - **Follow-ups:** Raise the TP1 items not on the agenda (NDA, progress-meeting date, final-presentation invite, confidentiality) during Next Steps; the note-taker records answers for the scope doc.
+
+### 2026-10-01 — Meeting minutes via Gemini note-taker
+- **Decision:** Every meeting is recorded with the Gemini note-taker. Afterwards, a teammate uploads the notes to an AI tool, which files them in `meetings/` and updates `memory/09` (decisions), `memory/11-action-items.md` (tasks by person) and affected files, through a PR. Procedure: `meetings/README.md`.
+- **Context / why:** Keeps every teammate's AI tool current on decisions and assignments, so each person can ask "what's next for me?"
+- **Decided by:** PM.
+- **Supersedes:** —
+- **Follow-ups:** Decide who uploads notes after each meeting (capture form, O-6).

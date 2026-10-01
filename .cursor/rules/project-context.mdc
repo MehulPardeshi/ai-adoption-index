@@ -7,7 +7,8 @@ alwaysApply: true
 Before doing any work in this repo:
 
 1. Read `memory/09-decisions-log.md` **first**. It overrides everything else in `/memory/`.
-2. Then read the rest of `/memory/` in numeric order: `00` → `10`.
+2. Then read the rest of `/memory/` in numeric order: `00` → `11`. `11-action-items.md` shows who is doing what right now.
+3. **Given meeting notes or minutes?** Follow `meetings/README.md`.
 
 Everything project-specific (context, team, norms, scope limits, deliverables) lives in `/memory/`. It is not repeated here.
 
