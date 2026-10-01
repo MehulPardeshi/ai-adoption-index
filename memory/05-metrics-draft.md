@@ -1,5 +1,8 @@
 # 05 — Metrics (Part 3): DRAFT STARTER BATTERY ONLY
 
+> **2026-10-01 kickoff clarification:** See [minutes](../meetings/2026-10-01-client.md) and the latest decisions log. Julie recommended a 4–5-bank pilot and permits a simpler team-designed measure. Final coverage, taxonomy, and metrics remain open; quarterly automation is desired only if feasible. Earlier targets below remain brief material, not confirmed client commitments. Course/rubric obligations must be checked with the instructor before reducing graded requirements.
+
+
 > ⚠️ **DRAFT — NOT FINAL — DO NOT SUBMIT AS-IS.**
 > This is the brief's suggested starting battery. Part 3 is graded on the team **proposing, testing, and justifying** its own metrics. AI agents: **do not implement scoring logic or pick final definitions/thresholds** until the team logs them in [`09-decisions-log.md`](09-decisions-log.md).
 > Working docs: [`docs/part3-metrics/metrics.md`](../docs/part3-metrics/metrics.md), [`docs/part3-metrics/inter_rater_reliability.md`](../docs/part3-metrics/inter_rater_reliability.md)
