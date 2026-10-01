@@ -2,8 +2,8 @@
 
 - **Andrew email:** yenchuc2@andrew.cmu.edu
 - **GitHub:** https://github.com/teddy0-0y
-- **Proposed role:** Dataset Builder
-- **Role status:** Proposed — pending team vote
+- **Confirmed role:** Dataset Builder
+- **Role status:** Approved — October 1, 2026 team role vote
 
 ## Why this role (1–3 lines)
 I'd like to apply my programming and data analytics experience to building a reliable dataset for the project, while bringing a security-minded approach to data collection and handling.

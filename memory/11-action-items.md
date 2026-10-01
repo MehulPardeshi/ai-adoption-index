@@ -10,25 +10,25 @@
 | Fill the kickoff capture form ([`docs/tp1/Kickoff_Capture_Form_2026-10-01.docx`](../docs/tp1/Kickoff_Capture_Form_2026-10-01.docx)) | TBD | Thu 10/1 | ⏳ |
 | Compile client-meeting prep doc (TP1 #2) | TBD | Thu 10/1 | ⏳ |
 | Draft project scope doc (TP1 #3) with board link | TBD | Fri 10/2 a.m. | Draft prepared; team/client review pending |
-| Send scope doc to client | Snehal (pending role confirmation) | Fri 10/2 | ⏳ |
+| Send scope doc to client | Snehal (confirmed client communication role) | Fri 10/2 | ⏳ |
 | Submit TP1 on Canvas (contract + prep doc + scope doc) | TBD | **Fri 10/2 5 pm** | ⏳ |
 
 ## By person
 <!-- "Self-proposed" = from the person's team/ profile, not yet agreed by the team. -->
-### Mehul Pardeshi (proposed: PM + Responsible AI lead)
+### Mehul Pardeshi (confirmed role: PM + Responsible AI lead)
 - Coordinate TP1 completion and submission plan
 - Self-proposed: guardrail design for course requirement #7
 
-### Yen-Chu Chen (proposed: Dataset Builder)
+### Yen-Chu Chen (confirmed role: Dataset Builder)
 - Self-proposed: after the meeting, confirm the firm sample, sources and historical coverage; plan a small data-pipeline pilot with Shu; define data-quality checks
 
-### Logan Mai (proposed: Market & User Researcher / BA)
+### Logan Mai (confirmed role: Market & User Researcher / BA)
 - Self-proposed: research the recordkeeper landscape and propose firms; compare existing AI-adoption trackers
 
-### Shu Pu (proposed: AI Engineer / Solution Architect)
+### Shu Pu (confirmed role: AI Engineer / Solution Architect)
 - Self-proposed: clarify technical scope and proof-of-concept goals; plan a pipeline pilot with Yen-Chu; propose initial agentic tools
 
-### Snehal Paliwal (proposed: Dashboard PM incl. client communication)
+### Snehal Paliwal (confirmed role: Dashboard PM incl. client communication)
 - Lead the client call; send follow-ups to the client
 - Self-proposed: prepare the TP1 submission
 
@@ -56,3 +56,9 @@ Source: [draft minutes](../meetings/2026-10-01-client.md). Proposed team follow-
 | Assess quarterly refresh and maintenance | TBD | TBD | Proposed; optional automation |
 | Review minutes/scope; confirm remaining brief/rubric obligations with instructor | TBD | TBD | Pending |
 | Confirm NDA, naming permissions, progress meeting, and final presentation | TBD | TBD | Pending |
+
+## Role confirmation — October 1, 2026
+All five roles were approved unchanged in the team vote. See [confirmed roles](01-team-and-roles.md). Update the shared spreadsheet Roles tab accordingly; proposed task bullets above remain proposals unless separately assigned.
+
+### Evaluation design clarification
+- Yen-Chu confirmed during scope refinement that the Responsible AI Lead (Mehul Pardeshi) will design the evaluation and validation approach. Methods, sample sizes, thresholds, and due date remain TBD. Mirror this task in the shared spreadsheet.

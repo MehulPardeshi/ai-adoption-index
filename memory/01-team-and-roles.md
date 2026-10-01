@@ -1,4 +1,16 @@
-# 01 — Team and Role Options
+# 01 — Confirmed Team Roles
+
+Approved October 1, 2026, per the completed team role-vote capture form supplied by Yen-Chu. This table supersedes the historical proposals below. Role approval does not approve every suggested task or alternative role.
+
+| Member | Confirmed role |
+|---|---|
+| Mehul Pardeshi | Project Manager + Responsible AI lead |
+| Yen-Chu Chen | Dataset Builder |
+| Logan Mai | Market & User Researcher / Business Analyst |
+| Shu Pu | AI Engineer / Solution Architect |
+| Snehal Paliwal | Dashboard Product Manager, including client communication |
+
+## Historical role options (pre-vote reference)
 
 > **Read [`09-decisions-log.md`](09-decisions-log.md) first.** Once someone picks a role and it's logged there, that entry overrides the menu below.
 

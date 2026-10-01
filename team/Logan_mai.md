@@ -2,8 +2,8 @@
 
 - **Andrew email:** loganmai@andrew.cmu.edu
 - **GitHub:** https://github.com/MaiJialong
-- **Proposed role:** Market & User Researcher / Business Analyst
-- **Role status:** Proposed — pending team vote
+- **Confirmed role:** Market & User Researcher / Business Analyst
+- **Role status:** Approved — October 1, 2026 team role vote
 
 ## Why this role (1–3 lines)
 My strengths in AI-related work and user/market research align with my interests in business analysis and product management. I want to help the team understand the financial-services market, clarify users' needs, and translate research findings into practical requirements for the AI Adoption Index.

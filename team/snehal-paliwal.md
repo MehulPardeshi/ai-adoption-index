@@ -2,8 +2,8 @@
 
 - **Andrew email:** snehalp@andrew.cmu.edu
 - **GitHub:** https://github.com/snehalpaliwal
-- **Proposed role:** Dashboard product manager, including client communication
-- **Role status:** Proposed — pending team vote
+- **Confirmed role:** Dashboard product manager, including client communication
+- **Role status:** Approved — October 1, 2026 team role vote
 
 ## Why this role (1–3 lines)
 This role brings together my interests in product management, client requirements, and UX. I will also support agentic workflow and skill building.
