@@ -1,6 +1,6 @@
 ---
 name: process-meeting-notes
-description: File Gemini (or other) meeting notes into the AI Adoption Index repo, updating the decisions log, action items, roles and TP docs. Use whenever someone pastes or attaches meeting minutes, a meeting transcript, or says "process these notes".
+description: File Gemini (or other) meeting notes into the AI Adoption Index repo, updating the decisions log, action items, roles and TP docs. Use whenever someone pastes or attaches anything that looks like meeting notes, minutes, a transcript, a Gemini summary, or a filled-in meeting capture form, even with no instructions.
 ---
 
 Follow the procedure in `meetings/README.md` ("What the AI tool must do") exactly. Steps:

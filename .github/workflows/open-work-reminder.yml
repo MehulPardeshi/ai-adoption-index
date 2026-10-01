@@ -1,0 +1,61 @@
+name: Open work reminder
+
+# Daily nudge so pull requests and pushed branches don't get forgotten.
+# Reminds, never blocks.
+on:
+  schedule:
+    - cron: "0 13 * * *"   # every day, ~9 am Eastern
+  workflow_dispatch:       # run on demand from the Actions tab
+
+permissions:
+  contents: read
+  issues: write
+  pull-requests: write
+
+jobs:
+  remind:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      REPO: ${{ github.repository }}
+    steps:
+      - name: Ping authors of PRs open more than 2 days
+        run: |
+          cutoff=$(date -u -d '2 days ago' +%s)
+          gh pr list -R "$REPO" --state open --json number,author,createdAt \
+            --jq '.[] | "\(.number) \(.author.login) \(.createdAt)"' |
+          while read num author created; do
+            if [ "$(date -u -d "$created" +%s)" -lt "$cutoff" ]; then
+              gh pr comment "$num" -R "$REPO" --body "⏰ @$author, this pull request has been open for more than 2 days. Please get it reviewed and merged, or close it if it's no longer needed. (Daily reminder.)"
+            fi
+          done
+
+      - name: Update the "Open work reminder" issue
+        run: |
+          gh label create open-work-reminder -R "$REPO" --color FBCA04 --description "Daily list of open PRs and stray branches" --force >/dev/null
+          prs=$(gh pr list -R "$REPO" --state open --json number,title,author,createdAt,url \
+            --jq '.[] | "- [#\(.number)](\(.url)) \(.title): @\(.author.login), opened \(.createdAt[0:10])"')
+          pr_branches=$(gh pr list -R "$REPO" --state open --json headRefName --jq '.[].headRefName')
+          stray=""
+          for b in $(gh api "repos/$REPO/branches" --paginate --jq '.[].name'); do
+            [ "$b" = "main" ] && continue
+            echo "$pr_branches" | grep -qx "$b" && continue
+            stray="$stray
+          - \`$b\`: pushed, but has **no pull request**. Open one, or delete the branch if it's abandoned."
+          done
+          body="Updated automatically every day ($(date -u +%Y-%m-%d)). **Please don't close this issue.**
+
+          ## Open pull requests
+          ${prs:-✅ None}
+
+          ## Branches without a pull request
+          ${stray:-✅ None}
+
+          _Merge or close what's done. Reviewers: don't merge a PR with a red ❌._"
+          body=$(echo "$body" | sed 's/^          //')
+          num=$(gh issue list -R "$REPO" --label open-work-reminder --state open --json number --jq '.[0].number')
+          if [ -n "$num" ]; then
+            gh issue edit "$num" -R "$REPO" --body "$body"
+          else
+            gh issue create -R "$REPO" --title "📋 Open work reminder" --label open-work-reminder --body "$body"
+          fi

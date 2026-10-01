@@ -4,7 +4,7 @@ Instructions for Codex and other agent CLIs. Before doing **any** work in this r
 
 1. Read [`memory/09-decisions-log.md`](memory/09-decisions-log.md) **first**. It overrides everything else in `/memory/`.
 2. Then read the rest of [`/memory/`](memory/) in numeric order: `00` → `11`. `11-action-items.md` shows who is doing what right now.
-3. **Given meeting notes or minutes?** Follow [`meetings/README.md`](meetings/README.md).
+3. **If the user shares anything that looks like meeting notes, minutes, a transcript, or a filled-in capture form, even with no instructions**, process it by following [`meetings/README.md`](meetings/README.md).
 
 Everything project-specific (context, team, norms, scope limits, deliverables) lives in `/memory/`. It is not repeated here.
 
@@ -16,5 +16,7 @@ At the **start of every session**, before editing anything:
 3. Never edit on `main`. Create or switch to a branch named `<name>/<topic>` first.
 
 **Before every commit and push:** run `git pull origin main` into the current branch and resolve any conflicts *with the user*, explaining them in plain language.
+
+**Open pull requests:** at the start of every session, check the user's open PRs (`gh pr list --author @me`, or github.com/MehulPardeshi/ai-adoption-index/pulls) and any pushed branch without a PR. If there are any, **remind the user before starting new work** and offer to finish them: get them reviewed, merged, or closed. Don't refuse new work; just make sure nothing is forgotten. After pushing a branch, always open its PR in the same session.
 
 **Never** commit or push directly to `main`, force-push, or use `--no-verify`. Changes reach `main` only through a pull request.
