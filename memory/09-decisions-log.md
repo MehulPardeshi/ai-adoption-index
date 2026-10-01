@@ -73,3 +73,31 @@
 - **Decided by:** PM.
 - **Supersedes:** —
 - **Follow-ups:** Decide who uploads notes after each meeting (capture form, O-6).
+
+### 2026-10-01 — Public and permitted evidence
+- **Decision:** Use public, citable evidence collected within applicable access rules.
+- **Context / why:** Source selection; restricted university career data are excluded.
+- **Decided by:** Julie Agnew, client direction in supplied kickoff excerpts; minutes pending team review.
+- **Supersedes:** Earlier draft assumptions only where inconsistent; no course requirement is waived.
+- **Follow-ups:** See [kickoff minutes](../meetings/2026-10-01-client.md); owners and dates TBD.
+
+### 2026-10-01 — Methodology flexibility
+- **Decision:** The team may choose the index methodology; earlier construction guidance is not mandatory and simple percentages are acceptable.
+- **Context / why:** Final taxonomy, metrics, weighting, and normalization remain undecided. Course grading requirements still need reconciliation with the instructor.
+- **Decided by:** Julie Agnew, client direction in supplied kickoff excerpts; minutes pending team review.
+- **Supersedes:** Earlier draft assumptions only where inconsistent; no course requirement is waived.
+- **Follow-ups:** See [kickoff minutes](../meetings/2026-10-01-client.md); owners and dates TBD.
+
+### 2026-10-01 — Transparent and reproducible results
+- **Decision:** Make the analysis verifiable and reproducible through GitHub, with transparent firm inclusion.
+- **Context / why:** Public client identity and book references still require explicit permission.
+- **Decided by:** Julie Agnew, client direction in supplied kickoff excerpts; minutes pending team review.
+- **Supersedes:** Earlier draft assumptions only where inconsistent; no course requirement is waived.
+- **Follow-ups:** See [kickoff minutes](../meetings/2026-10-01-client.md); owners and dates TBD.
+
+### 2026-10-01 — Feasible scope revisions
+- **Decision:** The team may propose a narrower achievable scope to Julie.
+- **Context / why:** The 4–5-bank pilot is a recommendation; broader coverage and quarterly automation are not firm commitments.
+- **Decided by:** Julie Agnew, client direction in supplied kickoff excerpts; minutes pending team review.
+- **Supersedes:** Earlier draft assumptions only where inconsistent; no course requirement is waived.
+- **Follow-ups:** See [kickoff minutes](../meetings/2026-10-01-client.md); owners and dates TBD.

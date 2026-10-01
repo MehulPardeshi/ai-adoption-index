@@ -1,15 +1,15 @@
 # 11 — Action Items (who is doing what, right now)
 
 > Updated **after every meeting** from `meetings/` minutes (see [`meetings/README.md`](../meetings/README.md)). The **shared spreadsheet is the source of truth** for owners and deadlines; this file mirrors it so AI tools can answer "what should I work on next?".
-> **Last updated:** 2026-10-01 (before the kickoff meeting).
+> **Last updated:** 2026-10-01 (kickoff excerpts processed; draft pending review).
 
 ## Due now: TP1 (Fri Oct 2, 5:00 pm)
 | Task | Owner | Due | Status |
 |---|---|---|---|
-| Kickoff client meeting (joint with Team 15) | Snehal leads; all attend | Thu 10/1 2 pm | ⏳ |
+| Kickoff client meeting (joint with Team 15) | Snehal leads; all attend | Thu 10/1 2 pm | Completed; full attendance unconfirmed |
 | Fill the kickoff capture form ([`docs/tp1/Kickoff_Capture_Form_2026-10-01.docx`](../docs/tp1/Kickoff_Capture_Form_2026-10-01.docx)) | TBD | Thu 10/1 | ⏳ |
 | Compile client-meeting prep doc (TP1 #2) | TBD | Thu 10/1 | ⏳ |
-| Draft project scope doc (TP1 #3) with board link | TBD | Fri 10/2 a.m. | ⏳ |
+| Draft project scope doc (TP1 #3) with board link | TBD | Fri 10/2 a.m. | Draft prepared; team/client review pending |
 | Send scope doc to client | Snehal (pending role confirmation) | Fri 10/2 | ⏳ |
 | Submit TP1 on Canvas (contract + prep doc + scope doc) | TBD | **Fri 10/2 5 pm** | ⏳ |
 
@@ -43,3 +43,16 @@
 - ✅ Repo, kanban board, shared tracker set up; all members invited (9/27–9/28)
 - ✅ All five profiles with proposed roles submitted (by 9/30)
 - ✅ Kickoff agenda prepared and shared (9/30)
+
+## Kickoff follow-ups (2026-10-01; pending assignment)
+
+Source: [draft minutes](../meetings/2026-10-01-client.md). Proposed team follow-ups have no agreed individual owner or due date. Copy these rows into the shared spreadsheet after review; these notes do not override its assignments.
+
+| Task | Owner | Due | Status |
+|---|---|---|---|
+| Share papers, classification documentation, transcript examples | Julie (offered) | TBD | Receipt unconfirmed; repository link received |
+| Verify reference methodology; assess a 4–5-bank pilot | TBD | TBD | Proposed |
+| Propose firms, history, measurement options, dashboard scope | TBD | TBD | Proposed |
+| Assess quarterly refresh and maintenance | TBD | TBD | Proposed; optional automation |
+| Review minutes/scope; confirm remaining brief/rubric obligations with instructor | TBD | TBD | Pending |
+| Confirm NDA, naming permissions, progress meeting, and final presentation | TBD | TBD | Pending |
