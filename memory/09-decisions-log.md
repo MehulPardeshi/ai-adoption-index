@@ -120,6 +120,6 @@
 ### 2026-10-01 — Evaluation design responsibility clarified
 - **Decision:** The Responsible AI Lead (Mehul Pardeshi) will design the evaluation and validation approach.
 - **Context / why:** Yen-Chu clarified this responsibility during scope refinement; no sampling method or acceptance threshold was selected.
-- **Decided by:** Responsibility confirmed by Yen-Chu in the scope-editing conversation.
+- **Decided by:** Proposed by Yen-Chu during scope refinement; accepted by Mehul Pardeshi on 2026-10-01.
 - **Supersedes:** Unassigned evaluation-design responsibility only.
 - **Follow-ups:** Define the approach and mirror the task in the shared spreadsheet; deadline TBD.
