@@ -93,6 +93,8 @@ Read memory/07-dashboard-spec.md and docs/part5-dashboard/dashboard_spec.md. Usi
 5. **Review:** a teammate looks at the pull request and approves it. It gets merged into `main`.
 6. **Everyone else** picks up your work the next time they do step 1.
 
+**Don't edit files directly on github.com.** The website commits straight to `main` and skips our safety checks. If you must, choose **"Create a new branch for this commit and start a pull request"** before saving.
+
 Keep branches small and short-lived (a day or two). If two people need to change the same file, say so in the WhatsApp group first.
 
 ## Ground rules (the tools know these too, but you should as well)
