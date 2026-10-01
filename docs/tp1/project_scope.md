@@ -16,7 +16,7 @@ Proposed for approval:
 - Reproducible code, methodology, evaluation results, runnable demonstration, and a documented refresh procedure.
 
 ## Scope: in
-- Evaluate multiple public, citable, permitted sources during the 4–5-firm proof of concept, including SEC EDGAR filings, job postings from Handshake and LinkedIn where publicly accessible and permitted, and earnings-call transcripts available through company investor relations pages. Propose the final source set after the proof of concept, based on availability, relevance, and permitted access, and confirm it with the client as part of the final data scope.
+- Evaluate multiple public, citable, permitted sources during the 4–5-firm proof of concept, starting with SEC EDGAR filings and earnings-call transcripts available through company investor relations pages. Job-posting data (e.g., Handshake, LinkedIn) will be considered only if the team's ethics/legal review confirms access is permitted under each platform's terms; automated collection from these platforms is not planned. Propose the final source set after the proof of concept, based on availability, relevance, and permitted access, and confirm it with the client as part of the final data scope.
 - Review the shared AI Intensity Dataset and associated paper; verify its methodology before reusing or describing it.
 - Distinguish concrete reported applications from generic mentions and future plans; public disclosure is not direct verification of internal deployment.
 - Use the pilot to agree achievable coverage with Julie.
