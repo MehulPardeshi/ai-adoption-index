@@ -36,7 +36,7 @@ Cross-subsector expansion, firm-size weighting, and keyword-trend visualizations
 - The agreed pilot can be demonstrated end to end with traceable source evidence.
 - Firm inclusion, time coverage, missing evidence, category definitions, and calculation choices are documented.
 - A reviewer can reproduce the reported figures from the documented inputs and procedure.
-- The Responsible AI Lead (Mehul Pardeshi) will design the evaluation and validation approach for the analytical results. Specific review methods, sampling plans, and acceptance thresholds remain to be defined; evaluation findings and limitations will be documented.
+- The Evaluation Lead (Mehul Pardeshi) will design the evaluation and validation approach for the analytical results. Specific review methods, sampling plans, and acceptance thresholds remain to be defined; evaluation findings and limitations will be documented.
 - The dashboard clearly identifies covered firms and supports the agreed views.
 - Course-required agentic components, documentation, evaluation, and runnable demo are present.
 
@@ -52,11 +52,10 @@ The pilot will establish feasible data access and historical depth. Julie's offe
 | Milestone | Date / status |
 |---|---|
 | Client kickoff | October 1, 2026; held |
-| TP1 scope submission | October 2, 2026, 5 pm; verify Canvas deadline |
+| TP1 scope submission | October 2, 2026, 5 pm |
 | Initial proof of concept | Tentative target: before fall break; exact date and feasibility to be discussed at the October 4 team meeting |
-| Post-PoC client scope review | Planned meeting with Julie after the proof of concept to discuss findings and confirm the next phase; date TBD |
-| Client progress meeting | Targeted mid-October (Thursday or Friday, per the client); date to be confirmed by email |
-| TP2 progress submission | November 6, 2026; verify Canvas deadline |
+| Client progress meeting / post-PoC scope review | Targeted mid-October (Thursday or Friday, per the client): review the proof-of-concept findings and confirm the final data scope and company list; date to be confirmed by email |
+| TP2 progress submission | November 6, 2026 (per course syllabus) |
 | Final course presentation | December 3, 2026; client plans to attend in person if possible; calendar invite to send |
 
 ## Stakeholders
@@ -71,14 +70,14 @@ Approved on October 1, 2026, as recorded in the team role-vote capture form.
 
 | Member | Confirmed role |
 |---|---|
-| Mehul Pardeshi | Project Manager + Responsible AI lead |
+| Mehul Pardeshi | Project Manager + Responsible AI + Evaluation lead |
 | Yen-Chu Chen | Dataset Builder |
 | Logan Mai | Market & User Researcher / Business Analyst |
 | Shu Pu | AI Engineer / Solution Architect |
 | Snehal Paliwal | Dashboard Product Manager, including client communication |
 
 ## Open items and scope changes
-Confirm sample/geography/history, taxonomy process, measure/denominator, weighting/normalization, remaining rubric obligations, pilot review date, NDA, public naming/book-reference permissions, and maintenance responsibilities. Throughout the project, the team will maintain an ongoing record of requirements, client feedback, discussion outcomes, and scope changes in GitHub through meeting minutes, the decisions log, and pull requests. Proposed changes will be distinguished from confirmed decisions. The shared tracker remains the source of truth for task owners and deadlines. Material scope changes will be reviewed with the client.
+Confirm sample/geography/history, taxonomy process, measure/denominator, weighting/normalization, remaining rubric obligations, progress-meeting date, and maintenance responsibilities. (Resolved at kickoff: no NDA is required, and the client permits naming her and the book chapter.) Throughout the project, the team will maintain an ongoing record of requirements, client feedback, discussion outcomes, and scope changes in GitHub through meeting minutes, the decisions log, and pull requests. Proposed changes will be distinguished from confirmed decisions. The shared tracker remains the source of truth for task owners and deadlines. Material scope changes will be reviewed with the client.
 
 ## Client approval
 - Sent on: Not yet sent.
