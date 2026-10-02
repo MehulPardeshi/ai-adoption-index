@@ -1,6 +1,6 @@
 # 06 — Index Construction (Part 4)
 
-> **2026-10-01 kickoff clarification:** See [minutes](../meetings/2026-10-01-client.md) and the latest decisions log. Julie recommended a 4–5-bank pilot and permits a simpler team-designed measure. Final coverage, taxonomy, and metrics remain open; quarterly automation is desired only if feasible. Earlier targets below remain brief material, not confirmed client commitments. Course/rubric obligations must be checked with the instructor before reducing graded requirements.
+> **2026-10-01 kickoff clarification:** See [minutes](../meetings/2026-10-01-client.md) and the latest decisions log. the proof of concept covers **5–6 big U.S. financial companies** (e.g., JPMorgan; decided 2026-10-01, superseding the 4–5-bank figure in the transcript excerpts) and permits a simpler team-designed measure. Final coverage, taxonomy, and metrics remain open; quarterly automation is desired only if feasible. Earlier targets below remain brief material, not confirmed client commitments. Course/rubric obligations must be checked with the instructor before reducing graded requirements.
 
 
 > **Read [`09-decisions-log.md`](09-decisions-log.md) first.** Working docs: [`docs/part4-index/methodology.md`](../docs/part4-index/methodology.md), [`docs/part4-index/refresh_protocol.md`](../docs/part4-index/refresh_protocol.md)

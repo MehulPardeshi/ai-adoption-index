@@ -144,3 +144,17 @@
 - **Decided by:** PM (Mehul).
 - **Supersedes:** "TBD" owners for these tasks in `11-action-items.md`.
 - **Follow-ups:** —
+
+### 2026-10-01 — Proof-of-concept size: 5–6 big financial companies
+- **Decision:** The proof of concept covers **5–6 big U.S. financial companies** (e.g., JPMorgan).
+- **Context / why:** The transcript excerpts recorded "4–5 major publicly traded banks"; the capture form (N-1) recorded the client asking for "5–6 big financial companies… as a proof of concept on dashboard". Mehul chose to follow the capture form.
+- **Decided by:** Mehul Pardeshi (PM), based on the client's recorded answer.
+- **Supersedes:** "4–5-bank pilot" wording in earlier entries and drafts, and the open PoC-size follow-up in "Client logistics confirmed (capture form)".
+- **Follow-ups:** Snehal states the 5–6-company PoC in the scope email to Julie; the firm list is chosen at the Sun 2026-10-04 meeting.
+
+### 2026-10-01 — Deliverable owners and TP1 tasks (capture form Part B)
+- **Decision:** Snehal is the formal client-communication lead. Deliverable owners: **ethics memo: Logan**; **taxonomy: Yen-Chu and Shu**; **IRR raters: all**; **metrics write-up: all**; **index construction + methodology appendix: Mehul and Snehal**; **presentation/poster: Snehal**; research paper: Julie to provide candidates, team owner TBD. TP1: prep doc, scope and review by all; Snehal sends the scope and calendar invites, with the **progress meeting targeted mid-October**; Yen-Chu submits on Canvas.
+- **Context / why:** Part B of the kickoff capture form, filled in after the meeting.
+- **Decided by:** Team (capture form).
+- **Supersedes:** "Unowned" deliverables in `11-action-items.md`.
+- **Follow-ups:** Still open: Week 1–6 dates, dashboard tool, contract section 4, TA confirmation, Team 15 coordination, who uploads meeting notes. Paper link from Julie needed.

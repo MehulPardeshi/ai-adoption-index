@@ -10,6 +10,20 @@ Approved October 1, 2026, per the completed team role-vote capture form supplied
 | Shu Pu | AI Engineer / Solution Architect |
 | Snehal Paliwal | Dashboard Product Manager, including client communication |
 
+**Client communication:** Snehal is the formal lead (confirmed 2026-10-01; no backup named).
+
+## Deliverable owners (2026-10-01)
+| Deliverable | Owner | Support |
+|---|---|---|
+| Ethics / legal sourcing memo | Logan | All others |
+| Taxonomy derivation (+ IRR) | Yen-Chu, Shu | All others |
+| IRR raters | All | All |
+| Metrics methodology write-up | All | All |
+| Index construction + methodology appendix | Mehul, Snehal | All others |
+| Final presentation / poster | Snehal | All others |
+| Evaluation & validation design | Mehul | — |
+| Research paper (TP3) | TBD (Julie to provide candidates) | — |
+
 ## Historical role options (pre-vote reference)
 
 > **Read [`09-decisions-log.md`](09-decisions-log.md) first.** Once someone picks a role and it's logged there, that entry overrides the menu below.

@@ -51,7 +51,7 @@ Source: [draft minutes](../meetings/2026-10-01-client.md). Proposed team follow-
 | Task | Owner | Due | Status |
 |---|---|---|---|
 | Share papers, classification documentation, transcript examples | Julie (offered) | TBD | Receipt unconfirmed; repository link received |
-| Verify reference methodology; assess a 4–5-bank pilot | TBD | TBD | Proposed |
+| Verify reference methodology; assess the 5–6-company pilot | TBD | TBD | Proposed |
 | Propose firms, history, measurement options, dashboard scope | TBD | TBD | Proposed |
 | Assess quarterly refresh and maintenance | TBD | TBD | Proposed; optional automation |
 | Review minutes/scope; confirm remaining brief/rubric obligations with instructor | TBD | TBD | Pending |
@@ -67,7 +67,18 @@ All five roles were approved unchanged in the team vote. See [confirmed roles](0
 | Task | Owner | Due | Status |
 |---|---|---|---|
 | Submit TP1 on Canvas | Yen-Chu | **Fri 10/2 5 pm** | ⏳ |
-| Email the scope doc to Julie; confirm PoC size (4–5 banks vs 5–6 companies); propose a Thu/Fri progress-meeting date; send the Dec 3 final-presentation calendar invite | Snehal | Fri 10/2 | ⏳ |
+| Email the scope doc to Julie (PoC = 5–6 big financial companies); propose a mid-October Thu/Fri progress-meeting date; send the Dec 3 final-presentation calendar invite | Snehal | Fri 10/2 | ⏳ |
 | Design the evaluation and validation approach (incl. IRR) | Mehul | TBD | ⏳ |
 | NDA question | n/a | n/a | ✅ Not required |
 | Permission to name client and book chapter | n/a | n/a | ✅ Granted |
+
+## Deliverable owners (capture form, Part B3, 2026-10-01)
+| Deliverable | Owner | Support |
+|---|---|---|
+| Ethics / legal sourcing memo (10%, needed first; gates data collection) | **Logan** | All others |
+| Taxonomy derivation from 30–50 documents (20% with IRR) | **Yen-Chu, Shu** | All others |
+| Inter-rater reliability: independent raters | All (IRR design: Mehul, as Evaluation lead) | All |
+| Metrics methodology write-up (20%) | All | All |
+| Index construction + methodology appendix | **Mehul, Snehal** | All others |
+| Final presentation / poster lead | **Snehal** | All others |
+| Research paper (TP3, ≥1 paper from the last 3 years) | Owner TBD; Julie to provide candidates | — |
