@@ -1,7 +1,7 @@
 # Project Scope: AI Adoption Index — Team 5
 
-**Status:** Draft for team and client review, October 1, 2026. Not yet sent or approved.
-**Basis:** [Kickoff minutes](../../meetings/2026-10-01-client.md), based on supplied transcript excerpts.
+**Status:** Final draft for team review, October 1, 2026. To be sent to the client for approval on October 2, 2026.
+**Basis:** [Kickoff minutes](../../meetings/2026-10-01-client.md) (transcript excerpts plus the team's kickoff capture form).
 **Kanban board:** https://github.com/users/MehulPardeshi/projects/1
 
 ## Project objective
@@ -55,7 +55,7 @@ The pilot will establish feasible data access and historical depth. Julie's offe
 | TP1 scope submission | October 2, 2026, 5 pm; verify Canvas deadline |
 | Initial proof of concept | Tentative target: before fall break; exact date and feasibility to be discussed at the October 4 team meeting |
 | Post-PoC client scope review | Planned meeting with Julie after the proof of concept to discuss findings and confirm the next phase; date TBD |
-| Course progress review | Late October / early November; Thursdays or Fridays preferred by the client; date TBD |
+| Client progress meeting | Targeted mid-October (Thursday or Friday, per the client); date to be confirmed by email |
 | TP2 progress submission | November 6, 2026; verify Canvas deadline |
 | Final course presentation | December 3, 2026; client plans to attend in person if possible; calendar invite to send |
 
