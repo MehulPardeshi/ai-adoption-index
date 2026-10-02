@@ -1,87 +1,96 @@
-# Project Scope: AI Adoption Index — Team 5
+# Project Scope: AI Adoption Index
 
-**Status:** Final draft for team review, October 1, 2026. To be sent to the client for approval on October 2, 2026.
-**Basis:** [Kickoff minutes](../../meetings/2026-10-01-client.md) (transcript excerpts plus the team's kickoff capture form).
-**Kanban board:** https://github.com/users/MehulPardeshi/projects/1
+**Prepared by:** Team 5: Logan Mai, Yen-Chu Chen, Mehul Pardeshi, Shu Pu, Snehal Paliwal
+**Date:** October 2, 2026 · **Version:** 1.0, submitted for client approval
+**Project board:** https://github.com/users/MehulPardeshi/projects/1
 
-## Project objective
-Develop a reproducible prototype that uses public evidence to describe AI applications at financial institutions, improving on generic mention counts. Support professional understanding of applications and student understanding of relevant skills, and provide potential evidence for the client's introductory book chapter.
+## 1. Project objective
+Build a reproducible, evidence-based index of how large U.S. financial institutions adopt artificial intelligence. It will draw only on public, citable sources and go beyond simple counts of AI mentions. The index will serve two audiences: **financial professionals** asking which AI applications are relevant to their business, and **students** asking which skills the industry needs. It will also provide supporting evidence for Dr. Agnew and Dr. Chung's introductory chapter in the Pension Research Council volume on AI and retirement.
 
-## Deliverables
-Proposed for approval:
-- A feasibility pilot covering 5–6 large U.S. publicly traded financial companies (e.g., JPMorgan), as requested by the client for the proof of concept, with documented selection and source coverage. The team will decide the specific firm list at its Sunday meeting on October 4, 2026. Historical coverage is provisionally five years, subject to discussion and confirmation at the October 4, 2026 team meeting and assessment of source availability. The proof of concept may cover the full provisional five-year period, subject to data availability and feasibility. It will produce preliminary analytical findings and may include an initial dashboard sketch or wireframe. The final version is expected to expand beyond the initial 5–6 companies. After completing the proof of concept, the team plans to schedule a meeting with Julie to review the preliminary findings and confirm the final data scope and company list, including the number of firms and subsector coverage. The meeting date remains to be arranged.
-- An evidence dataset with source references and an explanation of coverage and limitations.
-- Team-derived use-case categories and a documented quantitative measure, supported by human evaluation. The team will first review the client-provided papers, then conduct the proof of concept, and use its findings to decide the measurement approach, including the calculation method, weighting, and classification approach. Simple percentages are acceptable to Julie; no final scoring formula is selected.
-- A working hosted dashboard for the agreed sample, with firm/subsector views where applicable, transparent membership, cited evidence, and research links.
-- Reproducible code, methodology, evaluation results, runnable demonstration, and a documented refresh procedure.
+## 2. Deliverables
+- **Proof of concept:** an initial study of **5–6 large U.S. publicly traded financial companies** (e.g., JPMorgan), as requested by the client, with documented firm selection and source coverage. It targets five years of history (provisional, subject to data availability) and produces preliminary findings and an initial dashboard sketch. The team will finalize the company list on October 4, 2026, and expects to expand coverage after the proof of concept.
+- **Evidence dataset:** source citations for every data point, with documented coverage and limitations.
+- **Use-case taxonomy and measure:** team-developed AI use-case categories and a documented quantitative measure, validated by human review. The calculation, weighting and classification approach will be chosen after reviewing the client-provided papers and the proof-of-concept results. Simple percentages are acceptable to the client.
+- **Interactive dashboard:** hosted, with firm and subsector views, transparent firm membership, cited evidence, and links to related research and indices.
+- **Reproducible codebase and methodology on GitHub:** evaluation results, a runnable demonstration, and a documented refresh procedure.
 
-## Scope: in
-- Evaluate multiple public, citable, permitted sources during the 5–6-company proof of concept, starting with SEC EDGAR filings and earnings-call transcripts available through company investor relations pages. Job-posting data (e.g., Handshake, LinkedIn) will be considered only if the team's ethics/legal review confirms access is permitted under each platform's terms; automated collection from these platforms is not planned. Propose the final source set after the proof of concept, based on availability, relevance, and permitted access, and confirm it with the client as part of the final data scope.
-- Review the shared AI Intensity Dataset and associated paper; verify its methodology before reusing or describing it.
-- Distinguish concrete reported applications from generic mentions and future plans; public disclosure is not direct verification of internal deployment.
-- Use the pilot to agree achievable coverage with Julie.
-- Meet course technical requirements: agentic workflow, model integration, at least five documented custom agent tools, a skill folder/templates, evaluation, data-protection methods, and guardrail comparisons.
+## 3. In scope
+- **Public, citable and permitted sources**, starting with SEC EDGAR filings (10-K, 10-Q) and earnings-call transcripts from company investor-relations pages. Job-posting data (e.g., Handshake, LinkedIn) will be used only if the team's ethics and legal review confirms access is permitted under each platform's terms; automated collection from these platforms is not planned. The final source set will be proposed after the proof of concept and confirmed with the client.
+- **Review of the AI Intensity Dataset** and its associated paper, verifying the methodology before reusing or describing it.
+- **Distinguishing concrete, reported AI applications from generic mentions and future plans.** Public disclosure is evidence of a stated activity, not direct verification of internal deployment.
+- **Course technical requirements:** an agentic workflow, a pretrained model, at least five documented custom agent tools, a skill folder, evaluation methods, data-protection methods, and safety guardrails with a with/without comparison.
 
-## Scope: out (explicit exclusions)
-Proposed boundaries for approval:
-- Comprehensive coverage of all financial institutions within the initial pilot.
-- Proprietary CFO microdata, restricted university career data, or collection outside permitted access.
+## 4. Out of scope
+- Comprehensive coverage of all financial institutions during the proof of concept.
+- Proprietary data (e.g., CFO survey microdata), restricted university career-site data, or any collection outside permitted access.
 - Claims that missing public evidence proves non-adoption, or that reported use proves business impact.
 - Guaranteed publication, a particular firm ranking, or a finalized composite score.
-- Guaranteed ongoing hosting/support after the course.
+- Guaranteed hosting or support after the course ends.
 
-Cross-subsector expansion, firm-size weighting, and keyword-trend visualizations are candidates subject to feasibility and agreement. Whether automated quarterly updates will be included in the final deliverable will be decided later; they are not currently a committed requirement.
+**Candidates for later phases**, subject to feasibility and client agreement: cross-subsector expansion, firm-size weighting, keyword-trend visualizations, and automated quarterly updates.
 
-## Acceptance criteria (proposed; client approval pending)
-- The agreed pilot can be demonstrated end to end with traceable source evidence.
-- Firm inclusion, time coverage, missing evidence, category definitions, and calculation choices are documented.
-- A reviewer can reproduce the reported figures from the documented inputs and procedure.
-- The Evaluation Lead (Mehul Pardeshi) will design the evaluation and validation approach for the analytical results. Specific review methods, sampling plans, and acceptance thresholds remain to be defined; evaluation findings and limitations will be documented.
-- The dashboard clearly identifies covered firms and supports the agreed views.
-- Course-required agentic components, documentation, evaluation, and runnable demo are present.
+## 5. Acceptance criteria
+- The proof of concept can be demonstrated end to end, with traceable source evidence for every reported figure.
+- Firm inclusion, time coverage, treatment of missing evidence, category definitions and calculation choices are documented.
+- An independent reviewer can reproduce the reported figures from the documented inputs and procedure.
+- An evaluation approach, designed by the team's Evaluation Lead, compares automated extraction and classification against human review and reports findings and limitations. Specific methods and thresholds will be defined during the project.
+- The dashboard clearly identifies the covered firms and supports the agreed views.
+- All course-required agentic components, documentation, evaluation and the runnable demonstration are present.
 
-## Constraints
-There is currently no project funding. The team will prioritize free tools, publicly accessible data, and free service tiers. Paid APIs, subscriptions, and hosting are not committed; any proposed cost would require a separate team decision and an identified funding source.
+## 6. Constraints
+- Public and citable evidence only; the level of disclosure varies across firms and sources.
+- **No project funding.** The team will use free tools, publicly accessible data and free service tiers. Any proposed cost requires a team decision and an identified funding source.
+- The semester timeline and team capacity limit coverage.
+- The taxonomy and metrics must be developed and validated by the team.
+- Course grading requirements apply alongside the client's methodological flexibility; any differences will be reconciled with the instructor.
+- No NDA is required. The client has permitted the team to name her and the book chapter. All work must be reproducible.
 
-Public and citable evidence only; source access and disclosure vary. Semester time and team capacity limit coverage. Taxonomy and metrics must be developed and validated by the team. Earlier brief targets and rubric requirements must be reconciled with the instructor; client flexibility does not waive course obligations. The client confirmed no NDA is required and gave permission to name her and the book chapter (Oct 1, 2026). All work must be reproducible.
+## 7. Assumptions
+- The proof of concept will establish feasible data access and historical depth.
+- Client-provided reference papers will inform the methodology once received.
+- Teams 5 and 15 work independently, with separate progress checks and updates.
+- Hosting, ongoing costs and post-course maintenance will be agreed later.
 
-## Assumptions
-The pilot will establish feasible data access and historical depth. Julie's offered references will inform research when received. Team 5 and Team 15 work separately, with separate progress checks and updates (confirmed by the client); no audience split has been agreed. Ownership, hosting costs, and post-course maintenance remain open.
-
-## Milestones and dates
+## 8. Milestones
 | Milestone | Date / status |
 |---|---|
-| Client kickoff | October 1, 2026; held |
-| TP1 scope submission | October 2, 2026, 5 pm |
-| Initial proof of concept | Tentative target: before fall break; exact date and feasibility to be discussed at the October 4 team meeting |
-| Client progress meeting / post-PoC scope review | Targeted mid-October (Thursday or Friday, per the client): review the proof-of-concept findings and confirm the final data scope and company list; date to be confirmed by email |
-| TP2 progress submission | November 6, 2026 (per course syllabus) |
-| Final course presentation | December 3, 2026; client plans to attend in person if possible; calendar invite to send |
+| Client kickoff meeting | October 1, 2026 (completed) |
+| TP1 scope submission | October 2, 2026, 5:00 pm |
+| Company list finalized | October 4, 2026 (team meeting) |
+| Initial proof of concept | Before fall break (tentative) |
+| Client progress meeting and scope review | Mid-October, on a Thursday or Friday per the client; date to be confirmed by email |
+| TP2 progress submission | November 6, 2026 |
+| Final presentation | December 3, 2026 (client to attend in person if possible) |
 
-## Stakeholders
-- Client: Dr. Julie Agnew, William & Mary.
-- Instructor and chapter collaborator: Dr. Rachel Chung, CMU Heinz College.
-- Team 5: Logan Mai, Yen-Chu Chen, Mehul Pardeshi, Shu Pu, Snehal Paliwal.
-- Team 15: separate team with shared client; separate progress checks and updates.
-- Intended users: financial professionals and students.
+## 9. Stakeholders and roles
+- **Client:** Dr. Julie Agnew, William & Mary
+- **Instructor and chapter co-author:** Dr. Rachel Chung, Carnegie Mellon University, Heinz College
+- **Project team:** Team 5 (below)
+- **Related team:** Team 15, working independently on the same topic
+- **Intended users:** financial professionals and students
 
-## Confirmed team roles
-Approved on October 1, 2026, as recorded in the team role-vote capture form.
-
-| Member | Confirmed role |
+| Team member | Role |
 |---|---|
-| Mehul Pardeshi | Project Manager + Responsible AI + Evaluation lead |
+| Mehul Pardeshi | Project Manager; Responsible AI and Evaluation Lead |
 | Yen-Chu Chen | Dataset Builder |
 | Logan Mai | Market & User Researcher / Business Analyst |
 | Shu Pu | AI Engineer / Solution Architect |
-| Snehal Paliwal | Dashboard Product Manager, including client communication |
+| Snehal Paliwal | Dashboard Product Manager and client communication lead |
 
-## Open items and scope changes
-Confirm sample/geography/history, taxonomy process, measure/denominator, weighting/normalization, remaining rubric obligations, progress-meeting date, and maintenance responsibilities. (Resolved at kickoff: no NDA is required, and the client permits naming her and the book chapter.) Throughout the project, the team will maintain an ongoing record of requirements, client feedback, discussion outcomes, and scope changes in GitHub through meeting minutes, the decisions log, and pull requests. Proposed changes will be distinguished from confirmed decisions. The shared tracker remains the source of truth for task owners and deadlines. Material scope changes will be reviewed with the client.
+## 10. Open items
+- Final company sample, geography and historical depth
+- Taxonomy development process
+- Measure, denominator, weighting and normalization
+- Which of the original assignment requirements still apply (to be confirmed with the instructor)
+- Progress-meeting date
+- Hosting and post-course maintenance
 
-## Client approval
-- Sent on: Not yet sent.
-- Approved on / comments: Pending.
-- The client agreed to review and approve this scope document. Communication is by email (follow up after 24 hours if no reply).
-- Proof-of-concept size: **5–6 big financial companies** (e.g., JPMorgan), per the client's answer recorded in the capture form.
-- This document records a proposed scope, not a claim of client approval.
+Scope changes will be documented in the project's GitHub repository, and material changes will be reviewed with the client.
+
+## 11. Client approval
+| Item | Detail |
+|---|---|
+| Submitted to client | October 2, 2026 |
+| Approved by | |
+| Approval date | |
+| Comments | |
