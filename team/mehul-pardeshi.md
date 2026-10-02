@@ -2,8 +2,8 @@
 
 - **Andrew email:** mppardes@andrew.cmu.edu
 - **GitHub:** https://github.com/MehulPardeshi
-- **Proposed role:** Project Manager + Responsible AI lead
-- **Role status:** Proposed — pending team vote
+- **Confirmed role:** Project Manager + Responsible AI lead
+- **Role status:** Approved — October 1, 2026 team role vote
 
 ## Why this role
 PM fits my strengths on the contract (strategy, coordination, client-facing communication). Responsible AI is the technical piece I committed to on the contract ("carve out a technical piece to stay hands-on"). It also lines up with my career focus on AI safety, assurance, and policy.

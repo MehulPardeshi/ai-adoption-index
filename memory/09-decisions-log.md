@@ -101,3 +101,25 @@
 - **Decided by:** Julie Agnew, client direction in supplied kickoff excerpts; minutes pending team review.
 - **Supersedes:** Earlier draft assumptions only where inconsistent; no course requirement is waived.
 - **Follow-ups:** See [kickoff minutes](../meetings/2026-10-01-client.md); owners and dates TBD.
+
+### 2026-10-01 — Team roles approved
+- **Decision:** All five proposed roles were approved unchanged.
+- **Context / why:** Yen-Chu supplied the completed B1 role-vote table, showing Yes for every member, and confirmed the decision occurred today.
+- **Decided by:** Team role vote, as recorded in the capture form.
+- **Supersedes:** Pending-role status in team profiles and earlier role menus, including pending confirmation of Snehal's client-communication role.
+- **Follow-ups:** Mirror these roles in the shared spreadsheet; individual task assignments and deadlines still require confirmation.
+
+| Member | Confirmed role |
+|---|---|
+| Mehul Pardeshi | Project Manager + Responsible AI lead |
+| Yen-Chu Chen | Dataset Builder |
+| Logan Mai | Market & User Researcher / Business Analyst |
+| Shu Pu | AI Engineer / Solution Architect |
+| Snehal Paliwal | Dashboard Product Manager, including client communication |
+
+### 2026-10-01 — Evaluation design responsibility clarified
+- **Decision:** The Responsible AI Lead (Mehul Pardeshi) will design the evaluation and validation approach.
+- **Context / why:** Yen-Chu clarified this responsibility during scope refinement; no sampling method or acceptance threshold was selected.
+- **Decided by:** Proposed by Yen-Chu during scope refinement; accepted by Mehul Pardeshi on 2026-10-01.
+- **Supersedes:** Unassigned evaluation-design responsibility only.
+- **Follow-ups:** Define the approach and mirror the task in the shared spreadsheet; deadline TBD.

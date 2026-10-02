@@ -2,8 +2,8 @@
 
 - **Andrew email:** shup@andrew.cmu.edu
 - **GitHub:** https://github.com/seanpushu
-- **Proposed role:** AI Engineer / Solution Architect
-- **Role status:** Proposed — pending team vote
+- **Confirmed role:** AI Engineer / Solution Architect
+- **Role status:** Approved — October 1, 2026 team role vote
 
 ## Why this role (1–3 lines)
 
