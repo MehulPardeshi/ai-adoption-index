@@ -43,10 +43,10 @@ Cross-subsector expansion, firm-size weighting, and keyword-trend visualizations
 ## Constraints
 There is currently no project funding. The team will prioritize free tools, publicly accessible data, and free service tiers. Paid APIs, subscriptions, and hosting are not committed; any proposed cost would require a separate team decision and an identified funding source.
 
-Public and citable evidence only; source access and disclosure vary. Semester time and team capacity limit coverage. Taxonomy and metrics must be developed and validated by the team. Earlier brief targets and rubric requirements must be reconciled with the instructor; client flexibility does not waive course obligations. Client identity remains confidential by default under course policy until explicit publication permission is confirmed.
+Public and citable evidence only; source access and disclosure vary. Semester time and team capacity limit coverage. Taxonomy and metrics must be developed and validated by the team. Earlier brief targets and rubric requirements must be reconciled with the instructor; client flexibility does not waive course obligations. The client confirmed no NDA is required and gave permission to name her and the book chapter (Oct 1, 2026). All work must be reproducible.
 
 ## Assumptions
-The pilot will establish feasible data access and historical depth. Julie's offered references will inform research when received. Team 5 and Team 15 work separately under course instructions; no audience split has been agreed. Ownership, hosting costs, and post-course maintenance remain open.
+The pilot will establish feasible data access and historical depth. Julie's offered references will inform research when received. Team 5 and Team 15 work separately, with separate progress checks and updates (confirmed by the client); no audience split has been agreed. Ownership, hosting costs, and post-course maintenance remain open.
 
 ## Milestones and dates
 | Milestone | Date / status |
@@ -55,15 +55,15 @@ The pilot will establish feasible data access and historical depth. Julie's offe
 | TP1 scope submission | October 2, 2026, 5 pm; verify Canvas deadline |
 | Initial proof of concept | Tentative target: before fall break; exact date and feasibility to be discussed at the October 4 team meeting |
 | Post-PoC client scope review | Planned meeting with Julie after the proof of concept to discuss findings and confirm the next phase; date TBD |
-| Course progress review | Late October / early November; date TBD; confirm whether a separate meeting is needed |
+| Course progress review | Late October / early November; Thursdays or Fridays preferred by the client; date TBD |
 | TP2 progress submission | November 6, 2026; verify Canvas deadline |
-| Final course presentation | December 3, 2026; client attendance/separate presentation TBD |
+| Final course presentation | December 3, 2026; client plans to attend in person if possible; calendar invite to send |
 
 ## Stakeholders
 - Client: Dr. Julie Agnew, William & Mary.
 - Instructor and chapter collaborator: Dr. Rachel Chung, CMU Heinz College.
 - Team 5: Logan Mai, Yen-Chu Chen, Mehul Pardeshi, Shu Pu, Snehal Paliwal.
-- Team 15: separate team with shared client; coordination arrangement TBD.
+- Team 15: separate team with shared client; separate progress checks and updates.
 - Intended users: financial professionals and students.
 
 ## Confirmed team roles
@@ -83,4 +83,6 @@ Confirm sample/geography/history, taxonomy process, measure/denominator, weighti
 ## Client approval
 - Sent on: Not yet sent.
 - Approved on / comments: Pending.
+- The client agreed to review and approve this scope document. Communication is by email (follow up after 24 hours if no reply).
+- Open point to confirm with the client: proof-of-concept size, recorded as 4–5 major banks in the transcript excerpts and 5–6 big financial companies in the capture form.
 - This document records a proposed scope, not a claim of client approval.

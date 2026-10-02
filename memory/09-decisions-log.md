@@ -123,3 +123,24 @@
 - **Decided by:** Proposed by Yen-Chu during scope refinement; accepted by Mehul Pardeshi on 2026-10-01.
 - **Supersedes:** Unassigned evaluation-design responsibility only.
 - **Follow-ups:** Define the approach and mirror the task in the shared spreadsheet; deadline TBD.
+
+### 2026-10-01 — Client logistics confirmed (capture form)
+- **Decision:** No NDA. We **may name Julie Agnew and the book chapter** in the repo, poster and LinkedIn. Teams 5 and 15 get **separate** progress checks and updates. Julie will **review and approve** our scope document. Communication by **email**, with a follow-up after 24 hours. The team develops both the index definition and the calculation method. Public sources only.
+- **Context / why:** Answers N-1 to N-8 and I-B in the kickoff capture form filled in by Snehal (`meetings/2026-10-01-client-capture-form.docx`).
+- **Decided by:** Julie Agnew (client answers).
+- **Supersedes:** The confidentiality-by-default note in `00-project-overview.md`; the UNCLEAR NDA/naming items in the kickoff minutes.
+- **Follow-ups:** Confirm the PoC size with Julie (4–5 banks per the excerpts vs 5–6 big financial companies per the form); schedule the progress meeting on a Thursday or Friday; send the Dec 3 invite.
+
+### 2026-10-01 — Mehul's role expanded to include Evaluation lead
+- **Decision:** Mehul Pardeshi's role is **Project Manager + Responsible AI + Evaluation lead**.
+- **Context / why:** Mehul accepted ownership of evaluation and validation design (course requirement #5, including inter-rater reliability).
+- **Decided by:** Mehul Pardeshi (accepted).
+- **Supersedes:** The role title in the 2026-10-01 "Team roles approved" entry.
+- **Follow-ups:** Mirror the title in the spreadsheet's Roles tab.
+
+### 2026-10-01 — TP1 submission and client follow-up owners
+- **Decision:** **Yen-Chu** submits TP1 on Canvas (Fri 10/2, 5 pm). **Snehal** sends the scope document and the follow-up email to Julie (PoC size, progress-meeting date, Dec 3 invite).
+- **Context / why:** TP1 deadline; Snehal is the confirmed client-communication lead.
+- **Decided by:** PM (Mehul).
+- **Supersedes:** "TBD" owners for these tasks in `11-action-items.md`.
+- **Follow-ups:** —

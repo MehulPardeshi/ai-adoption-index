@@ -20,7 +20,9 @@ Build an **AI Adoption Index** that tracks how **financial services firms** talk
 - **Co-client:** the kickoff agenda also lists **Dr. Rachel Chung (Heinz College)**, our course instructor, as a client.
 - **Two teams, one client:** **Team 15** (Megan Lin, Trisha Sharma, Vidushi Bist, Yu-Hsuan Li, Han Yang) has the same client and topic. Per the course instructions, teams work on the topic **separately**. Both attended the joint kickoff on 2026-10-01.
 - That's why **Retirement Plan Providers / Recordkeepers are the primary sector** (see [`03-sectors-and-firms.md`](03-sectors-and-firms.md)).
-- **Confidentiality:** the course says client identity is confidential by default. The repo is private. **Before making it public, presenting outside the class, or posting on LinkedIn, get the client's permission** (per the course project instructions). The final README must not name the client without that permission.
+- **Naming permission (2026-10-01):** Julie said **yes**: we may name her and the book chapter in the repo, poster and LinkedIn. **No NDA.** (The course's confidentiality-by-default rule is satisfied by her explicit permission.)
+- **The book:** Pension Research Council (Olivia Mitchell, Wharton) volume from its AI-and-retirement conference; our index feeds the introductory chapter by Julie Agnew and Rachel Chung.
+- **Historical note (superseded by the permission above):** the course says client identity is confidential by default. The repo is private. **Before making it public, presenting outside the class, or posting on LinkedIn, get the client's permission** (per the course project instructions). The final README must not name the client without that permission.
 
 ## Two sets of requirements (both apply)
 1. **Client assignment brief:** `docs/source-materials/AI Adoption Index project requirements.docx` (text copy: [`ai-adoption-index-requirements.md`](../docs/source-materials/ai-adoption-index-requirements.md)). This defines Parts 1–5, the 6-week timeline, and the deliverable weights.

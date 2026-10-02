@@ -4,7 +4,7 @@ Approved October 1, 2026, per the completed team role-vote capture form supplied
 
 | Member | Confirmed role |
 |---|---|
-| Mehul Pardeshi | Project Manager + Responsible AI lead |
+| Mehul Pardeshi | Project Manager + Responsible AI + Evaluation lead |
 | Yen-Chu Chen | Dataset Builder |
 | Logan Mai | Market & User Researcher / Business Analyst |
 | Shu Pu | AI Engineer / Solution Architect |

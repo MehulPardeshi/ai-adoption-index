@@ -7,15 +7,15 @@
 | Task | Owner | Due | Status |
 |---|---|---|---|
 | Kickoff client meeting (joint with Team 15) | Snehal leads; all attend | Thu 10/1 2 pm | Completed; full attendance unconfirmed |
-| Fill the kickoff capture form ([`docs/tp1/Kickoff_Capture_Form_2026-10-01.docx`](../docs/tp1/Kickoff_Capture_Form_2026-10-01.docx)) | TBD | Thu 10/1 | ⏳ |
+| Fill the kickoff capture form | Snehal | Thu 10/1 | ✅ Done ([filed](../meetings/2026-10-01-client-capture-form.docx)) |
 | Compile client-meeting prep doc (TP1 #2) | TBD | Thu 10/1 | ⏳ |
 | Draft project scope doc (TP1 #3) with board link | TBD | Fri 10/2 a.m. | Draft prepared; team/client review pending |
 | Send scope doc to client | Snehal (confirmed client communication role) | Fri 10/2 | ⏳ |
-| Submit TP1 on Canvas (contract + prep doc + scope doc) | TBD | **Fri 10/2 5 pm** | ⏳ |
+| Submit TP1 on Canvas (contract + prep doc + scope doc) | Yen-Chu | **Fri 10/2 5 pm** | ⏳ |
 
 ## By person
 <!-- "Self-proposed" = from the person's team/ profile, not yet agreed by the team. -->
-### Mehul Pardeshi (confirmed role: PM + Responsible AI lead)
+### Mehul Pardeshi (confirmed role: PM + Responsible AI + Evaluation lead)
 - Coordinate TP1 completion and submission plan
 - Self-proposed: guardrail design for course requirement #7
 
@@ -62,3 +62,12 @@ All five roles were approved unchanged in the team vote. See [confirmed roles](0
 
 ### Evaluation design clarification
 - Yen-Chu confirmed during scope refinement that the Responsible AI Lead (Mehul Pardeshi) will design the evaluation and validation approach. Methods, sample sizes, thresholds, and due date remain TBD. Mirror this task in the shared spreadsheet.
+
+## Updates from the capture form (2026-10-01)
+| Task | Owner | Due | Status |
+|---|---|---|---|
+| Submit TP1 on Canvas | Yen-Chu | **Fri 10/2 5 pm** | ⏳ |
+| Email the scope doc to Julie; confirm PoC size (4–5 banks vs 5–6 companies); propose a Thu/Fri progress-meeting date; send the Dec 3 final-presentation calendar invite | Snehal | Fri 10/2 | ⏳ |
+| Design the evaluation and validation approach (incl. IRR) | Mehul | TBD | ⏳ |
+| NDA question | n/a | n/a | ✅ Not required |
+| Permission to name client and book chapter | n/a | n/a | ✅ Granted |

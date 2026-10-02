@@ -2,7 +2,7 @@
 
 - **Andrew email:** mppardes@andrew.cmu.edu
 - **GitHub:** https://github.com/MehulPardeshi
-- **Confirmed role:** Project Manager + Responsible AI lead
+- **Confirmed role:** Project Manager + Responsible AI + Evaluation lead
 - **Role status:** Approved — October 1, 2026 team role vote
 
 ## Why this role
@@ -21,6 +21,8 @@ PM fits my strengths on the contract (strategy, coordination, client-facing comm
 - Coordinate with whoever owns the ethics memo and data protection (course req #6), so guardrails and policy match.
 
 **Light technical involvement:** repo foundation and structure, reviewing PRs, and keeping the agentic-tool docstrings consistent.
+
+**Evaluation lead (accepted 2026-10-01; course technical requirement #5):** design the evaluation and validation approach, including the inter-rater reliability check on human coding and checking AI-assisted classification against human review.
 
 ## What I'll work on first (this week)
 - Invite everyone to the repo and board; share the tracker
