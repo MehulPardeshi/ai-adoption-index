@@ -9,14 +9,14 @@ Develop a reproducible prototype that uses public evidence to describe AI applic
 
 ## Deliverables
 Proposed for approval:
-- A feasibility pilot covering 4–5 of the largest publicly traded banks, provisionally, with documented selection and source coverage. The team will decide the specific firm list at its Sunday meeting on October 4, 2026. Historical coverage is provisionally five years, subject to discussion and confirmation at the October 4, 2026 team meeting and assessment of source availability. The proof of concept may cover the full provisional five-year period, subject to data availability and feasibility. It will produce preliminary analytical findings and may include an initial dashboard sketch or wireframe. The final version is expected to expand beyond the initial 4–5 companies. After completing the proof of concept, the team plans to schedule a meeting with Julie to review the preliminary findings and confirm the final data scope and company list, including the number of firms and subsector coverage. The meeting date remains to be arranged.
+- A feasibility pilot covering 5–6 large U.S. publicly traded financial companies (e.g., JPMorgan), as requested by the client for the proof of concept, with documented selection and source coverage. The team will decide the specific firm list at its Sunday meeting on October 4, 2026. Historical coverage is provisionally five years, subject to discussion and confirmation at the October 4, 2026 team meeting and assessment of source availability. The proof of concept may cover the full provisional five-year period, subject to data availability and feasibility. It will produce preliminary analytical findings and may include an initial dashboard sketch or wireframe. The final version is expected to expand beyond the initial 5–6 companies. After completing the proof of concept, the team plans to schedule a meeting with Julie to review the preliminary findings and confirm the final data scope and company list, including the number of firms and subsector coverage. The meeting date remains to be arranged.
 - An evidence dataset with source references and an explanation of coverage and limitations.
 - Team-derived use-case categories and a documented quantitative measure, supported by human evaluation. The team will first review the client-provided papers, then conduct the proof of concept, and use its findings to decide the measurement approach, including the calculation method, weighting, and classification approach. Simple percentages are acceptable to Julie; no final scoring formula is selected.
 - A working hosted dashboard for the agreed sample, with firm/subsector views where applicable, transparent membership, cited evidence, and research links.
 - Reproducible code, methodology, evaluation results, runnable demonstration, and a documented refresh procedure.
 
 ## Scope: in
-- Evaluate multiple public, citable, permitted sources during the 4–5-firm proof of concept, starting with SEC EDGAR filings and earnings-call transcripts available through company investor relations pages. Job-posting data (e.g., Handshake, LinkedIn) will be considered only if the team's ethics/legal review confirms access is permitted under each platform's terms; automated collection from these platforms is not planned. Propose the final source set after the proof of concept, based on availability, relevance, and permitted access, and confirm it with the client as part of the final data scope.
+- Evaluate multiple public, citable, permitted sources during the 5–6-company proof of concept, starting with SEC EDGAR filings and earnings-call transcripts available through company investor relations pages. Job-posting data (e.g., Handshake, LinkedIn) will be considered only if the team's ethics/legal review confirms access is permitted under each platform's terms; automated collection from these platforms is not planned. Propose the final source set after the proof of concept, based on availability, relevance, and permitted access, and confirm it with the client as part of the final data scope.
 - Review the shared AI Intensity Dataset and associated paper; verify its methodology before reusing or describing it.
 - Distinguish concrete reported applications from generic mentions and future plans; public disclosure is not direct verification of internal deployment.
 - Use the pilot to agree achievable coverage with Julie.
@@ -43,10 +43,10 @@ Cross-subsector expansion, firm-size weighting, and keyword-trend visualizations
 ## Constraints
 There is currently no project funding. The team will prioritize free tools, publicly accessible data, and free service tiers. Paid APIs, subscriptions, and hosting are not committed; any proposed cost would require a separate team decision and an identified funding source.
 
-Public and citable evidence only; source access and disclosure vary. Semester time and team capacity limit coverage. Taxonomy and metrics must be developed and validated by the team. Earlier brief targets and rubric requirements must be reconciled with the instructor; client flexibility does not waive course obligations. Client identity remains confidential by default under course policy until explicit publication permission is confirmed.
+Public and citable evidence only; source access and disclosure vary. Semester time and team capacity limit coverage. Taxonomy and metrics must be developed and validated by the team. Earlier brief targets and rubric requirements must be reconciled with the instructor; client flexibility does not waive course obligations. The client confirmed no NDA is required and gave permission to name her and the book chapter (Oct 1, 2026). All work must be reproducible.
 
 ## Assumptions
-The pilot will establish feasible data access and historical depth. Julie's offered references will inform research when received. Team 5 and Team 15 work separately under course instructions; no audience split has been agreed. Ownership, hosting costs, and post-course maintenance remain open.
+The pilot will establish feasible data access and historical depth. Julie's offered references will inform research when received. Team 5 and Team 15 work separately, with separate progress checks and updates (confirmed by the client); no audience split has been agreed. Ownership, hosting costs, and post-course maintenance remain open.
 
 ## Milestones and dates
 | Milestone | Date / status |
@@ -55,15 +55,15 @@ The pilot will establish feasible data access and historical depth. Julie's offe
 | TP1 scope submission | October 2, 2026, 5 pm; verify Canvas deadline |
 | Initial proof of concept | Tentative target: before fall break; exact date and feasibility to be discussed at the October 4 team meeting |
 | Post-PoC client scope review | Planned meeting with Julie after the proof of concept to discuss findings and confirm the next phase; date TBD |
-| Course progress review | Late October / early November; date TBD; confirm whether a separate meeting is needed |
+| Course progress review | Late October / early November; Thursdays or Fridays preferred by the client; date TBD |
 | TP2 progress submission | November 6, 2026; verify Canvas deadline |
-| Final course presentation | December 3, 2026; client attendance/separate presentation TBD |
+| Final course presentation | December 3, 2026; client plans to attend in person if possible; calendar invite to send |
 
 ## Stakeholders
 - Client: Dr. Julie Agnew, William & Mary.
 - Instructor and chapter collaborator: Dr. Rachel Chung, CMU Heinz College.
 - Team 5: Logan Mai, Yen-Chu Chen, Mehul Pardeshi, Shu Pu, Snehal Paliwal.
-- Team 15: separate team with shared client; coordination arrangement TBD.
+- Team 15: separate team with shared client; separate progress checks and updates.
 - Intended users: financial professionals and students.
 
 ## Confirmed team roles
@@ -83,4 +83,6 @@ Confirm sample/geography/history, taxonomy process, measure/denominator, weighti
 ## Client approval
 - Sent on: Not yet sent.
 - Approved on / comments: Pending.
+- The client agreed to review and approve this scope document. Communication is by email (follow up after 24 hours if no reply).
+- Proof-of-concept size: **5–6 big financial companies** (e.g., JPMorgan), per the client's answer recorded in the capture form.
 - This document records a proposed scope, not a claim of client approval.

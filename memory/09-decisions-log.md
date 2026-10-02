@@ -123,3 +123,38 @@
 - **Decided by:** Proposed by Yen-Chu during scope refinement; accepted by Mehul Pardeshi on 2026-10-01.
 - **Supersedes:** Unassigned evaluation-design responsibility only.
 - **Follow-ups:** Define the approach and mirror the task in the shared spreadsheet; deadline TBD.
+
+### 2026-10-01 — Client logistics confirmed (capture form)
+- **Decision:** No NDA. We **may name Julie Agnew and the book chapter** in the repo, poster and LinkedIn. Teams 5 and 15 get **separate** progress checks and updates. Julie will **review and approve** our scope document. Communication by **email**, with a follow-up after 24 hours. The team develops both the index definition and the calculation method. Public sources only.
+- **Context / why:** Answers N-1 to N-8 and I-B in the kickoff capture form filled in by Snehal (`meetings/2026-10-01-client-capture-form.docx`).
+- **Decided by:** Julie Agnew (client answers).
+- **Supersedes:** The confidentiality-by-default note in `00-project-overview.md`; the UNCLEAR NDA/naming items in the kickoff minutes.
+- **Follow-ups:** Confirm the PoC size with Julie (4–5 banks per the excerpts vs 5–6 big financial companies per the form); schedule the progress meeting on a Thursday or Friday; send the Dec 3 invite.
+
+### 2026-10-01 — Mehul's role expanded to include Evaluation lead
+- **Decision:** Mehul Pardeshi's role is **Project Manager + Responsible AI + Evaluation lead**.
+- **Context / why:** Mehul accepted ownership of evaluation and validation design (course requirement #5, including inter-rater reliability).
+- **Decided by:** Mehul Pardeshi (accepted).
+- **Supersedes:** The role title in the 2026-10-01 "Team roles approved" entry.
+- **Follow-ups:** Mirror the title in the spreadsheet's Roles tab.
+
+### 2026-10-01 — TP1 submission and client follow-up owners
+- **Decision:** **Yen-Chu** submits TP1 on Canvas (Fri 10/2, 5 pm). **Snehal** sends the scope document and the follow-up email to Julie (PoC size, progress-meeting date, Dec 3 invite).
+- **Context / why:** TP1 deadline; Snehal is the confirmed client-communication lead.
+- **Decided by:** PM (Mehul).
+- **Supersedes:** "TBD" owners for these tasks in `11-action-items.md`.
+- **Follow-ups:** —
+
+### 2026-10-01 — Proof-of-concept size: 5–6 big financial companies
+- **Decision:** The proof of concept covers **5–6 big U.S. financial companies** (e.g., JPMorgan).
+- **Context / why:** The transcript excerpts recorded "4–5 major publicly traded banks"; the capture form (N-1) recorded the client asking for "5–6 big financial companies… as a proof of concept on dashboard". Mehul chose to follow the capture form.
+- **Decided by:** Mehul Pardeshi (PM), based on the client's recorded answer.
+- **Supersedes:** "4–5-bank pilot" wording in earlier entries and drafts, and the open PoC-size follow-up in "Client logistics confirmed (capture form)".
+- **Follow-ups:** Snehal states the 5–6-company PoC in the scope email to Julie; the firm list is chosen at the Sun 2026-10-04 meeting.
+
+### 2026-10-01 — Deliverable owners and TP1 tasks (capture form Part B)
+- **Decision:** Snehal is the formal client-communication lead. Deliverable owners: **ethics memo: Logan**; **taxonomy: Yen-Chu and Shu**; **IRR raters: all**; **metrics write-up: all**; **index construction + methodology appendix: Mehul and Snehal**; **presentation/poster: Snehal**; research paper: Julie to provide candidates, team owner TBD. TP1: prep doc, scope and review by all; Snehal sends the scope and calendar invites, with the **progress meeting targeted mid-October**; Yen-Chu submits on Canvas.
+- **Context / why:** Part B of the kickoff capture form, filled in after the meeting.
+- **Decided by:** Team (capture form).
+- **Supersedes:** "Unowned" deliverables in `11-action-items.md`.
+- **Follow-ups:** Still open: Week 1–6 dates, dashboard tool, contract section 4, TA confirmation, Team 15 coordination, who uploads meeting notes. Paper link from Julie needed.
