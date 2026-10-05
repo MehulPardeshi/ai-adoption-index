@@ -5,8 +5,9 @@
 
 > **Read [`09-decisions-log.md`](09-decisions-log.md) first.** Working spec: [`docs/part5-dashboard/dashboard_spec.md`](../docs/part5-dashboard/dashboard_spec.md)
 
-## Tool: NOT YET CHOSEN
-Options from the brief: **Tableau, Power BI, or Python (Streamlit / Dash / Plotly)**.
+## Tool: **Streamlit** (decided 2026-10-04)
+Deployment: **Vercel** was proposed. ⚠️ Verify it works: Streamlit needs a long-running Python server, and Vercel's serverless hosting isn't a standard fit. **Streamlit Community Cloud** (free) is the usual host. Snehal checks this while building the mock-up.
+(Options considered from the brief: Tableau, Power BI, Python Streamlit/Dash/Plotly.)
 Constraint from the course: TP3 requires an **externally hosted app/website with agentic capabilities**, plus **runnable demo code**. Weigh that when choosing. Log the choice in 09.
 
 ## Required views (from the brief)
