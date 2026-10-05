@@ -13,7 +13,7 @@ Build an **AI Adoption Index** that tracks how **financial services firms** talk
 - **Instructor:** Dr. Rachel Chung. Course email: i2ai@andrew.cmu.edu
 - **Team:** Team 5 / Project 5 (5 students; roster in [`01-team-and-roles.md`](01-team-and-roles.md))
 - **Project TA:** Hengkai Zheng (hengkaiz@andrew.cmu.edu)
-  - Note: the syllabus lists Hengkai as a *Section A (N–Z)* TA. Section C's TAs are Xiaobin Shen (A–M) and Shurui Cao (N–Z). Hengkai is presumably our assigned **project** mentor TA. Confirm, then log it in 09.
+  - **Confirmed 2026-10-04** as our project TA/advisor. (The syllabus lists Hengkai under Section A; the project assignment is separate.)
 
 ## Client
 - **Julie Agnew, William & Mary.** The dataset feeds a **book chapter she is writing on AI in retirement**.

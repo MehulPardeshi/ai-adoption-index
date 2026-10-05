@@ -158,3 +158,29 @@
 - **Decided by:** Team (capture form).
 - **Supersedes:** "Unowned" deliverables in `11-action-items.md`.
 - **Follow-ups:** Still open: Week 1–6 dates, dashboard tool, contract section 4, TA confirmation, Team 15 coordination, who uploads meeting notes. Paper link from Julie needed.
+
+### 2026-10-04 — Proof-of-concept plan and sprint (internal meeting)
+- **Decision:**
+  - **Companies:** JPMorgan Chase, Bank of America, Capital One, Wells Fargo, Charles Schwab, Principal Financial Group.
+  - **Period:** 2024–2026.
+  - **Sources:** SEC 10-K/10-Q (Shu), the AI Intensity GitHub dataset (Shu), earnings calls (Yen-Chu), LinkedIn (Yen-Chu, **only if the ethics memo confirms permitted access**, per scope v1.0).
+  - **What we show Julie:** a company view with click-in detail; index categories (investment in AI, AI in final products, AI-related jobs).
+  - **Client progress meeting:** proposed Thu Oct 29, 1–2 pm.
+  - **Timeline:** Mehul's prep-doc timeline and due dates accepted, including **Yen-Chu submitting TP2 on Fri Nov 6**.
+  - **Dashboard:** Streamlit; Vercel proposed for deployment (to verify).
+  - **Hengkai Zheng** confirmed as project TA.
+  - Work **fully separately from Team 15**.
+  - Ask Dr. Chung about grading requirements after scoping is finalized with Julie.
+  - **Next meeting:** Sun Oct 18, 8–9 pm.
+- **Context / why:** Finals (Oct 5–9) and fall break (Oct 12–16) leave a working window of Oct 18–Nov 6 before TP2.
+- **Decided by:** Team (all five attended), recorded in the capture form. No transcript.
+- **Supersedes:**
+  - "PoC before fall break" and "client progress meeting mid-October" (scope v1.0 and earlier entries);
+  - Mehul's proposals of Citigroup (replaced by Capital One), 2 years (now 2024–2026), and 10-K/10-Q only (sources widened);
+  - the open TA question;
+  - the blank-contract-section-4 note.
+- **Follow-ups:**
+  - Snehal emails Julie by Mon Oct 5.
+  - Scope v1.1 with the new dates goes to Julie.
+  - Owner for the Dr. Chung question is TBD.
+  - Per-person tasks are in `11-action-items.md` and in the GitHub sprint milestone.

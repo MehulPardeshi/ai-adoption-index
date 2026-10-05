@@ -31,5 +31,5 @@ Details and the spreadsheet link: [`docs/TASK_TRACKER.md`](../docs/TASK_TRACKER.
 (Course policy, from the syllabus: if the team can't resolve an issue, contact the TA. Removing a member requires a unanimous vote of the others, after the TA process.)
 
 ## Gaps in the signed contract
-- Section 4 ("What does doing your share look like" / Attendance) was **left blank**. The team may want to fill this in at an upcoming meeting and log it in 09.
+- Section 4 ("What does doing your share look like" / Attendance) was left blank in the early copy, but **the team filled it in before the TP1 deadline** (confirmed 2026-10-04). The final signed version is with the team, not in this repo. Ask Mehul or Yen-Chu for its wording.
 - The "Client / project topic" field was left blank on the contract.

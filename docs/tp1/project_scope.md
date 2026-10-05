@@ -1,17 +1,17 @@
 # Project Scope: AI Adoption Index
 
 **Prepared by:** Team 5: Logan Mai, Yen-Chu Chen, Mehul Pardeshi, Shu Pu, Snehal Paliwal
-**Date:** October 2, 2026 · **Version:** 1.0, submitted for client approval
+**Date:** October 5, 2026 · **Version:** 1.1, updated with the team's October 4 planning decisions (v1.0 submitted October 2)
 **Project board:** https://github.com/users/MehulPardeshi/projects/1
 
 ## 1. Project objective
 Build a reproducible, evidence-based index of how large U.S. financial institutions adopt artificial intelligence. It will draw only on public, citable sources and go beyond simple counts of AI mentions. The index will serve two audiences: **financial professionals** asking which AI applications are relevant to their business, and **students** asking which skills the industry needs. It will also provide supporting evidence for Dr. Agnew and Dr. Chung's introductory chapter in the Pension Research Council volume on AI and retirement.
 
 ## 2. Deliverables
-- **Proof of concept:** an initial study of **5–6 large U.S. publicly traded financial companies** (e.g., JPMorgan), as requested by the client, with documented firm selection and source coverage. It targets five years of history (provisional, subject to data availability) and produces preliminary findings and an initial dashboard sketch. The team will finalize the company list on October 4, 2026, and expects to expand coverage after the proof of concept.
+- **Proof of concept:** an initial study of **six large U.S. publicly traded financial companies**: JPMorgan Chase, Bank of America, Capital One, Wells Fargo, Charles Schwab and Principal Financial Group. That's four major banks plus two wealth and retirement firms. It covers filings from **2024–2026** and produces preliminary findings and a first dashboard view: a company view with click-in detail, and categories such as investment in AI, AI built into products, and AI-related jobs. The team expects to expand coverage after the proof of concept.
 - **Evidence dataset:** source citations for every data point, with documented coverage and limitations.
 - **Use-case taxonomy and measure:** team-developed AI use-case categories and a documented quantitative measure, validated by human review. The calculation, weighting and classification approach will be chosen after reviewing the client-provided papers and the proof-of-concept results. Simple percentages are acceptable to the client.
-- **Interactive dashboard:** hosted, with firm and subsector views, transparent firm membership, cited evidence, and links to related research and indices.
+- **Interactive dashboard:** built with Streamlit and hosted online, with firm and subsector views, transparent firm membership, cited evidence, and links to related research and indices.
 - **Reproducible codebase and methodology on GitHub:** evaluation results, a runnable demonstration, and a documented refresh procedure.
 
 ## 3. In scope
@@ -56,9 +56,9 @@ Build a reproducible, evidence-based index of how large U.S. financial instituti
 |---|---|
 | Client kickoff meeting | October 1, 2026 (completed) |
 | TP1 scope submission | October 2, 2026, 5:00 pm |
-| Company list finalized | October 4, 2026 (team meeting) |
-| Initial proof of concept | Before fall break (tentative) |
-| Client progress meeting and scope review | Mid-October, on a Thursday or Friday per the client; date to be confirmed by email |
+| Company list finalized | October 4, 2026 (completed) |
+| Proof-of-concept results ready | Thursday, October 29, 2026 |
+| Client progress meeting and scope review | Thursday, October 29, 2026, 1:00–2:00 pm (proposed; to be confirmed with the client) |
 | TP2 progress submission | November 6, 2026 |
 | Final presentation | December 3, 2026 (client to attend in person if possible) |
 
@@ -78,7 +78,7 @@ Build a reproducible, evidence-based index of how large U.S. financial instituti
 | Snehal Paliwal | Dashboard Product Manager and client communication lead |
 
 ## 10. Open items
-- Final company sample, geography and historical depth
+- Company coverage beyond the proof of concept
 - Taxonomy development process
 - Measure, denominator, weighting and normalization
 - Which of the original assignment requirements still apply (to be confirmed with the instructor)
