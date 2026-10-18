@@ -2,6 +2,7 @@
 
 > **Read this to answer "what should I work on next?"** Updated after every meeting from `meetings/` minutes ([procedure](../meetings/README.md)). The shared spreadsheet remains the source of truth for owners and deadlines; this file mirrors it for AI tools.
 > **Last updated:** 2026-10-18, from the email thread with Julie (Oct 10–11) and the repo status. Previous update: [Oct 4 meeting](../meetings/2026-10-04-internal.md).
+> **Pinned summary for humans:** [#45 "Who does what"](https://github.com/MehulPardeshi/ai-adoption-index/issues/45), with @mentions per person.
 > **GitHub:** each task below is an issue in the **"Sprint: Oct 18–Nov 6 (TP2)"** milestone on the [project board](https://github.com/users/MehulPardeshi/projects/1).
 
 ## Where we are
@@ -89,11 +90,11 @@
 | Research paper (TP3) | TBD; Julie to provide candidates | — |
 
 ## Progress since Oct 4 (seen in the repo)
-- **Yen-Chu, PR #43 (open, in review):** SEC test run.
+- **Yen-Chu, PR #43 (✅ merged Oct 18 as a DRAFT):** SEC test run. #27 and #32 closed; #33 stays open until Shu reviews it and the team agrees.
   - 56 filings, Q3 2024–Q2 2026, for the 6 PoC companies, **plus Citigroup as an extra comparison**.
   - 245 AI passages, of which only 32 (13%) describe actual AI use.
   - **DRAFT** Taxonomy v0 codebook and **DRAFT** scoring.
-  - This covers most of #27, #32 and #33. Reviewers requested: Shu (taxonomy), Logan (verbatim SEC text vs. ethics memo), Mehul (labeling pool), Snehal (scores for the dashboard).
+  - Open questions for tonight: keep or drop Citigroup; were the draft labels set by hand or AI-assisted (matters for the IRR round); is verbatim SEC text OK under the ethics memo (Logan).
 
 ## Unowned / open
 - Ask Dr. Chung (office hours) which original-brief requirements still apply. Do this after scoping is finalized with Julie; **owner TBD**.
