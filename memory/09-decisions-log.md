@@ -184,3 +184,16 @@
   - Scope v1.1 with the new dates goes to Julie.
   - Owner for the Dr. Chung question is TBD.
   - Per-person tasks are in `11-action-items.md` and in the GitHub sprint milestone.
+
+### 2026-10-11 — Client progress meeting confirmed: Thu Oct 29, 10–11 am ET
+- **Decision:** The client checkpoint is **Thu Oct 29, 2026, 10:00–11:00 am ET** on Zoom ("Checkpoint: AI Adoption Index [Team 5]"). Invited: all of Team 5, Julie Agnew, Dr. Rachel Chung and Hengkai Zheng.
+- **Context / why:**
+  - On Oct 10, Snehal thanked Julie for reviewing the scope, asked whether rescoping away from Dr. Chung's original brief is OK, and asked for links to the other papers.
+  - On Oct 11, Snehal confirmed 10 am and sent the invite.
+  - Julie shared the Vanguard *Megatrends: AI, demographics and the U.S. economy* report.
+- **Decided by:** Snehal (client lead), with Julie.
+- **Supersedes:** the "Thu Oct 29, 1–2 pm (proposed)" time from the 2026-10-04 entry.
+- **Follow-ups:**
+  - Record Julie's answer on rescoping when it arrives.
+  - The practice run stays Wed Oct 28.
+  - Materials are listed in `docs/references.md`.

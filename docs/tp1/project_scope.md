@@ -58,7 +58,7 @@ Build a reproducible, evidence-based index of how large U.S. financial instituti
 | TP1 scope submission | October 2, 2026, 5:00 pm |
 | Company list finalized | October 4, 2026 (completed) |
 | Proof-of-concept results ready | Thursday, October 29, 2026 |
-| Client progress meeting and scope review | Thursday, October 29, 2026, 1:00–2:00 pm (proposed; to be confirmed with the client) |
+| Client progress meeting and scope review | Thursday, October 29, 2026, 10:00–11:00 am ET (confirmed; calendar invite sent October 11) |
 | TP2 progress submission | November 6, 2026 |
 | Final presentation | December 3, 2026 (client to attend in person if possible) |
 

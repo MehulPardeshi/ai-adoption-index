@@ -1,24 +1,24 @@
 # 11 — Action Items (who is doing what, right now)
 
 > **Read this to answer "what should I work on next?"** Updated after every meeting from `meetings/` minutes ([procedure](../meetings/README.md)). The shared spreadsheet remains the source of truth for owners and deadlines; this file mirrors it for AI tools.
-> **Last updated:** 2026-10-04, from the [Oct 4 internal meeting](../meetings/2026-10-04-internal.md) (capture form; no transcript).
+> **Last updated:** 2026-10-18, from the email thread with Julie (Oct 10–11) and the repo status. Previous update: [Oct 4 meeting](../meetings/2026-10-04-internal.md).
 > **GitHub:** each task below is an issue in the **"Sprint: Oct 18–Nov 6 (TP2)"** milestone on the [project board](https://github.com/users/MehulPardeshi/projects/1).
 
 ## Where we are
 - ✅ TP1 submitted (Fri Oct 2).
 - 💤 **Oct 5–17: finals, then fall break.** No project work expected, apart from Snehal's email to Julie and the optional review of her materials.
-- 🏁 **Sprint: Sun Oct 18 → Fri Nov 6 (TP2).** Test run on 6 companies → show Julie **Thu Oct 29, 1–2 pm** → TP2 report → submit **Fri Nov 6, 5 pm**.
+- 🏁 **Sprint: Sun Oct 18 → Fri Nov 6 (TP2).** Test run on 6 companies → show Julie **Thu Oct 29, 10–11 am ET** (confirmed) → TP2 report → submit **Fri Nov 6, 5 pm**.
 - **PoC companies:** JPMorgan Chase, Bank of America, Capital One, Wells Fargo, Charles Schwab, Principal Financial Group · **Period:** 2024–2026 · **Sources:** SEC 10-K/10-Q, AI Intensity GitHub dataset, earnings calls; LinkedIn only if the ethics memo clears it.
 
 ## Key dates
 | Date | What |
 |---|---|
-| Mon Oct 5 | Snehal emails Julie (scope + proposed Oct 29 meeting) |
+| ~~Mon Oct 5~~ ✅ | Snehal emailed Julie (Oct 10–11); Julie reviewed the scope and sent the Vanguard paper |
 | **Sun Oct 18, 8–9 pm** | Team meeting: decide the AI model and agent tools; everyone brings research + an action plan |
 | Fri Oct 23 | Ethics memo final · SEC filings downloaded · eval plan v1 · agent design · dashboard tool/sketch |
 | Sun Oct 25 | Team meeting: progress check |
 | Wed Oct 28 | Taxonomy v0 done (Tue Oct 27) · first working agent · first labeling round · first dashboard view · practice run |
-| **Thu Oct 29, 1–2 pm** | Progress meeting with Julie (proposed; Snehal confirms) |
+| **Thu Oct 29, 10–11 am ET** | ✅ Confirmed: "Checkpoint: AI Adoption Index [Team 5]" on Zoom, with Julie, Dr. Chung and Hengkai invited (calendar invite from Snehal, Oct 11) |
 | Sun Nov 1 | Team meeting: Julie's feedback → split the TP2 report |
 | Wed Nov 4 / Thu Nov 5 | TP2 report draft / board clean-up |
 | **Fri Nov 6, 5 pm** | Yen-Chu submits TP2 |
@@ -65,7 +65,7 @@
 ### Snehal Paliwal (Dashboard PM + client communication)
 | Task | Due |
 |---|---|
-| **Email Julie:** scope doc + proposed Thu Oct 29, 1–2 pm meeting (follow up after 24 h if no reply) | **Mon Oct 5** |
+| ✅ Emailed Julie; Oct 29, 10 am meeting booked; asked Julie for links to the other papers | Done Oct 11 |
 | Before Oct 18: review Julie's paper/GitHub; research; bring an action plan | Sun Oct 18 |
 | Dashboard: Streamlit mock-up; check hosting (Vercel vs Streamlit Community Cloud) | Start Fri Oct 23 |
 | First dashboard view with PoC data | Wed Oct 28 |
@@ -88,9 +88,17 @@
 | Evaluation & validation design | Mehul | — |
 | Research paper (TP3) | TBD; Julie to provide candidates | — |
 
+## Progress since Oct 4 (seen in the repo)
+- **Yen-Chu, PR #43 (open, in review):** SEC test run.
+  - 56 filings, Q3 2024–Q2 2026, for the 6 PoC companies, **plus Citigroup as an extra comparison**.
+  - 245 AI passages, of which only 32 (13%) describe actual AI use.
+  - **DRAFT** Taxonomy v0 codebook and **DRAFT** scoring.
+  - This covers most of #27, #32 and #33. Reviewers requested: Shu (taxonomy), Logan (verbatim SEC text vs. ethics memo), Mehul (labeling pool), Snehal (scores for the dashboard).
+
 ## Unowned / open
 - Ask Dr. Chung (office hours) which original-brief requirements still apply. Do this after scoping is finalized with Julie; **owner TBD**.
-- Julie's paper: not yet received.
+- Julie's paper: ✅ received (Vanguard report; see `docs/references.md`). Links to her other papers have been requested.
+- Snehal asked Julie (Oct 10) whether rescoping away from Dr. Chung's original brief is OK; the answer isn't recorded yet.
 
 ## Completed
 - ✅ Team contract signed (9/20–9/24), section 4 filled in before TP1
