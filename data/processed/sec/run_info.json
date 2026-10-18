@@ -1,0 +1,43 @@
+{
+  "run_at": "2026-10-18T09:44:42",
+  "filings": 56,
+  "ai_passages": 245,
+  "user_agent": "CMU Team5 AI-Tracker research Yen-Chu Chen yenchuc2@andrew.cmu.edu",
+  "window": [
+    "2024-07-01",
+    "2026-06-30"
+  ],
+  "companies": [
+    "JPM",
+    "BAC",
+    "COF",
+    "WFC",
+    "SCHW",
+    "PFG",
+    "C"
+  ],
+  "strong_terms": [
+    "artificial intelligence",
+    "machine[- ]learning",
+    "generative AI",
+    "gen ?AI",
+    "large language models?",
+    "\\bLLMs?\\b",
+    "deep learning",
+    "neural networks?",
+    "natural language processing",
+    "\\bNLP\\b",
+    "chat ?bots?",
+    "\\bcopilots?\\b",
+    "agentic",
+    "AI agents?",
+    "predictive (?:analytics|models?)",
+    "computer vision",
+    "(?<![A-Za-z])AI(?![A-Za-z])"
+  ],
+  "weak_terms": [
+    "\\bautomation\\b",
+    "\\balgorithm(?:s|ic)?\\b",
+    "advanced analytics"
+  ]
+}
