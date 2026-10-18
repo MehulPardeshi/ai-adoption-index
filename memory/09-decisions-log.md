@@ -197,3 +197,16 @@
   - Record Julie's answer on rescoping when it arrives.
   - The practice run stays Wed Oct 28.
   - Materials are listed in `docs/references.md`.
+
+### 2026-10-18 — Evaluation design for labeling round 1; Dr. Chung grading question dropped
+- **Decision:**
+  - **Labeling round 1 (evaluation check 2):** 50 passages from the SEC test run, chosen by stratified sampling (all 32 deployed/planned passages plus 18 random "just talk" ones, after dropping repeats and definitions; seed 20261018).
+  - **Raters:** Yen-Chu's existing hand labels plus **Mehul and Logan labeling blind**.
+  - **Provisional pass mark:** kappa ≥ 0.60, revisited after round 1.
+  - **Separately:** the team won't pursue asking Dr. Chung which original-brief requirements still apply. Issue #42 is closed.
+- **Context / why:** Evaluation plan v1 (`docs/part3-metrics/evaluation_plan.md`) by the Evaluation Lead.
+- **Decided by:** Mehul Pardeshi (Evaluation Lead / PM), with the eval plan up for team review on Oct 18.
+- **Supersedes:** the open Dr. Chung follow-ups in the 2026-10-04 entry.
+- **Follow-ups:**
+  - Logan confirms availability to label by Tue Oct 27.
+  - The team reviews the provisional pass marks.

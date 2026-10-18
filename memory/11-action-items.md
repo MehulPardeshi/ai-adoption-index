@@ -29,9 +29,10 @@
 ### Mehul Pardeshi (PM + Responsible AI + Evaluation lead)
 | Task | Due |
 |---|---|
-| Before Oct 18: review Julie's paper/GitHub; research the AI model and agent tools; bring an action plan | Sun Oct 18 |
-| Evaluation plan v1 (6 checks; see `meetings/2026-10-04-mehul-prep.docx`) | Fri Oct 23 |
-| Run the first labeling round: 50 passages, 2+ raters, agreement score | Wed Oct 28 |
+| ✅ Reviewed Julie's materials: [summary](../docs/reviews/2026-10-18_client-materials-review_mehul.md) | Done Oct 18 |
+| ✅ Evaluation plan v1 drafted: [`docs/part3-metrics/evaluation_plan.md`](../docs/part3-metrics/evaluation_plan.md) (team review Oct 18; finalize by Fri Oct 23) | Fri Oct 23 |
+| Labeling round 1: kit ready ([`labeling_round_1/`](../docs/part3-metrics/labeling_round_1/README.md)). Label your 50 blind by Tue Oct 27; run `python3 -m src.eval.irr` Wed Oct 28 | Tue Oct 27 / Wed Oct 28 |
+| Red-team test set for the guardrails (evaluation check 6), with Shu | Wed Oct 28 |
 | Compile the TP2 report draft (1–3 pages) | Wed Nov 4 |
 | Clean up the GitHub board; screenshot for TP2 | Thu Nov 5 |
 | Responsible AI: guardrail ideas for the agent (with/without comparison, course req. #7) | ongoing |
@@ -53,6 +54,7 @@
 | Before Oct 18: review Julie's paper/GitHub; research; bring an action plan | Sun Oct 18 |
 | **Ethics / legal sourcing memo** (incl. whether LinkedIn and earnings calls may be used) | Draft Wed Oct 21; **final Fri Oct 23** |
 | Compare existing AI-adoption trackers (with Snehal) | Sat Oct 24 |
+| **Labeling round 1:** label 50 passages blind (about an hour), following [`labeling_round_1/README.md`](../docs/part3-metrics/labeling_round_1/README.md) | **Tue Oct 27** |
 
 ### Shu Pu (AI Engineer / Solution Architect)
 | Task | Due |
@@ -75,7 +77,7 @@
 
 ### Everyone
 - Practice run of what we show Julie: **Wed Oct 28**
-- Help with the 50-passage labeling round when Mehul asks: **Wed Oct 28**
+- Discuss labeling disagreements (round 1 results): **Wed Oct 28**
 
 ## Deliverable owners (whole project)
 | Deliverable | Owner | Support |
@@ -97,7 +99,6 @@
   - Open questions for tonight: keep or drop Citigroup; were the draft labels set by hand or AI-assisted (matters for the IRR round); is verbatim SEC text OK under the ethics memo (Logan).
 
 ## Unowned / open
-- Ask Dr. Chung (office hours) which original-brief requirements still apply. Do this after scoping is finalized with Julie; **owner TBD**.
 - Julie's paper: ✅ received (Vanguard report; see `docs/references.md`). Links to her other papers have been requested.
 - Snehal asked Julie (Oct 10) whether rescoping away from Dr. Chung's original brief is OK; the answer isn't recorded yet.
 
