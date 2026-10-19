@@ -2,7 +2,7 @@
 
 > **DRAFT: proposal for team review, not final.** Taxonomy and scoring become final only after a team vote logged in [`memory/09-decisions-log.md`](../../memory/09-decisions-log.md). The working taxonomy doc stays [`taxonomy.md`](taxonomy.md).
 
-Team 5 · Yen-Chu Chen · October 18, 2026
+Team 5 · Yen-Chu Chen · October 18, 2026 · additions by Shu Pu on October 19 are marked ▶ SHU
 
 **In one line:** we collected 56 SEC filings for 7 companies and found 245 passages that mention AI. Only 32 of them (13%) describe a company actually using AI. The rest are risk warnings, legal boilerplate or definitions.
 
@@ -68,6 +68,8 @@ Patterns worth flagging:
 - **Capital One lists uses, but only as possibilities.** Its 10-K says its AI examples "may include" pricing, fraud detection, credit decisions, risk measurement, software development and personalization. Because the wording is hedged, we don't credit those areas (see the rules in section 4). Earnings calls may confirm which ones are real.
 - **Citi's usage metrics stopped.** Its Q1 and Q3 2025 10-Qs report GenAI usage numbers; its 2026 10-Qs mention AI only as a risk or in definitions. Worth checking whether the numbers moved to earnings calls.
 - **Risk language is growing fast.** AI passages in the FY2025 10-K vs FY2024: Capital One 32 vs 18, JPMorgan 20 vs 11, Citi 20 vs 8, Wells Fargo 7 vs 3. JPMorgan's FY2025 10-K adds a full list of agentic-AI risks, and Capital One's adds fraud risk from "agentic commerce", where AI agents make purchases for customers.
+- ▶ SHU **Over three years the growth is 2–5×.** My run (PR #48, `data/processed/sec/shu_run/`) starts one year earlier and counts keyword hits per 10-K: Capital One 36 → 43 → 68 (FY2023 → FY2024 → FY2025), Bank of America 17 → 42 → 40, JPMorgan 6 → 19 → 33, Wells Fargo 5 → 6 → 12, Schwab 1 → 2 → 5, Principal 0 → 6 → 7. Mostly new or expanded risk factors; ~85 % of my 169 unique passages are risk, regulation or cyber-threat language, which matches the talk ratios below.
+- ▶ SHU **Autonomous AI agents are a new FY2025 theme** at Capital One (agentic commerce), JPMorgan (AI agents intermediating financial decisions) and Bank of America (autonomous agents among third parties). No bank claims deployment. Suggestion for Oct 25: a topic code `AGENT` so the dashboard can show it; and, optionally, a Vanguard-style tag (augmentation / efficiency / transformation) on D1/D2 passages for Julie's chapter. Neither changes the score.
 
 **Gap in the filings:** well-known bank AI products, Bank of America's Erica and JPMorgan's LLM Suite, don't appear in any filing. SEC reports alone undercount real use, so earnings calls should come next.
 
@@ -169,7 +171,7 @@ flowchart LR
 
 A label reaches the score only after its quote is found word for word in the source; anything else goes to a person first.
 
-The agent is built from six tools, which covers the "5+ tools" requirement. Three already exist in this repo:
+The agent is built from six tools (plus one added by Shu below), which covers the "5+ tools" requirement. Three already exist in this repo:
 
 | Tool | Job | Status |
 | --- | --- | --- |
@@ -179,6 +181,7 @@ The agent is built from six tools, which covers the "5+ tools" requirement. Thre
 | classify_passage | LLM assigns scenario, evidence level and topic, with a supporting quote | To build (Shu) |
 | verify_label | Check the quote appears word for word in the source; D2 must name something specific, or it drops to D1; low confidence goes to human review | To build |
 | score_companies | Roll labels up into scores per company per year | Built: [`src/index/score_companies.py`](../../src/index/score_companies.py) |
+| ▶ SHU lookup_baseline | Return the Dong et al. AI Intensity score for a firm-year so the agent reports our score next to the baseline (evaluation check 4b) | To build (Shu); data in `data/processed/sec/shu_run/dong_baseline_6firms.csv` |
 
 What `classify_passage` returns for each passage:
 
@@ -230,6 +233,23 @@ Filings alone put JPMorgan, Bank of America and Capital One near the bottom, eve
 - [ ] Wells Fargo's 9 comes from one general sentence naming three areas. Should a D1 sentence count once per area, or once as ENT? (Capital One's hedged list is the same question in reverse.)
 - [ ] Should "predictive models" stay a search term? It found Capital One's underwriting models, which may or may not be AI.
 - [ ] Which transcript source passes the ethics memo?
+
+▶ SHU answers (Oct 19; proposals for the team vote): I reviewed Label A against my own 9-category draft and everything maps onto existing codes, so no new scenario codes. Keep 3 / 1 / 0.5 for v0 and revisit after the Oct 28 round. A D1 sentence that lists several areas with no specifics counts **once, as ENT** (Wells Fargo FY2025 goes from 9 to 3; this is the same rule as the hedged list at Capital One). Keep "predictive models" as a search term but label the non-AI hits X. Transcript source waits for Logan's memo.
+
+## 4b. ▶ SHU Comparison with the AI Intensity baseline (Dong, Doukas & Zhang)
+
+Julie's second material is a word-count measure of AI engagement from 10-K text, 2010–2024 (dataset: github.com/FengDong-Elon/ai-intensity-dataset; paper SSRN 6051714, reviewed in `docs/reviews/2026-10-17_dong-et-al-paper-review_shu.md`). Their last filing is the FY2023 10-K (filed Feb 2024), which only my run covers. Our six firms' rows are in `data/processed/sec/shu_run/dong_baseline_6firms.csv`. Input for evaluation check 4b.
+
+| Firm | Dong, FY2023 10-K: core AI terms / AI Intensity (All, per 1,000 words) | My run, same filing: keyword hits | Agreement |
+| --- | --- | --- | --- |
+| Capital One | 4 / 0.19 | 36 | Dong far lower: most COF mentions are "AI" inside phrases their core list does not count |
+| Bank of America | 9 / 0.24 | 17 | Same direction |
+| JPMorgan Chase | 5 / 0.09 | 6 | Agree |
+| Charles Schwab | 1 / 0.07 | 1 | Agree |
+| Principal Financial | 0 / 0.00 | 0 | Agree |
+| Wells Fargo | **0 / 0.00** | **5** | **Dong misses the filing body:** their WFC word count (~118k) equals the first file plus exhibits and excludes the ~110k-word `wfc-20231231_d2.htm` (Exhibit 13); their parser appears to have read only the first file |
+
+For Julie: their measure tracks how much a firm *talks* about AI (it ranks Capital One and Bank of America highest, as our talk ratio does) and cannot separate use from talk, which is what Label B adds; and the Wells Fargo zero is a data defect, so any comparison must re-count on the full filing.
 
 ## 5. Next steps
 
