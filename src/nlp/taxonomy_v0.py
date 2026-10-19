@@ -5,7 +5,8 @@ docs/part2-taxonomy/sec_test_run_taxonomy_v0_DRAFT.md. The use-case scenario
 list is the merge point for Shu's list. Nothing here is final until the team
 votes and logs it in memory/09-decisions-log.md.
 
-Check the hand labels against the extracted passages (run from repo root):
+Check the draft labels (AI-assisted, see
+data/processed/sec/passage_labels_v0.csv) against the extracted passages (run from repo root):
     python3 -m src.nlp.taxonomy_v0
 """
 import csv

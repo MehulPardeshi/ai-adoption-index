@@ -4,6 +4,8 @@
 
 Team 5 · Yen-Chu Chen · October 18, 2026
 
+> **AI assistance:** the download scripts, the draft labels for all 245 passages and this write-up were drafted with an AI assistant (Claude) and checked by Yen-Chu at the summary level. The per-passage labels have **not** been reviewed by a person yet.
+
 **In one line:** we collected 56 SEC filings for 7 companies and found 245 passages that mention AI. Only 32 of them (13%) describe a company actually using AI. The rest are risk warnings, legal boilerplate or definitions.
 
 The 7 companies are the 6 proof-of-concept companies decided on Oct 4 (JPMorgan Chase, Bank of America, Capital One, Wells Fargo, Charles Schwab, Principal Financial Group), plus **Citigroup as an extra comparison**. Citi was in the first test run, and since it has the most concrete AI disclosures of the group, it's worth keeping as a benchmark.
@@ -209,7 +211,7 @@ $$
 \text{AI Use Score} = 100 \times \frac{\sum_{s=1}^{11} \max_{p \in s} w(p)}{33}
 $$
 
-FY2025 example (filings only, hand-coded labels, not yet the agent; FY2025 = Q1 to Q3 10-Qs plus the 10-K):
+FY2025 example (filings only, AI-assisted draft labels, not yet the team's agent; FY2025 = Q1 to Q3 10-Qs plus the 10-K):
 
 | Company | AI Use Score | Scenarios with use | Readiness | Talk ratio | AI passages |
 | --- | --- | --- | --- | --- | --- |
@@ -271,4 +273,4 @@ SEC asks for a contact in the User-Agent: put your own name and email in `USER_A
 | `data/processed/sec/filings_inventory.csv` | The 56 filings with dates and EDGAR links |
 | `data/processed/sec/run_info.json` | When the data was pulled, which companies, window and search terms |
 
-The labels are a first hand-coded pass by Yen-Chu and are not yet reviewed. They are the reference set for checking the AI agent's labels (evaluation check #3).
+The labels are an **AI-assisted first pass** (drafted with Claude, not yet reviewed passage by passage), so they should not count as a human rater. They fit evaluation check #3 (does an AI label like a human?), compared against the blind human labels from round 1.
