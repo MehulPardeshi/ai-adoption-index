@@ -1,6 +1,6 @@
 # Labeling round 1: instructions for raters
 
-**Raters:** Mehul, Logan · **Deadline:** Tue Oct 27 (end of day) · **Time:** about 60–75 minutes
+**Raters:** Mehul, Logan, Yen-Chu · **Deadline:** Tue Oct 27 (end of day) · **Time:** about 60–75 minutes
 **Why:** this is our inter-rater reliability check (evaluation check #2). We test whether two people using the same rules give the same labels. See the [evaluation plan](../evaluation_plan.md).
 
 ## Before you start (5 min)
@@ -8,7 +8,8 @@
 2. Read **section 4 ("Taxonomy v0")** of [`sec_test_run_taxonomy_v0_DRAFT.md`](../../part2-taxonomy/sec_test_run_taxonomy_v0_DRAFT.md), especially the **evidence-level table** and the **"Rules for unclear cases"**. That's your rulebook.
 3. **Stay blind:**
    - **don't** open `data/processed/sec/passage_labels_v0.csv` or `company_scores_v0.csv`;
-   - **don't** discuss items with the other rater until you've both submitted.
+   - **don't** discuss items with the other raters until everyone has submitted;
+   - Yen-Chu: you've seen the AI-assisted draft labels before, so label from the passage text only, without reopening that file.
 
 ## Labeling
 1. Copy `rater_TEMPLATE.csv` to `rater_<yourname>.csv` (e.g., `rater_logan.csv`). It opens in Excel or Google Sheets.
@@ -31,6 +32,6 @@ Save the file in this folder and open a pull request named "Labeling round 1: <n
 python3 -m src.eval.irr
 ```
 
-That prints the agreement scores and writes `disagreements.csv`, which the team discusses on Wed Oct 28.
+That prints the human agreement scores (check 2) and compares the AI-assisted draft labels with the human majority (check 3 preview). It writes `disagreements.csv` and `ai_vs_humans.csv`, which the team discusses on Wed Oct 28.
 
 _Sample built by `python3 -m src.eval.make_labeling_sample` (seed 20261018): 50 passages, no labels shown._

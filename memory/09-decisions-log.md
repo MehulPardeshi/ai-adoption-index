@@ -210,3 +210,16 @@
 - **Follow-ups:**
   - Logan confirms availability to label by Tue Oct 27.
   - The team reviews the provisional pass marks.
+
+### 2026-10-19 — SEC draft labels are AI-assisted; Yen-Chu becomes the third blind human rater
+- **Decision:**
+  - The 245 draft labels in `passage_labels_v0.csv` are **AI-assisted** (drafted with Claude, not reviewed passage by passage), so they are **not** a human rater.
+  - They become the **AI side of evaluation check 3**, compared with the human majority.
+  - Labeling round 1 has **three blind human raters: Mehul, Logan and Yen-Chu** (all by Tue Oct 27).
+  - `src/eval/irr.py` keeps human agreement (check 2) separate from AI vs. humans (check 3, with the overclaim rate).
+- **Context / why:** Yen-Chu flagged the error on Oct 19 and corrected the wording in PR #49. The #43 doc had called the labels hand-coded.
+- **Decided by:** Mehul Pardeshi (Evaluation Lead), on Yen-Chu's suggestion.
+- **Supersedes:** the rater setup in the 2026-10-18 "Evaluation design for labeling round 1" entry.
+- **Follow-ups:**
+  - Note in TP2 that Yen-Chu had seen the AI draft labels beforehand, so her agreement with the AI may be inflated.
+  - Record the AI assistance per the course GenAI policy.

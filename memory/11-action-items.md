@@ -46,6 +46,7 @@
 | Taxonomy v0: first categories (with Shu) | Tue Oct 27 |
 | Collect earnings-call transcripts for the 6 companies | TBD (confirm Oct 18) |
 | Assess LinkedIn as a source, **only after** Logan's ethics memo clears it | after Oct 23 |
+| **Labeling round 1:** label 50 passages blind as a human rater (don't reopen the AI-assisted draft labels) | **Tue Oct 27** |
 | **Submit TP2 on Canvas** | **Fri Nov 6, 5 pm** |
 
 ### Logan Mai (Market & User Researcher / BA)
