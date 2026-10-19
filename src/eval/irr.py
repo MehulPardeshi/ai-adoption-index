@@ -1,8 +1,9 @@
 """Inter-rater reliability (IRR) for labeling round 1 (evaluation check #2).
 
 Compares every rater file in docs/part3-metrics/labeling_round_1/rater_*.csv
-(except the TEMPLATE) with each other and with Yen-Chu's draft labels
-(data/processed/sec/passage_labels_v0.csv, treated as rater "yenchu").
+(except the TEMPLATE) with each other and with the AI-assisted draft labels
+(data/processed/sec/passage_labels_v0.csv, treated as rater "ai_draft"; these
+were drafted with Claude, not hand-coded, so they are the AI side of check #3).
 
 Reports, for the evidence level (D2/D1/P/N/X):
   * Cohen's kappa for every pair of raters (chance-corrected agreement)
@@ -71,7 +72,7 @@ def load() -> dict[str, dict[str, dict]]:
     items = set.intersection(*(set(r) for r in raters.values())) if raters else set()
     draft = {r["passage_id"]: {"evidence": r["evidence_v0"], "scenarios": r["scenarios_v0"]}
              for r in csv.DictReader(DRAFT.open(encoding="utf-8")) if r["passage_id"] in items}
-    raters = {"yenchu": draft, **raters}
+    raters = {"ai_draft": draft, **raters}
     for rows in raters.values():
         for r in rows.values():
             r["evidence"] = r["evidence"].strip().upper()
