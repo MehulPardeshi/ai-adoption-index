@@ -2,7 +2,7 @@
 
 Inputs:
   * Human raters: every docs/part3-metrics/labeling_round_1/rater_<name>.csv
-    (except the TEMPLATE). Planned raters: Mehul, Logan, Yen-Chu, all labeling blind.
+    (except the TEMPLATE). Planned raters: Logan, Yen-Chu, Snehal (Mehul runs the analysis), all labeling blind.
   * AI labels: data/processed/sec/passage_labels_v0.csv. These were drafted with
     Claude (AI-assisted, not hand-coded; see PR #49), so they are NOT a human rater.
     They are scored against the humans as an early preview of evaluation check #3.

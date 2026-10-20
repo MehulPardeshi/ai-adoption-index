@@ -1,6 +1,6 @@
 # Labeling round 1: instructions for raters
 
-**Raters:** Mehul, Logan, Yen-Chu · **Deadline:** Tue Oct 27 (end of day) · **Time:** about 60–75 minutes
+**Raters:** Logan, Yen-Chu, Snehal (Snehal pending her OK) · **Analysis:** Mehul · **Deadline:** Tue Oct 27 (end of day) · **Time:** about 60–75 minutes
 **Why:** this is our inter-rater reliability check (evaluation check #2). We test whether two people using the same rules give the same labels. See the [evaluation plan](../evaluation_plan.md).
 
 ## Before you start (5 min)
@@ -18,7 +18,7 @@
 python3 -m src.eval.workbook_to_csv labeling_<yourname>.xlsx <yourname>
 ```
 
-Or send the filled workbook to Mehul to convert.
+Or send the filled workbook to Mehul, who converts it and runs the scores.
 
 **Or, the CSV way:**
 1. Copy `rater_TEMPLATE.csv` to `rater_<yourname>.csv` (e.g., `rater_logan.csv`). It opens in Excel or Google Sheets.
