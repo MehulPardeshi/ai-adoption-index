@@ -12,6 +12,15 @@
    - Yen-Chu: you've seen the AI-assisted draft labels before, so label from the passage text only, without reopening that file.
 
 ## Labeling
+**Easiest way: the Excel workbook.** Copy `labeling_workbook.xlsx` to somewhere outside the repo, e.g. `labeling_<yourname>.xlsx`, and fill in the four yellow columns using the dropdowns. A progress counter sits at the top, cells turn red if you break the scenario rule, and the cheat sheet is the second tab. When done, convert it (this also checks it):
+
+```bash
+python3 -m src.eval.workbook_to_csv labeling_<yourname>.xlsx <yourname>
+```
+
+Or send the filled workbook to Mehul to convert.
+
+**Or, the CSV way:**
 1. Copy `rater_TEMPLATE.csv` to `rater_<yourname>.csv` (e.g., `rater_logan.csv`). It opens in Excel or Google Sheets.
 2. Read each passage in `sample_passages.csv`. The `item` numbers match the template, and `source_url` links to the full filing if you need context.
 3. Fill in four columns for each item:
@@ -26,7 +35,7 @@
 Tips: a mixed passage gets its **highest** level. "May use" is **N**. Text about *other* companies or criminals using AI is **N**.
 
 ## Submit
-Save the file in this folder and open a pull request named "Labeling round 1: <name>", **only after you've finished**. Mehul then runs:
+**Submit on Tue Oct 27 (not earlier), even if you finish sooner.** Pull requests are visible to everyone, so an early submission would let the other raters see your answers while they're still labeling. Save your `rater_<name>.csv` in this folder and open a pull request named "Labeling round 1: <name>". Mehul then runs:
 
 ```bash
 python3 -m src.eval.irr

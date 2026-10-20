@@ -36,8 +36,8 @@
 | ✅ Reviewed Julie's materials · Evaluation plan v1.1 · labeling kit · `irr.py` | Done Oct 18–19 |
 | ✅ Form boxes answered (6a, 6b, 6d, 8a, 9a; see the minutes' follow-up) · red-team set v0 · labeling cheat sheet · TP2 outline · Julie talking points | Done Oct 19 |
 | Bring the DeepSeek funding options to the team vote (#55) | Sun Oct 25 |
-| Read the Dong et al. paper | Sun Oct 25 |
-| **Labeling round 1:** label your 50 **on your own** (don't compare with Logan until both are done) | **Tue Oct 27** |
+| ✅ Dong paper: [reading brief](../docs/reviews/2026-10-19_dong-paper-brief_mehul.md) (skim the PDF intro/conclusion to confirm) | Done Oct 19 |
+| **Labeling round 1:** fill in the [Excel workbook](../docs/part3-metrics/labeling_round_1/labeling_workbook.xlsx) **on your own** (~40 min; no one can do this for you, since it's the human-rater check); submit Tue Oct 27 | **Tue Oct 27** |
 | Run `python3 -m src.eval.irr`; share agreement scores + AI overclaim rate | Wed Oct 28 |
 | Red-team set: ✅ v0 drafted (20 cases). Shu wires it in; first with/without run | ~Nov 3 |
 | Present "how we check our results" to Julie | Thu Oct 29 |
@@ -88,7 +88,8 @@
 
 ### Everyone
 - Finish your blank boxes in the Oct 18 capture form: **Mon Oct 19 EOD** (2b, 6a, 6b, 6d, 8a, 8c, 8d, 8e, 9a still open)
-- Read the Dong et al. paper: **Sun Oct 25** (Shu's summary: `docs/reviews/2026-10-17_dong-et-al-paper-review_shu.md`)
+- Read the Dong et al. paper: **Sun Oct 25** (Shu's review + Mehul's brief with our companies' numbers are in `docs/reviews/`)
+- Raters (Mehul, Logan, Yen-Chu): use the Excel labeling workbook; **submit on Tue Oct 27, not earlier**
 - Write your paragraph in the [TP2 outline](../docs/tp2/progress_report_draft.md): **Mon Nov 2**
 - Practice run (Tue or Wed, chosen Oct 25), then the Julie meeting **Thu Oct 29, 10 am**
 
