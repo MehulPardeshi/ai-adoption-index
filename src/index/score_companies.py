@@ -9,8 +9,14 @@
 
 Run from the repo root:
     python3 -m src.index.score_companies
-Writes data/processed/sec/company_scores_v0.csv
+    python3 -m src.index.score_companies --labels data/processed/sec/agent_labels_v1.csv \
+        --out data/processed/sec/agent_scores_v1.csv          # score the agent's labels
+Writes data/processed/sec/company_scores_v0.csv by default.
+
+--ent-counts (off by default, pending the #33 vote): an ENT label ("uses AI, area not named")
+adds its weight once to the AI Use Score; the denominator stays 33 and the score is capped at 100.
 """
+import argparse
 import csv
 from collections import defaultdict
 from pathlib import Path
@@ -20,7 +26,7 @@ from src.nlp.taxonomy_v0 import ENABLERS, EVIDENCE_WEIGHT, LABELS, SCENARIOS, re
 OUT = Path("data/processed/sec/company_scores_v0.csv")
 
 
-def score(labels):
+def score(labels, ent_counts=False):
     best = defaultdict(dict)            # (ticker, year) -> {scenario: weight}
     talk = defaultdict(lambda: [0, 0])  # (ticker, year) -> [N count, substantive]
     names = {}
@@ -37,11 +43,11 @@ def score(labels):
     out = []
     for key in sorted(talk):
         b, (n, sub) = best[key], talk[key]
-        use = sum(v for s, v in b.items() if s in SCENARIOS)
+        use = sum(v for s, v in b.items() if s in SCENARIOS or (ent_counts and s == "ENT"))
         ready = sum(v for s, v in b.items() if s in ENABLERS)
         out.append({
             "company": names[key[0]], "ticker": key[0], "fiscal_year": key[1],
-            "ai_use_score": round(100 * use / (3 * len(SCENARIOS))),
+            "ai_use_score": min(100, round(100 * use / (3 * len(SCENARIOS)))),
             "scenarios_with_use": " ".join(sorted(s for s in b if s in SCENARIOS)),
             "readiness_score": round(100 * ready / (3 * len(ENABLERS))),
             "talk_ratio_pct": round(100 * n / sub) if sub else "",
@@ -51,15 +57,21 @@ def score(labels):
 
 
 def main():
-    rows = score(read(LABELS))
-    OUT.parent.mkdir(parents=True, exist_ok=True)
-    with open(OUT, "w", newline="", encoding="utf-8") as fh:
+    ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
+    ap.add_argument("--labels", default=str(LABELS), help="labels CSV (default: the v0 draft labels)")
+    ap.add_argument("--out", default=str(OUT), help="scores CSV to write")
+    ap.add_argument("--ent-counts", action="store_true", help="let ENT count once toward the AI Use Score")
+    a = ap.parse_args()
+    out_path = Path(a.out)
+    rows = score(read(a.labels), ent_counts=a.ent_counts)
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    with open(out_path, "w", newline="", encoding="utf-8") as fh:
         w = csv.DictWriter(fh, fieldnames=list(rows[0].keys()))
         w.writeheader()
         w.writerows(rows)
     for r in rows:
         print(r)
-    print(f"-> {OUT}")
+    print(f"-> {out_path}")
 
 
 if __name__ == "__main__":

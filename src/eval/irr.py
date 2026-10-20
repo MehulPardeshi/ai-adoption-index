@@ -22,7 +22,9 @@ Check #3 preview: AI vs. the human majority (items where most humans agree)
 
 Writes disagreements.csv (human vs. human) and ai_vs_humans.csv for the team to discuss.
 Run from the repo root:  python3 -m src.eval.irr
+Score the agent instead of the draft labels:  python3 -m src.eval.irr --ai-labels data/processed/sec/agent_labels_v1.csv
 """
+import argparse
 import csv
 import itertools
 from collections import Counter
@@ -87,9 +89,9 @@ def load_humans() -> dict[str, dict[str, dict]]:
     return humans
 
 
-def load_ai(items: set[str]) -> dict[str, dict]:
+def load_ai(items: set[str], path: Path = AI_LABELS) -> dict[str, dict]:
     return {r["passage_id"]: {"evidence": r["evidence_v0"].strip().upper(), "scenarios": r["scenarios_v0"]}
-            for r in csv.DictReader(AI_LABELS.open(encoding="utf-8")) if r["passage_id"] in items}
+            for r in csv.DictReader(Path(path).open(encoding="utf-8")) if r["passage_id"] in items}
 
 
 def human_agreement(humans: dict, items: list[str]) -> None:
@@ -155,6 +157,9 @@ def ai_vs_humans(humans: dict, ai: dict, items: list[str]) -> None:
 
 
 def main() -> None:
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--ai-labels", default=str(AI_LABELS), help="AI labels CSV (default: the AI-assisted draft labels)")
+    args = ap.parse_args()
     humans = load_humans()
     if not humans:
         print("No completed rater_<name>.csv files yet in", ROUND)
@@ -168,7 +173,7 @@ def main() -> None:
         human_agreement(humans, items)
     else:
         print("Only one human rater so far; check #2 needs at least two.\n")
-    ai_vs_humans(humans, load_ai(set(items)), items)
+    ai_vs_humans(humans, load_ai(set(items), args.ai_labels), items)
 
 
 if __name__ == "__main__":

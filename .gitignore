@@ -26,6 +26,8 @@ htmlcov/
 data/raw/*
 !data/raw/.gitkeep
 !data/raw/README.md
+# LLM response cache (rebuildable; may hold full prompts)
+data/cache/
 # Large or binary data files anywhere
 *.parquet
 *.feather
