@@ -4,3 +4,4 @@
 # src/edgar/download_sec_filings.py
 requests>=2.31
 beautifulsoup4>=4.12
+openpyxl
