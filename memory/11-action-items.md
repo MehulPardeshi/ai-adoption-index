@@ -1,7 +1,7 @@
 # 11 — Action Items (who is doing what, right now)
 
 > **Read this to answer "what should I work on next?"** Updated after every meeting from `meetings/` minutes ([procedure](../meetings/README.md)). The shared spreadsheet remains the source of truth for owners and deadlines; this file mirrors it for AI tools.
-> **Last updated:** 2026-10-18, from the email thread with Julie (Oct 10–11) and the repo status. Previous update: [Oct 4 meeting](../meetings/2026-10-04-internal.md).
+> **Last updated:** 2026-10-19, from the [Oct 18 meeting](../meetings/2026-10-18-internal.md) (capture form + transcript). Previous: [Oct 4 meeting](../meetings/2026-10-04-internal.md).
 > **Pinned summary for humans:** [#45 "Who does what"](https://github.com/MehulPardeshi/ai-adoption-index/issues/45), with @mentions per person.
 > **GitHub:** each task below is an issue in the **"Sprint: Oct 18–Nov 6 (TP2)"** milestone on the [project board](https://github.com/users/MehulPardeshi/projects/1).
 
@@ -9,16 +9,20 @@
 - ✅ TP1 submitted (Fri Oct 2).
 - 💤 **Oct 5–17: finals, then fall break.** No project work expected, apart from Snehal's email to Julie and the optional review of her materials.
 - 🏁 **Sprint: Sun Oct 18 → Fri Nov 6 (TP2).** Test run on 6 companies → show Julie **Thu Oct 29, 10–11 am ET** (confirmed) → TP2 report → submit **Fri Nov 6, 5 pm**.
-- **PoC companies:** JPMorgan Chase, Bank of America, Capital One, Wells Fargo, Charles Schwab, Principal Financial Group · **Period:** 2024–2026 · **Sources:** SEC 10-K/10-Q, AI Intensity GitHub dataset, earnings calls; LinkedIn only if the ethics memo clears it.
+- **PoC companies:** JPMorgan Chase, Bank of America, Capital One, Wells Fargo, Charles Schwab, Principal Financial Group · **Period:** 2024–2026 · **Sources:** SEC 10-K/10-Q, AI Intensity GitHub dataset (Shu's Dong baseline), earnings calls (cleared sources only); job postings pending guidance from Rachel/mentor. **Citigroup** kept as a benchmark.
+- **AI model:** DeepSeek (≈$20–30; ⚠️ funding source needed), local Ollama model as fallback. **Agent:** 7 tools.
 
 ## Key dates
 | Date | What |
 |---|---|
 | ~~Mon Oct 5~~ ✅ | Snehal emailed Julie (Oct 10–11); Julie reviewed the scope and sent the Vanguard paper |
-| **Sun Oct 18, 8–9 pm** | Team meeting: decide the AI model and agent tools; everyone brings research + an action plan |
-| Fri Oct 23 | Ethics memo final · SEC filings downloaded · eval plan v1 · agent design · dashboard tool/sketch |
-| Sun Oct 25 | Team meeting: progress check |
-| Wed Oct 28 | Taxonomy v0 done (Tue Oct 27) · first working agent · first labeling round · first dashboard view · practice run |
+| ✅ Sun Oct 18 | Team meeting ([minutes](../meetings/2026-10-18-internal.md)) |
+| Mon Oct 19 EOD | Everyone finishes their blank boxes in the Oct 18 capture form |
+| Wed Oct 22 | SEC runs consolidated (Shu + Yen-Chu) · taxonomy proposals finalized (Shu, if Yen-Chu is still out) · ethics memo draft in the repo (Logan, Wed Oct 21) |
+| Fri Oct 23 | Ethics memo final · Logan asks Rachel/mentor about job postings · eval plan v1 final |
+| **Sun Oct 25, 8–9 pm** | Team meeting · dashboard mock-up (Snehal) · DeepSeek funding settled · practice-run day chosen · everyone has read the Dong paper |
+| Tue Oct 27 | Taxonomy v0 final · labeling round 1 done (Mehul, Logan, Yen-Chu, each separately) |
+| Wed Oct 28 | Agent runs end to end on the six FY2025 10-Ks · agreement scores · first dashboard view · practice run (Tue or Wed) |
 | **Thu Oct 29, 10–11 am ET** | ✅ Confirmed: "Checkpoint: AI Adoption Index [Team 5]" on Zoom, with Julie, Dr. Chung and Hengkai invited (calendar invite from Snehal, Oct 11) |
 | Sun Nov 1 | Team meeting: Julie's feedback → split the TP2 report |
 | Wed Nov 4 / Thu Nov 5 | TP2 report draft / board clean-up |
@@ -29,56 +33,63 @@
 ### Mehul Pardeshi (PM + Responsible AI + Evaluation lead)
 | Task | Due |
 |---|---|
-| ✅ Reviewed Julie's materials: [summary](../docs/reviews/2026-10-18_client-materials-review_mehul.md) | Done Oct 18 |
-| ✅ Evaluation plan v1 drafted: [`docs/part3-metrics/evaluation_plan.md`](../docs/part3-metrics/evaluation_plan.md) (team review Oct 18; finalize by Fri Oct 23) | Fri Oct 23 |
-| Labeling round 1: kit ready ([`labeling_round_1/`](../docs/part3-metrics/labeling_round_1/README.md)). Label your 50 blind by Tue Oct 27; run `python3 -m src.eval.irr` Wed Oct 28 | Tue Oct 27 / Wed Oct 28 |
-| Red-team test set for the guardrails (evaluation check 6), with Shu | Wed Oct 28 |
-| Compile the TP2 report draft (1–3 pages) | Wed Nov 4 |
-| Clean up the GitHub board; screenshot for TP2 | Thu Nov 5 |
-| Responsible AI: guardrail ideas for the agent (with/without comparison, course req. #7) | ongoing |
+| ✅ Reviewed Julie's materials · Evaluation plan v1.1 · labeling kit · `irr.py` | Done Oct 18–19 |
+| Finish your blank capture-form boxes: evaluation plan OK? (6a), targets (6b), who reruns (6d), Julie agenda (8a), TP2 split (9a) | Mon Oct 19 EOD |
+| Settle the DeepSeek funding source with Shu (or fall back to a free/local model) | Sun Oct 25 |
+| Read the Dong et al. paper | Sun Oct 25 |
+| **Labeling round 1:** label your 50 **on your own** (don't compare with Logan until both are done) | **Tue Oct 27** |
+| Run `python3 -m src.eval.irr`; share agreement scores + AI overclaim rate | Wed Oct 28 |
+| Red-team test set for the guardrails (check 6), with Shu | Wed Oct 28 |
+| Present "how we check our results" to Julie | Thu Oct 29 |
+| TP2 report draft (combine everyone's paragraphs) / board clean-up | Wed Nov 4 / Thu Nov 5 |
 
-### Yen-Chu Chen (Dataset Builder)
+### Yen-Chu Chen (Dataset Builder): excused absence on Oct 18; tasks resume when available
 | Task | Due |
 |---|---|
-| Before Oct 18: review Julie's paper/GitHub; research; bring an action plan | Sun Oct 18 |
-| Download SEC 10-K/10-Q (2024–2026) for the 6 companies (with Shu) | Fri Oct 23 |
-| Read 10–15 sample reports; list how companies use AI (with Shu) | Sat Oct 24 |
-| Taxonomy v0: first categories (with Shu) | Tue Oct 27 |
-| Collect earnings-call transcripts for the 6 companies | TBD (confirm Oct 18) |
-| Assess LinkedIn as a source, **only after** Logan's ethics memo clears it | after Oct 23 |
-| **Labeling round 1:** label 50 passages blind as a human rater (don't reopen the AI-assisted draft labels) | **Tue Oct 27** |
+| Review Shu's taxonomy proposals in your doc (marked ▶ SHU). If you're unavailable, Shu finalizes | Wed Oct 22 |
+| Consolidate your SEC run with Shu's (yours as the base) | Wed Oct 22 |
+| Earnings-call transcript **source list** for Logan to clear; collect only cleared sources; no transcript text in GitHub | TBD |
+| **Labeling round 1:** label 50 passages on your own (don't reopen the AI-assisted draft labels) | **Tue Oct 27** |
+| Present the test-run findings to Julie (Shu covers if you're unavailable) | Thu Oct 29 |
 | **Submit TP2 on Canvas** | **Fri Nov 6, 5 pm** |
 
 ### Logan Mai (Market & User Researcher / BA)
 | Task | Due |
 |---|---|
-| Before Oct 18: review Julie's paper/GitHub; research; bring an action plan | Sun Oct 18 |
-| **Ethics / legal sourcing memo** (incl. whether LinkedIn and earnings calls may be used) | Draft Wed Oct 21; **final Fri Oct 23** |
+| **Ethics memo:** move the draft from Google Drive into `docs/part1-sourcing/ethics_memo.md` for review. Note that SEC filings are public *company* filings, not government records | Wed Oct 21 |
+| Ethics memo final | **Fri Oct 23** |
+| Ask Rachel/mentor (Hengkai) for guidance on job-posting data (they come and go; can we cite company careers pages?) | Fri Oct 23 |
+| Review the transcript sources' permissions (when Yen-Chu sends the list) | TBD |
 | Compare existing AI-adoption trackers (with Snehal) | Sat Oct 24 |
-| **Labeling round 1:** label 50 passages blind (about an hour), following [`labeling_round_1/README.md`](../docs/part3-metrics/labeling_round_1/README.md) | **Tue Oct 27** |
+| Read the Dong et al. paper | Sun Oct 25 |
+| **Labeling round 1:** label 50 passages **on your own**, following [`labeling_round_1/README.md`](../docs/part3-metrics/labeling_round_1/README.md) | **Tue Oct 27** |
+| Present the data rules (ethics) to Julie | Thu Oct 29 |
 
 ### Shu Pu (AI Engineer / Solution Architect)
 | Task | Due |
 |---|---|
-| Before Oct 18: research free AI models + agent tool ideas; review the AI Intensity GitHub dataset | Sun Oct 18 |
-| Download SEC filings (with Yen-Chu) | Fri Oct 23 |
-| Agent design: at least 5 custom tools | Fri Oct 23 |
-| Sample reading + taxonomy v0 (with Yen-Chu) | Sat Oct 24 / Tue Oct 27 |
-| **First working AI agent** (TP2's 12-point item) | Wed Oct 28 |
+| ✅ Second SEC run + Dong baseline + Dong paper review (PR #48); taxonomy answers (PR #50) | Done Oct 19 |
+| Consolidate the two SEC runs into one version (Yen-Chu's as the base, plus your extras) | Wed Oct 22 |
+| Finalize the taxonomy proposals if Yen-Chu is still unavailable | Wed Oct 22 |
+| DeepSeek: confirm the cost and a funding source with Mehul; pin the model version; Ollama fallback | Sun Oct 25 |
+| Build `classify_passage`, `verify_label`, `lookup_baseline` (7 tools in total) | Wed Oct 28 |
+| **Agent runs end to end** on the six FY2025 10-Ks and writes a CSV for the dashboard (TP2: 12 pts) | **Wed Oct 28** |
+| Present the categories + the AI agent to Julie | Thu Oct 29 |
 
 ### Snehal Paliwal (Dashboard PM + client communication)
 | Task | Due |
 |---|---|
-| ✅ Emailed Julie; Oct 29, 10 am meeting booked; asked Julie for links to the other papers | Done Oct 11 |
-| Before Oct 18: review Julie's paper/GitHub; research; bring an action plan | Sun Oct 18 |
-| Dashboard: Streamlit mock-up; check hosting (Vercel vs Streamlit Community Cloud) | Start Fri Oct 23 |
-| First dashboard view with PoC data | Wed Oct 28 |
+| Dashboard mock-up (Streamlit) on a separate branch in our repo; confirm hosting (Streamlit Community Cloud vs. Vercel) | **Sun Oct 25** (moved from Fri Oct 23) |
+| First dashboard view with PoC data: per company, the AI use cases, with click-through to detail | Wed Oct 28 |
 | Compare existing AI trackers (with Logan) | Sat Oct 24 |
-| Lead the progress meeting with Julie | Thu Oct 29 |
+| Read the Dong et al. paper | Sun Oct 25 |
+| Send Julie the agenda (suggested: by Mon Oct 26) | Mon Oct 26 |
+| Host the Julie meeting + show the dashboard | Thu Oct 29 |
 
 ### Everyone
-- Practice run of what we show Julie: **Wed Oct 28**
-- Discuss labeling disagreements (round 1 results): **Wed Oct 28**
+- Finish your blank boxes in the Oct 18 capture form: **Mon Oct 19 EOD** (2b, 6a, 6b, 6d, 8a, 8c, 8d, 8e, 9a still open)
+- Read the Dong et al. paper: **Sun Oct 25**
+- Practice run (Tue or Wed, chosen Oct 25), then the Julie meeting **Thu Oct 29, 10 am**
 
 ## Deliverable owners (whole project)
 | Deliverable | Owner | Support |
