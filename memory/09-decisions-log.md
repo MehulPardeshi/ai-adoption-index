@@ -246,3 +246,13 @@
 - **Follow-ups:**
   - **Labeling round:** the form's "Logan and Mehul can work together" means coordinating timing only. Each labels separately.
   - Unanswered form boxes are due Oct 19 EOD.
+
+### 2026-10-19 — Labeling round 1: Mehul steps back as a rater; Snehal asked to replace him
+- **Decision:**
+  - Mehul (Evaluation Lead) **won't label**. He designs the round, runs `src/eval/irr.py` and leads the discussion of disagreements.
+  - **Snehal is asked to take his place as the third blind human rater** (about 40 min with the Excel workbook, by Tue Oct 27). **Pending her agreement.**
+  - **Fallback:** if Snehal can't, check 2 runs with **two raters (Logan + Yen-Chu)**, and TP2 notes that Yen-Chu had seen the AI-assisted draft labels.
+- **Context / why:** Mehul couldn't commit the time to label. AI-generated labels can't stand in for a human rater (see the 2026-10-19 entry on AI-assisted labels). Separating the analyst from the raters is also methodologically cleaner.
+- **Decided by:** Mehul Pardeshi (Evaluation Lead / PM).
+- **Supersedes:** the rater list (Mehul, Logan, Yen-Chu) in the earlier 2026-10-19 entry.
+- **Follow-ups:** Snehal confirms on WhatsApp. If she agrees, she labels by Tue Oct 27.
