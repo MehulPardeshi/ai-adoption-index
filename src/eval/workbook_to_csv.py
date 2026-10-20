@@ -1,7 +1,7 @@
 """Convert a filled labeling workbook into rater_<name>.csv (for src/eval/irr.py), with checks.
 
 Usage (repo root):  python3 -m src.eval.workbook_to_csv path/to/labeling_<name>.xlsx <name>
-Checks: every item has an evidence code; codes are valid; scenarios only on D1/D2; scenario codes known.
+Checks: every item has an evidence code; codes are valid; scenarios required on D2/D1/P and blank on N/X; scenario codes known.
 """
 import csv
 import sys
@@ -26,9 +26,9 @@ def main(path: str, name: str) -> None:
         codes = [c.strip().upper() for c in str(sc).replace(",", ";").split(";") if c.strip()]
         if ev not in LEVELS:
             problems.append(f"item {item}: evidence '{ev or 'blank'}'")
-        if codes and ev not in ("D1", "D2"):
+        if codes and ev in ("N", "X"):
             problems.append(f"item {item}: scenarios given but evidence is {ev}")
-        if ev in ("D1", "D2") and not codes:
+        if ev in ("D2", "D1", "P") and not codes:
             problems.append(f"item {item}: {ev} needs at least one scenario")
         bad = [c for c in codes if c not in CODES]
         if bad:

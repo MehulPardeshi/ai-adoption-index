@@ -1,6 +1,6 @@
 # Labeling round 1: instructions for raters
 
-**Raters:** Logan, Yen-Chu, Snehal (Snehal pending her OK) · **Analysis:** Mehul · **Deadline:** Tue Oct 27 (end of day) · **Time:** about 60–75 minutes
+**Raters:** Logan, Yen-Chu, Snehal · **Analysis:** Mehul · **Deadline:** Tue Oct 27 (end of day) · **Time:** about 60–75 minutes
 **Why:** this is our inter-rater reliability check (evaluation check #2). We test whether two people using the same rules give the same labels. See the [evaluation plan](../evaluation_plan.md).
 
 ## Before you start (5 min)
@@ -29,7 +29,7 @@ Or send the filled workbook to Mehul, who converts it and runs the scores.
 |---|---|
 | `about_ai` | `Y` if the passage is really about artificial intelligence, otherwise `N` |
 | `evidence` | **One of:** `D2` (deployed, specific: names a tool, use, metric, role or date) · `D1` (says the company uses or governs AI, no specifics) · `P` (plans or expects to use AI) · `N` (risk, threat, trend, regulation, hedged "may use" talk, or analyst questions) · `X` (definition, acronym list, heading) |
-| `scenarios` | **Only if D1 or D2:** one or more codes separated by `;`. Codes: `CX`, `ADV`, `CREDIT`, `RISKM`, `FRAUD`, `SURV`, `CYBER`, `DEV`, `PROD`, `OPS`, `MKT`, `ENT`, plus the enablers `GOV`, `TALENT`, `INVEST`. Leave blank otherwise |
+| `scenarios` | **Required for D2, D1 and P; blank for N and X.** One or more codes separated by `;`. Codes: `CX`, `ADV`, `CREDIT`, `RISKM`, `FRAUD`, `SURV`, `CYBER`, `DEV`, `PROD`, `OPS`, `MKT`, `ENT`, plus the enablers `GOV`, `TALENT`, `INVEST`. Leave blank otherwise |
 | `note` | Optional: why you were unsure |
 
 Tips: a mixed passage gets its **highest** level. "May use" is **N**. Text about *other* companies or criminals using AI is **N**.

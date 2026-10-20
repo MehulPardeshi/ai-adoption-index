@@ -21,7 +21,7 @@
 | Wed Oct 22 | SEC runs consolidated (Shu + Yen-Chu) · taxonomy proposals finalized (Shu, if Yen-Chu is still out) · ethics memo draft in the repo (Logan, Wed Oct 21) |
 | Fri Oct 23 | Ethics memo final · Logan asks Rachel/mentor about job postings · eval plan v1 final |
 | **Sun Oct 25, 8–9 pm** | Team meeting · dashboard mock-up (Snehal) · DeepSeek funding settled · practice-run day chosen · everyone has read the Dong paper |
-| Tue Oct 27 | Taxonomy v0 final · labeling round 1 done (Logan, Yen-Chu, Snehal pending her OK; each separately) |
+| Tue Oct 27 | Taxonomy v0 final · labeling round 1 done (Logan, Yen-Chu, Snehal; each separately) |
 | Wed Oct 28 | Agent runs end to end on the six FY2025 10-Ks · agreement scores · first dashboard view · practice run (Tue or Wed) |
 | **Thu Oct 29, 10–11 am ET** | ✅ Confirmed: "Checkpoint: AI Adoption Index [Team 5]" on Zoom, with Julie, Dr. Chung and Hengkai invited (calendar invite from Snehal, Oct 11) |
 | Sun Nov 1 | Team meeting: Julie's feedback → split the TP2 report |
@@ -37,7 +37,7 @@
 | ✅ Form boxes answered (6a, 6b, 6d, 8a, 9a; see the minutes' follow-up) · red-team set v0 · labeling cheat sheet · TP2 outline · Julie talking points | Done Oct 19 |
 | Bring the DeepSeek funding options to the team vote (#55) | Sun Oct 25 |
 | ✅ Dong paper read in full; [verified brief](../docs/reviews/2026-10-19_dong-paper-brief_mehul.md), with 3 corrections to earlier notes | Done Oct 19 |
-| Labeling round 1: **no longer a rater** (Oct 19). Ask Snehal to take your place (message drafted); collect the raters' workbooks; convert them | Tue Oct 27 |
+| Labeling round 1: **no longer a rater**. Snehal confirmed as replacement (Oct 20). Collect the raters' workbooks and convert them | Tue Oct 27 |
 | Run `python3 -m src.eval.irr`; share agreement scores + AI overclaim rate | Wed Oct 28 |
 | Red-team set: ✅ v0 drafted (20 cases). Shu wires it in; first with/without run | ~Nov 3 |
 | Present "how we check our results" to Julie | Thu Oct 29 |
@@ -48,7 +48,7 @@
 |---|---|
 | Review Shu's taxonomy proposals in your doc (marked ▶ SHU). If you're unavailable, Shu finalizes | Wed Oct 22 |
 | Consolidate your SEC run with Shu's (yours as the base) | Wed Oct 22 |
-| Earnings-call transcript **source list** for Logan to clear; collect only cleared sources; no transcript text in GitHub | TBD |
+| **Earnings-call transcripts:** collect for the 6 companies (+ Citi), and record each source for Logan to review. Collect only cleared sources; no transcript text in GitHub without a documented basis | **Sun Oct 25** |
 | **Labeling round 1:** label 50 passages on your own (don't reopen the AI-assisted draft labels) | **Tue Oct 27** |
 | Present the test-run findings to Julie (Shu covers if you're unavailable) | Thu Oct 29 |
 | **Submit TP2 on Canvas** | **Fri Nov 6, 5 pm** |
@@ -59,7 +59,7 @@
 | **Ethics memo:** move the draft from Google Drive into `docs/part1-sourcing/ethics_memo.md` for review. Note that SEC filings are public *company* filings, not government records | Wed Oct 21 |
 | Ethics memo final | **Fri Oct 23** |
 | Ask Rachel/mentor (Hengkai) for guidance on job-posting data (they come and go; can we cite company careers pages?) | Fri Oct 23 |
-| Review the transcript sources' permissions (when Yen-Chu sends the list) | TBD |
+| Review the transcript sources' permissions (Yen-Chu records them this week) | Sun Oct 25 |
 | Compare existing AI-adoption trackers (with Snehal) | Sat Oct 24 |
 | Read the Dong et al. paper | Sun Oct 25 |
 | **Labeling round 1:** label 50 passages **on your own**, following [`labeling_round_1/README.md`](../docs/part3-metrics/labeling_round_1/README.md) | **Tue Oct 27** |
@@ -71,8 +71,8 @@
 | ✅ Second SEC run + Dong baseline + Dong paper review (PR #48); taxonomy answers (PR #50) | Done Oct 19 |
 | Consolidate the two SEC runs into one version (Yen-Chu's as the base, plus your extras) | Wed Oct 22 |
 | Finalize the taxonomy proposals if Yen-Chu is still unavailable | Wed Oct 22 |
-| DeepSeek: confirm the cost and a funding source with Mehul; pin the model version; Ollama fallback | Sun Oct 25 |
-| Build `classify_passage`, `verify_label`, `lookup_baseline` (7 tools in total) | Wed Oct 28 |
+| DeepSeek: after Sunday's vote, add the key to `.env` and do the first real run (est. about $0.05/run, under $5 total); pin the model version | Sun Oct 25 → first run |
+| ✅ Agent v1 merged (#60): 7 tools, guardrail, batch/chat/red-team runners, 19 offline tests. **Not yet connected to DeepSeek** | Done Oct 20 |
 | **Agent runs end to end** on the six FY2025 10-Ks and writes a CSV for the dashboard (TP2: 12 pts) | **Wed Oct 28** |
 | Present the categories + the AI agent to Julie | Thu Oct 29 |
 
@@ -84,13 +84,13 @@
 | Compare existing AI trackers (with Logan) | Sat Oct 24 |
 | Read the Dong et al. paper | Sun Oct 25 |
 | Send Julie the agenda (suggested: by Mon Oct 26) | Mon Oct 26 |
-| **Labeling round 1 (if you agree, replacing Mehul):** label 50 passages on your own with the [Excel workbook](../docs/part3-metrics/labeling_round_1/labeling_workbook.xlsx), about 40 min | **Tue Oct 27** |
+| **Labeling round 1 (confirmed Oct 20, replacing Mehul):** label 50 passages on your own with the [Excel workbook](../docs/part3-metrics/labeling_round_1/labeling_workbook.xlsx), about 40 min | **Tue Oct 27** |
 | Host the Julie meeting + show the dashboard | Thu Oct 29 |
 
 ### Everyone
 - Finish your blank boxes in the Oct 18 capture form: **Mon Oct 19 EOD** (2b, 6a, 6b, 6d, 8a, 8c, 8d, 8e, 9a still open)
 - Read the Dong et al. paper: **Sun Oct 25** (Shu's review + Mehul's brief with our companies' numbers are in `docs/reviews/`)
-- Raters (Logan, Yen-Chu, Snehal if she agrees): use the Excel labeling workbook; **submit on Tue Oct 27, not earlier**. Mehul runs the analysis
+- Raters (Logan, Yen-Chu, Snehal): use the Excel labeling workbook; **submit on Tue Oct 27, not earlier**. Mehul runs the analysis
 - Write your paragraph in the [TP2 outline](../docs/tp2/progress_report_draft.md): **Mon Nov 2**
 - Practice run (Tue or Wed, chosen Oct 25), then the Julie meeting **Thu Oct 29, 10 am**
 

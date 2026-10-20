@@ -21,8 +21,8 @@ Keep this open while you label. The examples are **made up**, so they don't give
 - Generic forward-looking-statement lists ("…technology changes, including AI") → **N**.
 - A heading alone → **X**.
 
-## 3. Scenarios (`scenarios`): only if D1 or D2
-Separate several codes with `;`.
+## 3. Scenarios (`scenarios`): required for D2, D1 and P; leave blank for N and X
+Separate several codes with `;`. For **P**, use the scenario of the *planned* use (e.g., "we plan to use AI in underwriting" → `P` + `CREDIT`).
 
 `CX` customer service · `ADV` advice/wealth/retirement · `CREDIT` lending/underwriting · `RISKM` risk & finance models · `FRAUD` fraud/AML/KYC · `SURV` compliance & trade surveillance · `CYBER` cyber defense · `DEV` software engineering · `PROD` employee productivity tools · `OPS` operations/data/reporting · `MKT` markets & trading · `ENT` enterprise-wide, area not named
 

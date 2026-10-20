@@ -13,7 +13,7 @@ Check #2: human vs. human, on the evidence level (D2/D1/P/N/X)
   * Quadratic-weighted kappa on the ordered levels N < P < D1 < D2 (near-misses count
     partly; items any rater marked X are left out)
   * "Use vs. no use" kappa (D1/D2 vs. everything else), the call that moves the score
-  * Scenario overlap (Jaccard) on items both raters coded D1/D2
+  * Scenario overlap (Jaccard) on items both raters coded D2/D1/P (the levels that need a scenario)
 
 Check #3 preview: AI vs. the human majority (items where most humans agree)
   * Accuracy, Cohen's kappa, use/no-use kappa
@@ -34,6 +34,7 @@ ROUND = Path("docs/part3-metrics/labeling_round_1")
 AI_LABELS = Path("data/processed/sec/passage_labels_v0.csv")
 LEVELS = ["D2", "D1", "P", "N", "X"]
 ORDER = {"N": 0, "P": 1, "D1": 2, "D2": 3}
+SCEN_LEVELS = {"D2", "D1", "P"}  # levels that carry scenario codes (src/nlp/taxonomy_v0.py)
 PROVISIONAL_TARGET = 0.60      # "substantial" agreement (Landis & Koch, 1977); revisit after round 1
 OVERCLAIM_TARGET = 0.05        # AI may wrongly claim use on at most 5% of passages
 
@@ -102,7 +103,7 @@ def human_agreement(humans: dict, items: list[str]) -> None:
         ex = [humans[x][i]["evidence"] for i in items]
         ey = [humans[y][i]["evidence"] for i in items]
         ordinal = [(a, b) for a, b in zip(ex, ey) if a != "X" and b != "X"]
-        both = [i for i in items if use(humans[x][i]["evidence"]) == use(humans[y][i]["evidence"]) == "USE"]
+        both = [i for i in items if humans[x][i]["evidence"] in SCEN_LEVELS and humans[y][i]["evidence"] in SCEN_LEVELS]
         jac = (sum(jaccard(humans[x][i].get("scenarios", ""), humans[y][i].get("scenarios", "")) for i in both) / len(both)
                if both else float("nan"))
         print(f"{x + ' vs ' + y:<22}{cohen_kappa(ex, ey):>8.2f}"
