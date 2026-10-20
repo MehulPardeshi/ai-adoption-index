@@ -223,3 +223,26 @@
 - **Follow-ups:**
   - Note in TP2 that Yen-Chu had seen the AI draft labels beforehand, so her agreement with the AI may be inflated.
   - Record the AI assistance per the course GenAI policy.
+
+### 2026-10-18 — Internal meeting: data, taxonomy proposals, sources, model, agent, dashboard
+- **Decision:** See the [minutes](../meetings/2026-10-18-internal.md) for all 14 decisions. The main ones:
+  - **Data:** keep Citigroup as a benchmark. Consolidate Yen-Chu's and Shu's SEC runs (hers as the base).
+  - **Taxonomy:** Shu's proposals (weights 3/1/0.5; a general multi-area sentence counts once, as ENT; keep "predictive models" but label non-AI hits X) are pending Yen-Chu's review, or Shu finalizes by Wed Oct 22.
+  - **Sources and ethics:**
+    - keep the necessary SEC passages, with full citations;
+    - earnings calls only from cleared sources, with no transcript text in GitHub without a documented redistribution basis;
+    - job postings: Logan asks Rachel/mentor for guidance.
+  - **AI model:** **DeepSeek** (temperature 0, fixed JSON schema), local Ollama model as fallback.
+  - **Agent:** **7 tools** (adds `lookup_baseline`); runs end to end on the six FY2025 10-Ks by Oct 28.
+  - **Dashboard:** Streamlit; mock-up on a branch in our repo by Oct 25.
+  - **Julie meeting:** presenter split accepted.
+  - Everyone reads the Dong paper.
+- **Context / why:** First meeting after fall break. Yen-Chu was absent (excused). Source: capture form + transcript.
+- **Decided by:** Team (Mehul, Snehal, Shu, Logan).
+- **Supersedes:**
+  - the "free model only" assumption: DeepSeek costs about $20–30. ⚠️ The scope constraint says any cost needs a team decision **and an identified funding source**, which is still open;
+  - the Oct 4 "LinkedIn pending the memo" note, now replaced by asking Rachel/mentor;
+  - the dashboard mock-up date (Oct 23 → Oct 25).
+- **Follow-ups:**
+  - **Labeling round:** the form's "Logan and Mehul can work together" means coordinating timing only. Each labels separately.
+  - Unanswered form boxes are due Oct 19 EOD.
