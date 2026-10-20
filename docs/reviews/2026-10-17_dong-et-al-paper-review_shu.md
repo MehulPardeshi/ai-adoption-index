@@ -2,6 +2,12 @@
 
 **By:** Shu Pu · **Date:** Oct 17, 2026 · Read from the SSRN PDF (human-downloaded; SSRN blocks automated access). Listed as #3 in [`docs/references.md`](../references.md).
 
+> **Correction note (added Oct 19 by Mehul, after checking the full paper; Shu's original text is unchanged below):**
+> - The risk result is a **lower cost of equity**, a **better information environment**, and **more exposure to technology-sector (systematic) risk** after 2020. It is not "risk shifting from systematic to firm-specific / higher idiosyncratic volatility".
+> - The version we have is dated **January 2026**.
+>
+> Details are in [Mehul's verified brief](2026-10-19_dong-paper-brief_mehul.md).
+
 Dong, F., Doukas, J. A., and Zhang, R., *"Artificial Intelligence Engagement, Firm Value, and Risk Transformation"*, working paper, SSRN 6051714 (2025).
 
 ## What the paper does

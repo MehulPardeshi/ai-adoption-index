@@ -36,7 +36,7 @@
 | ✅ Reviewed Julie's materials · Evaluation plan v1.1 · labeling kit · `irr.py` | Done Oct 18–19 |
 | ✅ Form boxes answered (6a, 6b, 6d, 8a, 9a; see the minutes' follow-up) · red-team set v0 · labeling cheat sheet · TP2 outline · Julie talking points | Done Oct 19 |
 | Bring the DeepSeek funding options to the team vote (#55) | Sun Oct 25 |
-| ✅ Dong paper: [reading brief](../docs/reviews/2026-10-19_dong-paper-brief_mehul.md) (skim the PDF intro/conclusion to confirm) | Done Oct 19 |
+| ✅ Dong paper read in full; [verified brief](../docs/reviews/2026-10-19_dong-paper-brief_mehul.md), with 3 corrections to earlier notes | Done Oct 19 |
 | **Labeling round 1:** fill in the [Excel workbook](../docs/part3-metrics/labeling_round_1/labeling_workbook.xlsx) **on your own** (~40 min; no one can do this for you, since it's the human-rater check); submit Tue Oct 27 | **Tue Oct 27** |
 | Run `python3 -m src.eval.irr`; share agreement scores + AI overclaim rate | Wed Oct 28 |
 | Red-team set: ✅ v0 drafted (20 cases). Shu wires it in; first with/without run | ~Nov 3 |
