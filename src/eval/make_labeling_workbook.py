@@ -30,7 +30,7 @@ CHEAT = [
     ("TIE-BREAKERS", "Mixed passage -> highest level. 'may use / could include' -> N. Other companies, criminals, the economy -> N. "
                      "Forward-looking-statement lists ('...technology changes, including AI') -> N. Heading alone -> X."),
     ("", ""),
-    ("SCENARIOS (only for D1/D2; separate with ;)", SCENARIOS),
+    ("SCENARIOS (required for D2, D1 and P; blank for N/X; separate with ;)", SCENARIOS),
     ("CX", "customer service"), ("ADV", "advice / wealth / retirement"), ("CREDIT", "lending / underwriting"),
     ("RISKM", "risk & finance models"), ("FRAUD", "fraud / AML / KYC"), ("SURV", "compliance & trade surveillance"),
     ("CYBER", "cyber defense"), ("DEV", "software engineering"), ("PROD", "employee productivity tools"),
@@ -76,17 +76,17 @@ def main() -> None:
     dv_ev = DataValidation(type="list", formula1='"D2,D1,P,N,X"', allow_blank=True, showDropDown=False)
     dv_ev.prompt, dv_ev.promptTitle = "D2 specific use · D1 general use · P plan · N no own use · X not substantive", "Evidence level"
     dv_sc = DataValidation(type="custom", formula1="TRUE", allow_blank=True)
-    dv_sc.prompt, dv_sc.promptTitle = "Only for D1/D2. Codes separated by ; e.g. CX;FRAUD", "Scenarios"
+    dv_sc.prompt, dv_sc.promptTitle = "Required for D2/D1/P, blank for N/X. Codes separated by ; e.g. CX;FRAUD", "Scenarios"
     for dv, col in ((dv_ai, "H"), (dv_ev, "I"), (dv_sc, "J")):
         ws.add_data_validation(dv)
         dv.add(f"{col}3:{col}{last}")
     red = PatternFill("solid", fgColor="F8CBAD")
-    # scenarios filled although evidence is not D1/D2 -> red
+    # scenarios filled although evidence is N or X -> red
     ws.conditional_formatting.add(f"J3:J{last}", FormulaRule(
-        formula=[f'AND(LEN($J3)>0,AND($I3<>"D1",$I3<>"D2"))'], fill=red))
-    # D1/D2 without scenarios -> red
+        formula=[f'AND(LEN($J3)>0,OR($I3="N",$I3="X"))'], fill=red))
+    # D2/D1/P without scenarios -> red
     ws.conditional_formatting.add(f"J3:J{last}", FormulaRule(
-        formula=[f'AND(OR($I3="D1",$I3="D2"),LEN($J3)=0)'], fill=red))
+        formula=[f'AND(OR($I3="D2",$I3="D1",$I3="P"),LEN($J3)=0)'], fill=red))
     ws.freeze_panes = "A3"  # keep the header visible; answer columns stay reachable on small screens
 
     cs = wb.create_sheet("Cheat sheet")

@@ -256,3 +256,16 @@
 - **Decided by:** Mehul Pardeshi (Evaluation Lead / PM).
 - **Supersedes:** the rater list (Mehul, Logan, Yen-Chu) in the earlier 2026-10-19 entry.
 - **Follow-ups:** Snehal confirms on WhatsApp. If she agrees, she labels by Tue Oct 27.
+
+### 2026-10-20 — Snehal confirmed as rater; scenario rule fixed; Yen-Chu's answers; agent v1; model cost
+- **Decision:**
+  - **Snehal confirmed** as the third rater (with Logan and Yen-Chu). Fallback: two raters.
+  - **Scenario rule:** scenario codes are required for **D2, D1 and P** (as in `src/nlp/taxonomy_v0.py`), not only D1/D2. Fixed in the rater instructions, workbook, checker, `irr.py` and red-team case RT20.
+  - **Yen-Chu:** keep Citigroup (agrees). She'll **collect earnings-call transcripts before Sun Oct 25**, recording each source for Logan's review.
+  - **Agent v1 merged** (#60): 7 tools, guardrail, red-team runner, 19 offline tests. Not yet connected to DeepSeek.
+- **Context / why:**
+  - Shu caught the scenario mismatch in #60, before labeling started.
+  - #60 estimates **about $0.05 per run and under $5 for the project**, which shrinks the #55 funding question.
+- **Decided by:** Snehal and Yen-Chu (WhatsApp / capture form); Mehul (Evaluation Lead) for the scenario fix.
+- **Supersedes:** "Snehal pending" in the 2026-10-19 entry; the D1/D2-only scenario rule in the labeling kit; "transcripts after the Julie meeting / team decides".
+- **Follow-ups:** The #55 vote on Sunday uses the new cost estimate. The first real agent run follows.
