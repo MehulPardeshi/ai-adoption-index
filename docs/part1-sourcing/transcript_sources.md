@@ -31,7 +31,10 @@
 ## 3. How we'd handle the text (proposed)
 
 - **Collection:** download company PDFs by hand or one at a time, nothing at high volume. **No automated access to Motley Fool.**
-- **Storage:** full transcripts stay on team members' computers (`data/raw/`, which is gitignored). **No transcript text goes into GitHub** without a documented basis for redistribution.
+- **Storage (proposed, Logan to confirm in the memo):**
+  - **Each person's computer:** `data/raw/transcripts/<TICKER>/<TICKER>_<YYYY>Q<n>.pdf`. `data/raw/` is gitignored, so the files never get pushed.
+  - **Sharing with teammates:** a `transcripts` folder in the team's private Drive, shared with the 5 team members only (no public link). [`data/raw/README.md`](../../data/raw/README.md) already says raw files are shared through the location the ethics memo names, not through git.
+  - **No transcript text goes into GitHub** without a documented basis for redistribution.
 - **In the repo:** only derived results: AI-related short quotes with a source link and speaker role, labels and scores.
 - **Evidence rule:** only statements by company management count as evidence; analyst questions are context (see Taxonomy v0).
 
@@ -41,3 +44,4 @@
 - [ ] Motley Fool, manual reading only, for WFC, SCHW, COF: approve?
 - [ ] If Motley Fool is rejected: approve self-transcribing the company webcasts, or skip transcripts for those 3 companies?
 - [ ] Short quotes (one or two sentences) from transcripts in the repo and on the dashboard: OK?
+- [ ] Storage: local `data/raw/transcripts/` plus a private team Drive folder: OK? (Google Drive or CMU OneDrive, whichever you name in the memo)
