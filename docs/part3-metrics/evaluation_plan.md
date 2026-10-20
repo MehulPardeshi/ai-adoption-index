@@ -44,7 +44,9 @@ Each check below tests one link in that chain. It's built around Yen-Chu's Taxon
 - **Scoring:** run [`src/eval/irr.py`](../../src/eval/irr.py). It prints check 2 (human agreement) and a check 3 preview (AI vs. human majority, including the **overclaim rate**). Human disagreements go to a short team discussion (adjudication), and the agreed labels become the **consensus set** used by checks 3 and 4.
 - **If we miss the bar:** rewrite the unclear rules (the disagreements file shows which), then run round 2 on 30 new passages.
 
-Instructions for raters: [`labeling_round_1/README.md`](labeling_round_1/README.md).
+Instructions for raters: [`labeling_round_1/README.md`](labeling_round_1/README.md) and the one-page [cheat sheet](labeling_round_1/cheat_sheet.md).
+
+**Check 6 test set:** [`guardrail_redteam_v0.md`](guardrail_redteam_v0.md): 20 cases (overclaiming, fabrication, prompt injection, attribution, data rules, positive controls), all chosen so they don't reveal any labeling-sample answers.
 
 ## What goes into TP2 (due Nov 6)
 - The check 2 results: kappa table, main disagreements and the rule fixes they led to
