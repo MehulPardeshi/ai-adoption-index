@@ -50,7 +50,7 @@ REQUEST_TIMEOUT = 60
 MAX_RETRIES = 3
 
 # ---- prompt / guardrail ----
-PROMPT_VERSION = "classify-v1.0"
+PROMPT_VERSION = "classify-v1.2"  # Oct 23: models-vs-AI rule, quote must name AI, risk-factor headings (results: docs/part6-agent/prompt_tuning_v1.2.md)
 MIN_CONFIDENCE = 0.70        # below this, a label goes to human review and is not scored
 CHAT_MAX_STEPS = 8           # function-calling rounds per question
 PASSAGE_MAX_CHARS = 6000     # longest SEC passage is ~3.9k chars

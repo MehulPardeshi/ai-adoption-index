@@ -2,6 +2,7 @@
 
 > **Owner:** Shu Pu · **Run:** Oct 23, 2026 · **Issue:** #35 · **Design:** [agent_design.md](agent_design.md)
 > **Files:** [`agent_labels_v1.csv`](../../data/processed/sec/agent_labels_v1.csv), [`agent_scores_v1.csv`](../../data/processed/sec/agent_scores_v1.csv), [`agent_run_info.json`](../../data/processed/sec/agent_run_info.json)
+> **Later update:** the three files were overwritten by the classify-v1.2 run ([prompt_tuning_v1.2.md](prompt_tuning_v1.2.md)). The v1.0 files described here are in commit `dcc44d8` (PR #66).
 > **Reference labels:** `passage_labels_v0.csv` is **AI-assisted** (drafted with Claude; see the 2026-10-19 decision), so it is a reference here, not ground truth. Real accuracy comes from check 3, against the human raters, after Oct 27.
 
 ## Setup
