@@ -1,46 +1,50 @@
-# Data Sourcing Ethics & Legal Memo: TEMPLATE
+# Data Sourcing Ethics & Legal Memo
 
-> **Graded: 10% of the client rubric.** One page max. Must be **submitted before any scraping or bulk collection begins** (per the brief).
-> **Status:** TEMPLATE, not started. Owner and due date: see the shared spreadsheet ([`docs/TASK_TRACKER.md`](../TASK_TRACKER.md)).
-> Context: [`memory/00-project-overview.md`](../../memory/00-project-overview.md), brief Part 1.
-
----
-
-**To:** Julie Agnew (client); Hengkai Zheng (TA)
-**From:** Team 5
-**Date:** YYYY-MM-DD
-**Re:** Legal and ethical sourcing plan for the AI Adoption Index
+**To:** Julie Agnew (Client); Hengkai Zheng (TA)  
+**From:** Team 5 — Prepared by Logan Mai  
+**Date:** October 18, 2026  
+**Re:** Legal and ethical sourcing plan for the AI Adoption Index  
+**Status:** Proposed policy for team review; not retrospective approval of prior collection.
 
 ## 1. Sources we plan to use
-<!-- Fill in after the Week-1 source review. Only list sources we will actually use. -->
-| Source | Access method (API / bulk / page) | Why this source | Approved? |
+
+| Source | Access method | Research purpose | Proposed disposition |
 |---|---|---|---|
-| SEC EDGAR (10-K, 10-Q, 8-K, DEF 14A) | Official APIs / bulk data (**not** HTML scraping) | | |
-| Earnings call transcripts | | | |
-| Press releases | | | |
-| News | Licensed API preferred (e.g., NewsAPI, GDELT) | | |
-| _other_ | | | |
+| SEC EDGAR 10-K/10-Q filings | Official submissions API and direct EDGAR archive downloads | Traceable corporate AI disclosures | Allow under SEC access and reuse policies |
+| Company-hosted earnings-call transcripts | Direct downloads after source-specific review | Supplement filings with operational detail | Hold collection until applicable terms and document rights are verified |
+| AI Intensity Dataset | Author-provided GitHub download | Academic comparison and benchmarking | Academic analysis with required citation; confirm redistribution rights before republishing |
+
+The [dataset README](https://github.com/FengDong-Elon/ai-intensity-dataset) expressly identifies academic research and requires citation of Dong, Doukas and Zhang. It does not establish unrestricted redistribution rights. LinkedIn, restricted career-site data, news and standalone press releases are excluded from this collection phase.
 
 ## 2. robots.txt and Terms of Service review
-<!-- For EACH target site: link to robots.txt, link to ToS, the relevant clause, and our conclusion (allowed / allowed with limits / not allowed → not using). Date checked. -->
-| Site | robots.txt | ToS clause | Conclusion | Checked on |
-|---|---|---|---|---|
-| | | | | |
+
+**Checked October 18, 2026.** Access permission and redistribution permission are assessed separately; robots.txt is not a content licence.
+
+| Site | Evidence reviewed | Conclusion |
+|---|---|---|
+| SEC | [robots.txt](https://www.sec.gov/robots.txt) allows the EDGAR data archive path; [SEC FAQ](https://www.sec.gov/files/about/webmaster-faq.htm) permits access and reuse of public filing content | Allow cited filing text, subject to fair-access controls. The API host’s robots.txt could not be retrieved; API access is documented in SEC developer guidance |
+| LinkedIn | [robots.txt](https://www.linkedin.com/robots.txt) disallows general crawlers; [User Agreement §8.2](https://www.linkedin.com/legal/user-agreement) restricts scraping and unauthorized copying/use | Exclude absent applicable authorization |
+| JPMorganChase | [robots.txt](https://www.jpmorganchase.com/robots.txt); [Copyright Notices](https://www.jpmorganchase.com/legal/terms-and-conditions) restrict copying, storage and distribution, subject to statutory exceptions | No blanket transcript clearance; require documented permission or a specific fair-use assessment |
+| Bank of America IR | [Terms of Use](https://investor.bankofamerica.com/terms-of-use) do not establish a general reuse licence; [robots.txt](https://investor.bankofamerica.com/robots.txt) could not be retrieved | Pending document-level and access review |
+
+Other company transcript sources remain unreviewed and uncleared.
 
 ## 3. Rate limiting and request headers
-<!-- e.g., the SEC's published fair-access limits, the User-Agent string format, backoff/retry policy, caching so we never re-download. -->
-- 
+
+SEC requests must identify the project and contact email through User-Agent and remain below the [SEC ceiling of 10 requests/second per user across machines](https://www.sec.gov/about/developer-resources). The current downloader includes 0.25-second pauses and exponential retry delays for 429/503 responses. Before further bulk runs, implement download caching and coordinate concurrent jobs; stop on access denial rather than bypassing restrictions.
 
 ## 4. Data storage and retention
-<!-- Raw text vs. derived metrics: where each lives, who can access it, how long we keep it, when we delete it.
-     Must match data/raw/README.md and .gitignore (raw text is NOT committed to GitHub). -->
-- **Raw text:**
-- **Derived metrics / scores:**
-- **Retention and deletion:**
+
+**Raw text:** Keep permitted originals in gitignored `data/raw/` on access-controlled team devices; do not upload full documents to GitHub.  
+**Derived outputs:** Store labels, scores and cited paraphrases in `data/processed/`. Necessary SEC excerpts may remain in `data/interim/`, supported by SEC’s reuse policy and source links; other verbatim material requires separate clearance.  
+**Retention:** Proposed rule: delete raw copies within 30 days after final grading unless a documented reproducibility need and applicable permissions justify longer retention. Retain permitted derived outputs and provenance; align the data-folder instructions upon adoption.
 
 ## 5. Attribution and citation
-<!-- How the taxonomy doc, dashboard drill-down, and book-chapter data cite sources. Paraphrase vs. short quote rules. -->
-- 
 
-## 6. Other risks (optional)
-<!-- e.g., paywalls, personal data in documents, LLM API data handling. -->
+Record company, document type, reporting period, filing/publication date, source URL, passage locator and retrieval date. Preserve notices and distinguish quotations from paraphrases. Educational purpose alone does not establish fair use, and no fixed quotation length guarantees it ([U.S. Copyright Office](https://www.copyright.gov/fair-use/more-info.html)).
+
+## 6. Other risks
+
+Exclude unnecessary personal data; do not bypass logins or paywalls. Upload source text to external AI services only after checking source permissions and provider retention terms. Report disclosure-based evidence, not independently verified deployment or business impact. The SEC pilot predates this memo: review existing extracts against this policy and document remediation. Acknowledge AI assistance; humans remain responsible for source verification and approval.
+
+<!-- AI assistance: OpenAI Codex assisted with research and drafting. Source checks were performed on October 18, 2026. Team review and approval remain pending. -->
