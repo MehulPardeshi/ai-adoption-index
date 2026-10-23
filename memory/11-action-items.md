@@ -1,7 +1,7 @@
 # 11 — Action Items (who is doing what, right now)
 
 > **Read this to answer "what should I work on next?"** Updated after every meeting from `meetings/` minutes ([procedure](../meetings/README.md)). The shared spreadsheet remains the source of truth for owners and deadlines; this file mirrors it for AI tools.
-> **Last updated:** 2026-10-19, from the [Oct 18 meeting](../meetings/2026-10-18-internal.md) (capture form + transcript). Previous: [Oct 4 meeting](../meetings/2026-10-04-internal.md).
+> **Last updated:** 2026-10-23 (repo check before the Oct 25 meeting; see memory/09). Before that: 2026-10-19, from the [Oct 18 meeting](../meetings/2026-10-18-internal.md) (capture form + transcript). Previous: [Oct 4 meeting](../meetings/2026-10-04-internal.md).
 > **Pinned summary for humans:** [#45 "Who does what"](https://github.com/MehulPardeshi/ai-adoption-index/issues/45), with @mentions per person.
 > **GitHub:** each task below is an issue in the **"Sprint: Oct 18–Nov 6 (TP2)"** milestone on the [project board](https://github.com/users/MehulPardeshi/projects/1).
 
@@ -10,7 +10,7 @@
 - 💤 **Oct 5–17: finals, then fall break.** No project work expected, apart from Snehal's email to Julie and the optional review of her materials.
 - 🏁 **Sprint: Sun Oct 18 → Fri Nov 6 (TP2).** Test run on 6 companies → show Julie **Thu Oct 29, 10–11 am ET** (confirmed) → TP2 report → submit **Fri Nov 6, 5 pm**.
 - **PoC companies:** JPMorgan Chase, Bank of America, Capital One, Wells Fargo, Charles Schwab, Principal Financial Group · **Period:** 2024–2026 · **Sources:** SEC 10-K/10-Q, AI Intensity GitHub dataset (Shu's Dong baseline), earnings calls (cleared sources only); job postings pending guidance from Rachel/mentor. **Citigroup** kept as a benchmark.
-- **AI model:** DeepSeek (≈$20–30; ⚠️ funding source needed), local Ollama model as fallback. **Agent:** 7 tools.
+- **AI model:** DeepSeek (`deepseek-flash`). Real cost so far is about $0.02 per run (Shu paid), so #55 is small but still needs a team decision. Local Ollama model as fallback. **Agent:** 7 tools.
 
 ## Key dates
 | Date | What |
@@ -36,6 +36,8 @@
 | ✅ Reviewed Julie's materials · Evaluation plan v1.1 · labeling kit · `irr.py` | Done Oct 18–19 |
 | ✅ Form boxes answered (6a, 6b, 6d, 8a, 9a; see the minutes' follow-up) · red-team set v0 · labeling cheat sheet · TP2 outline · Julie talking points | Done Oct 19 |
 | Bring the DeepSeek funding options to the team vote (#55) | Sun Oct 25 |
+| ✅ Merged #63 (ethics memo, as a draft), #64 (taxonomy), #65 (consolidation), #69 (rater X rule) | Done Oct 23 |
+| Merge #66, then #68 (retarget to `main`), **on or after Tue Oct 27** once all three raters have submitted | Tue Oct 27 |
 | ✅ Dong paper read in full; [verified brief](../docs/reviews/2026-10-19_dong-paper-brief_mehul.md), with 3 corrections to earlier notes | Done Oct 19 |
 | Labeling round 1: **no longer a rater**. Snehal confirmed as replacement (Oct 20). Collect the raters' workbooks and convert them | Tue Oct 27 |
 | Run `python3 -m src.eval.irr`; share agreement scores + AI overclaim rate | Wed Oct 28 |
@@ -46,9 +48,9 @@
 ### Yen-Chu Chen (Dataset Builder): excused absence on Oct 18; tasks resume when available
 | Task | Due |
 |---|---|
-| Review Shu's taxonomy proposals in your doc (marked ▶ SHU). If you're unavailable, Shu finalizes | Wed Oct 22 |
-| Consolidate your SEC run with Shu's (yours as the base) | Wed Oct 22 |
-| **Earnings-call transcripts:** collect for the 6 companies (+ Citi), and record each source for Logan to review. Collect only cleared sources; no transcript text in GitHub without a documented basis | **Sun Oct 25** |
+| ✅ Reviewed Shu's taxonomy proposals (agreed in #33; Shu's #64 applies them) | Done Oct 20–22 |
+| ✅ Consolidation merged (#65: 277 passages, 74 filings) | Done Oct 23 |
+| **Earnings-call transcripts:** sources listed in #62 (waiting on Logan's permissions review). Collect for the 6 companies (+ Citi), and record each source for Logan to review. Collect only cleared sources; no transcript text in GitHub without a documented basis | **Sun Oct 25** |
 | **Labeling round 1:** label 50 passages on your own (don't reopen the AI-assisted draft labels) | **Tue Oct 27** |
 | Present the test-run findings to Julie (Shu covers if you're unavailable) | Thu Oct 29 |
 | **Submit TP2 on Canvas** | **Fri Nov 6, 5 pm** |
@@ -56,10 +58,10 @@
 ### Logan Mai (Market & User Researcher / BA)
 | Task | Due |
 |---|---|
-| **Ethics memo:** move the draft from Google Drive into `docs/part1-sourcing/ethics_memo.md` for review. Note that SEC filings are public *company* filings, not government records | Wed Oct 21 |
-| Ethics memo final | **Fri Oct 23** |
+| ✅ **Ethics memo** draft in #63 (`docs/part1-sourcing/ethics_memo.md`) | Done Oct 22 |
+| Ethics memo final: team approval Sun Oct 25; add DeepSeek's data-retention terms (§6) | **Sun Oct 25** |
 | Ask Rachel/mentor (Hengkai) for guidance on job-posting data (they come and go; can we cite company careers pages?) | Fri Oct 23 |
-| Review the transcript sources' permissions (Yen-Chu records them this week) | Sun Oct 25 |
+| Review the transcript sources' permissions in **#62** (you're the requested reviewer) | Sun Oct 25 |
 | Compare existing AI-adoption trackers (with Snehal) | Sat Oct 24 |
 | Read the Dong et al. paper | Sun Oct 25 |
 | **Labeling round 1:** label 50 passages **on your own**, following [`labeling_round_1/README.md`](../docs/part3-metrics/labeling_round_1/README.md) | **Tue Oct 27** |
@@ -69,9 +71,9 @@
 | Task | Due |
 |---|---|
 | ✅ Second SEC run + Dong baseline + Dong paper review (PR #48); taxonomy answers (PR #50) | Done Oct 19 |
-| Consolidate the two SEC runs into one version (Yen-Chu's as the base, plus your extras) | Wed Oct 22 |
-| Finalize the taxonomy proposals if Yen-Chu is still unavailable | Wed Oct 22 |
-| DeepSeek: after Sunday's vote, add the key to `.env` and do the first real run (est. about $0.05/run, under $5 total); pin the model version | Sun Oct 25 → first run |
+| ✅ SEC runs consolidated (#65) · taxonomy finalized with Yen-Chu (#64) | Done Oct 22 |
+| ✅ First DeepSeek run (#66) + prompt tuning to classify-v1.4 with a Citi benchmark (#68). Agreement so far is vs. the AI-assisted draft labels, not humans (see memory/09, Oct 23). Merge after Oct 27 | Done Oct 22–23 |
+| Remove the DeepSeek key from the how-to Google Doc and rotate it | **ASAP** |
 | ✅ Agent v1 merged (#60): 7 tools, guardrail, batch/chat/red-team runners, 19 offline tests. **Not yet connected to DeepSeek** | Done Oct 20 |
 | **Agent runs end to end** on the six FY2025 10-Ks and writes a CSV for the dashboard (TP2: 12 pts) | **Wed Oct 28** |
 | Present the categories + the AI agent to Julie | Thu Oct 29 |

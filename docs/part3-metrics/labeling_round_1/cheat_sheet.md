@@ -12,7 +12,7 @@ Keep this open while you label. The examples are **made up**, so they don't give
 | **D1** | Deployed but **general**: says it uses or governs AI, no specifics | "We use AI in parts of our business." |
 | **P** | **Planned or expected** use | "We intend to expand our use of AI next year." |
 | **N** | **No evidence of own use**: risks, threats, competitors, laws, trends, or hedged "**may** use" | "Criminals may use AI to commit fraud." · "We may use AI in pricing." |
-| **X** | **Not substantive**: definition, acronym list, heading | "AI: artificial intelligence." |
+| **X** | **Not substantive**: definition, acronym list, heading, **or not actually about AI** (`about_ai` = N) | "AI: artificial intelligence." |
 
 **Tie-breakers**
 - A passage that mixes levels gets the **highest** one.
@@ -20,6 +20,7 @@ Keep this open while you label. The examples are **made up**, so they don't give
 - About **other** companies, criminals or the economy → **N**.
 - Generic forward-looking-statement lists ("…technology changes, including AI") → **N**.
 - A heading alone → **X**.
+- `about_ai` = **N** → evidence **X** (added Oct 23, #64).
 
 ## 3. Scenarios (`scenarios`): required for D2, D1 and P; leave blank for N and X
 Separate several codes with `;`. For **P**, use the scenario of the *planned* use (e.g., "we plan to use AI in underwriting" → `P` + `CREDIT`).
