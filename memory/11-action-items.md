@@ -17,10 +17,10 @@
 |---|---|
 | ~~Mon Oct 5~~ ✅ | Snehal emailed Julie (Oct 10–11); Julie reviewed the scope and sent the Vanguard paper |
 | ✅ Sun Oct 18 | Team meeting ([minutes](../meetings/2026-10-18-internal.md)) |
-| Mon Oct 19 EOD | Everyone finishes their blank boxes in the Oct 18 capture form |
-| Wed Oct 22 | SEC runs consolidated (Shu + Yen-Chu) · taxonomy proposals finalized (Shu, if Yen-Chu is still out) · ethics memo draft in the repo (Logan, Wed Oct 21) |
-| Fri Oct 23 | Ethics memo final · Logan asks Rachel/mentor about job postings · eval plan v1 final |
-| **Sun Oct 25, 8–9 pm** | Team meeting · dashboard mock-up (Snehal) · DeepSeek funding settled · practice-run day chosen · everyone has read the Dong paper |
+| ✅ Oct 19–23 | Capture-form boxes · SEC runs consolidated (#65) · taxonomy finalized (#64) · ethics memo draft (#63) · eval plan v1.2 final (#29 closed) |
+| Sat Oct 24 | AI-tracker comparison (Logan + Snehal) |
+| **Sun Oct 25, 8–9 pm** | Team meeting · votes: ethics memo approval, ENT 0 vs 1 point, DeepSeek payment · dashboard mock-up (Snehal) · practice-run day chosen · everyone has read the Dong paper |
+| Mon Oct 26 | Snehal sends Julie the agenda |
 | Tue Oct 27 | Taxonomy v0 final · labeling round 1 done (Logan, Yen-Chu, Snehal; each separately) |
 | Wed Oct 28 | Agent runs end to end on the six FY2025 10-Ks · agreement scores · first dashboard view · practice run (Tue or Wed) |
 | **Thu Oct 29, 10–11 am ET** | ✅ Confirmed: "Checkpoint: AI Adoption Index [Team 5]" on Zoom, with Julie, Dr. Chung and Hengkai invited (calendar invite from Snehal, Oct 11) |
@@ -90,7 +90,6 @@
 | Host the Julie meeting + show the dashboard | Thu Oct 29 |
 
 ### Everyone
-- Finish your blank boxes in the Oct 18 capture form: **Mon Oct 19 EOD** (2b, 6a, 6b, 6d, 8a, 8c, 8d, 8e, 9a still open)
 - Read the Dong et al. paper: **Sun Oct 25** (Shu's review + Mehul's brief with our companies' numbers are in `docs/reviews/`)
 - Raters (Logan, Yen-Chu, Snehal): use the Excel labeling workbook; **submit on Tue Oct 27, not earlier**. Mehul runs the analysis
 - Write your paragraph in the [TP2 outline](../docs/tp2/progress_report_draft.md): **Mon Nov 2**
@@ -117,6 +116,7 @@
 
 ## Unowned / open
 - Julie's paper: ✅ received (Vanguard report; see `docs/references.md`). Links to her other papers have been requested.
+- ⚠️ **Dashboard:** nothing is in the repo yet (`src/dashboard/` is empty). The mock-up is due Sun Oct 25, and it is the main risk for the Oct 29 demo.
 - Snehal asked Julie (Oct 10) whether rescoping away from Dr. Chung's original brief is OK; the answer isn't recorded yet.
 
 ## Completed
