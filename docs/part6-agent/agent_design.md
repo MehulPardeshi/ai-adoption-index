@@ -1,6 +1,6 @@
 # AI agent design (v1)
 
-> **Owner:** Shu Pu · **Issues:** #28 (design, due Fri Oct 23), #35 (first working agent, due Wed Oct 28) · **Code:** [`src/agent/`](../../src/agent/) · **Status:** connected to DeepSeek; first real run on the 90 FY2025 10-K passages done Oct 23 ([results](first_run_results.md)). Prompt tuning next.
+> **Owner:** Shu Pu · **Issues:** #28 (design, due Fri Oct 23), #35 (first working agent, due Wed Oct 28) · **Code:** [`src/agent/`](../../src/agent/) · **Status:** connected to DeepSeek; first real run on the 90 FY2025 10-K passages done Oct 23 ([results](first_run_results.md)), then prompt tuning to classify-v1.4 ([notes](prompt_tuning_v1.2.md)); Citi added as a benchmark.
 
 ## What the agent does
 It reads AI passages from SEC filings, decides whether the filing company **uses** AI or only **talks** about it (Taxonomy v0, [`sec_test_run_taxonomy_v0_DRAFT.md`](../part2-taxonomy/sec_test_run_taxonomy_v0_DRAFT.md)), checks every label with a rule-based guardrail, and rolls the labels up into company scores. One LLM call per passage; everything else is plain code.
@@ -84,7 +84,8 @@ Principle: **rather miss a real use than claim one the filing does not support**
 | Temperature | 0 | as stable as the API allows |
 | Output | `response_format: json_object`, schema in the prompt | fixed format |
 | Reproducibility | on-disk cache keyed by model + prompt version + messages | temperature 0 is not a determinism guarantee; reruns read the cache |
-| Few-shot | four made-up passages | real ones could leak labeling-sample answers into check 3 |
+| Few-shot | seven made-up passages, each from a different made-up bank (the model once took a shared example name for the requested company) | real ones could leak labeling-sample answers into check 3 |
+| Prompt version | `classify-v1.4` (Oct 23; [tuning notes](prompt_tuning_v1.2.md)) | bump `PROMPT_VERSION` on every prompt change so the cache doesn't reuse old answers |
 
 **Cost estimate (for #55):** about 1.7k prompt tokens per passage (1.5k fixed system prompt and examples, which DeepSeek caches, plus ~200 for the passage) and ~150 output tokens. 245 passages ≈ 0.42M input + 37k output tokens; at the listed off-peak prices ($0.15/M input on a cache miss, $0.003/M on a hit, $0.60/M output) one full run costs about $0.05, and the whole project, including prompt tuning and chat, should stay under $5. Prices confirmed on DeepSeek's own pricing page on Oct 23 (per 1M tokens, off-peak / peak: input cache hit $0.003 / $0.006, cache miss $0.15 / $0.30, output $0.60 / $1.20; peak is 01:00–04:00 and 06:00–10:00 UTC on weekdays). The real cost of the first run is in [first_run_results.md](first_run_results.md).
 
@@ -94,7 +95,7 @@ Principle: **rather miss a real use than claim one the filing does not support**
 ```bash
 pip3 install -r requirements.txt
 cp .env.example .env            # add DEEPSEEK_API_KEY=...
-python3 -m src.agent.run_batch --tickers JPM,BAC,COF,WFC,SCHW,PFG --year 2025 --forms 10-K   # Oct 28 target: 90 passages
+python3 -m src.agent.run_batch --tickers JPM,BAC,COF,WFC,SCHW,PFG,C --year 2025 --forms 10-K   # Oct 28 target: six firms (90 passages) + Citi benchmark (20)
 python3 -m src.agent.run_batch                                   # all 245 passages
 python3 -m src.agent.run_batch --ids docs/part3-metrics/labeling_round_1/sample_passages.csv --labels-out data/processed/sec/agent_labels_sample.csv
 python3 -m src.eval.irr --ai-labels data/processed/sec/agent_labels_v1.csv                   # check 3
@@ -107,7 +108,8 @@ python3 -m unittest discover -s tests -t .                       # 19 tests
 ## Status and open items
 - **Done:** all seven tools, prompts, DeepSeek client (retries, cache, JSON), batch, chat loop, red-team runner, 19 offline tests. A mock dry run on the 90 FY2025 10-K passages reproduces the v0 draft scores, which confirms the file contract end to end.
 - **Done Oct 23:** first real DeepSeek run on the 90 passages, compared with the draft labels ([first_run_results.md](first_run_results.md)).
-- **Next:** tune the prompt (bump `PROMPT_VERSION`); then the 50-passage sample for check 3 and the red-team run for check 6 (with Mehul, ~Nov 3).
+- **Done Oct 23:** prompt tuning to classify-v1.4: overclaim 6.7% → 3.3% against the draft labels, the three remaining ones all in one open codebook question ([notes](prompt_tuning_v1.2.md)).
+- **Next:** rerun with the final codebook after Oct 27; then the 50-passage sample for check 3 and the red-team run for check 6 (with Mehul, ~Nov 3).
 - **#33 (pending):** whether ENT counts toward the AI Use Score. `--ent-counts` switches it on; default off (current behaviour).
 - **Red-team note for Mehul:** RT20 expects "P; no scenario", but the codebook requires a scenario on every P label (`check_labels`), so the agent will return P + CREDIT. Suggest updating RT20's expected value.
 - **Codebook changes:** when Taxonomy v0 is finalised (Oct 27), bump `PROMPT_VERSION` in `config.py` so the cache does not reuse old answers.
