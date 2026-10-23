@@ -128,7 +128,7 @@ Three **enablers** are tracked beside the scenarios. They count toward readiness
 | D1: Deployed, general | Says the company uses or governs AI, with no specifics | 1 | 22 |
 | P: Planned | Says the company intends or expects to use AI | 0.5 | 2 |
 | N: No evidence of own use | Risk, threat, trend or regulation talk; analyst questions | 0 | 189 |
-| X: Not substantive | Definition, acronym list, heading | Excluded | 22 |
+| X: Not substantive | Definition, acronym list, heading, or a search hit that is not actually about AI (e.g. "predictive models" in card underwriting) | Excluded | 22 |
 
 What each level looks like in our passages:
 
@@ -156,6 +156,8 @@ Rules for unclear cases:
 ### Label C: topic (context for a "what banks worry about" view)
 
 A third label records what a passage is about, which powers a risk view rather than the use score. Counts across all 245 passages: RISK-OWN, the company's own AI going wrong (60); THREAT, criminals or attackers using AI (43); COMP, competitors using AI (31); REG, AI laws (28); BOILER, generic list mentions (26); USE (21); DEF, definitions (13); WORK, workforce (9); MACRO, AI as a credit risk to other industries (7); GOV (6); DEAL (1).
+
+**Added Oct 22 (agreed by Yen-Chu and Shu in #33):** `AGENT`, autonomous AI agents as counterparties, intermediaries or a disintermediation risk (Capital One's agentic commerce, JPMorgan's AI agents intermediating financial decisions, Bank of America's autonomous third-party agents). These passages are currently coded COMP or RISK-OWN; they move to AGENT when the labels are re-run after Oct 27.
 
 ### AI agent flow
 
@@ -236,7 +238,29 @@ Filings alone put JPMorgan, Bank of America and Capital One near the bottom, eve
 - [ ] Should "predictive models" stay a search term? It found Capital One's underwriting models, which may or may not be AI.
 - [ ] Which transcript source passes the ethics memo?
 
-▶ SHU answers (Oct 19; proposals for the team vote): I reviewed Label A against my own 9-category draft and everything maps onto existing codes, so no new scenario codes. Keep 3 / 1 / 0.5 for v0 and revisit after the Oct 28 round. A D1 sentence that lists several areas with no specifics counts **once, as ENT** (Wells Fargo FY2025 goes from 9 to 3; this is the same rule as the hedged list at Capital One). Keep "predictive models" as a search term but label the non-AI hits X. Transcript source waits for Logan's memo.
+▶ SHU answers (Oct 19, updated Oct 22 after Yen-Chu's review in #33):
+
+| Question | Agreed (Yen-Chu + Shu) | Status |
+| --- | --- | --- |
+| Merge Shu's list into Label A | Every category maps onto an existing code (table below); no new scenario codes | Done |
+| Weights 3 / 1 / 0.5 | Keep for v0; revisit after the Oct 28 labeling round | Done |
+| One general sentence naming several areas | Counts **once, as ENT** (same rule as Capital One's hedged list). Correction: with the current scorer this takes Wells Fargo FY2025 from 9 to **0**, not 3, because ENT does not enter the AI Use Score. Whether ENT should earn 1 point (Yen-Chu and Shu both lean yes) is the **Sunday Oct 25 vote**; `score_companies.py --ent-counts` already implements the alternative | Open (vote) |
+| "predictive models" as a search term | Keep it; hits that are not about AI are labeled X (X definition updated above) | Done |
+| Transcript source | Yen-Chu's source list is in #62 for Logan's ethics review | Handed over |
+
+**Mapping of Shu's nine categories (from 169 unique passages in 66 filings, FY2023-FY2025) onto Label A / Label C.** The categories were derived from reading the filings independently of this draft; that they land on the same codes is the evidence that the taxonomy comes from real filings rather than the brief's starter list.
+
+| Shu's category (from the filings) | Label A scenario / enabler | Label C topic | Anchor passage |
+| --- | --- | --- | --- |
+| A1 Risk, credit and financial modeling | RISKM, CREDIT | USE | JPMorgan FY2024 10-K: models "based upon machine learning or artificial intelligence techniques" for valuation, stress testing, credit losses |
+| A2 Fraud detection and financial crime | FRAUD (firm's own use) | USE, or THREAT when attackers use AI | Schwab FY2024 10-K: model uses include "identifying and preventing fraud"; all six firms: GenAI-enabled identity fraud (THREAT) |
+| A3 Operations, automation, internal efficiency | OPS, DEV, PROD | USE | Wells Fargo FY2023-25 10-K: "automate certain business decisions, operations, and risk management practices" |
+| A4 Customer experience and personalization | CX | USE | Wells Fargo: "to improve our customer service"; Capital One FY2025: "personalizing customer experiences" (hedged, so N) |
+| A5 Products and competitive positioning | ENT when own use is stated | COMP; **AGENT** for autonomous-agent passages | JPMorgan FY2025 10-K: "replacement or disintermediation of direct customer relationships if AI agents autonomously manage or intermediate financial decisions" |
+| A6 Workforce and skills | TALENT (enabler) | WORK | Principal FY2025 10-K: "enterprise-wide artificial intelligence and data literacy training" |
+| A7 Governance, model risk, responsible AI | GOV (enabler) | GOV | Bank of America FY2024 10-K: "implemented internal processes and governance frameworks" for AI |
+| A8 Regulation and compliance exposure | none (never a use) | REG | Principal FY2024 10-K: "EU AI Act, Colorado AI Act, and other AI-related legislation" |
+| A9 Cybersecurity threat from AI (external) | none (never a use) | THREAT | All six firms, every 10-K: AI enabling phishing, social engineering, deepfakes |
 
 ## 4b. ▶ SHU Comparison with the AI Intensity baseline (Dong, Doukas & Zhang)
 
