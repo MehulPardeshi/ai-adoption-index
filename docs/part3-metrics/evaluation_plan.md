@@ -4,6 +4,11 @@
 > **v1.1 change:** the SEC draft labels turned out to be **AI-assisted** (drafted with Claude), not hand-coded (PR #49). They're now the AI side of check 3, and **Yen-Chu labels blind as the third human rater**.
 > **v1.2 change:** Mehul (Evaluation Lead) steps back as a rater and **runs the analysis** instead. **Snehal takes his place** (confirmed Oct 20). Fallback, if she runs into problems: **two raters (Logan + Yen-Chu)**.
 > **v1.2 fix (Oct 20):** scenario codes are required for **D2, D1 and P** (as in the codebook), not only D1/D2. Caught by Shu in #60.
+> **Oct 23 notes (check 3):**
+> - The X rule now also covers search hits that aren't about AI (#64). `irr.py` treats a rater's `about_ai` = N as X, so raters who labeled before the change aren't penalized.
+> - Shu's agent results so far (#66, #68: 94% agreement, 2.2% overclaim) compare the agent with the **AI-assisted draft labels**, on the same 90 passages the prompt was tuned on. That's a useful sanity check, but it **isn't check 3**: the ≤ 5% overclaim bar is measured against the **human majority** after Oct 27.
+> - **15 of the 50 labeling-sample passages are in that 90-passage tuning set**, so check 3 reports the other 35 separately as the cleaner test.
+> - The agent's output files stay off `main` until the raters submit on Oct 27. They contain labels for those 15 sample passages.
 > **Status:** proposed for team review at the Oct 18 meeting. Pass marks are **provisional** and get revisited after labeling round 1.
 > Covers course requirement #5 (evaluate the system) and #7 (guardrails, with vs. without), plus the original brief's required inter-rater reliability check.
 
