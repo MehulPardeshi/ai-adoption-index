@@ -93,4 +93,15 @@ Evidence level after the guardrail; "agent raw" is the model's own call. Quotes 
 - **Prompt tuning** (bump `PROMPT_VERSION` each time): tell the model that a sentence about models in general is not AI unless it names AI; risk-factor wording such as "our evolving use of AI" is N unless the passage says what the AI does (to agree with the codebook owner first).
 - **Possible guardrail rule** (team decision, with Mehul for check 6): a D2/D1/P quote must contain an AI term (AI, artificial intelligence, machine learning, generative AI, LLM…). It would have caught all three cases in finding 1.
 - After Taxonomy v0 is final (Oct 27): rerun with the final codebook, then the 50-passage sample for check 3 and the red-team run for check 6.
-- **Chat mode** has not run against DeepSeek yet. It needs a test before the Julie demo, including whether multi-turn tool calls in thinking mode need the earlier `reasoning_content` sent back.
+
+## Chat mode check (Oct 23)
+`python -m src.agent.chat --trace "How does JPMorgan use AI in FY2025, and how does it compare with Dong?"` ran end to end with no code change. DeepSeek chose 4 tool calls on its own: `get_labels` (JPM FY2025, D2/D1) → `score_companies` → `lookup_baseline` (FY2023) → `get_labels` (all JPM FY2025 labels). Multi-turn tool calls work in thinking mode without sending `reasoning_content` back.
+
+The answer:
+- cited both verified JPM use labels (00150, AI training; 02064, MRGR) with passage_id and quote;
+- reported AI Use 9, Readiness 44 and talk ratio 89%;
+- gave Dong's FY2023 AI Intensity correctly (0.0571 core, 0.0913 all; 10-K filed 2024-02-16, 87,627 words; checked against `dong_baseline_6firms.csv`);
+- explained that Dong counts words while our labels test for use, and that Dong stops at FY2023;
+- ended with the "not investment merit" disclaimer from the guarded prompt.
+
+The answer itself calls the MRGR passage "a control/oversight structure, not a named AI deployment", which is finding 1 above: the score counts it, the chat answer doesn't.
