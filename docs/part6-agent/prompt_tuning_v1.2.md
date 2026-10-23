@@ -1,4 +1,6 @@
-# Prompt tuning: classify-v1.0 → v1.2 (#35)
+# Prompt tuning: classify-v1.0 → v1.4 (#35)
+
+> File name kept from the v1.2 write-up; the v1.3 / v1.4 round is at the end.
 
 > **Owner:** Shu Pu · **Date:** Oct 23, 2026 · **Builds on:** [first_run_results.md](first_run_results.md) (#66) · **Code:** [`src/agent/prompts.py`](../../src/agent/prompts.py)
 > Same 90 FY2025 10-K passages (plus Citi's 20 as a benchmark, see below), same model (`deepseek-flash` = DeepSeek-V4.1-Flash-1017), guardrails on. Reference labels are still the **AI-assisted** draft labels (`passage_labels_v0.csv`), not ground truth.
@@ -81,7 +83,7 @@ Citi is not one of the six PoC firms; the team keeps it as a benchmark (Oct 18 d
 | C_2025-12-31_10-K_00131 | D1 OPS | D2 OPS | "applied technology solutions leveraging AI to support governance of data reported in key regulatory reports": no named tool, number, body, role or date, so D1 fits the codebook's D2 rule better than v0 does |
 | C_2025-12-31_10-K_01476 | N | P ENT | "productivity assumptions tied to AI-driven operation model changes may materialize more slowly than expected". **This is the codebook's own P example**, and the agent missed it. The prompt has no P example and no rule for P; add one in the next prompt version (after the Oct 27 codebook freeze) |
 
-Scores for Citi's 10-K alone: agent AI Use **3** (OPS; 6 if ENT earns 1 point), v0 9 (12 with ENT); readiness 11 vs. 33 (the downgraded Technology Committee D2). Citi's higher v0 score in `company_scores_v0.csv` (45) also counts its 10-Qs, which the agent has not labeled yet.
+Scores for Citi's 10-K alone under v1.2: agent AI Use **3** (OPS; 6 if ENT earns 1 point), v0 9 (12 with ENT); readiness 11 vs. 33 (the downgraded Technology Committee D2). Both gaps close in v1.4 (round 2 below). Citi's higher v0 score in `company_scores_v0.csv` (45) also counts its 10-Qs, which the agent has not labeled yet.
 
 ## Caveats
 - **In-sample tuning.** The rules were written after looking at disagreements on these same 90 passages, so v1.2's numbers here are optimistic. The real test is check 3: human raters on the 50-passage sample (after Oct 27).
@@ -91,7 +93,40 @@ Scores for Citi's 10-K alone: agent AI Use **3** (OPS; 6 if ENT earns 1 point), 
 ## Cost
 v1.2: 90 calls, 216,458 prompt tokens (191,872 cached), 25,221 output tokens (18,129 reasoning). That's about $0.02 off-peak or $0.04 peak; this run fell in DeepSeek's peak window (06:00–10:00 UTC). The balance went from ¥19.82 to ¥19.35 for the chat check plus the v1.1 and v1.2 runs, so about ¥0.64 (≈ $0.09) for everything on Oct 23.
 
+## Round 2: v1.3 and v1.4 (Oct 23, after the Citi check)
+Two prompt changes, both already required by the codebook:
+- **Rule 3, P:** a stated intention, expectation or ongoing build is P, not hedging, including when it is framed as a risk that the plan slips; P takes a scenario. One made-up P example added.
+- **Rule 8, quote holds the specific:** the D2 quote must contain the `specific` item; if the body is named in the sentence before the AI statement, quote both sentences.
+
+**v1.3** fixed both Citi cases but brought back the few-shot-company confusion: with seven examples all called "Northwind Bank", the model flagged 3 real passages `company_mismatch` ("not the requested Northwind Bank") and sent 6 six-firm passages to review (JPM's AI-training label among them). **v1.4** keeps the v1.3 rules and gives each example its own made-up bank, with the security rule saying that without a "Requested company:" line there is no mismatch. v1.4 is the version kept.
+
+| Six PoC firms (90 passages), after guardrail | v1.2 | v1.3 | **v1.4** |
+|---|---|---|---|
+| Evidence agreement with v0 | 85/90 | 86/90 | **85/90** |
+| Cohen's kappa | 0.82 | 0.84 | 0.83 |
+| Overclaim (target ≤ 5%) | 2 | 0 | **3 (3.3%)** |
+| Underclaim | 2 | 2 | **1** |
+| Scenario overlap (Jaccard) | 0.89 | 0.83 | 0.90 |
+| needs_review | 1 | 6 | 2 |
+| Spurious `company_mismatch` | 0 | 3 | 0 |
+
+| Citi benchmark (20 passages) | v1.2 | v1.3 | **v1.4** |
+|---|---|---|---|
+| Evidence agreement with v0 | 17/20 | 19/20 | **19/20** |
+| C_00831 Technology Committee | D1 (D2 downgraded) | D2 | **D2 pass** |
+| C_00131 AI for regulatory-report data governance | D1 | D1 | **D2** (as v0) |
+| C_01476 (the codebook's P example) | N | P OPS | P OPS at confidence 0.62 → needs_review |
+| Citi AI Use / readiness (10-K only) | 3 / 11 | 3 / 33 | **9 / 33** (v0: 9 / 33) |
+
+**What moved on the six firms, v1.2 → v1.4** (all Capital One; all in the risk-factor-says-own-use question already open with Yen-Chu):
+- COF_00197 ("development and use of ... AI technologies") back to D1 ENT at 0.72 (v0 D1 ENT): the underclaim fixed.
+- COF_00371 ("significant risks involved in using models and AI, and we cannot assure that our use will...") now D1 ENT (v0 N): the extra overclaim.
+- COF_00373 now D1 **RISKM** instead of ENT;GOV (v0 N), so **COF scores 3** instead of 0. If Yen-Chu rules these risk-factor own-use sentences N, the three overclaims disappear and COF returns to 0; if she rules D1, v1.4's overclaim count is 0.
+- COF_00375 and COF_00469: raw D1 at 0.55–0.62, held at N by the confidence rule (needs_review).
+
+Verdict against the keep rule ("six-firm numbers must not get worse"): agreement and kappa unchanged, one underclaim traded for one overclaim, one more passage to review; the Citi benchmark and the Northwind bug are clearly better. Kept.
+
 ## Next
-- Agree the COF_00372/00373 question with Yen-Chu (codebook owner) before the Oct 27 taxonomy freeze; rerun with the final codebook then (bump `PROMPT_VERSION`). In that version, add a P rule and a made-up P example (the agent missed the codebook's own P example, C_01476), and tell the model to quote the sentence that contains the `specific` item (C_00831).
+- Agree the COF risk-factor question (00371, 00372, 00373) with Yen-Chu (codebook owner) before the Oct 27 taxonomy freeze; rerun with the final codebook then (bump `PROMPT_VERSION`).
 - Then the 50-passage sample for check 3 and the red-team run for check 6, with Mehul.
 - Still open for the team: a rule-based guardrail check that a use quote names AI. The prompt rule now does this; a code check in `verify_label` would make it hold without relying on the model.
