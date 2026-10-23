@@ -91,7 +91,7 @@ Scores for Citi's 10-K alone under v1.2: agent AI Use **3** (OPS; 6 if ENT earns
 - **v0 is AI-assisted.** Agreement with v0 isn't accuracy. Where v0 and the codebook seem to disagree (COF_00372/00373), these runs can't settle it.
 
 ## Cost
-v1.2: 90 calls, 216,458 prompt tokens (191,872 cached), 25,221 output tokens (18,129 reasoning). That's about $0.02 off-peak or $0.04 peak; this run fell in DeepSeek's peak window (06:00–10:00 UTC). The balance went from ¥19.82 to ¥19.35 for the chat check plus the v1.1 and v1.2 runs, so about ¥0.64 (≈ $0.09) for everything on Oct 23.
+v1.2: 90 calls, 216,458 prompt tokens (191,872 cached), 25,221 output tokens (18,129 reasoning). That's about $0.02 off-peak or $0.04 peak; this run fell in DeepSeek's peak window (06:00–10:00 UTC). The balance went from ¥19.82 to ¥19.35 for the chat check plus the v1.1 and v1.2 runs. Round 2 (Citi, v1.3 and v1.4: three runs of 110 passages, about 290k prompt tokens each, 90% cached, at peak prices) took it to ¥18.47. Everything on Oct 23, from the first model check to v1.4, cost ¥1.52 (≈ $0.21).
 
 ## Round 2: v1.3 and v1.4 (Oct 23, after the Citi check)
 Two prompt changes, both already required by the codebook:
