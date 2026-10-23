@@ -1,0 +1,32 @@
+{
+  "run_at": "2026-10-23T01:48:59",
+  "model": "deepseek-flash@DeepSeek-V4.1-Flash-1017",
+  "provider": "deepseek",
+  "prompt_version": "classify-v1.0",
+  "temperature": 0.0,
+  "guardrails": true,
+  "min_confidence": 0.7,
+  "ent_counts": false,
+  "passages": 90,
+  "evidence": {
+    "X": 3,
+    "N": 71,
+    "D1": 12,
+    "D2": 4
+  },
+  "verify_status": {
+    "pass": 87,
+    "needs_review": 3
+  },
+  "usage": {
+    "calls": 90,
+    "cache_hits": 0,
+    "prompt_tokens": 161468,
+    "cached_prompt_tokens": 144750,
+    "completion_tokens": 24464,
+    "reasoning_tokens": 17161,
+    "truncated": 0
+  },
+  "labels_file": "data\\processed\\sec\\agent_labels_v1.csv",
+  "scores_file": "data\\processed\\sec\\agent_scores_v1.csv"
+}
