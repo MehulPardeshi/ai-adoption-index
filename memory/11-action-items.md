@@ -50,7 +50,7 @@
 |---|---|
 | ✅ Reviewed Shu's taxonomy proposals (agreed in #33; Shu's #64 applies them) | Done Oct 20–22 |
 | ✅ Consolidation merged (#65: 277 passages, 74 filings) | Done Oct 23 |
-| **Earnings-call transcripts:** sources listed in #62 (waiting on Logan's permissions review). Collect for the 6 companies (+ Citi), and record each source for Logan to review. Collect only cleared sources; no transcript text in GitHub without a documented basis | **Sun Oct 25** |
+| **Earnings-call transcripts:** Logan reviewed #62 on Oct 23: **not cleared yet**. Add his source-review table (URL, company/quarter, rights holder, terms, date checked; separate decisions for access, local storage, team sharing and publication), use Motley Fool's US terms, and check Capital One's IR site. Don't collect until cleared. Collect for the 6 companies (+ Citi), and record each source for Logan to review. Collect only cleared sources; no transcript text in GitHub without a documented basis | **Sun Oct 25** |
 | **Labeling round 1:** label 50 passages on your own (don't reopen the AI-assisted draft labels) | **Tue Oct 27** |
 | Present the test-run findings to Julie (Shu covers if you're unavailable) | Thu Oct 29 |
 | **Submit TP2 on Canvas** | **Fri Nov 6, 5 pm** |
@@ -61,7 +61,7 @@
 | ✅ **Ethics memo** draft in #63 (`docs/part1-sourcing/ethics_memo.md`) | Done Oct 22 |
 | Ethics memo final: team approval Sun Oct 25; add DeepSeek's data-retention terms (§6) | **Sun Oct 25** |
 | Ask Rachel/mentor (Hengkai) for guidance on job-posting data (they come and go; can we cite company careers pages?) | Fri Oct 23 |
-| Review the transcript sources' permissions in **#62** (you're the requested reviewer) | Sun Oct 25 |
+| ✅ Reviewed #62 (transcript sources): not cleared; changes requested from Yen-Chu | Done Oct 23 |
 | Compare existing AI-adoption trackers (with Snehal) | Sat Oct 24 |
 | Read the Dong et al. paper | Sun Oct 25 |
 | **Labeling round 1:** label 50 passages **on your own**, following [`labeling_round_1/README.md`](../docs/part3-metrics/labeling_round_1/README.md) | **Tue Oct 27** |
