@@ -1,5 +1,5 @@
 {
-  "run_at": "2026-10-23T02:16:52",
+  "run_at": "2026-10-23T02:34:06",
   "model": "deepseek-flash@DeepSeek-V4.1-Flash-1017",
   "provider": "deepseek",
   "prompt_version": "classify-v1.2",
@@ -7,24 +7,25 @@
   "guardrails": true,
   "min_confidence": 0.7,
   "ent_counts": false,
-  "passages": 90,
+  "passages": 110,
   "evidence": {
-    "X": 4,
-    "N": 75,
-    "D1": 9,
+    "X": 7,
+    "N": 89,
+    "D1": 12,
     "D2": 2
   },
   "verify_status": {
-    "pass": 89,
-    "needs_review": 1
+    "pass": 108,
+    "needs_review": 1,
+    "downgraded": 1
   },
   "usage": {
-    "calls": 90,
-    "cache_hits": 0,
-    "prompt_tokens": 216458,
-    "cached_prompt_tokens": 191872,
-    "completion_tokens": 25221,
-    "reasoning_tokens": 18129,
+    "calls": 20,
+    "cache_hits": 90,
+    "prompt_tokens": 47164,
+    "cached_prompt_tokens": 42880,
+    "completion_tokens": 6125,
+    "reasoning_tokens": 4546,
     "truncated": 0
   },
   "labels_file": "data\\processed\\sec\\agent_labels_v1.csv",

@@ -1,5 +1,6 @@
 company,ticker,fiscal_year,ai_use_score,scenarios_with_use,readiness_score,talk_ratio_pct,substantive_ai_passages
 Bank of America,BAC,2025,0,,11,91,23
+Citigroup,C,2025,3,OPS,11,82,17
 Capital One,COF,2025,0,,11,90,30
 JPMorgan Chase,JPM,2025,3,RISKM,11,89,19
 Principal Financial Group,PFG,2025,0,,33,67,3

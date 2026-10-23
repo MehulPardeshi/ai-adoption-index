@@ -95,7 +95,7 @@ Principle: **rather miss a real use than claim one the filing does not support**
 ```bash
 pip3 install -r requirements.txt
 cp .env.example .env            # add DEEPSEEK_API_KEY=...
-python3 -m src.agent.run_batch --tickers JPM,BAC,COF,WFC,SCHW,PFG --year 2025 --forms 10-K   # Oct 28 target: 90 passages
+python3 -m src.agent.run_batch --tickers JPM,BAC,COF,WFC,SCHW,PFG,C --year 2025 --forms 10-K   # Oct 28 target: six firms (90 passages) + Citi benchmark (20)
 python3 -m src.agent.run_batch                                   # all 245 passages
 python3 -m src.agent.run_batch --ids docs/part3-metrics/labeling_round_1/sample_passages.csv --labels-out data/processed/sec/agent_labels_sample.csv
 python3 -m src.eval.irr --ai-labels data/processed/sec/agent_labels_v1.csv                   # check 3

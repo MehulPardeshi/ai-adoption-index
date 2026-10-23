@@ -1,7 +1,7 @@
 # Prompt tuning: classify-v1.0 → v1.2 (#35)
 
 > **Owner:** Shu Pu · **Date:** Oct 23, 2026 · **Builds on:** [first_run_results.md](first_run_results.md) (#66) · **Code:** [`src/agent/prompts.py`](../../src/agent/prompts.py)
-> Same 90 FY2025 10-K passages, same model (`deepseek-flash` = DeepSeek-V4.1-Flash-1017), guardrails on. Reference labels are still the **AI-assisted** draft labels (`passage_labels_v0.csv`), not ground truth.
+> Same 90 FY2025 10-K passages (plus Citi's 20 as a benchmark, see below), same model (`deepseek-flash` = DeepSeek-V4.1-Flash-1017), guardrails on. Reference labels are still the **AI-assisted** draft labels (`passage_labels_v0.csv`), not ground truth.
 
 ## What changed in the prompt
 The first run showed two patterns: sentences about **models** read as **AI use**, and Capital One **risk-factor headings** read as own use. All changes put existing codebook rules ([`sec_test_run_taxonomy_v0_DRAFT.md`](../part2-taxonomy/sec_test_run_taxonomy_v0_DRAFT.md), "Rules for unclear cases") into the prompt. None adds a new code or changes what a code means.
@@ -70,6 +70,19 @@ Confusion matrix, v1.2 after the guardrail (rows = agent, columns = v0):
 
 The two COF ENT labels score 0 today. If ENT earns 1 point after the vote, COF goes to 3.
 
+## Citigroup as a benchmark (added Oct 23)
+Citi is not one of the six PoC firms; the team keeps it as a benchmark (Oct 18 decision), and the v0 scores file already has a Citi row. So the agent files now cover **7 firms, 110 passages** (the six firms' 90 labels came from the cache; only Citi's 20 were new calls). Citi matters for a second reason: its 10-K has the only real D2 use among the seven, so it tests whether the v1.2 rules still find genuine use or just suppress everything.
+
+**Citi FY2025 10-K, 20 passages:** evidence agreement with v0 17/20. The agent finds Citi's use (D1 ENT on "Citi has used AI and machine learning tools for many years and has more recently begun to broadly deploy Generative AI"; D1 OPS on AI for regulatory-report data governance; D1 GOV on the board Technology Committee), so the rules are not over-suppressing. The three differences:
+
+| passage_id | Agent | v0 | What happened |
+|---|---|---|---|
+| C_2025-12-31_10-K_00831 | D1 GOV (model said **D2 GOV**, guardrail downgraded) | D2 GOV | The model named the right body (`specific` = "Technology Committee") but quoted the sentence after it ("Its responsibilities include ... Citi's approach to Generative AI"), so the body is not inside the quote and rule 5 of `verify_label` dropped it to D1. A correct D2 lost to quote selection; the guardrail worked as designed |
+| C_2025-12-31_10-K_00131 | D1 OPS | D2 OPS | "applied technology solutions leveraging AI to support governance of data reported in key regulatory reports": no named tool, number, body, role or date, so D1 fits the codebook's D2 rule better than v0 does |
+| C_2025-12-31_10-K_01476 | N | P ENT | "productivity assumptions tied to AI-driven operation model changes may materialize more slowly than expected". **This is the codebook's own P example**, and the agent missed it. The prompt has no P example and no rule for P; add one in the next prompt version (after the Oct 27 codebook freeze) |
+
+Scores for Citi's 10-K alone: agent AI Use **3** (OPS; 6 if ENT earns 1 point), v0 9 (12 with ENT); readiness 11 vs. 33 (the downgraded Technology Committee D2). Citi's higher v0 score in `company_scores_v0.csv` (45) also counts its 10-Qs, which the agent has not labeled yet.
+
 ## Caveats
 - **In-sample tuning.** The rules were written after looking at disagreements on these same 90 passages, so v1.2's numbers here are optimistic. The real test is check 3: human raters on the 50-passage sample (after Oct 27).
 - **Overlap with the labeling sample:** 15 of the 90 passages are in `sample_passages.csv`. One of the passages I tuned on, **SCHW_2025-12-31_10-K_00551**, is among them; Mehul may want to report check 3 with and without it. The few-shot examples are still made up, so no sample passage is in the prompt.
@@ -79,6 +92,6 @@ The two COF ENT labels score 0 today. If ENT earns 1 point after the vote, COF g
 v1.2: 90 calls, 216,458 prompt tokens (191,872 cached), 25,221 output tokens (18,129 reasoning). That's about $0.02 off-peak or $0.04 peak; this run fell in DeepSeek's peak window (06:00–10:00 UTC). The balance went from ¥19.82 to ¥19.35 for the chat check plus the v1.1 and v1.2 runs, so about ¥0.64 (≈ $0.09) for everything on Oct 23.
 
 ## Next
-- Agree the COF_00372/00373 question with Yen-Chu (codebook owner) before the Oct 27 taxonomy freeze; rerun with the final codebook then (bump `PROMPT_VERSION`).
+- Agree the COF_00372/00373 question with Yen-Chu (codebook owner) before the Oct 27 taxonomy freeze; rerun with the final codebook then (bump `PROMPT_VERSION`). In that version, add a P rule and a made-up P example (the agent missed the codebook's own P example, C_01476), and tell the model to quote the sentence that contains the `specific` item (C_00831).
 - Then the 50-passage sample for check 3 and the red-team run for check 6, with Mehul.
 - Still open for the team: a rule-based guardrail check that a use quote names AI. The prompt rule now does this; a code check in `verify_label` would make it hold without relying on the model.
