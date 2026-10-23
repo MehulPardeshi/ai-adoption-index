@@ -1,10 +1,10 @@
 {
   "run_at": "2026-10-18T09:44:42",
-  "filings": 56,
-  "ai_passages": 245,
+  "filings": 74,
+  "ai_passages": 277,
   "user_agent": "CMU Team5 AI-Tracker research Yen-Chu Chen yenchuc2@andrew.cmu.edu",
   "window": [
-    "2024-07-01",
+    "2023-12-31",
     "2026-06-30"
   ],
   "companies": [
@@ -39,5 +39,12 @@
     "\\bautomation\\b",
     "\\balgorithm(?:s|ic)?\\b",
     "advanced analytics"
-  ]
+  ],
+  "consolidation": {
+    "date": "2026-10-22",
+    "issue": "#53",
+    "added_filings": 18,
+    "added_passages": 32,
+    "note": "FY2023 10-K and Q1/Q2 2024 10-Q for the six PoC firms, downloaded via browser and parsed with the same html_to_paragraphs/ai_hits code; Citi not extended."
+  }
 }

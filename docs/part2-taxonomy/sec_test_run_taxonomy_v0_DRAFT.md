@@ -22,6 +22,9 @@ The 7 companies are the 6 proof-of-concept companies decided on Oct 4 (JPMorgan 
 
 ## 1. Data collected
 
+> **Consolidated Oct 22 (#53, Shu):** the dataset now also holds the **FY2023 10-K and the Q1/Q2 2024 10-Qs for the six PoC firms** (18 filings, 32 AI passages), downloaded through a browser and parsed with the same `html_to_paragraphs` / `ai_hits` code, so passage ids and text follow the same rules. Totals are now **74 filings and 277 passages**; the 32 new passages carry AI-assisted draft labels like the others. Citi was not extended. The counts in the rest of this section describe the original Oct 18 run.
+
+
 For each company we pulled every 10-K and 10-Q whose period ends between July 2024 and June 2026 from SEC EDGAR: 2 annual reports (fiscal 2024 and 2025) and 6 quarterly reports (Q3 2024 to Q2 2026). That's 56 filings, downloaded Oct 18, 2026. Wells Fargo puts its annual report text in Exhibit 13, so that exhibit was added for its 10-Ks.
 
 | Company | Filings | AI passages | Describe actual AI use | ...with specifics (tool, number, role) |

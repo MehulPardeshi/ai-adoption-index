@@ -1,5 +1,7 @@
 # Shu's SEC run (2026-10-17) — independent cross-check of the SEC test run
 
+> **Oct 22 (#53):** the two runs are consolidated. `data/interim/sec/ai_passages.csv` is the single running dataset (Yen-Chu's run plus the FY2023 / early-2024 filings re-parsed with her code). This folder stays as the independent cross-check and as the home of `dong_baseline_6firms.csv`.
+
 Second, independent pass over SEC 10-K/10-Q filings for the six PoC firms, done in parallel with Yen-Chu's test run (PR #43). Same source (EDGAR), different code path and slightly different window and keyword list, so the two runs serve as a reproducibility check for the evaluation plan (`docs/part3-metrics/evaluation_plan.md`).
 
 | File | What it is |
