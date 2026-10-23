@@ -286,6 +286,6 @@
 - **Decided by:** Mehul Pardeshi (Evaluation Lead / PM).
 - **Supersedes:** nothing; adds to the 2026-10-20 entry.
 - **Follow-ups:**
-  - Merge #63 (as a draft), #64 and #65 now.
+  - ✅ #63 (as a draft), #64, #65 and #69 merged Oct 23 by Mehul.
   - Merge #66, then #68 (retargeted to `main`), on or after Oct 27.
   - On Sunday: the ENT 0-vs-1 vote and approval of the ethics memo.

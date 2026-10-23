@@ -36,7 +36,8 @@
 | ✅ Reviewed Julie's materials · Evaluation plan v1.1 · labeling kit · `irr.py` | Done Oct 18–19 |
 | ✅ Form boxes answered (6a, 6b, 6d, 8a, 9a; see the minutes' follow-up) · red-team set v0 · labeling cheat sheet · TP2 outline · Julie talking points | Done Oct 19 |
 | Bring the DeepSeek funding options to the team vote (#55) | Sun Oct 25 |
-| Approve and merge #63 (ethics memo, as a draft), #64 (taxonomy) and #65 (consolidation); review #66 and #68 (agent), but **merge them only after Oct 27** (blind raters) | Sat Oct 24 / Tue Oct 27 |
+| ✅ Merged #63 (ethics memo, as a draft), #64 (taxonomy), #65 (consolidation), #69 (rater X rule) | Done Oct 23 |
+| Merge #66, then #68 (retarget to `main`), **on or after Tue Oct 27** once all three raters have submitted | Tue Oct 27 |
 | ✅ Dong paper read in full; [verified brief](../docs/reviews/2026-10-19_dong-paper-brief_mehul.md), with 3 corrections to earlier notes | Done Oct 19 |
 | Labeling round 1: **no longer a rater**. Snehal confirmed as replacement (Oct 20). Collect the raters' workbooks and convert them | Tue Oct 27 |
 | Run `python3 -m src.eval.irr`; share agreement scores + AI overclaim rate | Wed Oct 28 |
@@ -48,7 +49,7 @@
 | Task | Due |
 |---|---|
 | ✅ Reviewed Shu's taxonomy proposals (agreed in #33; Shu's #64 applies them) | Done Oct 20–22 |
-| ✅ Consolidation: Shu's #65 (277 passages, 74 filings). Review it (you're the requested reviewer) | Sat Oct 24 |
+| ✅ Consolidation merged (#65: 277 passages, 74 filings) | Done Oct 23 |
 | **Earnings-call transcripts:** sources listed in #62 (waiting on Logan's permissions review). Collect for the 6 companies (+ Citi), and record each source for Logan to review. Collect only cleared sources; no transcript text in GitHub without a documented basis | **Sun Oct 25** |
 | **Labeling round 1:** label 50 passages on your own (don't reopen the AI-assisted draft labels) | **Tue Oct 27** |
 | Present the test-run findings to Julie (Shu covers if you're unavailable) | Thu Oct 29 |
