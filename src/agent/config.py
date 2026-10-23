@@ -4,6 +4,22 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 
+
+def load_dotenv(path: Path = ROOT / ".env") -> None:
+    """Read KEY=VALUE lines from .env into os.environ (no extra dependency). Existing vars win."""
+    if not path.exists():
+        return
+    for line in path.read_text(encoding="utf-8").splitlines():
+        line = line.strip()
+        if not line or line.startswith("#") or "=" not in line:
+            continue
+        k, v = line.split("=", 1)
+        os.environ.setdefault(k.strip(), v.strip().strip('"').strip("'"))
+
+
+# Load .env before the settings below read os.environ, so DEEPSEEK_MODEL etc. in .env take effect.
+load_dotenv()
+
 # ---- inputs (existing team data; not written by the agent) ----
 PASSAGES = ROOT / "data/interim/sec/ai_passages.csv"            # Yen-Chu's SEC run, verbatim passages
 INVENTORY = ROOT / "data/processed/sec/filings_inventory.csv"    # one row per filing
@@ -26,8 +42,10 @@ DEEPSEEK_BASE_URL = os.environ.get("DEEPSEEK_BASE_URL", "https://api.deepseek.co
 MODEL = os.environ.get("DEEPSEEK_MODEL", "deepseek-flash")       # pin the snapshot in MODEL_SNAPSHOT
 MODEL_SNAPSHOT = os.environ.get("DEEPSEEK_MODEL_SNAPSHOT", "DeepSeek-V4.1-Flash-1017")
 TEMPERATURE = 0.0
-MAX_TOKENS_CLASSIFY = 500
-MAX_TOKENS_CHAT = 900
+# deepseek-flash thinks before it answers, and its reasoning tokens count toward max_tokens.
+# 500 cut off 13 of 90 replies in the first run (Oct 23), so leave plenty of room.
+MAX_TOKENS_CLASSIFY = 4000
+MAX_TOKENS_CHAT = 4000
 REQUEST_TIMEOUT = 60
 MAX_RETRIES = 3
 
@@ -36,18 +54,6 @@ PROMPT_VERSION = "classify-v1.0"
 MIN_CONFIDENCE = 0.70        # below this, a label goes to human review and is not scored
 CHAT_MAX_STEPS = 8           # function-calling rounds per question
 PASSAGE_MAX_CHARS = 6000     # longest SEC passage is ~3.9k chars
-
-
-def load_dotenv(path: Path = ROOT / ".env") -> None:
-    """Read KEY=VALUE lines from .env into os.environ (no extra dependency). Existing vars win."""
-    if not path.exists():
-        return
-    for line in path.read_text(encoding="utf-8").splitlines():
-        line = line.strip()
-        if not line or line.startswith("#") or "=" not in line:
-            continue
-        k, v = line.split("=", 1)
-        os.environ.setdefault(k.strip(), v.strip().strip('"').strip("'"))
 
 
 def api_key() -> str:

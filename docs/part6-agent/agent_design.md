@@ -1,6 +1,6 @@
 # AI agent design (v1)
 
-> **Owner:** Shu Pu · **Issues:** #28 (design, due Fri Oct 23), #35 (first working agent, due Wed Oct 28) · **Code:** [`src/agent/`](../../src/agent/) · **Status:** code complete and tested offline; first DeepSeek run pending the API key and the #55 funding vote.
+> **Owner:** Shu Pu · **Issues:** #28 (design, due Fri Oct 23), #35 (first working agent, due Wed Oct 28) · **Code:** [`src/agent/`](../../src/agent/) · **Status:** connected to DeepSeek; first real run on the 90 FY2025 10-K passages done Oct 23 ([results](first_run_results.md)). Prompt tuning next.
 
 ## What the agent does
 It reads AI passages from SEC filings, decides whether the filing company **uses** AI or only **talks** about it (Taxonomy v0, [`sec_test_run_taxonomy_v0_DRAFT.md`](../part2-taxonomy/sec_test_run_taxonomy_v0_DRAFT.md)), checks every label with a rule-based guardrail, and rolls the labels up into company scores. One LLM call per passage; everything else is plain code.
@@ -78,13 +78,15 @@ Principle: **rather miss a real use than claim one the filing does not support**
 ## Model
 | Setting | Value | Why |
 |---|---|---|
-| Provider / model | DeepSeek `deepseek-flash`, snapshot DeepSeek-V4.1-Flash-1017 (team decision Oct 18) | cheap, JSON mode, function calling |
+| Provider / model | DeepSeek `deepseek-flash`, snapshot DeepSeek-V4.1-Flash-1017 (team decision Oct 18; checked Oct 23 against `GET /models` and DeepSeek's pricing and change-log pages) | cheap, JSON mode, function calling (both tested Oct 23) |
+| Pinning caveat | `deepseek-flash` is an alias: DeepSeek points it at its newest Flash snapshot (-1017 as of Oct 23), and the API offers no way to request an older one. Each label records the model tag and the cache keeps old answers, but a fresh run after a DeepSeek update may use a newer snapshot. Check the change log before a rerun. | — |
+| Thinking mode | On by default for this model. Its reasoning tokens count toward `max_tokens` and are billed as output | — |
 | Temperature | 0 | as stable as the API allows |
 | Output | `response_format: json_object`, schema in the prompt | fixed format |
 | Reproducibility | on-disk cache keyed by model + prompt version + messages | temperature 0 is not a determinism guarantee; reruns read the cache |
 | Few-shot | four made-up passages | real ones could leak labeling-sample answers into check 3 |
 
-**Cost estimate (for #55):** about 1.7k prompt tokens per passage (1.5k fixed system prompt and examples, which DeepSeek caches, plus ~200 for the passage) and ~150 output tokens. 245 passages ≈ 0.42M input + 37k output tokens; at the listed off-peak prices ($0.15/M input on a cache miss, $0.003/M on a hit, $0.60/M output) one full run costs about $0.05, and the whole project, including prompt tuning and chat, should stay under $5. Prices are from a third-party summary checked Oct 18; confirm on DeepSeek's pricing page before the vote.
+**Cost estimate (for #55):** about 1.7k prompt tokens per passage (1.5k fixed system prompt and examples, which DeepSeek caches, plus ~200 for the passage) and ~150 output tokens. 245 passages ≈ 0.42M input + 37k output tokens; at the listed off-peak prices ($0.15/M input on a cache miss, $0.003/M on a hit, $0.60/M output) one full run costs about $0.05, and the whole project, including prompt tuning and chat, should stay under $5. Prices confirmed on DeepSeek's own pricing page on Oct 23 (per 1M tokens, off-peak / peak: input cache hit $0.003 / $0.006, cache miss $0.15 / $0.30, output $0.60 / $1.20; peak is 01:00–04:00 and 06:00–10:00 UTC on weekdays). The real cost of the first run is in [first_run_results.md](first_run_results.md).
 
 **Responsible AI:** only public SEC filing text is sent to DeepSeek's servers (no transcripts, personal data or keys). The key lives in `.env` (gitignored). Every label records the model snapshot and prompt version. DeepSeek processes prompts on servers in China; this is acceptable for public filings but not for any restricted source.
 
@@ -104,7 +106,8 @@ python3 -m unittest discover -s tests -t .                       # 19 tests
 
 ## Status and open items
 - **Done:** all seven tools, prompts, DeepSeek client (retries, cache, JSON), batch, chat loop, red-team runner, 19 offline tests. A mock dry run on the 90 FY2025 10-K passages reproduces the v0 draft scores, which confirms the file contract end to end.
-- **Needs the key:** first real run on the 90 passages; compare with the draft labels and tune the prompt; then the 50-passage sample for check 3 and the red-team run for check 6 (with Mehul, ~Nov 3).
+- **Done Oct 23:** first real DeepSeek run on the 90 passages, compared with the draft labels ([first_run_results.md](first_run_results.md)).
+- **Next:** tune the prompt (bump `PROMPT_VERSION`); then the 50-passage sample for check 3 and the red-team run for check 6 (with Mehul, ~Nov 3).
 - **#33 (pending):** whether ENT counts toward the AI Use Score. `--ent-counts` switches it on; default off (current behaviour).
 - **Red-team note for Mehul:** RT20 expects "P; no scenario", but the codebook requires a scenario on every P label (`check_labels`), so the agent will return P + CREDIT. Suggest updating RT20's expected value.
 - **Codebook changes:** when Taxonomy v0 is finalised (Oct 27), bump `PROMPT_VERSION` in `config.py` so the cache does not reuse old answers.
