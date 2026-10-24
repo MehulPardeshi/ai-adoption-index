@@ -1,47 +1,70 @@
 # Earnings-call transcript sources (for Logan's review)
 
-**By:** Yen-Chu Chen · **Date:** Oct 20, 2026 · **Issue:** #34 · **Status:** PROPOSAL. Nothing is collected from a source until Logan clears it in the [ethics memo](ethics_memo.md).
+**By:** Yen-Chu Chen · **First draft:** Oct 20, 2026 · **Revised:** Oct 24, 2026 after [Logan's review](https://github.com/MehulPardeshi/ai-adoption-index/pull/62) · **Issue:** #34
+**Status:** PROPOSAL. **Nothing is collected** until Logan clears each source in the [ethics memo](ethics_memo.md). Every decision column below reads "pending (Logan)".
 
-**Ask for Logan:** please approve or reject each source below. Company websites are low-risk. **Motley Fool is the one that really needs a decision**, because 3 of the 7 companies depend on it.
+**Period:** calls for Q3 2024 to Q2 2026 (8 per company), the same window as the SEC test run.
 
-**Period:** calls for the quarters Q3 2024 to Q2 2026 (8 calls per company), the same window as the SEC test run, so the two can be compared.
+**Source-review table (one row per transcript, 56 rows):** [`transcript_source_review.csv`](transcript_source_review.csv). Columns: company, quarter, document URL, rights holder, notice on the document, applicable terms (URL and summary), date checked, and four **separate decisions: access, local storage, team sharing, publication**.
 
-## 1. Proposed sources per company
+## 1. What we found (checked Oct 24, 2026)
 
-| Company | Source | Format | Checked |
+| Company | Official transcripts for Q3 2024–Q2 2026 | Rights holder (from the documents) | Site terms (summary) |
 |---|---|---|---|
-| JPMorgan Chase | Company IR: [jpmorganchase.com/ir/quarterly-earnings](https://www.jpmorganchase.com/ir/quarterly-earnings), "Earnings Transcript" per quarter | PDF | Oct 20 (Yen-Chu, in browser) |
-| Citigroup | Company IR: [citigroup.com/global/investors/quarterly-earnings](https://www.citigroup.com/global/investors/quarterly-earnings), "Transcript" per quarter | PDF | Oct 20 |
-| Principal Financial | Company IR: [investors.principal.com/financials/quarterly-results](https://investors.principal.com/financials/quarterly-results), transcripts for 2023–2026 | PDF | Oct 20 |
-| Bank of America | Company IR: [investor.bankofamerica.com/quarterly-earnings](https://investor.bankofamerica.com/quarterly-earnings), historical transcripts available | PDF | Oct 20 (Yen-Chu, in browser) |
-| Wells Fargo | **Motley Fool** (company IR has release, presentation, supplement and webcast, but no transcript) | Web page | Oct 20 |
-| Charles Schwab | **Motley Fool** (company IR has presentations and webcasts; the last transcript posted is from 2019) | Web page | Oct 20 |
-| Capital One | **Motley Fool** (company IR not yet checked for transcripts; switch to IR if it has them) | Web page | Oct 20 |
+| JPMorgan Chase | ✅ 8 of 8 PDFs on [IR](https://www.jpmorganchase.com/ir/quarterly-earnings) | **Unclear.** No copyright notice in the 3 PDFs searched. JPMorgan's site terms claim its content; the layout looks like a transcript vendor's | [Terms](https://www.jpmorganchase.com/legal/terms-and-conditions): no copying, distribution or "stored for subsequent use" without written consent, except fair use (17 U.S.C. § 107) |
+| Citigroup (extra comparison) | ✅ 8 of 8 PDFs on [IR](https://www.citigroup.com/global/investors/quarterly-earnings) | **Citigroup Inc.** ("Copyright © \<year\> Citigroup Inc." on every page; 4 of 8 checked) | [Terms](https://www.citigroup.com/global/terms): same wording as JPMorgan's; also bans data scraping |
+| Principal Financial | ✅ 8 of 8 PDFs on [IR](https://investors.principal.com/financials/quarterly-results) | **Q3 2024–Q1 2025:** unclear (Principal-branded, no notice). **Q2 2025–Q2 2026:** **FactSet CallStreet, LLC** ("Copyright © 2001–\<year\> FactSet CallStreet, LLC"; all 8 checked) | [Terms](https://www.principal.com/terms-of-use): "download and print copyrighted materials for your personal non-commercial use only"; no modifying, transmitting or distributing without written consent. FactSet's own terms not yet reviewed |
+| Bank of America | ⚠️ 2 of 8 on [IR](https://investor.bankofamerica.com/quarterly-earnings) (Q1–Q2 2026). Older ones aren't listed on the earnings or events pages; Yen-Chu saw older PDFs elsewhere on the site (link to add) | **Unclear.** BAC-branded accessible (ADA) versions, no notice | [IR terms of use](https://investor.bankofamerica.com/terms-of-use) don't address copying or reuse |
+| Wells Fargo | ❌ None. IR posts release, presentation, supplement and webcast only | — | — |
+| Charles Schwab | ❌ None. IR posts presentations and webcasts; last transcript is from 2019 | — | — |
+| Capital One | ❌ None. [IR](https://investor.capitalone.com/financial-information/quarterly-results) posts release, financial supplement and presentation; the webcast is linked from the news release | — | — |
 
-**Not used:** Yahoo Finance (transcripts need a Silver/Gold subscription) and Seeking Alpha (paywalled). The team rule is no paywalled sources.
+**Key point (Logan's point 1):** a company hosting a transcript doesn't settle who owns it. Principal's newer transcripts belong to **FactSet CallStreet**, so FactSet's terms matter, not just Principal's.
 
-## 2. Terms of use: what we found
+## 2. Motley Fool: US terms (Logan's point 2)
 
-| Site | Terms | What it means for us |
+[The Motley Fool's Rules](https://www.fool.com/legal/terms-and-conditions/fool-rules/), last updated Jan 29, 2026:
+
+- **§7 Intellectual property:** "You may make one copy of the Content for your personal, non-commercial use"; any other copying, distribution, **storing** or transmission needs prior written permission. Content may not be posted to bulletin boards, blogs, chat rooms **or intranets**. "You further agree not to **create abstracts from or scrape** our Content."
+- **§8 Conduct:** no "automated means, including, without limitation, agents, robots, scripts, or spiders" to access, monitor, copy or harvest data.
+
+**What this means:** one personal reading copy only. No shared team folder (an intranet), and no "abstracts", which likely covers our AI passage extracts and summaries. **Logan isn't clearing Motley Fool for the shared corpus or the dashboard**, and these terms support that. So Wells Fargo, Schwab and Capital One have **no usable transcript source** for now.
+
+## 3. Verbatim excerpts vs. derived data (Logan's point 3)
+
+| Type | Examples | Proposed handling |
 |---|---|---|
-| Company IR sites (JPM, Citi, PFG, BAC) | Not reviewed clause by clause yet | Published by the companies for investors. Low risk for reading and analysis; **Logan to confirm**. |
-| Motley Fool (fool.com) | Couldn't open the US terms or robots.txt from our tools. The Canadian site's [Terms of Service](https://www.fool.ca/terms-of-service/) say: no "automated means, including without limitation, agents, robots, scripts, or spiders"; content is for "individual, non-commercial use only"; no reproducing or republishing. US terms are probably similar; **Logan to check the US version**. | **No scraping.** At most, read pages one at a time by hand. Transcripts are free to read and include past quarters; they're produced by "Motley Fool Transcribing" and may contain errors. |
-| Backup: company webcasts (WFC, SCHW) | Not reviewed | If Motley Fool is rejected: transcribe the companies' own webcast recordings ourselves (e.g., with Whisper). Official source, but more work. **Logan to confirm** this is allowed. |
+| **Verbatim excerpts** | Quoted sentences from a transcript | **Not published** (repo or dashboard) until Logan documents a basis per source. Stays in local, permitted storage only |
+| **Derived data** | Labels (D2/D1/P/N), scenario codes, counts, scores, the source URL, speaker role (management vs. analyst) | Can go in the repo, if the memo agrees. Contains no transcript text |
 
-## 3. How we'd handle the text (proposed)
+We drop the earlier assumption that "one or two sentences" is automatically fine.
 
-- **Collection:** download company PDFs by hand or one at a time, nothing at high volume. **No automated access to Motley Fool.**
-- **Storage (proposed, Logan to confirm in the memo):**
-  - **Each person's computer:** `data/raw/transcripts/<TICKER>/<TICKER>_<YYYY>Q<n>.pdf`. `data/raw/` is gitignored, so the files never get pushed.
-  - **Sharing with teammates:** a `transcripts` folder in the team's private Drive, shared with the 5 team members only (no public link). [`data/raw/README.md`](../../data/raw/README.md) already says raw files are shared through the location the ethics memo names, not through git.
-  - **No transcript text goes into GitHub** without a documented basis for redistribution.
-- **In the repo:** only derived results: AI-related short quotes with a source link and speaker role, labels and scores.
-- **Evidence rule:** only statements by company management count as evidence; analyst questions are context (see Taxonomy v0).
+## 4. Storage proposal (Logan's point 4)
 
-## 4. Decisions needed
+Only material that the terms allow for each use goes into each place:
 
-- [ ] Company IR transcripts (JPM, Citi, PFG, BAC): approve?
-- [ ] Motley Fool, manual reading only, for WFC, SCHW, COF: approve?
-- [ ] If Motley Fool is rejected: approve self-transcribing the company webcasts, or skip transcripts for those 3 companies?
-- [ ] Short quotes (one or two sentences) from transcripts in the repo and on the dashboard: OK?
-- [ ] Storage: local `data/raw/transcripts/` plus a private team Drive folder: OK? (Google Drive or CMU OneDrive, whichever you name in the memo)
+| Place | What | Owner | Access | Retention / deletion |
+|---|---|---|---|---|
+| Personal computer, `data/raw/transcripts/` (gitignored) | PDFs that pass "access" and "local storage" | Each team member, for their own copy | That person only | Delete at project end (proposed: by **Dec 31, 2026**) or whenever Logan withdraws clearance |
+| Team Drive folder `transcripts/` | **Only** sources that pass "team sharing" (none yet) | Yen-Chu (Dataset Builder) | 5 team members, view only, no public link | Same as above; owner deletes the folder |
+| GitHub | Derived data only (section 3) | — | Repo collaborators | Follows the repo |
+
+## 5. Options for the gaps (Logan's point 5)
+
+| Option | Covers | Permissions check needed |
+|---|---|---|
+| A. Company IR only | JPM, Citi, Principal (8 quarters each), BAC (2026) | Per-source review in the CSV, including FactSet's terms for Principal's newer transcripts |
+| B. Self-transcribe the companies' own webcasts (e.g., Whisper) | WFC, SCHW, COF, BAC pre-2026 | Separate check: webcast replay terms (e.g., edge.media-server.com) and whether a transcript we make is a derivative work |
+| C. Motley Fool | WFC, SCHW, COF | Not cleared (see section 2) |
+| D. No transcripts for those companies | — | None. They're scored from SEC filings only, and the dashboard says so |
+
+**Proposal:** start with A once cleared. Choose B or D for the other companies after Logan's decision. C stays off.
+
+## 6. Decisions needed from Logan
+
+- [ ] For each row in [`transcript_source_review.csv`](transcript_source_review.csv): **access / local storage / team sharing / publication**
+- [ ] FactSet CallStreet terms for Principal's Q2 2025–Q2 2026 transcripts: who reviews them?
+- [ ] Option B (self-transcribing webcasts): worth a permissions check, or go with D?
+- [ ] Storage and retention plan in section 4: OK?
+
+*Research and drafting assisted by Claude. Documents and terms were opened in a browser on Oct 24, 2026, and the copyright notices were read from the PDFs themselves.*
