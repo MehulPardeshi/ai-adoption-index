@@ -57,13 +57,17 @@ Only material that the terms allow for each use goes into each place:
 | B. Self-transcribe the companies' own webcasts (e.g., Whisper) | WFC, SCHW, COF, BAC pre-2026 | Separate check: webcast replay terms (e.g., edge.media-server.com) and whether a transcript we make is a derivative work |
 | C. Motley Fool | WFC, SCHW, COF | Not cleared (see section 2) |
 | D. No transcripts for those companies | — | None. They're scored from SEC filings only, and the dashboard says so |
+| **E. CMU Bloomberg Terminal (academic license)** | Likely all 7, including WFC, SCHW, COF, BAC pre-2026 (Bloomberg EVT has earnings-call transcripts) | Bloomberg's academic terms: research use, export limits (email/USB only), no redistribution. CMU's terminals are at [Hunt Library and Sorrells Library](https://library.cmu.edu/services/bloomberg) for current CMU community, on-site only. **Yen-Chu checks coverage and export on a terminal; Logan reviews the terms** |
 
-**Proposal:** start with A once cleared. Choose B or D for the other companies after Logan's decision. C stays off.
+**Proposal:** use **E (CMU Bloomberg)** for the companies without official transcripts (WFC, SCHW, COF, BAC before 2026), and A for the rest, once cleared. B or D is the fallback if Bloomberg is not cleared or lacks coverage. C stays off.
+
+**Timeline:** because the source changed, the transcript collection deadline is proposed to move from Sun Oct 25 to **Mon Oct 26** (Yen-Chu checks Bloomberg coverage at the library first).
 
 ## 6. Decisions needed from Logan
 
 - [ ] For each row in [`transcript_source_review.csv`](transcript_source_review.csv): **access / local storage / team sharing / publication**
 - [ ] FactSet CallStreet terms for Principal's Q2 2025–Q2 2026 transcripts: who reviews them?
+- [ ] Option E (CMU Bloomberg, academic license): OK for local storage and derived data? Team sharing of full text?
 - [ ] Option B (self-transcribing webcasts): worth a permissions check, or go with D?
 - [ ] Storage and retention plan in section 4: OK?
 
