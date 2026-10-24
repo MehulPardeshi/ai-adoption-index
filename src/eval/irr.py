@@ -14,6 +14,7 @@ Check #2: human vs. human, on the evidence level (D2/D1/P/N/X)
     partly; items any rater marked X are left out)
   * "Use vs. no use" kappa (D1/D2 vs. everything else), the call that moves the score
   * Scenario overlap (Jaccard) on items both raters coded D2/D1/P (the levels that need a scenario)
+  * A rater's about_ai = N counts as evidence X (the X rule was widened on Oct 23, mid-round)
 
 Check #3 preview: AI vs. the human majority (items where most humans agree)
   * Accuracy, Cohen's kappa, use/no-use kappa
@@ -85,6 +86,8 @@ def load_humans() -> dict[str, dict[str, dict]]:
         for r in csv.DictReader(path.open(encoding="utf-8")):
             if r.get("evidence", "").strip():
                 r["evidence"] = r["evidence"].strip().upper()
+                if r.get("about_ai", "").strip().upper() == "N":  # not about AI -> X (rule added Oct 23, #64)
+                    r["evidence"] = "X"
                 rows[r["passage_id"]] = r
         humans[path.stem.removeprefix("rater_")] = rows
     return humans

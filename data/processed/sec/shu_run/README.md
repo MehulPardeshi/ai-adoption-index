@@ -1,5 +1,7 @@
 # Shu's SEC run (2026-10-17) — independent cross-check of the SEC test run
 
+> **Oct 22 (#53):** the two runs are consolidated. `data/interim/sec/ai_passages.csv` is the single running dataset (Yen-Chu's run plus the FY2023 / early-2024 filings re-parsed with her code). This folder stays as the independent cross-check and as the home of `dong_baseline_6firms.csv`.
+
 Second, independent pass over SEC 10-K/10-Q filings for the six PoC firms, done in parallel with Yen-Chu's test run (PR #43). Same source (EDGAR), different code path and slightly different window and keyword list, so the two runs serve as a reproducibility check for the evaluation plan (`docs/part3-metrics/evaluation_plan.md`).
 
 | File | What it is |
@@ -9,7 +11,7 @@ Second, independent pass over SEC 10-K/10-Q filings for the six PoC firms, done 
 | `dong_baseline_6firms.csv` | The six firms' rows (141 firm-year filings, 2010–2024) from the Dong et al. AI Intensity dataset (github.com/FengDong-Elon/ai-intensity-dataset): 8 category counts, AI Intensity (Core) and (All). **Cite:** Dong, Doukas & Zhang, "Artificial Intelligence Engagement, Firm Value, and Risk Transformation", SSRN 6051714. |
 | `../../interim/sec/shu_run/ai_passages_all.json` | 274 AI-related passages with ~900 chars of context, plus 169 de-duplicated `unique_passages` with the list of filings where the same text recurs. Each has accession, document, approximate Item, position, matched keyword. Verbatim SEC text — same basis as `data/interim/sec/ai_passages.csv`; final retention per the ethics memo (#26). |
 | `../../../src/edgar/fetch_filings_shu.py` | Re-downloads every primary-document part for the manifest (handles WFC's `_d2.htm` split). Raw HTML stays in `data/raw/` (gitignored). |
-| `../../../docs/part2-taxonomy/shu_taxonomy_v0_DRAFT.md` | Shu's draft categories and stance labels, to be merged into Yen-Chu's taxonomy v0 (#33). |
+| (removed Oct 22) | Shu's draft categories were merged into `docs/part2-taxonomy/sec_test_run_taxonomy_v0_DRAFT.md` (mapping table in section 4, #33). |
 
 ## Differences from the SEC test run (PR #43)
 

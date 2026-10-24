@@ -7,7 +7,7 @@
 1. Pull the latest `main`.
 2. Read **section 4 ("Taxonomy v0")** of [`sec_test_run_taxonomy_v0_DRAFT.md`](../../part2-taxonomy/sec_test_run_taxonomy_v0_DRAFT.md), especially the **evidence-level table** and the **"Rules for unclear cases"**. That's your rulebook.
 3. **Stay blind:**
-   - **don't** open `data/processed/sec/passage_labels_v0.csv` or `company_scores_v0.csv`;
+   - **don't** open `data/processed/sec/passage_labels_v0.csv` or `company_scores_v0.csv`, or the agent's output (`agent_labels_v1.csv`, `agent_scores_v1.csv`, `first_run_results.md`, `prompt_tuning_*.md`, including in Shu's PRs #66 and #68);
    - **don't** discuss items with the other raters until everyone has submitted;
    - Yen-Chu: you've seen the AI-assisted draft labels before, so label from the passage text only, without reopening that file.
 
@@ -28,7 +28,7 @@ Or send the filled workbook to Mehul, who converts it and runs the scores.
 | Column | What to enter |
 |---|---|
 | `about_ai` | `Y` if the passage is really about artificial intelligence, otherwise `N` |
-| `evidence` | **One of:** `D2` (deployed, specific: names a tool, use, metric, role or date) · `D1` (says the company uses or governs AI, no specifics) · `P` (plans or expects to use AI) · `N` (risk, threat, trend, regulation, hedged "may use" talk, or analyst questions) · `X` (definition, acronym list, heading) |
+| `evidence` | **One of:** `D2` (deployed, specific: names a tool, use, metric, role or date) · `D1` (says the company uses or governs AI, no specifics) · `P` (plans or expects to use AI) · `N` (risk, threat, trend, regulation, hedged "may use" talk, or analyst questions) · `X` (definition, acronym list, heading, or not actually about AI: if `about_ai` is `N`, use `X`) |
 | `scenarios` | **Required for D2, D1 and P; blank for N and X.** One or more codes separated by `;`. Codes: `CX`, `ADV`, `CREDIT`, `RISKM`, `FRAUD`, `SURV`, `CYBER`, `DEV`, `PROD`, `OPS`, `MKT`, `ENT`, plus the enablers `GOV`, `TALENT`, `INVEST`. Leave blank otherwise |
 | `note` | Optional: why you were unsure |
 

@@ -269,3 +269,23 @@
 - **Decided by:** Snehal and Yen-Chu (WhatsApp / capture form); Mehul (Evaluation Lead) for the scenario fix.
 - **Supersedes:** "Snehal pending" in the 2026-10-19 entry; the D1/D2-only scenario rule in the labeling kit; "transcripts after the Julie meeting / team decides".
 - **Follow-ups:** The #55 vote on Sunday uses the new cost estimate. The first real agent run follows.
+
+### 2026-10-23 — Repo check before the Oct 25 meeting: X rule mid-round, agent results kept separate from check 3
+- **Decision:**
+  - **X rule widened mid-round (#64):** a search hit that isn't really about AI is now **X**. The cheat sheet, the workbook and the README say "`about_ai` = N → X". `irr.py` turns any rater's `about_ai` = N into X, so raters who labeled before the change aren't counted as disagreeing.
+  - **Agent results aren't check 3.** Shu's first DeepSeek run and prompt tuning (#66, #68) report 94% agreement and 2.2% overclaim. Both are measured against the **AI-assisted draft labels**, on the same 90 passages the prompt was tuned on. The ≤ 5% overclaim bar is measured against the **human majority** after Oct 27.
+  - **15 of the 50 labeling-sample passages are in the 90-passage tuning set.** Check 3 reports the other 35 separately.
+  - **Keep the raters blind:** the agent's output files (#66, #68) are merged only **after the raters submit on Tue Oct 27**, and the README adds them to the "don't open" list.
+- **Context / why:**
+  - The agent files contain labels for 15 sample passages.
+  - Tuning and testing on the same items overstates accuracy.
+  - #65 (consolidation, 245 → 277 passages) only adds rows. All 50 sample passages are present and unchanged.
+- **Also noted for Sunday:**
+  - The ethics memo draft (#63) §6 asks us to check a provider's data-retention terms before sending text to an external AI. The DeepSeek run already sent public SEC passages, so record DeepSeek's terms and confirm.
+  - The agent how-to guide (a Google Doc) contains the DeepSeek key in plain text. Remove it from the doc and rotate the key. No key is in the repo: every branch and its history was checked on Oct 23.
+- **Decided by:** Mehul Pardeshi (Evaluation Lead / PM).
+- **Supersedes:** nothing; adds to the 2026-10-20 entry.
+- **Follow-ups:**
+  - ✅ #63 (as a draft), #64, #65 and #69 merged Oct 23 by Mehul.
+  - Merge #66, then #68 (retargeted to `main`), on or after Oct 27.
+  - On Sunday: the ENT 0-vs-1 vote and approval of the ethics memo.

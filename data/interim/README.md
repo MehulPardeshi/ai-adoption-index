@@ -4,7 +4,7 @@ Text **extracted** from public sources, kept in the repo so teammates can label 
 
 | Folder | What's in it | Source and license |
 | --- | --- | --- |
-| `sec/` | `ai_passages.csv`: every paragraph in our 10-K/10-Q filings that mentions AI, verbatim, with company, quarter and an EDGAR link | SEC EDGAR filings are public U.S. government records, free to reuse |
+| `sec/` | `ai_passages.csv`: every paragraph in our 10-K/10-Q filings that mentions AI, verbatim, with company, quarter and an EDGAR link. Window: periods 2023-12-31 → 2026-06-30 for the six PoC firms (extended Oct 22, #53), 2024-07-01 → 2026-06-30 for Citi | SEC EDGAR filings are public U.S. government records, free to reuse |
 
 Rules:
 

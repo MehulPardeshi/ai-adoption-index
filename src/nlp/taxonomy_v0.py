@@ -44,7 +44,7 @@ EVIDENCE = {
     "D1": "Deployed, general: says the company uses/governs AI, no specifics",
     "P": "Planned: the company says it intends or expects to use AI",
     "N": "No evidence of own use: risk, threat, trend or regulation talk",
-    "X": "Not substantive: definition, acronym list, heading",
+    "X": "Not substantive: definition, acronym list, heading, or a search hit not actually about AI",
 }
 EVIDENCE_WEIGHT = {"D2": 3.0, "D1": 1.0, "P": 0.5, "N": 0.0}
 
@@ -59,6 +59,7 @@ TOPICS = {
     "REG": "AI laws and compliance",
     "MACRO": "AI as a credit or sector risk",
     "DEAL": "AI-related acquisition or investment",
+    "AGENT": "Autonomous AI agents as counterparties, intermediaries or a disintermediation risk (added Oct 22, #33)",
     "BOILER": "AI only named inside a generic list",
     "DEF": "Definition, acronym list or heading",
 }
