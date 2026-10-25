@@ -8,25 +8,20 @@ from src.dashboard.mock_data import (
     DEMO_AREAS,
     DEMO_STAGES,
     FIRMS,
+    compare_timeline,
     compare_use_cases,
     get_firms,
     get_use_cases,
     summarize_use_cases,
 )
-
-
-COLORS = {
-    "ink": "#182d32",
-    "teal": "#19766f",
-    "copper": "#b65f3c",
-    "muted": "#657277",
-    "grid": "#e2e7e5",
-}
-STAGE_COLORS = {
-    "Exploring": COLORS["muted"],
-    "Pilot": COLORS["copper"],
-    "In use": COLORS["teal"],
-}
+from src.dashboard.theme import (
+    BODY_FONT,
+    CHART_PALETTE,
+    COLORS,
+    HEADING_FONT,
+    STAGE_COLORS,
+    THEME_CSS,
+)
 
 st.set_page_config(
     page_title="AI Activity | Financial Services",
@@ -34,31 +29,7 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
-st.markdown(
-    """
-    <style>
-    html, body, [class*="css"] { font-family: Arial, Helvetica, sans-serif; }
-    .stApp { background: #ffffff; color: #182d32; }
-    [data-testid="stSidebar"] { background: #f6f8f7; border-right: 1px solid #e2e7e5; }
-    [data-testid="stMainBlockContainer"] { max-width: 1180px; padding-top: 1.8rem; padding-bottom: 2.5rem; }
-    h1, h2, h3 { color: #182d32; letter-spacing: -0.025em; }
-    h1 { font-size: 2.35rem; font-weight: 650; line-height: 1.12; }
-    h2 { font-size: 1.55rem; font-weight: 600; }
-    h3 { font-size: 1.15rem; font-weight: 600; }
-    .eyebrow { color: #19766f; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
-    [data-testid="stMetric"] { background: #f6f8f7; border: 1px solid #e2e7e5; padding: 0.75rem 0.9rem; border-radius: 0 !important; }
-    [data-testid="stMetricLabel"] { color: #657277; }
-    [data-testid="stMetricValue"] { color: #182d32; }
-    div[data-testid="stSelectbox"] label, div[data-testid="stMultiSelect"] label { color: #304247; font-weight: 600; }
-    div[data-testid="stTabs"] button, div[data-testid="stAlert"],
-    [data-baseweb="select"], [data-baseweb="select"] *,
-    [data-baseweb="popover"], [data-baseweb="popover"] *,
-    .stButton > button, [data-testid="stDataFrame"] { border-radius: 0 !important; }
-    div[data-testid="stAlert"] { border: 1px solid #e2e7e5; }
-    </style>
-    """,
-    unsafe_allow_html=True,
-)
+st.markdown(THEME_CSS, unsafe_allow_html=True)
 
 
 def chart_layout(title, y_title=None):
@@ -67,14 +38,14 @@ def chart_layout(title, y_title=None):
             "text": title,
             "x": 0,
             "xanchor": "left",
-            "font": {"family": "Arial, Helvetica, sans-serif", "size": 18, "color": COLORS["ink"]},
+            "font": {"family": HEADING_FONT, "size": 18, "color": COLORS["structural"]},
         },
         "paper_bgcolor": "rgba(0,0,0,0)",
-        "plot_bgcolor": "#ffffff",
-        "font": {"family": "Arial, Helvetica, sans-serif", "color": COLORS["ink"]},
+        "plot_bgcolor": COLORS["surface"],
+        "font": {"family": BODY_FONT, "color": COLORS["text"]},
         "margin": {"l": 12, "r": 18, "t": 48, "b": 20},
-        "xaxis": {"title": None, "showgrid": False, "linecolor": COLORS["grid"]},
-        "yaxis": {"title": y_title, "gridcolor": COLORS["grid"], "zerolinecolor": COLORS["grid"]},
+        "xaxis": {"title": None, "showgrid": False, "linecolor": COLORS["border"]},
+        "yaxis": {"title": y_title, "gridcolor": COLORS["border"], "zerolinecolor": COLORS["border"]},
         "legend": {"orientation": "h", "y": -0.22},
         "hovermode": "closest",
     }
@@ -158,6 +129,30 @@ with story_tab:
         "The area and stage labels below exist only to demonstrate navigation and filtering. "
         "They are not the project's approved categories or scoring rules."
     )
+    st.markdown("### Fictional example timeline")
+    st.caption(
+        "Cumulative count of invented demo records by their made-up period. This is a UI "
+        "timeline—not a measure of real company activity or adoption."
+    )
+    timeline = compare_timeline([selected_ticker])
+    firm_timeline = [row for row in timeline if row["ticker"] == selected_ticker]
+    timeline_chart = go.Figure(
+        go.Scatter(
+            name="Cumulative fictional records",
+            x=[row["quarter"] for row in firm_timeline],
+            y=[row["cumulative_examples"] for row in firm_timeline],
+            mode="lines+markers",
+            line={"color": COLORS["accent"], "width": 3, "shape": "hv"},
+            marker={"color": COLORS["structural"], "size": 8},
+            hovertemplate="%{x}<br>%{y} fictional records<extra></extra>",
+        )
+    )
+    timeline_chart.update_layout(
+        **chart_layout("Cumulative fictional demo records", "Cumulative demo records"),
+        showlegend=False,
+    )
+    timeline_chart.update_yaxes(dtick=1, rangemode="tozero")
+    st.plotly_chart(timeline_chart, width="stretch", config={"displayModeBar": False})
     st.dataframe(records_frame(records), hide_index=True, width="stretch")
 
     st.markdown("### 4 · Open a record")
@@ -184,7 +179,7 @@ with story_tab:
 
     st.markdown("### What this story is showing")
     st.write(
-        "The overview counts these same three fictional records; the table lists them; selecting "
+        f"The overview counts these same {len(records)} fictional records; the table lists them; selecting "
         "one opens its details. The totals and stage counts are calculated from the demo records, "
         "not from company research."
     )
@@ -222,6 +217,38 @@ with compare_tab:
         )
         st.dataframe(pd.DataFrame(comparison), hide_index=True, width="stretch")
 
+        timeline_rows = compare_timeline(selected_tickers)
+        timeline_chart = go.Figure()
+        for index, ticker in enumerate(selected_tickers):
+            firm_rows = [row for row in timeline_rows if row["ticker"] == ticker]
+            timeline_chart.add_trace(
+                go.Scatter(
+                    name=f"{firm_rows[0]['company']} · fictional records",
+                    x=[row["quarter"] for row in firm_rows],
+                    y=[row["cumulative_examples"] for row in firm_rows],
+                    mode="lines+markers",
+                    line={
+                        "color": CHART_PALETTE[index % len(CHART_PALETTE)],
+                        "width": 2.5,
+                        "shape": "hv",
+                    },
+                    marker={"size": 7},
+                    hovertemplate="%{x}<br>%{y} fictional records<extra></extra>",
+                )
+            )
+        timeline_chart.update_layout(
+            **chart_layout(
+                "Cumulative fictional records by demo quarter",
+                "Cumulative demo records",
+            ),
+        )
+        timeline_chart.update_yaxes(dtick=1, rangemode="tozero")
+        st.caption(
+            "Each line is a cumulative count of invented records attached to a selector firm. "
+            "It shows how demo examples are distributed over the fictional timeline—not adoption."
+        )
+        st.plotly_chart(timeline_chart, width="stretch", config={"displayModeBar": False})
+
         stage_chart = go.Figure()
         for stage in DEMO_STAGES:
             stage_chart.add_trace(
@@ -240,12 +267,13 @@ with compare_tab:
         st.plotly_chart(stage_chart, width="stretch", config={"displayModeBar": False})
 
         area_chart = go.Figure()
-        for area in DEMO_AREAS:
+        for index, area in enumerate(DEMO_AREAS):
             area_chart.add_trace(
                 go.Bar(
                     name=f"Example area · {area}",
                     x=[row["company"] for row in comparison],
                     y=[row["area_counts"].get(area, 0) for row in comparison],
+                    marker_color=CHART_PALETTE[index % len(CHART_PALETTE)],
                 )
             )
         area_chart.update_layout(

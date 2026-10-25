@@ -21,6 +21,51 @@ DEMO_AREAS = (
     "Document workflows",
 )
 DEMO_STAGES = ("Exploring", "Pilot", "In use")
+ADDITIONAL_EXAMPLES = (
+    ("JPM", "2024 Q1", "Sample form triage", "Document workflows", "Exploring"),
+    ("JPM", "2024 Q3", "Fictional advisor briefing", "Client insights", "Pilot"),
+    ("JPM", "2025 Q4", "Mock policy assistant", "Employee productivity", "Pilot"),
+    ("JPM", "2026 Q2", "Simulated alert sorting", "Risk operations", "In use"),
+    ("JPM", "2026 Q3", "Routine service response", "Customer support", "In use"),
+    ("BAC", "2024 Q1", "Fictional help-center search", "Employee productivity", "Exploring"),
+    ("BAC", "2024 Q2", "Sample account inquiry helper", "Customer support", "Pilot"),
+    ("BAC", "2024 Q4", "Mock case prioritization", "Risk operations", "Pilot"),
+    ("BAC", "2025 Q3", "Simulated policy document review", "Document workflows", "In use"),
+    ("BAC", "2026 Q3", "Fictional client note summary", "Client insights", "In use"),
+    ("COF", "2024 Q2", "Sample transaction review", "Risk operations", "Exploring"),
+    ("COF", "2025 Q1", "Mock application document sort", "Document workflows", "Pilot"),
+    ("COF", "2025 Q2", "Fictional service reply draft", "Customer support", "Pilot"),
+    ("COF", "2025 Q4", "Sample staff knowledge search", "Employee productivity", "In use"),
+    ("COF", "2026 Q2", "Mock advisor briefing", "Client insights", "In use"),
+    ("WFC", "2024 Q1", "Fictional client note summary", "Client insights", "Exploring"),
+    ("WFC", "2024 Q3", "Mock policy search", "Employee productivity", "Exploring"),
+    ("WFC", "2025 Q1", "Sample form intake assistant", "Document workflows", "Pilot"),
+    ("WFC", "2025 Q4", "Simulated service response", "Customer support", "Pilot"),
+    ("WFC", "2026 Q3", "Mock investigation queue", "Risk operations", "In use"),
+    ("C", "2024 Q1", "Sample service guide", "Customer support", "Exploring"),
+    ("C", "2024 Q4", "Mock document routing", "Document workflows", "Pilot"),
+    ("C", "2025 Q3", "Fictional policy search", "Employee productivity", "Pilot"),
+    ("C", "2026 Q1", "Simulated portfolio note summary", "Client insights", "In use"),
+    ("C", "2026 Q3", "Mock alert review queue", "Risk operations", "In use"),
+    ("SCHW", "2024 Q1", "Sample participant service guide", "Customer support", "Exploring"),
+    ("SCHW", "2024 Q2", "Mock document finder", "Document workflows", "Pilot"),
+    ("SCHW", "2025 Q2", "Fictional alert triage", "Risk operations", "Pilot"),
+    ("SCHW", "2025 Q4", "Sample client briefing", "Client insights", "In use"),
+    ("SCHW", "2026 Q3", "Mock staff reference search", "Employee productivity", "In use"),
+    ("PFG", "2024 Q2", "Fictional plan question guide", "Customer support", "Exploring"),
+    ("PFG", "2024 Q4", "Mock plan document routing", "Document workflows", "Exploring"),
+    ("PFG", "2025 Q2", "Sample advisor note summary", "Client insights", "Pilot"),
+    ("PFG", "2025 Q3", "Simulated case review queue", "Risk operations", "Pilot"),
+    ("PFG", "2026 Q3", "Fictional staff knowledge search", "Employee productivity", "In use"),
+)
+
+AREA_SUMMARIES = {
+    "Customer support": "A fictional assistant drafts a response to a sample service question.",
+    "Risk operations": "A mock workflow groups simulated alerts or cases for staff review.",
+    "Employee productivity": "An invented internal assistant searches sample reference material.",
+    "Client insights": "A mock assistant summarizes fictional advisor or client notes for review.",
+    "Document workflows": "A prototype routes sample forms or documents to a staff queue.",
+}
 
 # These deliberately invented scenarios are UI examples attached to familiar firm names.
 # They are not claims, evidence, labels, or research findings about those firms.
@@ -153,6 +198,23 @@ USE_CASES = (
     },
 )
 
+USE_CASES += tuple(
+    {
+        "id": f"{ticker}-{index:02d}",
+        "ticker": ticker,
+        "quarter": quarter,
+        "title": title,
+        "area": area,
+        "stage": stage,
+        "summary": AREA_SUMMARIES[area],
+        "detail": (
+            f"This invented {stage.lower()} scenario exists only to demonstrate the dashboard; "
+            "it does not describe the named firm."
+        ),
+    }
+    for index, (ticker, quarter, title, area, stage) in enumerate(ADDITIONAL_EXAMPLES, start=4)
+)
+
 
 def get_firms(sector=None):
     """Return the selector firms, optionally filtered by sector."""
@@ -200,4 +262,29 @@ def compare_use_cases(tickers):
             "stage_counts": {stage: stages[stage] for stage in DEMO_STAGES},
             "area_counts": {area: areas[area] for area in DEMO_AREAS},
         })
+    return rows
+
+
+def compare_timeline(tickers):
+    """Return cumulative fictional-record counts by quarter for selected firms."""
+    quarter_key = lambda quarter: (
+        int(quarter.split()[0]),
+        int(quarter.split()[1][1:]),
+    )
+    quarters = sorted({record["quarter"] for record in USE_CASES}, key=quarter_key)
+    rows = []
+    for firm in FIRMS:
+        ticker = firm["ticker"]
+        if ticker not in tickers:
+            continue
+        records = get_use_cases(ticker)
+        cumulative_count = 0
+        for quarter in quarters:
+            cumulative_count += sum(record["quarter"] == quarter for record in records)
+            rows.append({
+                "quarter": quarter,
+                "ticker": ticker,
+                "company": firm["company"],
+                "cumulative_examples": cumulative_count,
+            })
     return rows

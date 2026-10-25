@@ -38,6 +38,9 @@ Non-technical users: the client (writing a book chapter on AI in retirement), an
 
 The goal is to demonstrate a coherent user journey, not to imply research findings. The overview, record list, detail view, and firm comparison must all tell the same story from `src/dashboard/mock_data.py`.
 
+## Prototype visual style
+The dashboard uses the evolving, minimalist blue-and-purple style guide in [`src/dashboard/style.md`](../../src/dashboard/style.md). Its Streamlit implementation is centralized in [`src/dashboard/theme.py`](../../src/dashboard/theme.py), with automated checks in [`tests/test_dashboard_style.py`](../../tests/test_dashboard_style.py). Keep the guide and executable theme aligned when adjusting the design.
+
 ## Tool decision criteria (to discuss, not decided)
 - Can it be **externally hosted** (course TP3 requirement)?
 - Can it show **agentic capabilities** (course TP3: "an agent that plans/acts across steps")?
