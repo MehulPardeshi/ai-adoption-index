@@ -5,3 +5,8 @@
 requests>=2.31
 beautifulsoup4>=4.12
 openpyxl
+
+# src/dashboard/app.py
+streamlit>=1.49
+pandas>=1.5.3
+plotly>=5.18
