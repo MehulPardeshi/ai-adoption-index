@@ -2,6 +2,8 @@
 
 > File name kept from the v1.2 write-up; the v1.3 / v1.4 round is at the end.
 
+> **All agreement numbers in this file are tuning-set agreement (in-sample).** The prompt rules were written after looking at disagreements on these same 90 passages and then scored on them, against the AI-assisted draft labels. They show the prompt is consistent with v0, not how accurate it is. The held-out test is evaluation check 3 against the human labels after Oct 27. 15 of the 50 labeling-sample passages are in this tuning set, so check 3 will be reported on all 50 and separately on the **35 passages the prompt was never tuned on**.
+
 > **Owner:** Shu Pu · **Date:** Oct 23, 2026 · **Builds on:** [first_run_results.md](first_run_results.md) (#66) · **Code:** [`src/agent/prompts.py`](../../src/agent/prompts.py)
 > Same 90 FY2025 10-K passages (plus Citi's 20 as a benchmark, see below), same model (`deepseek-flash` = DeepSeek-V4.1-Flash-1017), guardrails on. Reference labels are still the **AI-assisted** draft labels (`passage_labels_v0.csv`), not ground truth.
 
@@ -25,13 +27,13 @@ v1.1 had rules 11, 12 and a broader rule 5 ("headings and summary bullets are X"
 
 v1.2 fixes all three. `PROMPT_VERSION` was bumped for each attempt, so neither reused cached answers.
 
-## Results (90 passages, after the guardrail)
+## Results: tuning-set agreement (90 passages, after the guardrail, in-sample)
 | Measure | v1.0 (#66) | v1.1 | **v1.2** |
 |---|---|---|---|
-| Evidence agreement with v0 | 80/90 (88.9%) | 83/90 (92.2%) | **85/90 (94.4%)** |
+| Tuning-set agreement with v0 | 80/90 (88.9%) | 83/90 (92.2%) | **85/90 (94.4%)** |
 | Cohen's kappa | 0.67 | 0.78 | **0.82** |
 | Use vs. no-use kappa | 0.70 | 0.90 | 0.79 |
-| **Overclaim** (target ≤ 5%) | 6 (6.7%) | 1 (1.1%) | **2 (2.2%)** |
+| **Overclaim vs. v0** (check 3 bar ≤ 5% is vs. humans) | 6 (6.7%) | 1 (1.1%) | **2 (2.2%)** |
 | Underclaim | 1 (1.1%) | 1 (1.1%) | 2 (2.2%) |
 | Overclaim before the guardrail (`evidence_raw`) | 9 (10.0%) | 5 (5.6%) | 2 (2.2%) |
 | Scenario overlap (mean Jaccard) | 0.78 | 0.75 | **0.89** (8 of 9 exact) |
@@ -86,7 +88,7 @@ Citi is not one of the six PoC firms; the team keeps it as a benchmark (Oct 18 d
 Scores for Citi's 10-K alone under v1.2: agent AI Use **3** (OPS; 6 if ENT earns 1 point), v0 9 (12 with ENT); readiness 11 vs. 33 (the downgraded Technology Committee D2). Both gaps close in v1.4 (round 2 below). Citi's higher v0 score in `company_scores_v0.csv` (45) also counts its 10-Qs, which the agent has not labeled yet.
 
 ## Caveats
-- **In-sample tuning.** The rules were written after looking at disagreements on these same 90 passages, so v1.2's numbers here are optimistic. The real test is check 3: human raters on the 50-passage sample (after Oct 27).
+- **In-sample tuning.** The rules were written after looking at disagreements on these same 90 passages, so every agreement number here is tuning-set agreement and optimistic. The held-out test is check 3: human raters on the 50-passage sample after Oct 27, reported on all 50 and on the 35 not in this tuning set.
 - **Overlap with the labeling sample:** 15 of the 90 passages are in `sample_passages.csv`. One of the passages I tuned on, **SCHW_2025-12-31_10-K_00551**, is among them; Mehul may want to report check 3 with and without it. The few-shot examples are still made up, so no sample passage is in the prompt.
 - **v0 is AI-assisted.** Agreement with v0 isn't accuracy. Where v0 and the codebook seem to disagree (COF_00372/00373), these runs can't settle it.
 
@@ -100,19 +102,19 @@ Two prompt changes, both already required by the codebook:
 
 **v1.3** fixed both Citi cases but brought back the few-shot-company confusion: with seven examples all called "Northwind Bank", the model flagged 3 real passages `company_mismatch` ("not the requested Northwind Bank") and sent 6 six-firm passages to review (JPM's AI-training label among them). **v1.4** keeps the v1.3 rules and gives each example its own made-up bank, with the security rule saying that without a "Requested company:" line there is no mismatch. v1.4 is the version kept.
 
-| Six PoC firms (90 passages), after guardrail | v1.2 | v1.3 | **v1.4** |
+| Six PoC firms (90 passages), after guardrail, tuning-set agreement | v1.2 | v1.3 | **v1.4** |
 |---|---|---|---|
-| Evidence agreement with v0 | 85/90 | 86/90 | **85/90** |
+| Tuning-set agreement with v0 | 85/90 | 86/90 | **85/90** |
 | Cohen's kappa | 0.82 | 0.84 | 0.83 |
-| Overclaim (target ≤ 5%) | 2 | 0 | **3 (3.3%)** |
+| Overclaim vs. v0 | 2 | 0 | **3 (3.3%)** |
 | Underclaim | 2 | 2 | **1** |
 | Scenario overlap (Jaccard) | 0.89 | 0.83 | 0.90 |
 | needs_review | 1 | 6 | 2 |
 | Spurious `company_mismatch` | 0 | 3 | 0 |
 
-| Citi benchmark (20 passages) | v1.2 | v1.3 | **v1.4** |
+| Citi benchmark (20 passages; v1.3/v1.4 were tuned after looking at these, so also in-sample) | v1.2 | v1.3 | **v1.4** |
 |---|---|---|---|
-| Evidence agreement with v0 | 17/20 | 19/20 | **19/20** |
+| Tuning-set agreement with v0 | 17/20 | 19/20 | **19/20** |
 | C_00831 Technology Committee | D1 (D2 downgraded) | D2 | **D2 pass** |
 | C_00131 AI for regulatory-report data governance | D1 | D1 | **D2** (as v0) |
 | C_01476 (the codebook's P example) | N | P OPS | P OPS at confidence 0.62 → needs_review |
