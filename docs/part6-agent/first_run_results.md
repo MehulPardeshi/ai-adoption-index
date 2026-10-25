@@ -32,6 +32,8 @@ From `agent_run_info.json`: 90 calls, 161,468 prompt tokens (144,750 served from
 The account balance went from ¥19.99 to ¥19.82 (¥0.17, about $0.02) for all of today's calls: the model checks, the 3-passage smoke test, the failed first attempt and this run. That matches the #55 estimate (about $0.05 for all 245 passages; under $5 for the project). Shu paid with his own key, since the #55 funding vote is on Sun Oct 25.
 
 ## Agent vs. the draft labels (90 passages)
+
+> **This is a consistency check, not evaluation check 3.** Agreement here is measured against `passage_labels_v0.csv`, which is AI-assisted. The ≤ 5% overclaim bar belongs to check 3 and is measured against the **human majority** after the raters submit on Oct 27; the "target" next to the overclaim row below is for orientation only.
 | Measure | After guardrail (`evidence_v0`) | Model's own call (`evidence_raw`) |
 |---|---|---|
 | Evidence-level agreement | **80/90 (88.9%)**, kappa 0.67 | 77/90 (85.6%), kappa 0.60 |
