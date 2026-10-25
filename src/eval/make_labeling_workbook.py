@@ -25,10 +25,10 @@ CHEAT = [
     ("D1", "Deployed but general: says it uses or governs AI, no specifics. e.g. 'We use AI in parts of our business.'"),
     ("P", "Planned or expected use. e.g. 'We intend to expand our use of AI next year.'"),
     ("N", "No evidence of own use: risks, threats, competitors, laws, trends, hedged 'MAY use'. e.g. 'Criminals may use AI to commit fraud.'"),
-    ("X", "Not substantive: definition, acronym list, heading. e.g. 'AI: artificial intelligence.'"),
+    ("X", "Not substantive: definition, acronym list, heading, or not actually about AI (about_ai = N). e.g. 'AI: artificial intelligence.'"),
     ("", ""),
     ("TIE-BREAKERS", "Mixed passage -> highest level. 'may use / could include' -> N. Other companies, criminals, the economy -> N. "
-                     "Forward-looking-statement lists ('...technology changes, including AI') -> N. Heading alone -> X."),
+                     "Forward-looking-statement lists ('...technology changes, including AI') -> N. Heading alone -> X. about_ai = N -> X."),
     ("", ""),
     ("SCENARIOS (required for D2, D1 and P; blank for N/X; separate with ;)", SCENARIOS),
     ("CX", "customer service"), ("ADV", "advice / wealth / retirement"), ("CREDIT", "lending / underwriting"),
