@@ -1,5 +1,7 @@
 """Interactive Streamlit journey built only from explicitly fictional demo records."""
 
+from html import escape
+
 import pandas as pd
 import plotly.graph_objects as go
 import streamlit as st
@@ -94,7 +96,14 @@ story_tab, compare_tab, about_tab = st.tabs(
 )
 
 with story_tab:
-    records = get_use_cases(selected_ticker)
+    records = sorted(
+        get_use_cases(selected_ticker),
+        key=lambda record: (
+            int(record["quarter"][:4]),
+            int(record["quarter"][-1]),
+        ),
+        reverse=True,
+    )
     summary = summarize_use_cases(selected_ticker)
     firm_label = selected_firm["company"]
 
@@ -126,8 +135,8 @@ with story_tab:
 
     st.markdown("### 3 · Browse the example use cases")
     st.caption(
-        "The area and stage labels below exist only to demonstrate navigation and filtering. "
-        "They are not the project's approved categories or scoring rules."
+        "Open any card to explore its fictional summary and details. The area and stage labels "
+        "are interface examples, not the project's approved categories or scoring rules."
     )
     st.markdown("### Fictional example timeline")
     st.caption(
@@ -153,35 +162,73 @@ with story_tab:
     )
     timeline_chart.update_yaxes(dtick=1, rangemode="tozero")
     st.plotly_chart(timeline_chart, width="stretch", config={"displayModeBar": False})
-    st.dataframe(records_frame(records), hide_index=True, width="stretch")
 
-    st.markdown("### 4 · Open a record")
-    record_ids = {record["id"]: record for record in records}
-    selected_record_id = st.selectbox(
-        "Select a fictional use case",
-        list(record_ids),
-        format_func=lambda record_id: (
-            f"{record_ids[record_id]['quarter']} · {record_ids[record_id]['title']}"
-        ),
-    )
-    selected_record = record_ids[selected_record_id]
-    st.markdown(f"#### {selected_record['title']}")
-    detail_columns = st.columns([1, 2])
-    detail_columns[0].write(f"**Period:** {selected_record['quarter']}")
-    detail_columns[0].write(f"**Example area:** {selected_record['area']}")
-    detail_columns[0].write(f"**Demo stage:** {selected_record['stage']}")
-    detail_columns[1].write(selected_record["summary"])
-    detail_columns[1].caption(selected_record["detail"])
-    st.info(
-        "**Evidence preview:** no real source is attached. A future research view would show "
-        "a reviewed citation here; this demo does not fabricate one."
-    )
+    st.markdown("#### 4 · Open a fictional use case")
+    with st.container(key="use_case_stack"):
+        for index, record in enumerate(records):
+            expanded_key = f"expanded_use_case_{record['id']}"
+            if expanded_key not in st.session_state:
+                st.session_state[expanded_key] = index == 0
+
+            stage_class = {
+                "Exploring": "exploring",
+                "Pilot": "pilot",
+                "In use": "in_use",
+            }[record["stage"]]
+            quarter = record["quarter"].split()
+            quarter_label = f"Q{quarter[1][1:]} {quarter[0]}"
+            card_state = "open" if st.session_state[expanded_key] else "closed"
+
+            with st.container(key=f"use_case_card_{card_state}_{record['id']}"):
+                title_column, stage_column, quarter_column, toggle_column = st.columns(
+                    [5, 1.55, 1.25, 0.6],
+                    vertical_alignment="center",
+                )
+                title_column.markdown(
+                    f'<div class="use-case-title">{escape(record["title"])}</div>',
+                    unsafe_allow_html=True,
+                )
+                stage_column.markdown(
+                    f'<div class="use-case-badge stage-{stage_class}">'
+                    f"{escape(record['stage'])}</div>",
+                    unsafe_allow_html=True,
+                )
+                quarter_column.markdown(
+                    f'<div class="use-case-badge quarter-badge">'
+                    f"{escape(quarter_label)}</div>",
+                    unsafe_allow_html=True,
+                )
+                action = "Close" if st.session_state[expanded_key] else "Open"
+                toggle_label = f"{action} {record['title']} details"
+                if toggle_column.button(
+                    toggle_label,
+                    key=f"toggle_{expanded_key}",
+                    width="stretch",
+                    type="tertiary",
+                ):
+                    st.session_state[expanded_key] = not st.session_state[expanded_key]
+                    st.rerun()
+
+                if st.session_state[expanded_key]:
+                    st.markdown(
+                        f'<div class="use-case-summary"><strong>'
+                        f"{escape(record['area'])}:</strong> "
+                        f"{escape(record['summary'])}</div>",
+                        unsafe_allow_html=True,
+                    )
+                    st.caption(record["detail"])
+                    st.markdown(
+                        '<div class="use-case-evidence"><strong>Evidence preview:</strong> '
+                        "No real source is attached. A future research view would show a "
+                        "reviewed citation here; this demo does not fabricate one.</div>",
+                        unsafe_allow_html=True,
+                    )
 
     st.markdown("### What this story is showing")
     st.write(
-        f"The overview counts these same {len(records)} fictional records; the table lists them; selecting "
-        "one opens its details. The totals and stage counts are calculated from the demo records, "
-        "not from company research."
+        f"The overview and timeline summarize these same {len(records)} fictional records. "
+        "Each card opens to show its mock details and an empty evidence preview. All counts "
+        "come from demo fixtures, not company research."
     )
 
 with compare_tab:

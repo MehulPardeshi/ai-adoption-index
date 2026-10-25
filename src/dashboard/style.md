@@ -36,10 +36,11 @@ the blue token; body text remains charcoal.
 
 ## Typography
 
-- **Headings:** `Merriweather, Georgia, Cambria, serif`, bold, in structural purple.
-- **Body and data:** `"Inter", "Helvetica Neue", Arial, sans-serif`, with system fallbacks.
-- Do not download fonts or import external stylesheets. If the preferred font is unavailable, the
-  browser uses a local fallback; the demo remains self-contained.
+- **Headings:** `'Merriweather', Georgia, serif`, bold, in structural purple.
+- **Body and data:** `'Inter', system-ui, sans-serif`.
+- The app loads Merriweather and Inter from Google Fonts. If the font request is unavailable,
+  the browser uses the local Georgia and system sans-serif fallbacks. This is a typography-only
+  network request; the demo still has no external data, model, or research connections.
 - Use the sans-serif stack for paragraphs, controls, tables, captions, and data labels.
 
 ## Layout and components
@@ -47,6 +48,18 @@ the blue token; body text remains charcoal.
 - Prefer open whitespace, clear section numbering, consistent alignment, and thin straight borders.
 - Keep surfaces white against the off-white background; avoid shadows and rounded card treatments.
 - Keep interactive components visibly distinct and keyboard focus easy to see.
+- Keep Streamlit's top toolbar controls available, but give the toolbar a transparent
+  background and let the app use normal document scrolling so the toolbar scrolls away with
+  the page instead of appearing as a persistent white strip.
+- Selected firm chips in the comparison multi-select use the dashboard blue accent with white,
+  high-contrast labels and visible remove controls.
+- Present fictional use cases as independently expandable cards rather than a record table
+  plus a second selector. Use a pale-blue stack behind individual white cards. Each card
+  header has a left-aligned title and vertically centered stage and quarter badges, with a
+  single blue dropdown control on the right. Expanded cards get a stronger blue outline and
+  show the example area, fictional summary/detail, and no-source notice. Keep the evidence
+  preview within the card bounds and allow its copy to wrap on narrow screens. Cards remain
+  independently openable and the most recent starts open.
 - Tables should prioritize concise labels, clear column headings, and readable body text.
 - Charts use the executable palette in `theme.py`; label every series and describe demo counts as
   fictional records, never as actual company adoption or performance.
