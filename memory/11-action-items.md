@@ -40,7 +40,8 @@
 | Task | Due |
 |---|---|
 | ✅ Category review (#33) · transcript source list (#62) | Done Oct 20–23 |
-| **Earnings calls:** check Bloomberg at the CMU library. Before downloading, record Bloomberg's terms in the #62 source-review table (separate decisions for access, local storage, team-drive sharing, publication). **No transcript text in the public repo**; derived labels and scores are fine. If Bloomberg isn't usable, go without transcripts | **Mon Oct 26** |
+| ✅ #62 revised per Logan's 5 points (source-review table, 7 firms × 8 quarters; Motley Fool not cleared; Capital One, Wells Fargo and Schwab IR sites have no transcripts) | Done Oct 24 |
+| **Earnings calls:** check Bloomberg at the CMU library (option E in #62); add Bloomberg rows to the review table. Before downloading, record Bloomberg's terms in the #62 source-review table (separate decisions for access, local storage, team-drive sharing, publication). **No transcript text in the public repo**; derived labels and scores are fine. If Bloomberg isn't usable, go without transcripts | **Mon Oct 26** |
 | Rule on the 3 Capital One sentences, so Shu can freeze the categories | **Tue Oct 27** |
 | **Labeling round 1:** label 50 passages on your own (your own judgment, not AI suggestions) | **Tue Oct 27** |
 | Present the test-run findings to Julie (Shu covers if you're unavailable); your slides in the shared deck | Wed Oct 28 / Thu Oct 29 |
@@ -59,7 +60,8 @@
 | Task | Due |
 |---|---|
 | ✅ SEC runs consolidated (#65) · categories (#64) · first DeepSeek run (#66) + prompt tuning (#68) | Done Oct 22–23 |
-| Remove the DeepSeek key from the how-to Google Doc and rotate it; confirm in #66 that the run used `api.deepseek.com` | **ASAP** |
+| ✅ Confirmed in #66: official endpoint, public SEC text only (about 600 calls, about $0.21) · agreement numbers labeled "tuning-set (in-sample)" (#66, #68) | Done Oct 25 |
+| Remove the DeepSeek key from the how-to Google Doc and rotate it (not yet confirmed) | **ASAP** |
 | Freeze the categories: implement **ENT = 1 point** (`--ent-counts`) and update the taxonomy doc; re-run the agent on all 110 passages | **Tue Oct 27** |
 | After the raters submit: run the agent on the 50-passage sample (check 3); give Snehal the scores file | Tue Oct 27 → Wed Oct 28 |
 | **Agent runs end to end** on the six FY2025 10-Ks (TP2: 12 pts) | **Wed Oct 28** |
