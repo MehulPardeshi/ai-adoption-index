@@ -314,3 +314,13 @@
   - Shu implements ENT = 1 in the scorer and codebook doc (`score_companies.py --ent-counts` exists) and freezes the categories by Tue Oct 27.
   - Logan posts Bloomberg's terms on #62.
   - Raters label with their own judgment; AI only for finding files.
+
+### 2026-10-25 — Follow-ups after the meeting: DeepSeek run confirmed, transcript review revised
+- **Decision:**
+  - The ethics memo's §6 remediation note is closed. Shu confirmed in #66 that the first runs used the official DeepSeek endpoint and sent only public SEC 10-K passage text (110 passages, about 600 calls, about $0.21). The confirmation is recorded in the memo.
+  - Yen-Chu's earnings-call collection deadline moves to **Mon Oct 26**, because the source changed to Bloomberg (as agreed at the meeting).
+  - #62 merges once Logan signs off on the four decisions per source, including Bloomberg.
+- **Context / why:** Logan's §6 asked the operator to confirm the endpoint and payload. Yen-Chu revised #62 per Logan's five points on Oct 24: a source-review table with only links and rights metadata, no transcript text.
+- **Decided by:** Mehul (PM), recording teammates' confirmations.
+- **Supersedes:** nothing.
+- **Follow-ups:** Shu confirms the key is out of the how-to Google Doc and rotated. Logan reviews Bloomberg's academic terms on #62.
