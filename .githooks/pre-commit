@@ -20,7 +20,14 @@ if ! git fetch --quiet origin main 2>/dev/null; then
   echo "Warning: couldn't reach GitHub to check for new changes (offline?). Committing anyway."
   exit 0
 fi
-missing=$(git rev-list --count HEAD..origin/main 2>/dev/null || echo 0)
+# When finishing a merge (e.g. after resolving conflicts from "git pull origin main"),
+# the commits being merged in count as present.
+merge_head=$(git rev-parse -q --verify MERGE_HEAD 2>/dev/null)
+if [ -n "$merge_head" ]; then
+  missing=$(git rev-list --count HEAD..origin/main --not "$merge_head" 2>/dev/null || echo 0)
+else
+  missing=$(git rev-list --count HEAD..origin/main 2>/dev/null || echo 0)
+fi
 if [ "$missing" -gt 0 ]; then
   echo ""
   echo "STOP: your branch is missing $missing new change(s) that teammates added to main."
