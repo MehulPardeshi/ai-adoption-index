@@ -57,12 +57,20 @@ notebooks/       exploration notebooks
 ```
 
 ## Setup
-**TODO:** the tech stack hasn't been chosen yet (EDGAR client, NLP tooling, dashboard tool). Once the team decides and logs it in `memory/09-decisions-log.md`, add real setup steps here and pin dependencies in `requirements.txt`.
+The Streamlit dashboard is an interface walkthrough using deterministic, explicitly fictional use-case records. Real firm names appear only as selectors; the attached examples are not claims about those firms. The overview, use-case details, and cross-firm comparison are all derived from the same mock records. The app does not read research data or produce findings.
 
-For now:
+Install the project requirements and launch the dashboard from the repository root:
 ```bash
-cp .env.example .env   # then fill in your own values locally; never commit .env
+python -m pip install -r requirements.txt
+python -m streamlit run src/dashboard/app.py
 ```
+
+The mock-data filter tests can be run with:
+```bash
+python -m unittest tests.test_dashboard_mock_data -v
+```
+
+**Hosting:** Streamlit Community Cloud is a potential free hosting option for the prototype. Availability, repository visibility requirements, and usage limits depend on its current terms and account eligibility. This repository does not contain deployment credentials, and no deployment is configured by these local run instructions.
 
 ## Team
 Mehul Pardeshi · Yen-Chu Chen · Logan Mai · Shu Pu · Snehal Paliwal. TA: Hengkai Zheng.

@@ -1,7 +1,7 @@
 # 11 — Action Items (who is doing what, right now)
 
 > **Read this to answer "what should I work on next?"** Updated after every meeting from `meetings/` minutes ([procedure](../meetings/README.md)). The shared spreadsheet remains the source of truth for owners and deadlines; this file mirrors it for AI tools.
-> **Last updated:** 2026-10-23 (repo check before the Oct 25 meeting; see memory/09). Before that: 2026-10-19, from the [Oct 18 meeting](../meetings/2026-10-18-internal.md) (capture form + transcript). Previous: [Oct 4 meeting](../meetings/2026-10-04-internal.md).
+> **Last updated:** 2026-10-25 (dashboard status refreshed; other assignments remain as logged Oct 23). Before that: 2026-10-19, from the [Oct 18 meeting](../meetings/2026-10-18-internal.md) (capture form + transcript). Previous: [Oct 4 meeting](../meetings/2026-10-04-internal.md).
 > **Pinned summary for humans:** [#45 "Who does what"](https://github.com/MehulPardeshi/ai-adoption-index/issues/45), with @mentions per person.
 > **GitHub:** each task below is an issue in the **"Sprint: Oct 18–Nov 6 (TP2)"** milestone on the [project board](https://github.com/users/MehulPardeshi/projects/1).
 
@@ -81,7 +81,7 @@
 ### Snehal Paliwal (Dashboard PM + client communication)
 | Task | Due |
 |---|---|
-| Dashboard mock-up (Streamlit) on a separate branch in our repo; confirm hosting (Streamlit Community Cloud vs. Vercel) | **Sun Oct 25** (moved from Fri Oct 23) |
+| ✅ Dashboard mock-up (Streamlit) now demonstrates a fictional firm-to-record-to-comparison journey using real firm names only as selectors; confirm hosting (Streamlit Community Cloud vs. Vercel) | **Sun Oct 25** |
 | First dashboard view with PoC data: per company, the AI use cases, with click-through to detail | Wed Oct 28 |
 | Compare existing AI trackers (with Logan) | Sat Oct 24 |
 | Read the Dong et al. paper | Sun Oct 25 |
@@ -116,7 +116,7 @@
 
 ## Unowned / open
 - Julie's paper: ✅ received (Vanguard report; see `docs/references.md`). Links to her other papers have been requested.
-- ⚠️ **Dashboard:** nothing is in the repo yet (`src/dashboard/` is empty). The mock-up is due Sun Oct 25, and it is the main risk for the Oct 29 demo.
+- **Dashboard:** a Streamlit interface prototype is now present in `src/dashboard/` and uses synthetic fixtures only. It does not load project data, source evidence, or scoring rules. This is a UI simulation, not the PoC data view; the latter remains due Wed Oct 28.
 - Snehal asked Julie (Oct 10) whether rescoping away from Dr. Chung's original brief is OK; the answer isn't recorded yet.
 
 ## Completed

@@ -1,1 +1,1 @@
-"""Dashboard app code — tool (Tableau / Power BI / Streamlit / Dash) not yet chosen (not yet implemented)."""
+"""Streamlit dashboard proof of concept with synthetic-only data."""
