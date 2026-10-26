@@ -247,7 +247,7 @@ Filings alone put JPMorgan, Bank of America and Capital One near the bottom, eve
 | --- | --- | --- |
 | Merge Shu's list into Label A | Every category maps onto an existing code (table below); no new scenario codes | Done |
 | Weights 3 / 1 / 0.5 | Keep for v0; revisit after the Oct 28 labeling round | Done |
-| One general sentence naming several areas | Counts **once, as ENT** (same rule as Capital One's hedged list). Correction: with the current scorer this takes Wells Fargo FY2025 from 9 to **0**, not 3, because ENT does not enter the AI Use Score. Whether ENT should earn 1 point (Yen-Chu and Shu both lean yes) is the **Sunday Oct 25 vote**; `score_companies.py --ent-counts` already implements the alternative | Open (vote) |
+| One general sentence naming several areas | Counts **once, as ENT** (same rule as Capital One's hedged list). Correction: with the current scorer this takes Wells Fargo FY2025 from 9 to **0**, not 3, because ENT does not enter the AI Use Score. Whether ENT should earn 1 point (Yen-Chu and Shu both lean yes) is the **Sunday Oct 25 vote**; `score_companies.py --ent-counts` already implements the alternative | **Decided Oct 25: ENT earns 1 point** (team vote; Shu implements by Tue Oct 27) |
 | "predictive models" as a search term | Keep it; hits that are not about AI are labeled X (X definition updated above) | Done |
 | Transcript source | Yen-Chu's source list is in #62 for Logan's ethics review | Handed over |
 

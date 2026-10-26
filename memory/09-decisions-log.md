@@ -289,3 +289,38 @@
   - ✅ #63 (as a draft), #64, #65 and #69 merged Oct 23 by Mehul.
   - Merge #66, then #68 (retargeted to `main`), on or after Oct 27.
   - On Sunday: the ENT 0-vs-1 vote and approval of the ethics memo.
+
+### 2026-10-25 — Internal meeting: categories approved, ENT = 1 point, DeepSeek option B, Bloomberg transcripts, Julie plan
+- **Decision:**
+  - **Categories approved:** codes and evidence levels (3a); the #64 rules: weights 3/1/0.5, a "we use AI for A, B, C" sentence counts once as ENT, non-AI "predictive models" hits are X (3b); AGENT topic tag (3d). No separate "how AI is used" tag; the team says the scenario codes already cover it (3e).
+  - **ENT earns 1 point** in the AI Use Score (was 0). TP2 must explain that ENT is a general, umbrella-level claim. Shu freezes the categories and re-runs the agent on Tue Oct 27, after Yen-Chu rules on 3 Capital One sentences.
+  - **DeepSeek: option B** (one person pays; Shu offered, at most about $5). The team accepts the retention risk because only public SEC text is sent. Logan double-checks with the instructor. Long term: hand Julie the setup without our API key, plus a cost note.
+  - **Earnings calls: Bloomberg through the CMU library**, if allowed for this use (Logan agreed in principle). Yen-Chu checks Mon Oct 26 and downloads manually. Transcript text stays out of the **public** repo (the Oct 18 decision still applies). Bloomberg's terms go into the #62 source-review table first.
+  - **Job postings:** avoid LinkedIn as a source (per the instructor's reply; form 1a).
+  - **TP3 papers:** Babina et al. (2024) as the main paper, Dong et al. (2026) as the comparison method. No Wells Fargo recount (5c).
+  - **Julie meeting (Thu Oct 29):** agenda 6a accepted, on simplified slides. Demo both the dashboard (mock data, for usability feedback) and the agent. Snehal sends the formal agenda by Tue Oct 27, takes notes, and asks about recording. Practice run Wed Oct 28, 10 am, virtual.
+  - **TP2:** everyone writes their own section by Mon Nov 2. Yen-Chu submits; Mehul is the backup. Next team meeting Sun Nov 1. Schedule one more meeting with Julie before the final.
+- **Context / why:**
+  - ENT: Yen-Chu argued that a clear "we use AI" is still evidence of use; Shu agreed. Without it, Wells Fargo scored 0.
+  - DeepSeek cost so far is about $0.02 per run.
+  - Bloomberg came up after Logan didn't clear the third-party transcript sites (#62).
+- **Decided by:** the team (Snehal, Shu, Logan, Yen-Chu) at the Oct 25 meeting. Mehul was absent (unwell).
+- **Supersedes:**
+  - ENT = 0 points (the 2026-10-20 scoring and the #64 "Open (vote)" row).
+  - "Transcript sources pending Logan's review" (now Bloomberg, if cleared).
+  - The 5b "TP3 paper options".
+  - Agenda to Julie "by Mon Oct 26" (now Tue Oct 27).
+- **Follow-ups:**
+  - Shu implements ENT = 1 in the scorer and codebook doc (`score_companies.py --ent-counts` exists) and freezes the categories by Tue Oct 27.
+  - Logan posts Bloomberg's terms on #62.
+  - Raters label with their own judgment; AI only for finding files.
+
+### 2026-10-25 — Follow-ups after the meeting: DeepSeek run confirmed, transcript review revised
+- **Decision:**
+  - The ethics memo's §6 remediation note is closed. Shu confirmed in #66 that the first runs used the official DeepSeek endpoint and sent only public SEC 10-K passage text (110 passages, about 600 calls, about $0.21). The confirmation is recorded in the memo.
+  - Yen-Chu's earnings-call collection deadline moves to **Mon Oct 26**, because the source changed to Bloomberg (as agreed at the meeting).
+  - #62 merges once Logan signs off on the four decisions per source, including Bloomberg.
+- **Context / why:** Logan's §6 asked the operator to confirm the endpoint and payload. Yen-Chu revised #62 per Logan's five points on Oct 24: a source-review table with only links and rights metadata, no transcript text.
+- **Decided by:** Mehul (PM), recording teammates' confirmations.
+- **Supersedes:** nothing.
+- **Follow-ups:** Shu confirms the key is out of the how-to Google Doc and rotated. Logan reviews Bloomberg's academic terms on #62.
