@@ -57,18 +57,30 @@ Only material that the terms allow for each use goes into each place:
 | B. Self-transcribe the companies' own webcasts (e.g., Whisper) | WFC, SCHW, COF, BAC pre-2026 | Separate check: webcast replay terms (e.g., edge.media-server.com) and whether a transcript we make is a derivative work |
 | C. Motley Fool | WFC, SCHW, COF | Not cleared (see section 2) |
 | D. No transcripts for those companies | — | None. They're scored from SEC filings only, and the dashboard says so |
-| **E. CMU Bloomberg Terminal (academic license)** | Likely all 7, including WFC, SCHW, COF, BAC pre-2026 (Bloomberg EVT has earnings-call transcripts) | Bloomberg's academic terms: research use, export limits (email/USB only), no redistribution. CMU's terminals are at [Hunt Library and Sorrells Library](https://library.cmu.edu/services/bloomberg) for current CMU community, on-site only. **Yen-Chu checks coverage and export on a terminal; Logan reviews the terms** |
+| **E. CMU Bloomberg Terminal (academic license)** | Likely all 7, including WFC, SCHW, COF, BAC pre-2026 (Bloomberg EVT has earnings-call transcripts) | CMU academic subscription; export by email or USB only (see 5a). CMU's terminals are at [Hunt Library and Sorrells Library](https://guides.library.cmu.edu/bloomberg) for the current CMU community, on-site only. **Logan reviews the terms** |
 
-**Proposal:** use **E (CMU Bloomberg)** for the companies without official transcripts (WFC, SCHW, COF, BAC before 2026), and A for the rest, once cleared. B or D is the fallback if Bloomberg is not cleared or lacks coverage. C stays off.
+**Decision (Oct 25 team meeting):** use **E (CMU Bloomberg)** for all 7 companies, if it's allowed for this use; Logan agreed in principle. A stays as a backup. If Bloomberg isn't usable, we go without transcripts (D). C stays off.
 
-**Timeline:** because the source changed, the transcript collection deadline is proposed to move from Sun Oct 25 to **Mon Oct 26** (Yen-Chu checks Bloomberg coverage at the library first).
+### 5a. Update, Mon Oct 26: Bloomberg transcripts collected
+
+- **What:** earnings-call transcripts for all 7 companies × 8 quarters (Q3 2024–Q2 2026), downloaded manually one at a time from the Bloomberg Terminal at the CMU library. Bloomberg rows were added to [`transcript_source_review.csv`](transcript_source_review.csv) (rows 57–112).
+- **Where:** the team Google Drive (`I2AI F26: Team Project > earning calls`), shared with team members only. **No transcript text is in this repo**, and the Drive link isn't posted here because the repo is public.
+- **Terms recorded so far** ([CMU Libraries Bloomberg guide](https://guides.library.cmu.edu/bloomberg), [CMU FAQ](https://cmu.libanswers.com/faq/404520)):
+  - academic subscription
+  - current CMU faculty, staff and students only
+  - in person only, at Hunt Library or Sorrells Library
+  - "limited downloading", by email or USB
+  - no printing
+  - the terminal "can only be used for Bloomberg purposes"
+  - The CMU pages don't address sharing or redistribution. Bloomberg's own terms on that, and the copyright notice on the exported files, still need to be recorded.
+- **Not yet decided:** the four decisions (access, local storage, team sharing, publication) for Bloomberg are pending Logan. If team-drive sharing isn't allowed, Yen-Chu moves the files to her own computer and removes them from the Drive.
 
 ## 6. Decisions needed from Logan
 
 - [ ] For each row in [`transcript_source_review.csv`](transcript_source_review.csv): **access / local storage / team sharing / publication**
 - [ ] FactSet CallStreet terms for Principal's Q2 2025–Q2 2026 transcripts: who reviews them?
-- [ ] Option E (CMU Bloomberg, academic license): OK for local storage and derived data? Team sharing of full text?
+- [ ] Option E (CMU Bloomberg, academic license): OK for local storage and derived data? **Team sharing of full text** (the files are already in the team Drive; see 5a)?
 - [ ] Option B (self-transcribing webcasts): worth a permissions check, or go with D?
 - [ ] Storage and retention plan in section 4: OK?
 
-*Research and drafting assisted by Claude. Documents and terms were opened in a browser on Oct 24, 2026, and the copyright notices were read from the PDFs themselves.*
+*Research and drafting assisted by Claude. Documents and terms were opened in a browser on Oct 24, 2026, and the copyright notices were read from the PDFs themselves. The CMU Bloomberg terms in 5a were read from the CMU Libraries pages on Oct 26, 2026.*
