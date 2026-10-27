@@ -32,8 +32,8 @@
 | ✅ Eval plan v1.2 final · labeling kit · red-team set v0 · TP2 outline · Julie talking points · Dong brief · Oct 23 repo check · merged #63–#65, #69–#72 | Done Oct 18–23 |
 | Collect the raters' labels; merge #66, then #68 (retarget to `main`) | **Tue Oct 27** |
 | Run `python3 -m src.eval.irr` (check 2) and check 3 on Shu's 50-passage agent run (report the 35 passages outside the tuning set separately) | Wed Oct 28 |
-| Practice run; "how we check our results" slides (4 min) | Wed Oct 28 / Thu Oct 29 |
-| First guardrail with/without run, with Shu | ~Nov 3 |
+| Practice run; "how we check results" slide (4 min; script ready: [talking points v2](../docs/part3-metrics/julie_oct29_talking_points_mehul.md)) | Wed Oct 28 / Thu Oct 29 |
+| First guardrail with/without run, with Shu (#77) | ~Nov 3 |
 | TP2: combine the paragraphs by Wed Nov 4; board clean-up Thu Nov 5; backup submitter | Nov 4–6 |
 
 ### Yen-Chu Chen (Dataset Builder)
