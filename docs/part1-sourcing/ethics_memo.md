@@ -51,4 +51,11 @@ Exclude unnecessary personal data; do not bypass logins or paywalls. Upload sour
 
 **Proposed project disposition:** Limit hosted DeepSeek inputs to necessary, permitted public SEC passages, excluding secrets, confidential material, unnecessary personal data and uncleared transcripts. Our §4 deletion schedule governs team copies, not provider-held data. The prior run reported in [PR #66](https://github.com/MehulPardeshi/ai-adoption-index/pull/66) preceded this review: its operator should confirm the endpoint and submitted material, record any remediation, and obtain team acceptance of residual retention risk. This is conditional support for the public-SEC use case, not retrospective approval or evidence that the actual payload has been audited. Third-party hosting requires its own policy review.
 
+**Operator confirmation, October 25, 2026 ([PR #66](https://github.com/MehulPardeshi/ai-adoption-index/pull/66#issuecomment-6394497045)).** Shu confirmed:
+- the run used the official endpoint `https://api.deepseek.com`, with no override;
+- only public SEC 10-K passage text was sent (the 90 FY2025 passages of the six PoC firms plus Citi's 20), with the codebook prompt and made-up examples. No transcripts, personal data, keys or files;
+- each passage was sent once per prompt version (about 600 calls in all), at a total cost of about $0.21.
+
+The team accepted the residual retention risk for public SEC text at the October 25 meeting (decision 3).
+
 <!-- AI assistance: OpenAI Codex assisted with research and drafting. Original source checks: October 18, 2026; DeepSeek policy review added October 23, 2026. Team review and approval remain pending. -->
