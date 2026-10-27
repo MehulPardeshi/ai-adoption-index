@@ -1,7 +1,7 @@
 # Julie meeting (Thu Oct 29): "How we check results" (Mehul, 0:33–0:37)
 
 > **v2, Oct 27:** a read-aloud script (about 4 minutes, roughly 500 words) and Q&A prep. v1 was the Oct 19 talking points.
-> **Before Thursday:** fill in the two `[ ]` blanks after the Wed Oct 28 run of `irr.py`. If the scores aren't ready, read the "not ready" lines instead.
+> **Round-1 results filled in Oct 27** (see [`results_round1.md`](labeling_round_1/results_round1.md)). Update the agent line if Shu's 50-passage run lands before Thursday.
 > **Slide:** one simple slide: the 4 checks as 4 boxes (People check people · People check the AI · Safety tests · Benchmark and rerun).
 
 ## Script (read aloud)
@@ -13,13 +13,13 @@
 
 **2. People check people (about 1 min)**
 "First, we test our own rules. Three teammates, Logan, Yen-Chu and Snehal, each labeled the same **50 passages** on their own, without seeing each other's answers or the AI's. We deliberately included the hardest cases, so this is a strict test. Then we measure how often they agree, using a standard agreement score called kappa. Our bar is **0.6**, which the research literature calls 'substantial' agreement."
-- **If results are ready:** "Our first round came in at **[ κ = __ ]**. The main disagreement was **[ e.g., whether a planned project counts as use ]**, so we've tightened that rule."
-- **If not ready:** "The labels came in this week, and we'll share the scores with you in our report next week."
+- **Results (round 1, Oct 27):** "On the most important question, whether a passage shows real use or not, our raters agreed well: kappa **0.60 to 0.72**, which meets our bar. On the finer five-level scale we're not there yet: two raters reached **0.61**, but across all three it was **0.27**. Most of that gap came from one rule being read two ways. 'Not about AI' was read as 'not about AI *use*'. That's exactly what this test is for: we're clarifying the wording, and we'll run a second round on 30 new passages."
+- *(Don't name the rater. If asked: "a wording issue in our rules, not a person issue.")*
 "Where people disagree, we don't just average it out. We fix the rule that caused the confusion."
 
 **3. People check the AI (about 1 min)**
 "Second, we compare the agent's labels with the human labels on those same 50 passages. The number we watch most closely is the **overclaim rate**: how often the AI says a company *uses* AI when the people say it doesn't. For a public index that names real companies, overclaiming is the worst mistake, so our bar is **5% or less**.
-Early numbers look encouraging, but I want to be honest about them: so far we've only tested the agent on passages it was tuned on. The real test is the human labels, and we'll report it separately on the passages the agent has never seen."
+Early numbers look encouraging: on the 18 passages we could compare so far, the agent agreed with the human majority on use versus no use every time, with no overclaims. But I want to be honest: those were passages it was tuned on. This week we run it on all 50 and report the ones it has never seen separately."
 
 **4. Safety checks (about 40 s)**
 "Third, guardrails. The agent can only say a company uses AI if it quotes the filing **word for word**, and a separate check confirms the quote really exists. So it can't invent a claim. We've built **20 trick test cases**: made-up quotes, hidden instructions inside a passage, a request to copy a paywalled transcript, and a few genuine cases that must *not* be blocked. We'll run the agent with and without the guardrails and show you the difference side by side."
