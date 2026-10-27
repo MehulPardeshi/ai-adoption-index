@@ -29,5 +29,5 @@
   },
   "labels_file": "data\\processed\\sec\\agent_labels_v1.csv",
   "scores_file": "data\\processed\\sec\\agent_scores_v1.csv",
-  "rescored": "2026-10-27: scores recomputed with ENT = 1 point (#33 freeze); labels unchanged, no new LLM calls"
+  "rescored": "2026-10-27: scores recomputed with ENT = 1 point (#33 freeze); labels unchanged (still classify-v1.4); re-run with v1.5 pending, see #85"
 }
