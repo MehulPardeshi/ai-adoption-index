@@ -6,7 +6,7 @@
   "temperature": 0.0,
   "guardrails": true,
   "min_confidence": 0.7,
-  "ent_counts": false,
+  "ent_counts": true,
   "passages": 110,
   "evidence": {
     "X": 7,
@@ -28,5 +28,6 @@
     "truncated": 0
   },
   "labels_file": "data\\processed\\sec\\agent_labels_v1.csv",
-  "scores_file": "data\\processed\\sec\\agent_scores_v1.csv"
+  "scores_file": "data\\processed\\sec\\agent_scores_v1.csv",
+  "rescored": "2026-10-27: scores recomputed with ENT = 1 point (#33 freeze); labels unchanged, no new LLM calls"
 }
