@@ -85,7 +85,7 @@ Logan recorded the four decisions for all 112 rows in the CSV. The full table an
 
 Access does not cover bulk downloading, text mining, or uploading transcripts to outside AI services such as DeepSeek.
 
-**Next step:** Yen-Chu asks the CMU Libraries to confirm three uses for this course project:
+**Next step:** someone on the team (to be decided; Yen-Chu has asked Logan) asks the CMU Libraries to confirm three uses for this course project:
 1. keeping the 56 downloaded transcripts
 2. sharing them with the 5 team members in a restricted Drive folder
 3. publishing labels and scores derived from them, with no transcript text
