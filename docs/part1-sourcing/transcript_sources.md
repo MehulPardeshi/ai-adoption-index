@@ -75,12 +75,21 @@ Only material that the terms allow for each use goes into each place:
   - The CMU pages don't address sharing or redistribution. Bloomberg's own terms on that, and the copyright notice on the exported files, still need to be recorded.
 - **Not yet decided:** the four decisions (access, local storage, team sharing, publication) for Bloomberg are pending Logan. If team-drive sharing isn't allowed, Yen-Chu moves the files to her own computer and removes them from the Drive.
 
-## 6. Decisions needed from Logan
+## 6. Logan's decisions (Oct 27)
 
-- [ ] For each row in [`transcript_source_review.csv`](transcript_source_review.csv): **access / local storage / team sharing / publication**
-- [ ] FactSet CallStreet terms for Principal's Q2 2025–Q2 2026 transcripts: who reviews them?
-- [ ] Option E (CMU Bloomberg, academic license): OK for local storage and derived data? **Team sharing of full text** (the files are already in the team Drive; see 5a)?
-- [ ] Option B (self-transcribing webcasts): worth a permissions check, or go with D?
-- [ ] Storage and retention plan in section 4: OK?
+Logan recorded the four decisions for all 112 rows in the CSV. The full table and scope are in [`transcript_review_decisions_logan.md`](transcript_review_decisions_logan.md) (first opened as #80, copied here so the two don't conflict). In short, for **Bloomberg**:
+
+| Access | Local storage | Team sharing | Publication |
+|---|---|---|---|
+| Conditionally approved: authorized CMU users at the library terminals | **Pending:** confirm permission to download and keep the 56 files | Citations and our own notes only; **full-text sharing pending** | Citations and our own commentary only; **releasing derived labels or scores pending** |
+
+Access does not cover bulk downloading, text mining, or uploading transcripts to outside AI services such as DeepSeek.
+
+**Next step:** Yen-Chu asks the CMU Libraries to confirm three uses for this course project:
+1. keeping the 56 downloaded transcripts
+2. sharing them with the 5 team members in a restricted Drive folder
+3. publishing labels and scores derived from them, with no transcript text
+
+Until the library answers, nobody processes the transcripts, and the Drive folder stays restricted to the team. If the answer is no, the files are removed and we go without transcripts (option D).
 
 *Research and drafting assisted by Claude. Documents and terms were opened in a browser on Oct 24, 2026, and the copyright notices were read from the PDFs themselves. The CMU Bloomberg terms in 5a were read from the CMU Libraries pages on Oct 26, 2026.*
