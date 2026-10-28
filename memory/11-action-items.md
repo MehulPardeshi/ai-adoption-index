@@ -32,7 +32,9 @@
 | ✅ Eval plan v1.2 final · labeling kit · red-team set v0 · TP2 outline · Julie talking points · Dong brief · Oct 23 repo check · merged #63–#65, #69–#72 | Done Oct 18–23 |
 | ✅ Labels collected (#79, #82, Logan's workbook converted); #66 and #68 merged; check 2 run: use/no-use κ 0.60–0.72 (meets bar), evidence-level Fleiss κ 0.27 (below bar; [results](../docs/part3-metrics/labeling_round_1/results_round1.md)) | Done Oct 27 |
 | ✅ Check 3 (Shu, #85): on the 29 passages outside the tuning set, 96% exact, κ 0.94, overclaim 0% (5% without the guardrail) | Done Oct 27 |
-| Propose to the team: cheat-sheet fix + adjudication + round 2 (30 passages) | Wed Oct 28 → Nov 1 |
+| ✅ Round 1 lessons + round 2 built: cheat sheet v2 (matches the frozen codebook, practice set), 30-passage targeted sample, workbook; scripts take `--round 2` | Done Oct 27 |
+| Ask the raters to do round 2 (about 30 min, by Sun Nov 1); score it with `python3 -m src.eval.irr --round 2`; lead adjudication at the Nov 1 meeting | Wed Oct 28 → Sun Nov 1 |
+| Check 4 (do the scores make sense: weights, ENT on/off, Dong comparison) and the check-6 expected-label review against the frozen codebook | Fri Oct 30 |
 | Practice run; "how we check results" slide (4 min; script ready: [talking points v2](../docs/part3-metrics/julie_oct29_talking_points_mehul.md)) | Wed Oct 28 / Thu Oct 29 |
 | First guardrail with/without run, with Shu (#77) | ~Nov 3 |
 | TP2: combine the paragraphs by Wed Nov 4; board clean-up Thu Nov 5; backup submitter | Nov 4–6 |

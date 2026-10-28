@@ -29,7 +29,7 @@ The as-labeled numbers are the official round-1 result. The merged column is a s
 - **Shu's agent (`agent_labels_v1.csv`)** has labels for 21 of the 50 passages, all from its tuning set, so this is **in-sample only**. On the 18 with a human majority it agreed on use/no-use 18/18, with 17/18 exact (one D1 vs. D2) and no overclaims.
 - **Update, Oct 27 evening: the real check 3 is done** (Shu, #85, [`check3_agent.md`](check3_agent.md)). The agent ran on all 50 with prompt classify-v1.5. On the **29 passages outside the tuning set** (not 35: 6 sample passages are also among the 20 Citi passages used for tuning): 96% exact, κ 0.94, **overclaim 0%** (0–2% across runs), underclaim 4%. Without the guardrail it would have been 5% (two low-confidence calls were held back), which is useful evidence for check 6.
 
-## Proposed next steps (for the team to decide on Oct 28 / Nov 1)
-1. **Clarify the cheat sheet:** "about AI = N only if the passage isn't about AI at all; AI risks, threats and regulation are about AI → N". Add one-line tests for P vs. N and D2 vs. D1.
-2. **Adjudicate** the 50 items in a short session. The agreed labels become the consensus set for checks 3 and 4.
-3. **Round 2,** as in the evaluation plan: 30 new passages with the clarified rules, to show whether agreement improves. Same raters if possible.
+## Next steps (Mehul, Oct 27; see the [evaluation plan](../evaluation_plan.md#round-1-lessons-and-round-2-added-oct-27))
+1. ✅ **Cheat sheet v2:** now word for word the frozen codebook, plus a 2-minute practice set ([round 2 cheat sheet](../labeling_round_2/cheat_sheet.md)). Same rules, clearer wording.
+2. ✅ **Round 2 built:** 30 new passages aimed at the round-1 weak spots ([README](../labeling_round_2/README.md)); raters label by Sun Nov 1.
+3. **Adjudication** at the Sun Nov 1 meeting: go through the disagreements together. The agreed labels become the consensus set for checks 3 and 4.

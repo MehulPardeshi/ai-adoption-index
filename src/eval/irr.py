@@ -1,4 +1,4 @@
-"""Labeling round 1 scoring: human agreement (check #2) and AI vs. humans (check #3).
+"""Labeling round scoring: human agreement (check #2) and AI vs. humans (check #3).
 
 Inputs:
   * Human raters: every docs/part3-metrics/labeling_round_1/rater_<name>.csv
@@ -24,6 +24,7 @@ Check #3 preview: AI vs. the human majority (items where most humans agree)
 Writes disagreements.csv (human vs. human) and ai_vs_humans.csv for the team to discuss.
 Run from the repo root:  python3 -m src.eval.irr
 Score the agent instead of the draft labels:  python3 -m src.eval.irr --ai-labels data/processed/sec/agent_labels_v1.csv
+Score round 2 (docs/part3-metrics/labeling_round_2/):  python3 -m src.eval.irr --round 2
 """
 import argparse
 import csv
@@ -163,7 +164,10 @@ def ai_vs_humans(humans: dict, ai: dict, items: list[str]) -> None:
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--ai-labels", default=str(AI_LABELS), help="AI labels CSV (default: the AI-assisted draft labels)")
+    ap.add_argument("--round", type=int, default=1, help="labeling round folder to score (default: 1)")
     args = ap.parse_args()
+    global ROUND
+    ROUND = Path(f"docs/part3-metrics/labeling_round_{args.round}")
     humans = load_humans()
     if not humans:
         print("No completed rater_<name>.csv files yet in", ROUND)
@@ -177,7 +181,10 @@ def main() -> None:
         human_agreement(humans, items)
     else:
         print("Only one human rater so far; check #2 needs at least two.\n")
-    ai_vs_humans(humans, load_ai(set(items), args.ai_labels), items)
+    ai = load_ai(set(items), args.ai_labels)
+    if len(ai) < len(items):
+        print(f"Note: the AI labels cover {len(ai)} of {len(items)} items; check #3 uses only those.\n")
+    ai_vs_humans(humans, ai, [i for i in items if i in ai])
 
 
 if __name__ == "__main__":
