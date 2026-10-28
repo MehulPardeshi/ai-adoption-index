@@ -2,7 +2,7 @@
 
 > **v2, Oct 27:** a read-aloud script (about 4 minutes, roughly 500 words) and Q&A prep. v1 was the Oct 19 talking points.
 > **Round-1 results filled in Oct 27** (see [`results_round1.md`](labeling_round_1/results_round1.md)). Agent results (check 3) added from Shu's #85.
-> **Slide:** one simple slide: the 4 checks as 4 boxes (People check people · People check the AI · Safety tests · Benchmark and rerun).
+> **Slide:** slide 9 in the team deck, "How we check results" (4 cards). **Final version Oct 27**, after check 4 and the round-2 build.
 
 ## Script (read aloud)
 
@@ -13,7 +13,7 @@
 
 **2. People check people (about 1 min)**
 "First, we test our own rules. Three teammates, Logan, Yen-Chu and Snehal, each labeled the same **50 passages** on their own, without seeing each other's answers or the AI's. We deliberately included the hardest cases, so this is a strict test. Then we measure how often they agree, using a standard agreement score called kappa. Our bar is **0.6**, which the research literature calls 'substantial' agreement."
-- **Results (round 1, Oct 27):** "On the most important question, whether a passage shows real use or not, our raters agreed well: kappa **0.60 to 0.72**, which meets our bar. On the finer five-level scale we're not there yet: two raters reached **0.61**, but across all three it was **0.27**. Most of that gap came from one rule being read two ways. 'Not about AI' was read as 'not about AI *use*'. That's exactly what this test is for: we're clarifying the wording, and we'll run a second round on 30 new passages."
+- **Results (round 1, Oct 27):** "On the most important question, whether a passage shows real use or not, our raters agreed well: kappa **0.60 to 0.72**, which meets our bar. On the finer five-level scale we're not there yet: two raters reached **0.61**, but across all three it was **0.27**. Most of that gap came from one rule being read two ways. 'Not about AI' was read as 'not about AI *use*'. That's exactly what this test is for. We've already clarified the wording, added a short practice set, and a second round on 30 new passages is running now."
 - *(Don't name the rater. If asked: "a wording issue in our rules, not a person issue.")*
 "Where people disagree, we don't just average it out. We fix the rule that caused the confusion."
 
@@ -22,7 +22,7 @@
 The results are strong. On the 29 passages the agent had never seen while we were building it, it matched the human majority **96%** of the time, and it overclaimed **zero** times. One honest caveat: across repeated runs we see 0 to 2%, so we quote it as a range. And the safety check earned its place: without it, the overclaim rate would have been about **5%**, right at our limit."
 
 **4. Safety checks (about 40 s)**
-"Third, guardrails. The agent can only say a company uses AI if it quotes the filing **word for word**, and a separate check confirms the quote really exists. So it can't invent a claim. We've built **20 trick test cases**: made-up quotes, hidden instructions inside a passage, a request to copy a paywalled transcript, and a few genuine cases that must *not* be blocked. We'll run the agent with and without the guardrails and show you the difference side by side."
+"Third, guardrails. The agent can only say a company uses AI if it quotes the filing **word for word**, and a separate check confirms the quote really exists. So it can't invent a claim. We've built **22 trick test cases**: made-up quotes, hidden instructions inside a passage, a request to copy a paywalled transcript, and a few genuine cases that must *not* be blocked. We'll run the agent with and without the guardrails and show you the difference side by side."
 
 **5. Benchmark and rerun (about 30 s)**
 "Finally, we compare against an existing academic dataset, Dong and colleagues' AI Intensity measure. It mostly counts AI words, and when we compared them, that's exactly what we found: it lines up with how much a bank *talks* about AI, not with how much it *uses* it. That difference is what our index adds. It also scores Wells Fargo zero every year, because its text extraction missed the main report, which is a good example of why checking matters. And a teammate who didn't build the pipeline will rerun it from scratch to confirm they get the same numbers."
@@ -37,7 +37,7 @@ The results are strong. On the 29 passages the agent had never seen while we wer
 | If asked… | Say |
 |---|---|
 | **What is kappa? Why 0.6?** | "It's agreement corrected for luck. Two people would agree sometimes just by chance, and kappa removes that. 0.6 is the usual 'substantial' line (Landis and Koch, 1977)." |
-| **Are 50 passages enough?** | "For a first round, yes: it's enough to find unclear rules. We picked the hard cases on purpose. If we miss the bar, we fix the rules and run a second round on 30 new passages." |
+| **Are 50 passages enough?** | "For a first round, yes: it's enough to find unclear rules. We picked the hard cases on purpose. We missed the bar on the fine scale, so we clarified the rules and a second round on 30 new passages is running." |
 | **What if the raters disagree a lot?** | "Then the rule is unclear, not the people. We look at the disagreements, rewrite the rule, and re-test. The agreed labels become the reference set for checking the AI." |
 | **Why not just trust the AI?** | "It's fast, but it can overclaim or invent things. That's why every claim needs an exact quote, and why we measure it against people." |
 | **Why focus on overclaiming, not missed cases?** | "Overclaiming is the costly error: it tells your readers a company does something it doesn't. We still report missed cases, and we also test how much AI text our search misses." |
