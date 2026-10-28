@@ -1,7 +1,7 @@
 # 11 — Action Items (who is doing what, right now)
 
 > **Read this to answer "what should I work on next?"** Updated after every meeting from `meetings/` minutes ([procedure](../meetings/README.md)). The shared spreadsheet remains the source of truth for owners and deadlines; this file mirrors it for AI tools.
-> **Last updated:** 2026-10-25, from the [Oct 25 meeting](../meetings/2026-10-25-internal.md) (capture form + transcript; Mehul absent). Previous: [Oct 18 meeting](../meetings/2026-10-18-internal.md).
+> **Last updated:** 2026-10-27 (labels in, check 2 + 3 run, categories frozen). Last meeting: [Oct 25](../meetings/2026-10-25-internal.md) (capture form + transcript; Mehul absent). Previous: [Oct 18 meeting](../meetings/2026-10-18-internal.md).
 > **Pinned summary for humans:** [#45 "Who does what"](https://github.com/MehulPardeshi/ai-adoption-index/issues/45), with @mentions per person.
 > **GitHub:** each task below is an issue in the **"Sprint: Oct 18–Nov 6 (TP2)"** milestone on the [project board](https://github.com/users/MehulPardeshi/projects/1).
 
