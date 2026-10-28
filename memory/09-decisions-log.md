@@ -324,3 +324,17 @@
 - **Decided by:** Mehul (PM), recording teammates' confirmations.
 - **Supersedes:** nothing.
 - **Follow-ups:** Shu confirms the key is out of the how-to Google Doc and rotated. Logan reviews Bloomberg's academic terms on #62.
+
+### 2026-10-27 — Categories frozen; labeling round 1 and check 3 results (no meeting)
+- **Decision:**
+  - **Categories frozen** (#84, closes #33). ENT = 1 point is the scorer's default (`--no-ent` keeps the old rule as a sensitivity check). The three Capital One risk-factor sentences are D1, applied by default because #33 had no reply; Yen-Chu can reopen.
+  - **Labeling round 1 is the official record as submitted.** No labels were changed after submission; Logan's Numbers workbook was converted to `rater_logan.csv` without changes.
+- **Results (facts, not decisions):**
+  - Check 2: real use vs. not κ 0.60–0.72 (meets the bar); the five evidence levels, Fleiss κ 0.27 (0.49 with N/X merged). Most of the gap: one rater read "about AI" as "about AI use" ([results](../docs/part3-metrics/labeling_round_1/results_round1.md)).
+  - Check 3 (#85): on the 29 passages outside the tuning set, 96% exact, κ 0.94, overclaim 0% (0–2% across runs), about 5% without the guardrail. The clean set is 29, not 35: 6 sample passages are also among the 20 Citi tuning passages.
+  - DeepSeek: Prof. Chung told Logan after class that it's OK, since CMU hasn't banned it; Logan asked her to confirm by email.
+  - Bloomberg: Logan emailed the CMU business librarian about download, team sharing, external AI processing and publication. Full-text use stays paused until he replies.
+- **Context / why:** the planned Oct 27 steps (labels in → merge #66/#68 → scores) all happened.
+- **Decided by:** Shu (freeze, per the Oct 25 team vote); Mehul (PM/Evaluation lead) for the round-1 record.
+- **Supersedes:** "re-count Wells Fargo" (already dropped on Oct 25); the "35 non-tuning passages" figure in the eval plan.
+- **Follow-ups (for the Wed Oct 28 practice run):** clarify the "about AI" rule in the cheat sheet, go through the disagreements together, and run round 2 on 30 new passages (team to decide). Record Prof. Chung's email in ethics memo §6 when it arrives.
