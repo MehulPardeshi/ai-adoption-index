@@ -31,7 +31,8 @@
 |---|---|
 | ✅ Eval plan v1.2 final · labeling kit · red-team set v0 · TP2 outline · Julie talking points · Dong brief · Oct 23 repo check · merged #63–#65, #69–#72 | Done Oct 18–23 |
 | ✅ Labels collected (#79, #82, Logan's workbook converted); #66 and #68 merged; check 2 run: use/no-use κ 0.60–0.72 (meets bar), evidence-level Fleiss κ 0.27 (below bar; [results](../docs/part3-metrics/labeling_round_1/results_round1.md)) | Done Oct 27 |
-| Check 3 on Shu's 50-passage agent run (report the 35 passages outside the tuning set separately); propose cheat-sheet fix + adjudication + round 2 to the team | Wed Oct 28 → Nov 1 |
+| ✅ Check 3 (Shu, #85): on the 29 passages outside the tuning set, 96% exact, κ 0.94, overclaim 0% (5% without the guardrail) | Done Oct 27 |
+| Propose to the team: cheat-sheet fix + adjudication + round 2 (30 passages) | Wed Oct 28 → Nov 1 |
 | Practice run; "how we check results" slide (4 min; script ready: [talking points v2](../docs/part3-metrics/julie_oct29_talking_points_mehul.md)) | Wed Oct 28 / Thu Oct 29 |
 | First guardrail with/without run, with Shu (#77) | ~Nov 3 |
 | TP2: combine the paragraphs by Wed Nov 4; board clean-up Thu Nov 5; backup submitter | Nov 4–6 |
@@ -52,7 +53,8 @@
 |---|---|
 | ✅ Ethics memo (#63) + DeepSeek retention review (#72) · #62 review · AI-tracker comparison · job-postings question answered (avoid LinkedIn) | Done Oct 22–25 |
 | Post on #62 whether Bloomberg is approved, with its license terms | Before Yen-Chu downloads |
-| Email Rachel: thank her for the LinkedIn reply, and confirm that sending public SEC text to DeepSeek is OK (`UNCLEAR:` the form says Dr. Chung) | Before Wed Oct 28 |
+| DeepSeek: Dr. Chung said in person after class (Oct 27) that it's OK, since CMU hasn't banned it. Logan asked her to confirm by email; record the email in ethics memo §6 when it arrives | Email pending |
+| CMU library (Ryan Splenda) emailed Oct 27 about the Bloomberg uses (download, team Drive, external AI, publishing); Bloomberg full text paused until he replies | Waiting on reply |
 | **Labeling round 1:** label 50 passages **on your own** | **Tue Oct 27** |
 | Present the data rules to Julie; your slides in the shared deck | Wed Oct 28 / Thu Oct 29 |
 

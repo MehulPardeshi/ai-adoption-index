@@ -1,7 +1,7 @@
 # Julie meeting (Thu Oct 29): "How we check results" (Mehul, 0:33–0:37)
 
 > **v2, Oct 27:** a read-aloud script (about 4 minutes, roughly 500 words) and Q&A prep. v1 was the Oct 19 talking points.
-> **Round-1 results filled in Oct 27** (see [`results_round1.md`](labeling_round_1/results_round1.md)). Update the agent line if Shu's 50-passage run lands before Thursday.
+> **Round-1 results filled in Oct 27** (see [`results_round1.md`](labeling_round_1/results_round1.md)). Agent results (check 3) added from Shu's #85.
 > **Slide:** one simple slide: the 4 checks as 4 boxes (People check people · People check the AI · Safety tests · Benchmark and rerun).
 
 ## Script (read aloud)
@@ -19,7 +19,7 @@
 
 **3. People check the AI (about 1 min)**
 "Second, we compare the agent's labels with the human labels on those same 50 passages. The number we watch most closely is the **overclaim rate**: how often the AI says a company *uses* AI when the people say it doesn't. For a public index that names real companies, overclaiming is the worst mistake, so our bar is **5% or less**.
-Early numbers look encouraging: on the 18 passages we could compare so far, the agent agreed with the human majority on use versus no use every time, with no overclaims. But I want to be honest: those were passages it was tuned on. This week we run it on all 50 and report the ones it has never seen separately."
+The results are strong. On the 29 passages the agent had never seen while we were building it, it matched the human majority **96%** of the time, and it overclaimed **zero** times. One honest caveat: across repeated runs we see 0 to 2%, so we quote it as a range. And the safety check earned its place: without it, the overclaim rate would have been about **5%**, right at our limit."
 
 **4. Safety checks (about 40 s)**
 "Third, guardrails. The agent can only say a company uses AI if it quotes the filing **word for word**, and a separate check confirms the quote really exists. So it can't invent a claim. We've built **20 trick test cases**: made-up quotes, hidden instructions inside a passage, a request to copy a paywalled transcript, and a few genuine cases that must *not* be blocked. We'll run the agent with and without the guardrails and show you the difference side by side."
