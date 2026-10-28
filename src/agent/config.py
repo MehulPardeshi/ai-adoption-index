@@ -50,7 +50,7 @@ REQUEST_TIMEOUT = 60
 MAX_RETRIES = 3
 
 # ---- prompt / guardrail ----
-PROMPT_VERSION = "classify-v1.4"  # Oct 23: v1.2 rules + P rule and example, quote must hold the D2 specific, one made-up bank per example (docs/part6-agent/prompt_tuning_v1.2.md)
+PROMPT_VERSION = "classify-v1.5"  # Oct 27: same rules as v1.4 (docs/part6-agent/prompt_tuning_v1.2.md); bumped because #64 changed the codebook text the prompt is built from (X definition, AGENT topic)
 MIN_CONFIDENCE = 0.70        # below this, a label goes to human review and is not scored
 CHAT_MAX_STEPS = 8           # function-calling rounds per question
 PASSAGE_MAX_CHARS = 6000     # longest SEC passage is ~3.9k chars
