@@ -56,6 +56,28 @@ Instructions for raters: [`labeling_round_1/README.md`](labeling_round_1/README.
 
 **Check 6 test set:** [`guardrail_redteam_v0.md`](guardrail_redteam_v0.md): 20 cases (overclaiming, fabrication, prompt injection, attribution, data rules, positive controls), all chosen so they don't reveal any labeling-sample answers.
 
+## Round 1 lessons and round 2 (added Oct 27)
+Round 1 results: [`results_round1.md`](labeling_round_1/results_round1.md). Use/no-use met the bar (κ 0.60–0.72); the five evidence levels did not (Fleiss κ 0.27).
+
+**What went wrong in our process, and the fix:**
+
+| # | Lesson | Fix (applies to every later round) |
+|---|---|---|
+| 1 | **A rule changed mid-round.** The X rule was widened on Oct 23 (#64), after the raters had their materials. | **Freeze the codebook before a round starts.** Any change waits for the next round. |
+| 2 | **The cheat sheet drifted from the codebook.** It lacked three codebook rules: risk factors that admit use are D1; "oversight body" makes D2; headings are X even when they mention use. It also never said that AI risk talk still counts as "about AI". | **The cheat sheet quotes the frozen codebook** ([v2](labeling_round_2/cheat_sheet.md), changes marked). |
+| 3 | **No practice before the real round.** One rater read "about AI" as "about AI use" for all 18 risk passages, and nothing caught it before submission. | **A 2-minute practice set** (six made-up passages with answers) at the top of the cheat sheet. |
+| 4 | **Sample design for later rounds.** Round 1 used every "use" passage, so a random follow-up sample would be almost all easy cases and inflate agreement. | **Target the weak spots** (stratified sample; below). Report the limits honestly. |
+
+**Round 2 design** ([README](labeling_round_2/README.md)): 30 passages that raters haven't seen, chosen to test the round-1 weak spots:
+- every remaining D1 passage (3);
+- 12 N passages where the company mentions its own models or AI (the D1-vs-N boundary);
+- 11 other N passages (the "about AI" rule);
+- 4 X passages.
+
+Same three raters, labeled blind, about 30 minutes, due **Sun Nov 1**. Same bar (κ ≥ 0.60). Limits: no D2 or P passages are left, so the D2/D1 and P/N boundaries get re-tested on new text later; check 3 reports the 20 passages outside the agent's tuning set separately.
+
+**Adjudication:** after round 2, the team goes through the round-1 and round-2 disagreements (Sun Nov 1 meeting). The agreed labels become the consensus set for checks 3 and 4.
+
 ## What goes into TP2 (due Nov 6)
 - The check 2 results: kappa table, main disagreements and the rule fixes they led to
 - Check 3 preliminary (agent vs. humans), if the agent runs by Nov 3
