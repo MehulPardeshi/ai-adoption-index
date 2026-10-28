@@ -25,10 +25,10 @@ The results are strong. On the 29 passages the agent had never seen while we wer
 "Third, guardrails. The agent can only say a company uses AI if it quotes the filing **word for word**, and a separate check confirms the quote really exists. So it can't invent a claim. We've built **20 trick test cases**: made-up quotes, hidden instructions inside a passage, a request to copy a paywalled transcript, and a few genuine cases that must *not* be blocked. We'll run the agent with and without the guardrails and show you the difference side by side."
 
 **5. Benchmark and rerun (about 30 s)**
-"Finally, we compare against an existing academic dataset, Dong and colleagues' AI Intensity measure. It mostly counts AI words, so we expect it to follow our 'talk' numbers more than our 'use' numbers. That difference is what our index adds. It also scores Wells Fargo zero every year, because its text extraction missed the main report, which is a good example of why checking matters. And a teammate who didn't build the pipeline will rerun it from scratch to confirm they get the same numbers."
+"Finally, we compare against an existing academic dataset, Dong and colleagues' AI Intensity measure. It mostly counts AI words, and when we compared them, that's exactly what we found: it lines up with how much a bank *talks* about AI, not with how much it *uses* it. That difference is what our index adds. It also scores Wells Fargo zero every year, because its text extraction missed the main report, which is a good example of why checking matters. And a teammate who didn't build the pipeline will rerun it from scratch to confirm they get the same numbers."
 
 **Close + question for Julie (about 20 s)**
-"So in short: people check people, people check the AI, we stress-test the guardrails, and we benchmark and rerun. One question for you: right now, a general statement like 'we use AI across the bank' earns **one point**, and a specific, named use earns **three**. For your chapter, would a **strict** version that counts only specific uses be useful alongside it? We can show both."
+"So in short: people check people, people check the AI, we stress-test the guardrails, and we benchmark and rerun. One question for you: right now, a general statement like 'we use AI across the bank' earns **one point**, and a specific, named use earns **three**. For your chapter, would a **strict** version that counts only specific uses be useful alongside it? We tested it already: from filings alone, a strict measure scores all six banks at zero, because filings rarely name specific tools. So the broader measure, plus earnings calls, is what separates them. We can show both."
 
 **Hand-off out:** *"Logan will now walk through the data rules."*
 
@@ -46,6 +46,7 @@ The results are strong. On the 29 passages the agent had never seen while we wer
 | **How confident are the current numbers?** | "The test-run numbers are early. The human-checked results go into our progress report next week, and the full validation into the final in December." |
 | **Can my students rerun this?** | "Yes. That's the point of the rerun check. The code and instructions are in the repo, and we'll hand over the agent setup with a cost estimate, without our API key." |
 | **How much does the AI cost?** | "Very little. All our runs so far cost about 21 cents in total, and we only send public SEC text." (Shu can give details.) |
+| **Does the score depend on your weights?** | "We tested that. Changing the weights doesn't change the ranking at all. Giving general statements zero points moves two banks slightly. A strict measure (specific uses only) puts all six banks at zero from filings, which is why we want earnings calls." |
 | **How do you compare to other AI rankings?** | "Most trackers count announcements or enterprise surveys. Ours is built from what companies disclose in their filings, and it separates use from talk." (Logan did the comparison.) |
 | **Anything about data or licensing** | "Logan covers that next, under data rules." |
 | Something you don't know | "Good question. I'll check with the team and follow up in writing after the meeting." |

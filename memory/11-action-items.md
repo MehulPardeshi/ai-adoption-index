@@ -34,7 +34,8 @@
 | ✅ Check 3 (Shu, #85): on the 29 passages outside the tuning set, 96% exact, κ 0.94, overclaim 0% (5% without the guardrail) | Done Oct 27 |
 | ✅ Round 1 lessons + round 2 built: cheat sheet v2 (matches the frozen codebook, practice set), 30-passage targeted sample, workbook; scripts take `--round 2` | Done Oct 27 |
 | Ask the raters to do round 2 (about 30 min, by Sun Nov 1); score it with `python3 -m src.eval.irr --round 2`; lead adjudication at the Nov 1 meeting | Wed Oct 28 → Sun Nov 1 |
-| Check 4 (do the scores make sense: weights, ENT on/off, Dong comparison) and the check-6 expected-label review against the frozen codebook | Fri Oct 30 |
+| ✅ Check 4 first run ([results](../docs/part3-metrics/check4_results.md)): ranking robust to weights; strict-only scores all 6 firms 0 from filings; Dong tracks talk (ρ 0.78) not use (0.14) · ✅ guardrail set reviewed against the frozen codebook (22 cases) | Done Oct 27 |
+| Prepare the search-recall sheet (check 1) for Mehul to hand-check (~100 paragraphs, ~1 hour); rerun check 4 on the consensus labels after adjudication | Nov 1–3 |
 | Practice run; "how we check results" slide (4 min; script ready: [talking points v2](../docs/part3-metrics/julie_oct29_talking_points_mehul.md)) | Wed Oct 28 / Thu Oct 29 |
 | First guardrail with/without run, with Shu (#77) | ~Nov 3 |
 | TP2: combine the paragraphs by Wed Nov 4; board clean-up Thu Nov 5; backup submitter | Nov 4–6 |

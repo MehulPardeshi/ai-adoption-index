@@ -74,9 +74,18 @@ Round 1 results: [`results_round1.md`](labeling_round_1/results_round1.md). Use/
 - 11 other N passages (the "about AI" rule);
 - 4 X passages.
 
-Same three raters, labeled blind, about 30 minutes, due **Sun Nov 1**. Same bar (κ ≥ 0.60). Limits: no D2 or P passages are left, so the D2/D1 and P/N boundaries get re-tested on new text later; check 3 reports the 20 passages outside the agent's tuning set separately.
+Same three raters, labeled blind, about 30 minutes, due **Sun Nov 1**. Same bar (κ ≥ 0.60). Limits: no D2 or P passages are left, so the D2/D1 and P/N boundaries get re-tested on new text later; check 3 reports the 19 passages outside the agent's tuning set separately. Guardrail test passages are excluded, since their expected labels are public.
 
 **Adjudication:** after round 2, the team goes through the round-1 and round-2 disagreements (Sun Nov 1 meeting). The agreed labels become the consensus set for checks 3 and 4.
+
+## Check 4 first run (Oct 27)
+[`check4_results.md`](check4_results.md), on the draft labels:
+- the ranking is robust to the weights (ρ 1.00 for D2 = 2);
+- ENT = 0 moves two banks slightly (ρ 0.92);
+- a strict, specific-uses-only measure scores all six PoC firms 0 from filings;
+- the Dong word count tracks our talk volume (ρ 0.78), not our use score (ρ 0.14), as predicted.
+
+Rerun on the consensus labels after adjudication.
 
 ## What goes into TP2 (due Nov 6)
 - The check 2 results: kappa table, main disagreements and the rule fixes they led to
