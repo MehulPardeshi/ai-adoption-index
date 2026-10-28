@@ -19,7 +19,7 @@
 
 ## How the sample was built
 [`src/eval/make_labeling_sample_round2.py`](../../../src/eval/make_labeling_sample_round2.py), seed 20261027, reproducible.
-- **Pool:** the 277 AI passages, minus everything raters saw in round 1, minus repeats. Filings re-use risk paragraphs year after year, so passages whose first 25 words match count as one.
+- **Pool:** the 277 AI passages, minus everything raters saw in round 1, minus the guardrail test passages (their expected answers are public), minus repeats. Filings re-use risk paragraphs year after year, so passages whose first 25 words match count as one.
 - **Problem:** round 1 used every "use" passage, so a random 30 would be almost all easy "just talk" passages, and agreement would look high for the wrong reason.
 - **So it targets the round-1 weak spots** (strata from the AI-assisted draft labels, which raters never see):
 
@@ -33,7 +33,7 @@
 **Known limits** (reported with the results):
 - No D2 or P passages are left in the pool, so round 2 can't re-test D2 vs. D1 or P vs. N. Those get tested on new text (earnings calls if cleared, or FY2026 filings).
 - Capital One is 13 of 30 passages, because it has the most AI risk text.
-- 10 of the 30 are in the agent's tuning set, so check 3 reports the other 20 separately.
+- 11 of the 30 are in the agent's tuning set, so check 3 reports the other 19 separately.
 
 ## Scoring (Mehul)
 `python3 -m src.eval.irr --round 2` gives the same reports as round 1. Add `--ai-labels <agent labels>` for check 3.
