@@ -1,42 +1,50 @@
 # Julie meeting (Thu Oct 29): "How we check results" (Mehul, 0:33–0:37)
 
-> **v2, Oct 27:** a read-aloud script (about 4 minutes, roughly 500 words) and Q&A prep. v1 was the Oct 19 talking points.
+> **v3, Oct 27:** a simple, plain-language read-aloud script (about 3½–4 minutes) and Q&A prep. v1 was the Oct 19 talking points.
 > **Round-1 results filled in Oct 27** (see [`results_round1.md`](labeling_round_1/results_round1.md)). Agent results (check 3) added from Shu's #85.
 > **Slide:** slide 9 in the team deck, "How we check results" (4 cards). **Final version Oct 27**, after check 4 and the round-2 build.
 
-## Script (read aloud)
+## Script (read aloud): simple version
+*Short sentences, everyday words. About 3½–4 minutes at a calm pace. Bold = say it a little slower.*
 
-**Hand-off in (from Snehal):** *"Thanks, Snehal. Everything you've just seen is only useful if the numbers behind it are trustworthy. So I'll take four minutes on how we check them."*
+**Hand-off in:** "Thanks, Snehal. All of this is only useful if the numbers are right. So in the next four minutes, I'll explain how we check them."
 
-**1. The risk we're guarding against (about 30 s)**
-"The biggest risk in a project like this is confusing *talking* about AI with *using* it. Banks mention AI constantly: in risk sections, in regulatory language, in general statements. In our first test run, only about **one in eight** AI passages described something the company actually does. So our checks focus on one question: are we separating real use from talk correctly?"
+**1. The problem (30 s)**
+"Banks talk about AI a lot. But **talking about AI is not the same as using it.** In our first test, only about **one in eight** AI mentions described something the bank actually does. The rest were risks, rules or general talk. So everything we check comes back to one question: can we tell real use apart from talk?"
 
-**2. People check people (about 1 min)**
-"First, we test our own rules. Three teammates, Logan, Yen-Chu and Snehal, each labeled the same **50 passages** on their own, without seeing each other's answers or the AI's. We deliberately included the hardest cases, so this is a strict test. Then we measure how often they agree, using a standard agreement score called kappa. Our bar is **0.6**, which the research literature calls 'substantial' agreement."
-- **Results (round 1, Oct 27):** "On the most important question, whether a passage shows real use or not, our raters agreed well: kappa **0.60 to 0.72**, which meets our bar. On the finer five-level scale we're not there yet: two raters reached **0.61**, but across all three it was **0.27**. Most of that gap came from one rule being read two ways. 'Not about AI' was read as 'not about AI *use*'. That's exactly what this test is for. We've already clarified the wording, added a short practice set, and a second round on 30 new passages is running now."
-- *(Don't name the rater. If asked: "a wording issue in our rules, not a person issue.")*
-"Where people disagree, we don't just average it out. We fix the rule that caused the confusion."
+**2. Do our people agree? (1 min)**
+"First, we checked ourselves. Three of us read the same **50 passages**, separately, and labeled each one. Then we measured how often we agreed. We use a standard agreement score, where **0.6 or higher is good.**
+On the main question, 'is this real use or not?', we agreed well. We scored **between 0.6 and 0.7**, so we passed.
+On the more detailed labels, we didn't pass yet. We scored **0.27.** When we looked into it, we found the reason: **one of our rules could be read two different ways.** So we rewrote it more clearly, added a short practice exercise, and **we're running a second round now.**
+That's the point of testing: we find the confusing rule and we fix it."
 
-**3. People check the AI (about 1 min)**
-"Second, we compare the agent's labels with the human labels on those same 50 passages. The number we watch most closely is the **overclaim rate**: how often the AI says a company *uses* AI when the people say it doesn't. For a public index that names real companies, overclaiming is the worst mistake, so our bar is **5% or less**.
-The results are strong. On the 29 passages the agent had never seen while we were building it, it matched the human majority **96%** of the time, and it overclaimed **zero** times. One honest caveat: across repeated runs we see 0 to 2%, so we quote it as a range. And the safety check earned its place: without it, the overclaim rate would have been about **5%**, right at our limit."
+**3. Does the AI agree with us? (1 min)**
+"Second, we compared our AI agent with our human answers. The mistake we care about most is the AI saying a bank **uses AI when it doesn't.** We call that an overclaim. For a public index that names real banks, that's the worst mistake to make.
+The results are good. On passages the AI had **never seen before**, it agreed with us **96% of the time**, and it made **no overclaims**. Across repeated runs it's between **0 and 2%**, so we'll report that range to be safe."
 
-**4. Safety checks (about 40 s)**
-"Third, guardrails. The agent can only say a company uses AI if it quotes the filing **word for word**, and a separate check confirms the quote really exists. So it can't invent a claim. We've built **22 trick test cases**: made-up quotes, hidden instructions inside a passage, a request to copy a paywalled transcript, and a few genuine cases that must *not* be blocked. We'll run the agent with and without the guardrails and show you the difference side by side."
+**4. Safety checks (40 s)**
+"Third, safety. The AI can only say a bank uses AI if it can **quote the exact words** from the bank's report, and we check that the quote is really there. So it can't make things up.
+We also built **22 trick tests**, like fake quotes and hidden instructions. Here's why the safety check matters: **without it, the overclaims go up to about 5%.** With it, they're close to zero."
 
-**5. Benchmark and rerun (about 30 s)**
-"Finally, we compare against an existing academic dataset, Dong and colleagues' AI Intensity measure. It mostly counts AI words, and when we compared them, that's exactly what we found: it lines up with how much a bank *talks* about AI, not with how much it *uses* it. That difference is what our index adds. It also scores Wells Fargo zero every year, because its text extraction missed the main report, which is a good example of why checking matters. And a teammate who didn't build the pipeline will rerun it from scratch to confirm they get the same numbers."
+**5. Comparing with others (30 s)**
+"Last, we compared our results with an existing research dataset that **counts how often AI words appear** in reports. That dataset tells you **how much a bank talks about AI**, but not **whether it actually uses it.** Ours separates the two, and that's what's new about our index."
 
-**Close + question for Julie (about 20 s)**
-"So in short: people check people, people check the AI, we stress-test the guardrails, and we benchmark and rerun. One question for you: right now, a general statement like 'we use AI across the bank' earns **one point**, and a specific, named use earns **three**. For your chapter, would a **strict** version that counts only specific uses be useful alongside it? We tested it already: from filings alone, a strict measure scores all six banks at zero, because filings rarely name specific tools. So the broader measure, plus earnings calls, is what separates them. We can show both."
+**Close + question for Julie (30 s)**
+"So, four checks: **people check people, people check the AI, safety tests, and a comparison with outside data.**
+One question for you, Julie. Right now, a general line like 'we use AI across the bank' gets **one point**, and a specific example gets **three.** We tried a stricter version that counts **only specific examples**, and from reports alone, **all six banks score zero**, because reports rarely name their AI tools. Would it help your chapter to see both versions side by side?"
 
-**Hand-off out:** *"Logan will now walk through the data rules."*
+**Hand-off out:** "Now Logan will walk us through our data rules."
+
+### If you need the exact numbers (only if asked)
+- Agreement on "real use or not": 0.60–0.72 · detailed labels: 0.27 (two raters on their own: 0.61)
+- AI vs. people: 29 passages it had never seen, 96% agreement, overclaim 0% (0–2% across runs); about 5% without the safety check
+- Comparison: the word-count measure matches our "talk" numbers (0.78), not our "use" numbers (0.14). It scores Wells Fargo 0, because it missed the main part of their report.
 
 ## Q&A prep (short answers)
 
 | If asked… | Say |
 |---|---|
-| **What is kappa? Why 0.6?** | "It's agreement corrected for luck. Two people would agree sometimes just by chance, and kappa removes that. 0.6 is the usual 'substantial' line (Landis and Koch, 1977)." |
+| **What is kappa? Why 0.6?** | "It's a score for how often people agree, after taking out the times they'd agree just by luck. 0.6 is the standard line for good agreement (it's called kappa)." |
 | **Are 50 passages enough?** | "For a first round, yes: it's enough to find unclear rules. We picked the hard cases on purpose. We missed the bar on the fine scale, so we clarified the rules and a second round on 30 new passages is running." |
 | **What if the raters disagree a lot?** | "Then the rule is unclear, not the people. We look at the disagreements, rewrite the rule, and re-test. The agreed labels become the reference set for checking the AI." |
 | **Why not just trust the AI?** | "It's fast, but it can overclaim or invent things. That's why every claim needs an exact quote, and why we measure it against people." |
