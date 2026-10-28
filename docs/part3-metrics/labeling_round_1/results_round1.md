@@ -27,7 +27,7 @@ The as-labeled numbers are the official round-1 result. The merged column is a s
 - **AI-assisted draft labels vs. the human majority** (43 of 50 items have a majority): 95% accuracy, kappa 0.93, **overclaim 0%**, underclaim 2%.
   - Caveat: Yen-Chu drafted those labels with AI and had seen them before rating (known limitation in the evaluation plan). Her agreement with them is 0.60, against Logan's 0.80, so this doesn't look like anchoring.
 - **Shu's agent (`agent_labels_v1.csv`)** has labels for 21 of the 50 passages, all from its tuning set, so this is **in-sample only**. On the 18 with a human majority it agreed on use/no-use 18/18, with 17/18 exact (one D1 vs. D2) and no overclaims.
-- **The real check 3** still needs the agent run on all 50 (Shu), reported separately on the 35 passages outside the tuning set.
+- **Update, Oct 27 evening: the real check 3 is done** (Shu, #85, [`check3_agent.md`](check3_agent.md)). The agent ran on all 50 with prompt classify-v1.5. On the **29 passages outside the tuning set** (not 35: 6 sample passages are also among the 20 Citi passages used for tuning): 96% exact, κ 0.94, **overclaim 0%** (0–2% across runs), underclaim 4%. Without the guardrail it would have been 5% (two low-confidence calls were held back), which is useful evidence for check 6.
 
 ## Proposed next steps (for the team to decide on Oct 28 / Nov 1)
 1. **Clarify the cheat sheet:** "about AI = N only if the passage isn't about AI at all; AI risks, threats and regulation are about AI → N". Add one-line tests for P vs. N and D2 vs. D1.
