@@ -338,3 +338,20 @@
 - **Decided by:** Shu (freeze, per the Oct 25 team vote); Mehul (PM/Evaluation lead) for the round-1 record.
 - **Supersedes:** "re-count Wells Fargo" (already dropped on Oct 25); the "35 non-tuning passages" figure in the eval plan.
 - **Follow-ups (for the Wed Oct 28 practice run):** clarify the "about AI" rule in the cheat sheet, go through the disagreements together, and run round 2 on 30 new passages (team to decide). Record Prof. Chung's email in ethics memo §6 when it arrives.
+
+### 2026-10-28 — Practice run: meeting format, round 2 timing, Julie follow-up
+- **Decision:**
+  - **Julie meeting format:** pause for questions after each section. Snehal opens by saying Julie can also stop us at any time. Simple transition slides go between sections; the deck order is as Snehal reordered it in the call. Shu keeps his agent-output example slide.
+  - **Labeling round 2** isn't needed before Julie. The raters aim for **Sat Oct 31 (afternoon)** and upload together.
+  - **Julie follow-up:** Snehal asks Julie on Thursday for **Thu Nov 12, 10 am**.
+- **Context / why:**
+  - The full run-through took about 27 minutes (target 40), leaving time for questions.
+  - Round 2 by Thursday was too tight with midterms. Mehul's script already says the second round is running.
+  - The follow-up gives Julie a second look after round 2 and Julie's feedback are in.
+- **Decided by:** the team at the Oct 28 practice run ([minutes](../meetings/2026-10-28-internal.md)). Round 2 timing: Yen-Chu proposed, Snehal agreed (Logan not recorded).
+- **Supersedes:**
+  - Round 2 "by Sun Nov 1" (now Sat Oct 31).
+  - The Oct 25 "schedule one more meeting with Julie" with no owner (now Snehal, proposing Nov 12).
+- **Follow-ups:**
+  - Snehal fixes the dashboard's data-transparency tab before Thursday.
+  - Mehul tells the raters which rule was unclear (the "about AI" N/X rule, not the use question) before Saturday.
