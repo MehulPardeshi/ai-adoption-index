@@ -72,7 +72,8 @@ def main(argv=None) -> int:
     ap.add_argument("--ids", help="CSV with a passage_id column (e.g. the labeling sample)")
     ap.add_argument("--limit", type=int, help="label only the first N passages (smoke test)")
     ap.add_argument("--no-guardrails", action="store_true", help="skip verify_label and the injection-safe prompt")
-    ap.add_argument("--ent-counts", action="store_true", help="ENT counts once toward the AI Use Score (pending #33)")
+    ap.add_argument("--no-ent", action="store_true", help="sensitivity check: ENT earns 0 points (rule before Oct 25)")
+    ap.add_argument("--ent-counts", action="store_true", help=argparse.SUPPRESS)  # now the default (#33, Oct 27)
     ap.add_argument("--labels-out", help="labels CSV path")
     ap.add_argument("--scores-out", help="scores CSV path")
     a = ap.parse_args(argv)
@@ -100,14 +101,14 @@ def main(argv=None) -> int:
             print(f"  {i}/{len(recs)}")
 
     store.write_csv(labels_out, rows, FIELDS)
-    scores = score_rows(rows, ent_counts=a.ent_counts)
+    scores = score_rows(rows, ent_counts=not a.no_ent)
     store.write_csv(scores_out, scores, SCORE_FIELDS)
 
     status = Counter(r["verify_status"] for r in rows)
     ev = Counter(r["evidence_v0"] for r in rows)
     info = {"run_at": run_at, "model": llm.model_tag(), "provider": config.PROVIDER,
             "prompt_version": config.PROMPT_VERSION, "temperature": config.TEMPERATURE,
-            "guardrails": guard, "min_confidence": config.MIN_CONFIDENCE, "ent_counts": a.ent_counts,
+            "guardrails": guard, "min_confidence": config.MIN_CONFIDENCE, "ent_counts": not a.no_ent,
             "passages": len(rows), "evidence": dict(ev), "verify_status": dict(status),
             "usage": dict(llm.USAGE), "labels_file": _rel(labels_out),
             "scores_file": _rel(scores_out)}

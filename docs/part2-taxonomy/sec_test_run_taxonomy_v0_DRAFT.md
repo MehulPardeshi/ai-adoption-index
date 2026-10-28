@@ -1,6 +1,6 @@
 # SEC Test Run: Findings + Taxonomy v0
 
-> **DRAFT: proposal for team review, not final.** Taxonomy and scoring become final only after a team vote logged in [`memory/09-decisions-log.md`](../../memory/09-decisions-log.md). The working taxonomy doc stays [`taxonomy.md`](taxonomy.md).
+> **Frozen Oct 27, 2026 (#33).** The team approved the codes, evidence levels, weights and the #64 rules on Oct 25, and voted that ENT earns 1 point ([`memory/09`](../../memory/09-decisions-log.md), 2026-10-25). Section 4 is the codebook for labeling and for the agent from here on; any change needs a new team decision. The file name keeps `_DRAFT` so existing links still work. Sections 1–3 describe the Oct 18 test run as it was.
 
 Team 5 · Yen-Chu Chen · October 18, 2026 · additions by Shu Pu on October 19 are marked ▶ SHU
 
@@ -151,6 +151,7 @@ Rules for unclear cases:
 
 - A passage that mixes levels gets the highest one. Citi's "used AI and machine learning tools for many years" plus plans for autonomous agents is D1, not P.
 - A risk-factor passage is still D1 if it says the company uses AI, as in "the models JPMorganChase uses, including those that use machine learning or AI".
+  - Confirmed at the Oct 27 freeze for Capital One's FY2025 10-K (COF_00371, COF_00372, COF_00373, e.g. "the models or AI solutions that we or a third party create and use"): D1. Applied as the default because #33 had no objection by the freeze; Yen-Chu can reopen it. The AI-assisted v0 draft labels still code these N and were not edited.
 - Hedged wording such as "may use" or "could include the use of ... AI" is N, and lists of examples after "may include" earn no scenario.
 - Forward-looking-statement list items ("the models, AI, and data on which we rely") are boilerplate, coded N.
 - Risk-factor headings are X, even when they say "our evolving use of AI"; the paragraphs under them are coded on their own.
@@ -211,25 +212,25 @@ What `classify_passage` returns for each passage:
 
 Each company gets three numbers per fiscal year:
 
-- **AI Use Score (0 to 100):** for each of the 11 scenarios, take the strongest evidence that year (D2 = 3, D1 = 1, P = 0.5), add them up, and divide by 33. Breadth and depth both count, and one scenario mentioned ten times can't dominate.
+- **AI Use Score (0 to 100):** for each of the 11 scenarios, take the strongest evidence that year (D2 = 3, D1 = 1, P = 0.5), add them up, add the strongest **ENT** evidence once (decided Oct 25), and divide by 33 (capped at 100). Breadth and depth both count, and one scenario mentioned ten times can't dominate. ENT is a general, umbrella-level claim ("we use AI across our operations"), so it adds at most 3 points. `score_companies.py --no-ent` shows the stricter ENT = 0 view.
 - **Readiness Score (0 to 100):** the same method over the 3 enablers, divided by 9.
 - **Talk ratio (%):** the share of substantive AI passages (excluding X) that show no use (N). A high ratio means lots of AI talk but little use shown.
 
 $$
-\text{AI Use Score} = 100 \times \frac{\sum_{s=1}^{11} \max_{p \in s} w(p)}{33}
+\text{AI Use Score} = \min\left(100,\; 100 \times \frac{\sum_{s=1}^{11} \max_{p \in s} w(p) + \max_{p \in \text{ENT}} w(p)}{33}\right)
 $$
 
-FY2025 example (filings only, AI-assisted draft labels, not yet the team's agent; FY2025 = Q1 to Q3 10-Qs plus the 10-K):
+FY2025 example (filings only, AI-assisted draft labels, not yet the team's agent; FY2025 = Q1 to Q3 10-Qs plus the 10-K; ENT = 1 point since Oct 27, so Bank of America 3 → 6, Capital One 0 → 3, Citi 45 → 48):
 
 | Company | AI Use Score | Scenarios with use | Readiness | Talk ratio | AI passages |
 | --- | --- | --- | --- | --- | --- |
 | Wells Fargo | 9 | CX, OPS, RISKM | 33 | 71% | 7 |
 | JPMorgan Chase | 3 | RISKM | 11 | 89% | 19 |
-| Bank of America | 3 | OPS | 11 | 88% | 26 |
-| Capital One | 0 | none | 0 | 94% | 49 |
+| Bank of America | 6 | ENT, OPS | 11 | 88% | 26 |
+| Capital One | 3 | ENT | 0 | 94% | 49 |
 | Charles Schwab | 0 | none | 11 | 75% | 4 |
 | Principal Financial | 0 | none | 33 | 67% | 3 |
-| *Citigroup (comparison)* | *45* | *CX, DEV, OPS, PROD, SURV* | *33* | *66%* | *29* |
+| *Citigroup (comparison)* | *48* | *CX, DEV, ENT, OPS, PROD, SURV* | *33* | *66%* | *29* |
 
 Filings alone put JPMorgan, Bank of America and Capital One near the bottom, even though JPMorgan's and Bank of America's best-known AI products (LLM Suite, Erica) are public knowledge; that's why earnings calls come next. Comparing the agent's labels with these hand labels is evaluation check #3.
 
@@ -247,7 +248,7 @@ Filings alone put JPMorgan, Bank of America and Capital One near the bottom, eve
 | --- | --- | --- |
 | Merge Shu's list into Label A | Every category maps onto an existing code (table below); no new scenario codes | Done |
 | Weights 3 / 1 / 0.5 | Keep for v0; revisit after the Oct 28 labeling round | Done |
-| One general sentence naming several areas | Counts **once, as ENT** (same rule as Capital One's hedged list). Correction: with the current scorer this takes Wells Fargo FY2025 from 9 to **0**, not 3, because ENT does not enter the AI Use Score. Whether ENT should earn 1 point (Yen-Chu and Shu both lean yes) is the **Sunday Oct 25 vote**; `score_companies.py --ent-counts` already implements the alternative | **Decided Oct 25: ENT earns 1 point** (team vote; Shu implements by Tue Oct 27) |
+| One general sentence naming several areas | Counts **once, as ENT** (same rule as Capital One's hedged list). Correction: with the current scorer this takes Wells Fargo FY2025 from 9 to **0**, not 3, because ENT does not enter the AI Use Score. Whether ENT should earn 1 point (Yen-Chu and Shu both lean yes) is the **Sunday Oct 25 vote**; `score_companies.py --ent-counts` already implements the alternative | **Decided Oct 25: ENT earns 1 point**; implemented Oct 27 as the scorer's default (`--no-ent` for the old rule) |
 | "predictive models" as a search term | Keep it; hits that are not about AI are labeled X (X definition updated above) | Done |
 | Transcript source | Yen-Chu's source list is in #62 for Logan's ethics review | Handed over |
 
