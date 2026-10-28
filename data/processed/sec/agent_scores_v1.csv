@@ -1,8 +1,8 @@
 company,ticker,fiscal_year,ai_use_score,scenarios_with_use,readiness_score,talk_ratio_pct,substantive_ai_passages
-Bank of America,BAC,2025,0,,11,91,23
-Citigroup,C,2025,9,OPS,33,82,17
-Capital One,COF,2025,3,RISKM,0,83,30
+Bank of America,BAC,2025,3,ENT,11,91,23
+Citigroup,C,2025,12,ENT OPS,33,82,17
+Capital One,COF,2025,6,ENT RISKM,0,83,30
 JPMorgan Chase,JPM,2025,3,RISKM,11,89,19
 Principal Financial Group,PFG,2025,0,,33,67,3
 Charles Schwab,SCHW,2025,0,,11,75,4
-Wells Fargo,WFC,2025,0,,33,71,7
+Wells Fargo,WFC,2025,3,ENT,33,71,7

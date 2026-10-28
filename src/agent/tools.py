@@ -183,11 +183,11 @@ def verify_label(label: dict, source_text: str | None = None) -> dict:
 
 # ---------------------------------------------------------------- 5. score_companies
 def score_companies(labels: str = "agent", tickers: list[str] | None = None, fiscal_year: int | None = None,
-                    ent_counts: bool = False) -> dict:
+                    ent_counts: bool = True) -> dict:
     """Roll passage labels up into company scores per fiscal year.
 
     AI Use Score (0-100): for each of the 11 use-case scenarios take the strongest evidence that
-    year (D2=3, D1=1, P=0.5), add up, divide by 33. Readiness Score (0-100): same over the
+    year (D2=3, D1=1, P=0.5), add up, add ENT once, divide by 33. Readiness Score (0-100): same over the
     3 enablers (GOV, TALENT, INVEST), divided by 9. Talk ratio: share of substantive AI passages
     that show no use. A high talk ratio means a lot of AI talk and little use shown.
 
@@ -195,7 +195,8 @@ def score_companies(labels: str = "agent", tickers: list[str] | None = None, fis
         labels: "agent" (this agent's verified labels) or "draft" (the AI-assisted v0 draft labels).
         tickers: limit to these companies (default all).
         fiscal_year: limit to one year (default all).
-        ent_counts: let ENT ("uses AI, area not named") count once (pending team vote #33).
+        ent_counts: ENT ("uses AI, area not named") counts once (team rule since Oct 25).
+            Set false only to show the stricter ENT = 0 view.
 
     Returns: {"labels", "scores": [{"ticker", "fiscal_year", "ai_use_score", "scenarios_with_use",
               "readiness_score", "talk_ratio_pct", "substantive_ai_passages"}]}

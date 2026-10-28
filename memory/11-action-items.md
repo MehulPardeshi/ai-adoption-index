@@ -62,7 +62,8 @@
 | ✅ SEC runs consolidated (#65) · categories (#64) · first DeepSeek run (#66) + prompt tuning (#68) | Done Oct 22–23 |
 | ✅ Confirmed in #66: official endpoint, public SEC text only (about 600 calls, about $0.21) · agreement numbers labeled "tuning-set (in-sample)" (#66, #68) | Done Oct 25 |
 | Remove the DeepSeek key from the how-to Google Doc and rotate it (not yet confirmed) | **ASAP** |
-| Freeze the categories: implement **ENT = 1 point** (`--ent-counts`) and update the taxonomy doc; re-run the agent on all 110 passages | **Tue Oct 27** |
+| ✅ Categories frozen (#33): ENT = 1 point is the scorer's default, taxonomy doc marked frozen, Capital One risk-factor sentences = D1 (default; Yen-Chu can reopen). Scores recomputed | Done Tue Oct 27 |
+| Re-run the agent on the 110 tuning passages with prompt classify-v1.5 (the #64 codebook text changed the prompt; see #85), so the dashboard scores and check 3 use the same prompt | Wed Oct 28 |
 | After the raters submit: run the agent on the 50-passage sample (check 3); give Snehal the scores file | Tue Oct 27 → Wed Oct 28 |
 | **Agent runs end to end** on the six FY2025 10-Ks (TP2: 12 pts) | **Wed Oct 28** |
 | Create the shared slide deck (Drive → Client materials → progress folder) | Wed Oct 28 |
