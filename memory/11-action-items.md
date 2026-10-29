@@ -41,7 +41,7 @@
 | ✅ Check 4 first run ([results](../docs/part3-metrics/check4_results.md)): ranking robust to weights; strict-only scores all 6 firms 0 from filings; Dong tracks talk (ρ 0.78) not use (0.14) · ✅ guardrail set reviewed against the frozen codebook (22 cases) | Done Oct 27 |
 | Prepare the search-recall sheet (check 1) for Mehul to hand-check (~100 paragraphs, ~1 hour); rerun check 4 on the consensus labels after adjudication | Nov 1–3 |
 | ✅ Presented "how we check results" and Logan's data rules (Logan absent) to Julie | Done Oct 29 |
-| Give Snehal the points for the follow-up email: the strict-vs-broad question (not asked in the meeting) and the "all annual" correction (scores combine 10-K and 10-Q passages) | Fri Oct 30 |
+| ✅ Follow-up-email points for Snehal (strict-vs-broad question; scores combine 10-K + 10-Q) are in #98 | Done Oct 29 |
 | First guardrail with/without run, with Shu (#77) | ~Nov 3 |
 | TP2: combine the paragraphs by Wed Nov 4; board clean-up Thu Nov 5; backup submitter | Nov 4–6 |
 
@@ -105,8 +105,8 @@
 - Add your slides to the shared deck; bring more questions for Julie: **Wed Oct 28** (practice run 10 am)
 - Julie meeting **Thu Oct 29, 10 am**
 - Your paragraph in the [TP2 outline](../docs/tp2/progress_report_draft.md): **Mon Nov 2**
-- Julie follow-up: tell Snehal which of Tue Nov 10, Fri Nov 13 or Thu Nov 19 work for you
-- Sector-index feasibility (Julie's ask): `UNCLEAR:` owner; discuss Sun Nov 1 (sample from a sector index or SIC codes, market-cap data, agent cost at scale)
+- Julie follow-up: reply on #98 with which of Tue Nov 10, Fri Nov 13 or Thu Nov 19 work for you
+- Sector-index feasibility (Julie's ask, #97): Shu (agent time and cost at scale) + Yen-Chu (sample, market-cap source), assigned by Mehul Oct 29; answer at the Sun Nov 1 meeting
 - Finish your pending TP2 work this weekend (Mehul's ask)
 
 ## Deliverable owners (whole project)
