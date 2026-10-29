@@ -50,7 +50,9 @@
 - **Client meeting:** moved from mid-October to **Thu Oct 29, 10 am** (finals and fall break).
 - **Method:** Julie is flexible (simple percentages are fine); we keep "real use vs. just talk" as our contribution.
 
-✍️ *Mehul: add any changes agreed with Julie on Oct 29.*
+- **Oct 29 with Julie:** check whether we can build a market-cap-weighted and an equal-weighted **sector index** on a defined public-company sample (a sector stock index or SIC codes). Sources limited to what we can legally get and verify (transcripts only if cleared, without giving extra points for having them). Partial years (FY2026) hidden until complete. Job postings stay out of scope.
+
+✍️ *Mehul: add the team's Nov 1 answer on sector-index feasibility.*
 
 ## 5. Project board (5 pts): Mehul
 ✍️ *Screenshot of the board on Thu Nov 5, plus 1–2 sentences on how we use it (sprint milestone, owners, due dates, pinned "Who does what" issue #45).*
@@ -58,6 +60,13 @@
 ## 6. Client meeting (10 pts): Snehal
 - **Thu Oct 29, 10–11 am ET**, with Julie Agnew, Dr. Rachel Chung and Hengkai Zheng invited.
 - **Agenda:** test-run findings (Yen-Chu) → AI-use categories and agent (Shu) → dashboard (Snehal) → how we check results (Mehul) → data rules (Logan) → questions for Julie.
+
+- **Notes from the [minutes](../../meetings/2026-10-29-client.md)** (for Snehal to turn into prose):
+    - Julie was very positive: the dashboard is "extremely user-friendly", and the talk-vs-use finding is the most interesting part.
+    - She confirmed that the source is SEC EDGAR for now.
+    - She asked for hover definitions and for partial years to be hidden.
+    - Her new request is a sector index (market-cap- and equal-weighted). On transcripts: be cautious, legally verifiable sources only.
+    - Follow-up meeting: Nov 10, 13 or 19.
 
 ✍️ *Snehal: what Julie confirmed or changed, and the agreed direction for the final stretch.*
 

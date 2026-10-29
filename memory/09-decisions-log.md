@@ -355,3 +355,17 @@
 - **Follow-ups:**
   - Snehal fixes the dashboard's data-transparency tab before Thursday.
   - Mehul tells the raters which rule was unclear (the "about AI" N/X rule, not the use question) before Saturday.
+
+### 2026-10-29 — Client checkpoint with Julie: sector-index request, transcript caution, follow-up date
+- **Decision:**
+  - The team researches whether a **sector index** is feasible: **market-cap-weighted and equal-weighted** AI scores per sector, on a defined sample of public companies (e.g., a financial-sector stock index or SIC codes), keeping the per-firm drill-down. Julie accepts a realistic version if the full one isn't possible.
+  - **Sources:** Julie is fine with restricting the index to what we can legally get and verify. Manually pulled sources (Bloomberg at a terminal) don't fit an automated index. She expects the library to say no; we confirm with the librarian.
+  - **Follow-up meeting:** Nov 12 is off (Julie has a board meeting). The team picks Tue Nov 10, Fri Nov 13 or Thu Nov 19.
+- **Context / why:**
+  - Julie wants an index she can use in the chapter ("larger firms weigh more" vs. "how the whole industry is doing"), not only firm-by-firm views.
+  - She liked the dashboard and the "talk vs. use" finding. She asked for hover definitions and for partial years (FY2026) to be hidden. Citi's drop from 48 to 0 is a partial-year effect.
+  - All 7 firms' fiscal years end Dec 31 (checked from the 10-K periods), so the years line up.
+- **Decided by:** Julie (client) with Snehal for the team, at the Oct 29 checkpoint ([minutes](../meetings/2026-10-29-client.md)).
+- **Supersedes:** the Oct 28 plan to ask for a follow-up on Thu Nov 12.
+- **Not decided:** whether to adopt market-cap weighting (the method stays equal-weighted until the team decides after the feasibility check), and how transcripts are used, if at all. Both go to the Sun Nov 1 meeting.
+- **Follow-ups:** Snehal sends the thank-you and proposes a date. The follow-up email also corrects "all annual" (the scores combine 10-K and 10-Q passages) and asks Mehul's strict-vs-broad question.
