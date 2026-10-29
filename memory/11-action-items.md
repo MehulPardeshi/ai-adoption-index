@@ -1,7 +1,7 @@
 # 11 — Action Items (who is doing what, right now)
 
 > **Read this to answer "what should I work on next?"** Updated after every meeting from `meetings/` minutes ([procedure](../meetings/README.md)). The shared spreadsheet remains the source of truth for owners and deadlines; this file mirrors it for AI tools.
-> **Last updated:** 2026-10-29 (Julie checkpoint). Last meeting: [Oct 29 client checkpoint](../meetings/2026-10-29-client.md) (transcript). Previous: [Oct 28 practice run](../meetings/2026-10-28-internal.md).
+> **Last updated:** 2026-10-29 (Julie checkpoint; repo + board check). Last meeting: [Oct 29 client checkpoint](../meetings/2026-10-29-client.md) (transcript). Previous: [Oct 28 practice run](../meetings/2026-10-28-internal.md).
 > **Pinned summary for humans:** [#45 "Who does what"](https://github.com/MehulPardeshi/ai-adoption-index/issues/45), with @mentions per person.
 > **GitHub:** each task below is an issue in the **"Sprint: Oct 18–Nov 6 (TP2)"** milestone on the [project board](https://github.com/users/MehulPardeshi/projects/1).
 
@@ -16,8 +16,7 @@
 | Date | What |
 |---|---|
 | ✅ Oct 18–25 | Team meetings Oct 18 and Oct 25 · SEC runs consolidated (#65) · categories approved (#64 + ENT = 1) · ethics memo (#63, #72) · eval plan v1.2 final · dashboard prototype |
-| Mon Oct 26 | Yen-Chu checks Bloomberg at the CMU library |
-| **Tue Oct 27** | **Labels submitted** (Logan, Yen-Chu, Snehal) · Shu freezes the categories and re-runs the agent · Snehal sends Julie the agenda |
+| ✅ Oct 26–27 | Bloomberg transcripts collected (team-only) · round 1 labels in · categories frozen (#84) · checks 2–4 run · agenda sent |
 | ✅ Wed Oct 28, 10 am | Practice run: ~27 min, pauses after each section, transition slides ([minutes](../meetings/2026-10-28-internal.md)) |
 | ✅ Thu Oct 29, 10–11 am ET | Julie checkpoint ([minutes](../meetings/2026-10-29-client.md)) |
 | Sat Oct 31 (afternoon) | Round 2 labels in (raters upload together) |
@@ -36,23 +35,25 @@
 | ✅ Labels collected (#79, #82, Logan's workbook converted); #66 and #68 merged; check 2 run: use/no-use κ 0.60–0.72 (meets bar), evidence-level Fleiss κ 0.27 (below bar; [results](../docs/part3-metrics/labeling_round_1/results_round1.md)) | Done Oct 27 |
 | ✅ Check 3 (Shu, #85): on the 29 passages outside the tuning set, 96% exact, κ 0.94, overclaim 0% (5% without the guardrail) | Done Oct 27 |
 | ✅ Round 1 lessons + round 2 built: cheat sheet v2 (matches the frozen codebook, practice set), 30-passage targeted sample, workbook; scripts take `--round 2` | Done Oct 27 |
-| ✅ Asked the raters for round 2 at the practice run (due Sat Oct 31) · Tell the raters which rule was unclear: the "about AI" N/X rule, not the use question (Logan asked) | Before Sat Oct 31 |
-| Score round 2 with `python3 -m src.eval.irr --round 2`; lead adjudication at the Nov 1 meeting | Sat Oct 31 → Sun Nov 1 |
+| ✅ Round 2 issue (#95) explains the unclear rule (the "about AI" N/X rule, not the use question) | Done Oct 28 |
+| #95 Score round 2 with `python3 -m src.eval.irr --round 2`; lead adjudication of the round 1 + 2 disagreements at the Nov 1 meeting | Sat Oct 31 → Sun Nov 1 |
 | ✅ Check 4 first run ([results](../docs/part3-metrics/check4_results.md)): ranking robust to weights; strict-only scores all 6 firms 0 from filings; Dong tracks talk (ρ 0.78) not use (0.14) · ✅ guardrail set reviewed against the frozen codebook (22 cases) | Done Oct 27 |
-| Prepare the search-recall sheet (check 1) for Mehul to hand-check (~100 paragraphs, ~1 hour); rerun check 4 on the consensus labels after adjudication | Nov 1–3 |
+| #101 Check 1: hand-check the search-recall sheet (~100 paragraphs, ~1 hour) · rerun check 4 on the consensus labels after adjudication | Tue Nov 3 |
+| #102 Check 5: find a teammate for the independent rerun (ask Sun Nov 1) | Wed Nov 4 |
 | ✅ Presented "how we check results" and Logan's data rules (Logan absent) to Julie | Done Oct 29 |
 | ✅ Follow-up-email points for Snehal (strict-vs-broad question; scores combine 10-K + 10-Q) are in #98 | Done Oct 29 |
-| First guardrail with/without run, with Shu (#77) | ~Nov 3 |
-| TP2: combine the paragraphs by Wed Nov 4; board clean-up Thu Nov 5; backup submitter | Nov 4–6 |
+| #77 First guardrail with/without run, with Shu | Tue Nov 3 |
+| #39 / #40 TP2: combine the paragraphs (Wed Nov 4); board snapshot (Thu Nov 5); backup submitter | Nov 4–6 |
+| Your own TP2 sections: 4 (scope), 5 (board), 7 (evaluation) in the [TP2 draft](../docs/tp2/progress_report_draft.md) | Mon Nov 2 |
 
 ### Yen-Chu Chen (Dataset Builder)
 | Task | Due |
 |---|---|
 | ✅ Category review (#33) · transcript source list (#62) | Done Oct 20–23 |
 | ✅ #62 revised per Logan's 5 points (source-review table, 7 firms × 8 quarters; Motley Fool not cleared; Capital One, Wells Fargo and Schwab IR sites have no transcripts) | Done Oct 24 |
-| **Earnings calls:** check Bloomberg at the CMU library (option E in #62); add Bloomberg rows to the review table. Before downloading, record Bloomberg's terms in the #62 source-review table (separate decisions for access, local storage, team-drive sharing, publication). **No transcript text in the public repo**; derived labels and scores are fine. If Bloomberg isn't usable, go without transcripts | **Mon Oct 26** |
-| Rule on the 3 Capital One sentences, so Shu can freeze the categories | **Tue Oct 27** |
-| **Labeling round 1:** label 50 passages on your own (your own judgment, not AI suggestions) | **Tue Oct 27** |
+| ✅ Bloomberg transcripts collected (team Drive only) + Bloomberg rows in #62 · labels round 1 (#82) · Capital One sentences set to D1 by default in #84 (reopen #33 if you disagree) | Done Oct 26–27 |
+| Keep the transcripts team-only and out of every AI tool until the librarian replies; #34 decision on Sun Nov 1 | Sun Nov 1 |
+| #97 Sector index: which sample (index or SIC codes), how many firms, a free market-cap source | **Sun Nov 1** |
 | ✅ Presented the test-run findings to Julie | Done Oct 29 |
 | **Labeling round 2:** 30 passages, on your own ([materials](../docs/part3-metrics/labeling_round_2/)); upload with the others | **Sat Oct 31 (afternoon)** |
 | **Submit TP2 on Canvas** | **Fri Nov 6, 5 pm** |
@@ -77,9 +78,9 @@
 | Remove the DeepSeek key from the how-to Google Doc and rotate it (not yet confirmed) | **ASAP** |
 | ✅ Categories frozen (#33): ENT = 1 point is the scorer's default, taxonomy doc marked frozen, Capital One risk-factor sentences = D1 (default; Yen-Chu can reopen). Scores recomputed | Done Tue Oct 27 |
 | Re-run the agent on the 110 tuning passages with prompt classify-v1.5 (the #64 codebook text changed the prompt; see #85), so the dashboard scores and check 3 use the same prompt | Wed Oct 28 |
-| After the raters submit: run the agent on the 50-passage sample (check 3); give Snehal the scores file | Tue Oct 27 → Wed Oct 28 |
-| **Agent runs end to end** on the six FY2025 10-Ks (TP2: 12 pts) | **Wed Oct 28** |
-| Create the shared slide deck (Drive → Client materials → progress folder) | Wed Oct 28 |
+| ✅ Check 3 on the 50-passage sample (#85) · shared slide deck | Done Oct 27–28 |
+| #35 **Agent runs end to end** on the six FY2025 10-Ks (TP2: 12 pts): link the PR and close #35 if done | **Sun Nov 1** |
+| #97 Sector index: agent time and DeepSeek cost for ~50–100 firms | **Sun Nov 1** |
 | Cost note for Julie's handover (per run; one-time credit of about $10–20; no API key included) | `UNCLEAR:` before the next Julie meeting |
 | ✅ Presented the categories + agent demo to Julie | Done Oct 29 |
 
@@ -89,21 +90,16 @@
 | ✅ Dashboard prototype (Streamlit, fictional mock data) shown Oct 25 and merged (#73: overview → use-case cards → firm comparison, 14 tests) · AI-tracker comparison | Done Oct 25 |
 | Record the prototype and upload it to the Drive | `UNCLEAR:` soon |
 | ✅ First dashboard view with PoC data: SEC pilot scores tab (#93, merged Oct 28; 40 tests pass) | Done Oct 28 |
-| Fix the data-transparency tab (timed out in the practice run) · transition slides + final deck order | **Before Thu Oct 29** |
-| Add a dataset-level summary page. Keep **mock data until you've submitted your labels**; use Shu's real scores file afterwards | Before Thu Oct 29 |
-| **Labeling round 1:** label 50 passages on your own with the [Excel workbook](../docs/part3-metrics/labeling_round_1/labeling_workbook.xlsx) | **Tue Oct 27** |
-| Formal agenda to Julie | **Tue Oct 27** |
-| Send the practice-run invite (Wed Oct 28, 10 am, virtual) | Before Wed |
+| ✅ Labels round 1 (#79) · agenda to Julie · practice-run invite · transition slides · dataset summary metrics on the SEC tab (#93) | Done Oct 27–29 |
 | ✅ Hosted the Julie meeting and showed the dashboard | Done Oct 29 |
-| Thank-you email to Julie + propose the follow-up date (Tue Nov 10, Fri Nov 13 or Thu Nov 19) after checking the team's schedules | `UNCLEAR:` no date set (suggest Fri Oct 30) |
-| Dashboard (Julie's feedback): hover definitions for each metric; hide FY2026 / partial years until complete | Before the follow-up |
+| #98 Thank-you email to Julie + propose the follow-up date (Tue Nov 10, Fri Nov 13 or Thu Nov 19) after the team replies on #98 | Fri Oct 30 |
+| #96 Dashboard (Julie's feedback): hover definitions for each metric; hide FY2026 / partial years; check the transparency tab loads | Mon Nov 9 |
 | **Labeling round 2:** 30 passages, on your own; upload with the others | **Sat Oct 31 (afternoon)** |
-| Hosting choice (Streamlit Community Cloud vs. Vercel) | `UNCLEAR:` after Julie's feedback |
+| #30 Hosting choice (Streamlit Community Cloud vs. Vercel; TP3 needs a hosted app) | Fri Nov 13 |
 
 ### Everyone
-- Raters (Logan, Yen-Chu, Snehal): **your own judgment on every label** (AI is fine for finding files, not for picking labels); **submit on Tue Oct 27, not earlier**
-- Add your slides to the shared deck; bring more questions for Julie: **Wed Oct 28** (practice run 10 am)
-- Julie meeting **Thu Oct 29, 10 am**
+- Raters: round 2 by **Sat Oct 31 afternoon** (#95), **your own judgment on every label** (AI is fine for finding files, not for picking labels)
+- Team meeting **Sun Nov 1**
 - Your paragraph in the [TP2 outline](../docs/tp2/progress_report_draft.md): **Mon Nov 2**
 - Julie follow-up: reply on #98 with which of Tue Nov 10, Fri Nov 13 or Thu Nov 19 work for you
 - Sector-index feasibility (Julie's ask, #97): Shu (agent time and cost at scale) + Yen-Chu (sample, market-cap source), assigned by Mehul Oct 29; answer at the Sun Nov 1 meeting
@@ -131,7 +127,7 @@
 ## Unowned / open
 - Julie's paper: ✅ received (Vanguard report; see `docs/references.md`). Links to her other papers have been requested.
 - **Dashboard:** `src/dashboard/` now has the SEC pilot scores tab (#93: preliminary, AI-assisted v0 scores from `company_scores_v0.csv`) alongside the fictional mock-up tabs. Hosting is still open.
-- Snehal asked Julie (Oct 10) whether rescoping away from Dr. Chung's original brief is OK; the answer isn't recorded yet.
+- ✅ Rescoping: on Oct 29 Julie said the way we came back with the scope and changes was "just perfect" (resolves the Oct 10 question).
 
 ## Completed
 - ✅ Team contract signed (9/20–9/24), section 4 filled in before TP1

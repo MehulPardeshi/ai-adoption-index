@@ -1,23 +1,25 @@
 # TP2 Progress Report: AI Adoption Index (Team 5): DRAFT OUTLINE
 
 > **Due:** Fri Nov 6, 2026, 5:00 pm (Yen-Chu submits on Canvas) · **Length:** 1–3 pages · **Compiled by:** Mehul (by Wed Nov 4)
-> **How we write it:** each owner writes **one short paragraph** for their section below by **Mon Nov 2**, replacing the `✍️` placeholders. Mehul combines and trims. Pre-filled facts come from the repo (last refreshed Oct 27); **update them with what actually happened by Nov 2.**
+> **How we write it:** each owner writes **one short paragraph** for their section below by **Mon Nov 2**, replacing the `✍️` placeholders. Mehul combines and trims. Pre-filled facts come from the repo (last refreshed Oct 29); **update them with what actually happened by Nov 2.**
 > **Rubric (50 pts):** progress vs. plan 10 · working prototype 12 · blockers 8 · scope updates 5 · board upkeep 5 · client meeting 10. Section numbers below match.
 > **AI-use note (course GenAI policy):** this outline was drafted with Claude Code. Each author edits their own section, and the final report states how AI tools were used.
 
 ---
 
 ## 1. Progress against the TP1 plan (10 pts): Mehul
-| TP1 scope commitment | Status (Oct 19; update by Nov 2) |
+| TP1 scope commitment | Status (Oct 29) |
 |---|---|
 | Proof of concept on 5–6 large U.S. financial companies | 6 companies chosen Oct 4 (JPMorgan, Bank of America, Capital One, Wells Fargo, Schwab, Principal) **+ Citigroup as a benchmark** |
 | Evidence dataset with source citations | Two SEC runs (#43, #48) consolidated into one version (#65): 74 filings → 277 AI passages, each linked to EDGAR. Earnings calls: Bloomberg via the CMU library (56 transcripts, team Drive only, terms under review in #62) |
-| Team-derived taxonomy + quantitative measure | Categories approved Oct 25 (#64): scenario codes, evidence level (D2/D1/P/N/X), topic + AGENT tag. Scoring: weights 3/1/0.5, ENT (general claims) = 1 point. Freeze due Oct 27 (Shu) |
-| Evaluation with human review | Evaluation plan v1.2 final (6 checks); labeling round 1 (50 passages, 3 blind raters) due Oct 27; 20-case guardrail test set |
-| Hosted dashboard | Streamlit prototype on mock data merged (#73, Oct 25) → first view with PoC data (Oct 28) |
+| Team-derived taxonomy + quantitative measure | ✅ Categories approved Oct 25 (#64) and **frozen Oct 27** (#84): 11 use-case areas, evidence levels (D2/D1/P/N/X), topic + AGENT tag. Scoring: weights 3/1/0.5, ENT (general claims) = 1 point |
+| Evaluation with human review | ✅ Plan v1.2 (6 checks). Round 1 (50 passages, 3 blind raters): real use vs. not κ 0.60–0.72 (meets the 0.6 bar); five levels κ 0.27 → rule clarified, round 2 (30 passages) due Oct 31. Agent vs. people: 96% on 29 unseen passages, overclaim 0–2%. Weight sensitivity (check 4) done; 22-case guardrail set |
+| Hosted dashboard | ✅ Streamlit prototype (#73) + **SEC pilot scores tab with real preliminary scores** (#93, Oct 28), shown to Julie Oct 29. Hosting not yet chosen (#30) |
 | Reproducible code + methodology | Downloader, passage finder, scorer, evaluation scripts in the repo; an independent re-download matched 168/168 passages |
 
-✍️ *Mehul: 3–4 sentences on what's on track vs. behind (update after Oct 29).*
+*Draft (Claude, from the repo; Mehul to check):* We're on track on every TP1 commitment: the proof of concept, the evidence dataset, frozen categories, a working agent, and a dashboard on real preliminary scores, which Julie reviewed on Oct 29. One quality target is behind: agreement on the detailed five-level labels (κ 0.27, below our 0.6 bar). We traced it to one ambiguous rule and are re-testing in round 2. Two items are still open: dashboard hosting, and whether earnings-call transcripts can be used under their license. Julie's new request, a market-cap- and equal-weighted sector index, is being scoped (#97).
+
+✍️ *Mehul: check and trim the draft above after round 2 (Nov 1).*
 
 ## 2. Working prototype: the agentic AI component (12 pts): Shu
 - **Design:** 7 tools: `fetch_sec_filings`, `find_ai_passages`, `score_companies` (built); `fetch_transcripts`, `classify_passage`, `verify_label`, `lookup_baseline` (to build).
@@ -38,6 +40,7 @@
 | Benchmark data defect: the Dong et al. dataset scores Wells Fargo 0 every year (its parser missed the 10-K body) | Documented as a known limitation; no re-count (team decision Oct 25) |
 | Model cost vs. "no funding" scope constraint | Team vote Oct 25 (#55): one teammate covers it (about $0.21 so far); only public text is sent |
 | Unclear whether job-posting data may be used | Asked Rachel (#54): avoid LinkedIn |
+| Detailed-label agreement below the bar (κ 0.27) in round 1 | Traced it to one rule read two ways ("about AI": risk talk is N, not X); rewrote the rule to quote the codebook, added a 2-minute practice set, ran round 2 on 30 new passages (#89, #95) |
 | Earnings-call transcripts: free sources not cleared; licensed data vs. a public repo | Bloomberg via the CMU library; transcript text stays out of the public repo and AI tools until the terms are reviewed (#62) |
 | A team member's temporary absence | Tasks covered (Shu finalizes the taxonomy if needed); no deadline moved |
 
@@ -71,5 +74,7 @@
 ✍️ *Snehal: what Julie confirmed or changed, and the agreed direction for the final stretch.*
 
 ## 7. Evaluation and responsible AI (supports sections 1–3): Mehul and Logan
-✍️ *Mehul: labeling round 1 results (agreement scores, AI overclaim rate) and the first guardrail with/without run, if ready.*
+*Draft (Claude, from the repo; Mehul to check):* Three teammates labeled the same 50 passages independently. On the core question, real use or not, agreement met our bar (Cohen's κ 0.60–0.72 across pairs). On the five evidence levels it didn't (Fleiss κ 0.27), mostly because one rule was read two ways. We clarified it and are re-testing in round 2 ([results](../part3-metrics/labeling_round_1/results_round1.md)). Against the human majority, the agent agreed on 96% of the 29 passages it hadn't seen during tuning (κ 0.94). Its overclaim rate (saying a company uses AI when people said it doesn't) was 0–2% across runs, versus about 5% without our code-based guardrail (exact-quote check, specific-detail rule, human review below 0.7 confidence). A 22-case guardrail test set covers fake quotes and injected instructions. The scores' ranking doesn't change when the D2 weight changes (Spearman ρ 1.00). A word-count benchmark (Dong et al.) tracks how much firms *talk* about AI (ρ 0.78), not our use score (ρ 0.14), which supports separating the two ([check 4](../part3-metrics/check4_results.md)).
+
+✍️ *Mehul: add the round 2 result and the guardrail with/without run (#77) once done.*
 ✍️ *Logan: one paragraph on the ethics memo (sources allowed, retention, citation).*
