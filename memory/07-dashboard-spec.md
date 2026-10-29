@@ -20,5 +20,11 @@ Constraint from the course: TP3 requires an **externally hosted app/website with
 ## Required filters
 - **Sector** and **firm**, so the book chapter can pull a clean **retirement-only view** without excluding that data from the cross-sector index.
 
+## Client feedback (Oct 29, [minutes](../meetings/2026-10-29-client.md))
+- "Extremely user-friendly": Julie could use it with no explanation. Keep the transparency tab.
+- Add **hover definitions** for each metric (what "talk ratio" means and how it's calculated).
+- **Don't show partial years** (FY2026) until complete; Citi's drop from 48 to 0 looked like a real change.
+- Requested later: sector-level index views (market-cap- and equal-weighted), with the per-firm drill-down kept.
+
 ## Audience
 Non-technical (analysts, regulators, journalists, and the client). The team goal is a dashboard that **works end to end**, not just a mockup.

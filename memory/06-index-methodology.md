@@ -21,4 +21,6 @@
 ## Open decisions (log in 09 when made)
 - z-score vs. min-max, and whether to normalize within sector or across the full universe
 - How to treat firms with a missing quarter
-- Calendar vs. fiscal quarters
+- Calendar vs. fiscal quarters (all 7 PoC firms have Dec 31 fiscal year-ends, checked Oct 29)
+- **Client request, Oct 29 ([minutes](../meetings/2026-10-29-client.md)):** a **market-cap-weighted and an equal-weighted index per sector** on a defined public-company sample (a sector stock index or SIC codes), keeping firm drill-down. Feasibility check first; equal weighting stays the default until the team decides.
+- Partial years: Julie asked not to show a fiscal year until it's complete (FY2026 has only Q1–Q2 10-Qs). Also open: score from 10-Ks only (she finds annual reports more substantive) or from 10-K + 10-Q as now

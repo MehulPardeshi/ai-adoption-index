@@ -1,13 +1,14 @@
 # 11 — Action Items (who is doing what, right now)
 
 > **Read this to answer "what should I work on next?"** Updated after every meeting from `meetings/` minutes ([procedure](../meetings/README.md)). The shared spreadsheet remains the source of truth for owners and deadlines; this file mirrors it for AI tools.
-> **Last updated:** 2026-10-28 (practice run). Last meeting: [Oct 28 practice run](../meetings/2026-10-28-internal.md) (transcript). Previous: [Oct 25](../meetings/2026-10-25-internal.md).
+> **Last updated:** 2026-10-29 (Julie checkpoint). Last meeting: [Oct 29 client checkpoint](../meetings/2026-10-29-client.md) (transcript). Previous: [Oct 28 practice run](../meetings/2026-10-28-internal.md).
 > **Pinned summary for humans:** [#45 "Who does what"](https://github.com/MehulPardeshi/ai-adoption-index/issues/45), with @mentions per person.
 > **GitHub:** each task below is an issue in the **"Sprint: Oct 18–Nov 6 (TP2)"** milestone on the [project board](https://github.com/users/MehulPardeshi/projects/1).
 
 ## Where we are
 - ✅ TP1 submitted (Fri Oct 2).
-- 🏁 **Sprint: Sun Oct 18 → Fri Nov 6 (TP2).** ✅ Categories frozen, round 1 labels in, checks 2–4 run (Oct 27) → ✅ practice run Wed Oct 28 (~27 min) → **Julie Thu Oct 29, 10–11 am ET** → round 2 labels Sat Oct 31 → TP2 report → submit **Fri Nov 6, 5 pm** → Julie follow-up Thu Nov 12, 10 am (to be asked).
+- 🏁 **Sprint: Sun Oct 18 → Fri Nov 6 (TP2).** ✅ Categories frozen, round 1 labels in, checks 2–4 run (Oct 27) → ✅ practice run Wed Oct 28 → ✅ **Julie Oct 29** (very positive; asked for a sector index, see below) → round 2 labels Sat Oct 31 → TP2 report → submit **Fri Nov 6, 5 pm** → Julie follow-up on Nov 10, 13 or 19 (team to pick).
+- **Julie's asks (Oct 29):** check whether a market-cap- and equal-weighted **sector index** on a defined public-company sample is feasible · dashboard hover definitions · hide partial years (FY2026) · sources we can legally get and verify only.
 - **PoC companies:** JPMorgan Chase, Bank of America, Capital One, Wells Fargo, Charles Schwab, Principal Financial Group · **Period:** 2024–2026 · **Sources:** SEC 10-K/10-Q (74 filings, 277 AI passages), Dong baseline; earnings calls from **Bloomberg (CMU library) if cleared**, with transcript text kept out of the public repo; no LinkedIn job postings. **Citigroup** kept as a benchmark.
 - **AI model:** DeepSeek (`deepseek-flash`), option B: one person pays (Shu), about $0.02 per run. Only public SEC text is sent. **Agent:** 7 tools.
 
@@ -18,13 +19,13 @@
 | Mon Oct 26 | Yen-Chu checks Bloomberg at the CMU library |
 | **Tue Oct 27** | **Labels submitted** (Logan, Yen-Chu, Snehal) · Shu freezes the categories and re-runs the agent · Snehal sends Julie the agenda |
 | ✅ Wed Oct 28, 10 am | Practice run: ~27 min, pauses after each section, transition slides ([minutes](../meetings/2026-10-28-internal.md)) |
-| **Thu Oct 29, 10–11 am ET** | Julie, Dr. Chung and Hengkai checkpoint (Zoom) |
+| ✅ Thu Oct 29, 10–11 am ET | Julie checkpoint ([minutes](../meetings/2026-10-29-client.md)) |
 | Sat Oct 31 (afternoon) | Round 2 labels in (raters upload together) |
-| Sun Nov 1 | Team meeting: Julie's feedback, round 1 + 2 disagreements → TP2 |
+| Sun Nov 1 | Team meeting: Julie's feedback, sector-index feasibility, transcripts yes/no, round 1 + 2 disagreements → TP2 |
 | Mon Nov 2 | Everyone's paragraph in the [TP2 outline](../docs/tp2/progress_report_draft.md) |
 | Wed Nov 4 / Thu Nov 5 | TP2 draft (Mehul) / board clean-up |
 | **Fri Nov 6, 5 pm** | Yen-Chu submits TP2 (Mehul is the backup) |
-| Thu Nov 12, 10 am | Julie follow-up (Snehal asks her on Oct 29) |
+| Tue Nov 10, Fri Nov 13 or Thu Nov 19 | Julie follow-up (Nov 12 doesn't work for her; Snehal proposes one) |
 
 ## By person
 
@@ -39,7 +40,8 @@
 | Score round 2 with `python3 -m src.eval.irr --round 2`; lead adjudication at the Nov 1 meeting | Sat Oct 31 → Sun Nov 1 |
 | ✅ Check 4 first run ([results](../docs/part3-metrics/check4_results.md)): ranking robust to weights; strict-only scores all 6 firms 0 from filings; Dong tracks talk (ρ 0.78) not use (0.14) · ✅ guardrail set reviewed against the frozen codebook (22 cases) | Done Oct 27 |
 | Prepare the search-recall sheet (check 1) for Mehul to hand-check (~100 paragraphs, ~1 hour); rerun check 4 on the consensus labels after adjudication | Nov 1–3 |
-| ✅ Practice run (script read in ~4 min) · Present "how we check results" to Julie ([script v3](../docs/part3-metrics/julie_oct29_talking_points_mehul.md); skip the round-2 aside) | Thu Oct 29 |
+| ✅ Presented "how we check results" and Logan's data rules (Logan absent) to Julie | Done Oct 29 |
+| Give Snehal the points for the follow-up email: the strict-vs-broad question (not asked in the meeting) and the "all annual" correction (scores combine 10-K and 10-Q passages) | Fri Oct 30 |
 | First guardrail with/without run, with Shu (#77) | ~Nov 3 |
 | TP2: combine the paragraphs by Wed Nov 4; board clean-up Thu Nov 5; backup submitter | Nov 4–6 |
 
@@ -51,7 +53,7 @@
 | **Earnings calls:** check Bloomberg at the CMU library (option E in #62); add Bloomberg rows to the review table. Before downloading, record Bloomberg's terms in the #62 source-review table (separate decisions for access, local storage, team-drive sharing, publication). **No transcript text in the public repo**; derived labels and scores are fine. If Bloomberg isn't usable, go without transcripts | **Mon Oct 26** |
 | Rule on the 3 Capital One sentences, so Shu can freeze the categories | **Tue Oct 27** |
 | **Labeling round 1:** label 50 passages on your own (your own judgment, not AI suggestions) | **Tue Oct 27** |
-| ✅ Practice run (~5 min) · Present the test-run findings to Julie | Thu Oct 29 |
+| ✅ Presented the test-run findings to Julie | Done Oct 29 |
 | **Labeling round 2:** 30 passages, on your own ([materials](../docs/part3-metrics/labeling_round_2/)); upload with the others | **Sat Oct 31 (afternoon)** |
 | **Submit TP2 on Canvas** | **Fri Nov 6, 5 pm** |
 
@@ -63,7 +65,8 @@
 | DeepSeek: Dr. Chung said in person after class (Oct 27) that it's OK, since CMU hasn't banned it. Logan asked her to confirm by email; record the email in ethics memo §6 when it arrives | Email pending |
 | CMU library (Ryan Splenda) emailed Oct 27 about the Bloomberg uses (download, team Drive, external AI, publishing); Bloomberg full text paused until he replies | Waiting on reply |
 | ✅ Labeling round 1 (converted to `rater_logan.csv`) | Done Oct 27 |
-| ✅ Practice run (~3½ min) · Present the data rules to Julie | Thu Oct 29 |
+| ✅ Practice run (~3½ min). Absent from the Julie meeting; Mehul presented the data rules | Done Oct 29 |
+| Bloomberg: Julie asked us to confirm with the librarian that the manual terminal downloads are allowed; share his reply on #62 | Waiting on reply |
 | Labeling round 2 (30 passages): `UNCLEAR:` not heard agreeing at the practice run | Sat Oct 31 (afternoon) |
 
 ### Shu Pu (AI Engineer / Solution Architect)
@@ -78,7 +81,7 @@
 | **Agent runs end to end** on the six FY2025 10-Ks (TP2: 12 pts) | **Wed Oct 28** |
 | Create the shared slide deck (Drive → Client materials → progress folder) | Wed Oct 28 |
 | Cost note for Julie's handover (per run; one-time credit of about $10–20; no API key included) | `UNCLEAR:` before the next Julie meeting |
-| ✅ Practice run (~8 min; keeps the agent-output example slide) · Present the categories + agent demo to Julie | Thu Oct 29 |
+| ✅ Presented the categories + agent demo to Julie | Done Oct 29 |
 
 ### Snehal Paliwal (Dashboard PM + client communication)
 | Task | Due |
@@ -91,7 +94,9 @@
 | **Labeling round 1:** label 50 passages on your own with the [Excel workbook](../docs/part3-metrics/labeling_round_1/labeling_workbook.xlsx) | **Tue Oct 27** |
 | Formal agenda to Julie | **Tue Oct 27** |
 | Send the practice-run invite (Wed Oct 28, 10 am, virtual) | Before Wed |
-| Host the Julie meeting: open with "we pause after each section; feel free to stop us", take notes, ask about recording, show the dashboard; ask Julie for a follow-up on **Thu Nov 12, 10 am** | Thu Oct 29 |
+| ✅ Hosted the Julie meeting and showed the dashboard | Done Oct 29 |
+| Thank-you email to Julie + propose the follow-up date (Tue Nov 10, Fri Nov 13 or Thu Nov 19) after checking the team's schedules | `UNCLEAR:` no date set (suggest Fri Oct 30) |
+| Dashboard (Julie's feedback): hover definitions for each metric; hide FY2026 / partial years until complete | Before the follow-up |
 | **Labeling round 2:** 30 passages, on your own; upload with the others | **Sat Oct 31 (afternoon)** |
 | Hosting choice (Streamlit Community Cloud vs. Vercel) | `UNCLEAR:` after Julie's feedback |
 
@@ -100,7 +105,8 @@
 - Add your slides to the shared deck; bring more questions for Julie: **Wed Oct 28** (practice run 10 am)
 - Julie meeting **Thu Oct 29, 10 am**
 - Your paragraph in the [TP2 outline](../docs/tp2/progress_report_draft.md): **Mon Nov 2**
-- Julie follow-up: Snehal proposes Thu Nov 12, 10 am (`UNCLEAR:` Shu and Yen-Chu not heard confirming)
+- Julie follow-up: tell Snehal which of Tue Nov 10, Fri Nov 13 or Thu Nov 19 work for you
+- Sector-index feasibility (Julie's ask): `UNCLEAR:` owner; discuss Sun Nov 1 (sample from a sector index or SIC codes, market-cap data, agent cost at scale)
 - Finish your pending TP2 work this weekend (Mehul's ask)
 
 ## Deliverable owners (whole project)
@@ -135,4 +141,5 @@
 - ✅ Oct 4 meeting: PoC companies, period, sources, timeline and dates decided
 - ✅ Oct 18 meeting: data, taxonomy proposals, model (DeepSeek), agent plan, dashboard plan
 - ✅ Oct 25 meeting: categories approved (ENT = 1 point), DeepSeek option B, Bloomberg transcripts if cleared, Julie plan, practice run Wed Oct 28
-- ✅ Oct 28 practice run: ~27 min; pauses after each section; transition slides; round 2 Sat Oct 31; Julie follow-up Nov 12 to be asked
+- ✅ Oct 28 practice run: ~27 min; pauses after each section; transition slides; round 2 Sat Oct 31
+- ✅ Oct 29 Julie checkpoint: very positive; asked for a sector index (market-cap- and equal-weighted); dashboard hover definitions; hide partial years; follow-up Nov 10/13/19
