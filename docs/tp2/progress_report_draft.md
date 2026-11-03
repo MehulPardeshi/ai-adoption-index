@@ -42,6 +42,7 @@
 | Unclear whether job-posting data may be used | Asked Rachel (#54): avoid LinkedIn |
 | Detailed-label agreement below the bar (κ 0.27) in round 1 | Traced it to one rule read two ways ("about AI": risk talk is N, not X); rewrote the rule to quote the codebook, added a 2-minute practice set, ran round 2 on 30 new passages (#89, #95) |
 | Earnings-call transcripts: free sources not cleared; licensed data vs. a public repo | Bloomberg via the CMU library; transcript text stays out of the public repo and AI tools until the terms are reviewed (#62) |
+| SEC data collection: EDGAR blocked downloads from cloud servers; the big banks first returned only 4 filings (the "recent" index covers about a year); Wells Fargo's 10-K text sits in Exhibit 13 | Ran the script on a laptop with a declared User-Agent; paged through the full filing history; added Exhibit 13. All 7 firms now have 8 quarters (56 filings), and a second run reproduced the same passages (Yen-Chu) |
 | A team member's temporary absence | Tasks covered (Shu finalizes the taxonomy if needed); no deadline moved |
 
 ✍️ *Each owner: add any blocker from your area (one line).*
