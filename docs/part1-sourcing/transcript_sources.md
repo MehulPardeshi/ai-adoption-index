@@ -1,11 +1,11 @@
 # Earnings-call transcript sources (for Logan's review)
 
 **By:** Yen-Chu Chen · **First draft:** Oct 20, 2026 · **Revised:** Oct 24, 2026 after [Logan's review](https://github.com/MehulPardeshi/ai-adoption-index/pull/62) · **Issue:** #34
-**Status:** PROPOSAL. **Nothing is collected** until Logan clears each source in the [ethics memo](ethics_memo.md). Every decision column below reads "pending (Logan)".
+**Status (Nov 4, 2026):** Bloomberg project uses approved following Ryan Splenda's confirmation with Bloomberg. Other sources retain their source-specific decisions. See section 6 and the review summary.
 
 **Period:** calls for Q3 2024 to Q2 2026 (8 per company), the same window as the SEC test run.
 
-**Source-review table (one row per transcript, 56 rows):** [`transcript_source_review.csv`](transcript_source_review.csv). Columns: company, quarter, document URL, rights holder, notice on the document, applicable terms (URL and summary), date checked, and four **separate decisions: access, local storage, team sharing, publication**.
+**Source-review table (112 source records for 56 company-quarter combinations):** [`transcript_source_review.csv`](transcript_source_review.csv). Columns: company, quarter, document URL, rights holder, notice on the document, applicable terms (URL and summary), date checked, and four **separate decisions: access, local storage, team sharing, publication**.
 
 ## 1. What we found (checked Oct 24, 2026)
 
@@ -28,7 +28,7 @@
 - **§7 Intellectual property:** "You may make one copy of the Content for your personal, non-commercial use"; any other copying, distribution, **storing** or transmission needs prior written permission. Content may not be posted to bulletin boards, blogs, chat rooms **or intranets**. "You further agree not to **create abstracts from or scrape** our Content."
 - **§8 Conduct:** no "automated means, including, without limitation, agents, robots, scripts, or spiders" to access, monitor, copy or harvest data.
 
-**What this means:** one personal reading copy only. No shared team folder (an intranet), and no "abstracts", which likely covers our AI passage extracts and summaries. **Logan isn't clearing Motley Fool for the shared corpus or the dashboard**, and these terms support that. So Wells Fargo, Schwab and Capital One have **no usable transcript source** for now.
+**What this means:** one personal reading copy only. No shared team folder (an intranet), and no "abstracts", which likely covers our AI passage extracts and summaries. **Logan isn't clearing Motley Fool for the shared corpus or the dashboard**, and these terms support that. Bloomberg is now an approved project source for these companies (November 4 update below).
 
 ## 3. Verbatim excerpts vs. derived data (Logan's point 3)
 
@@ -46,7 +46,7 @@ Only material that the terms allow for each use goes into each place:
 | Place | What | Owner | Access | Retention / deletion |
 |---|---|---|---|---|
 | Personal computer, `data/raw/transcripts/` (gitignored) | PDFs that pass "access" and "local storage" | Each team member, for their own copy | That person only | Delete at project end (proposed: by **Dec 31, 2026**) or whenever Logan withdraws clearance |
-| Team Drive folder `transcripts/` | **Only** sources that pass "team sharing" (none yet) | Yen-Chu (Dataset Builder) | 5 team members, view only, no public link | Same as above; owner deletes the folder |
+| Team Drive folder `transcripts/` | **Only** sources that pass "team sharing" (Bloomberg now approved for restricted CMU sharing) | Yen-Chu (Dataset Builder) | 5 team members, view only, no public link | Same as above; owner deletes the folder |
 | GitHub | Derived data only (section 3) | — | Repo collaborators | Follows the repo |
 
 ## 5. Options for the gaps (Logan's point 5)
@@ -75,21 +75,16 @@ Only material that the terms allow for each use goes into each place:
   - The CMU pages don't address sharing or redistribution. Bloomberg's own terms on that, and the copyright notice on the exported files, still need to be recorded.
 - **Not yet decided:** the four decisions (access, local storage, team sharing, publication) for Bloomberg are pending Logan. If team-drive sharing isn't allowed, Yen-Chu moves the files to her own computer and removes them from the Drive.
 
-## 6. Logan's decisions (Oct 27)
+## 6. Logan's decisions (updated Nov 4)
 
-Logan recorded the four decisions for all 112 rows in the CSV. The full table and scope are in [`transcript_review_decisions_logan.md`](transcript_review_decisions_logan.md) (first opened as #80, copied here so the two don't conflict). In short, for **Bloomberg**:
+Logan updated all 56 Bloomberg records in the CSV following Ryan Splenda's confirmation that Bloomberg has no issues with the team's described project and the team may proceed. The email excerpt was supplied by Logan on November 4; the email date was not provided. See [the decision summary](transcript_review_decisions_logan.md) for evidence and scope.
 
 | Access | Local storage | Team sharing | Publication |
 |---|---|---|---|
-| Conditionally approved: authorized CMU users at the library terminals | **Pending:** confirm permission to download and keep the 56 files | Citations and our own notes only; **full-text sharing pending** | Citations and our own commentary only; **releasing derived labels or scores pending** |
+| Approved: authorized CMU terminal access and described 56 manual downloads | Approved: described project retention | Approved: restricted CMU-only sharing | Approved: citations, methodology, derived labels and aggregate scores; no transcript text |
 
-Access does not cover bulk downloading, text mining, or uploading transcripts to outside AI services such as DeepSeek.
+The described local analysis and paid DeepSeek classification workflow are also cleared for this project. This supersedes the October 27 Bloomberg holds and the historical pending note in section 5a. It does not assert no provider training or zero retention, authorize unrestricted external redistribution or automated terminal collection, or clear other providers' content. Full transcript text remains outside the public repo and dashboard. Preserve notices and follow the retention arrangement described to the library.
 
-**Next step:** someone on the team (to be decided; Yen-Chu has asked Logan) asks the CMU Libraries to confirm three uses for this course project:
-1. keeping the 56 downloaded transcripts
-2. sharing them with the 5 team members in a restricted Drive folder
-3. publishing labels and scores derived from them, with no transcript text
-
-Until the library answers, nobody processes the transcripts, and the Drive folder stays restricted to the team. If the answer is no, the files are removed and we go without transcripts (option D).
+The team still decides whether transcripts fit the index's coverage and refresh workflow; permission clearance alone does not decide inclusion.
 
 *Research and drafting assisted by Claude. Documents and terms were opened in a browser on Oct 24, 2026, and the copyright notices were read from the PDFs themselves. The CMU Bloomberg terms in 5a were read from the CMU Libraries pages on Oct 26, 2026.*
