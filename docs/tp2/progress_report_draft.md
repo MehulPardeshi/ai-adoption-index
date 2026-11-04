@@ -31,9 +31,7 @@
 
 ✍️ *Shu: what the agent actually does by Nov 4, one example output, and where the demo code is.*
 
-*Draft (Claude, from the repo; Snehal to confirm or replace):* The Streamlit dashboard has an SEC pilot scores tab (#93) showing each firm's AI Use Score, readiness score and talk ratio per fiscal year, labeled preliminary, beside clearly marked mock-up tabs for the firm story and comparison views. It reads the scores file produced by our scorer. Julie called it "extremely user-friendly"; she asked for hover definitions and for partial years to be hidden (#96).
-
-✍️ *Snehal: one paragraph on the dashboard view that uses the agent's output.*
+*Snehal:* I designed and built the Streamlit dashboard to pair a real-data research view with a separate envisioned interface. The SEC pilot scores tab reads our scorer's company-year output and summarizes AI Use Score, readiness, and talk ratio across firms and years; the values are labeled preliminary because they come from SEC disclosures scored with AI-assisted v0 labels, not verified measures of firm-wide AI adoption. The firm-story and comparison tabs remain clearly marked fictional examples to demonstrate how researchers could explore use cases without presenting mock records as evidence. I validated the score-file mapping and missing-year behavior and showed the dashboard to Julie on Oct 29. She described it as “extremely user-friendly” and asked for metric hover definitions and for partial years to be hidden (#96); those follow-ups remain in progress.
 
 ## 3. Blockers and how we handled them (8 pts): Mehul (with input from each owner)
 | Blocker | How we handled it |
