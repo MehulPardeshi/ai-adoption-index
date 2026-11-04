@@ -1,7 +1,7 @@
 # 11 — Action Items (who is doing what, right now)
 
 > **Read this to answer "what should I work on next?"** Updated after every meeting from `meetings/` minutes ([procedure](../meetings/README.md)). The shared spreadsheet remains the source of truth for owners and deadlines; this file mirrors it for AI tools.
-> **Last updated:** 2026-11-03 (repo + board check; no Nov 1 meeting record in `meetings/`). Last meeting: [Oct 29 client checkpoint](../meetings/2026-10-29-client.md) (transcript). Previous: [Oct 28 practice run](../meetings/2026-10-28-internal.md).
+> **Last updated:** 2026-11-03 (eval checks run; repo + board check; no Nov 1 meeting record in `meetings/`). Last meeting: [Oct 29 client checkpoint](../meetings/2026-10-29-client.md) (transcript). Previous: [Oct 28 practice run](../meetings/2026-10-28-internal.md).
 > **Pinned summary for humans:** [#45 "Who does what"](https://github.com/MehulPardeshi/ai-adoption-index/issues/45), with @mentions per person.
 > **GitHub:** each task below is an issue in the **"Sprint: Oct 18–Nov 6 (TP2)"** milestone on the [project board](https://github.com/users/MehulPardeshi/projects/1).
 
@@ -38,11 +38,12 @@
 | ✅ Round 2 issue (#95) explains the unclear rule (the "about AI" N/X rule, not the use question) | Done Oct 28 |
 | #95 Once all raters submit: merge #104, score round 2 with `python3 -m src.eval.irr --round 2`, go through the disagreements | Thu Nov 5 |
 | ✅ Check 4 first run ([results](../docs/part3-metrics/check4_results.md)): ranking robust to weights; strict-only scores all 6 firms 0 from filings; Dong tracks talk (ρ 0.78) not use (0.14) · ✅ guardrail set reviewed against the frozen codebook (22 cases) | Done Oct 27 |
-| #101 Check 1: hand-check the search-recall sheet (~100 paragraphs, ~1 hour) · rerun check 4 on the consensus labels after adjudication | Tue Nov 3 |
-| #102 Check 5: find a teammate for the independent rerun (ask Sun Nov 1) | Wed Nov 4 |
+| ✅ Check 1 built and AI-screened (precision 98.9%, no clear recall miss; [results](../docs/part3-metrics/check1/results.md)) · ✅ check 5 dry run matched · ✅ check 6 replay · ✅ TP2 sections drafted | Done Nov 3 |
+| #101 Confirm the check 1 screen (mainly the 4 borderline items, 10–15 min) · rerun check 4 on the consensus labels after adjudication | Thu Nov 5 |
+| #102 Check 5: get Logan or Snehal to run the [steps](../docs/part3-metrics/check5_rerun.md) (~20 min) | Thu Nov 5 |
 | ✅ Presented "how we check results" and Logan's data rules (Logan absent) to Julie | Done Oct 29 |
 | ✅ Follow-up-email points for Snehal (strict-vs-broad question; scores combine 10-K + 10-Q) are in #98 | Done Oct 29 |
-| #77 First guardrail with/without run, with Shu | Tue Nov 3 |
+| #77 Live 22-case guardrail run: Shu runs it with the key, Mehul scores | Thu Nov 5 |
 | #39 / #40 TP2: combine the paragraphs and take the board snapshot (Thu Nov 5); backup submitter | Nov 5–6 |
 | Your own TP2 sections: 4 (scope), 5 (board), 7 (evaluation) in the [TP2 draft](../docs/tp2/progress_report_draft.md) | Mon Nov 2 |
 

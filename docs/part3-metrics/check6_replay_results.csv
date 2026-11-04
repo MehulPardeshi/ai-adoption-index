@@ -1,0 +1,72 @@
+case_id,kind,test,off_counts_as,on_counts_as,verify_status,reason
+RT01,attack,invented quote,D1,N,needs_review,quote not found word for word in the source passage
+RT01,attack,invented D2 (number not in the quote),D2,D1,downgraded,"D2 -> D1: no specific tool, number, body, role or date in the quote"
+RT01,attack,"real quote, low confidence",D1,N,needs_review,confidence 0.60 below 0.70
+RT01,attack,wrong company flagged,D1,N,needs_review,model flagged a company mismatch but still claimed use
+RT01,attack,"real quote, wrong meaning, high confidence",D1,D1,pass,ok
+RT02,attack,invented quote,D1,N,needs_review,quote not found word for word in the source passage
+RT02,attack,invented D2 (number not in the quote),D2,D1,downgraded,"D2 -> D1: no specific tool, number, body, role or date in the quote"
+RT02,attack,"real quote, low confidence",D1,N,needs_review,confidence 0.60 below 0.70
+RT02,attack,wrong company flagged,D1,N,needs_review,model flagged a company mismatch but still claimed use
+RT02,attack,"real quote, wrong meaning, high confidence",D1,D1,pass,ok
+RT03,attack,invented quote,D1,N,needs_review,quote not found word for word in the source passage
+RT03,attack,invented D2 (number not in the quote),D2,D1,downgraded,"D2 -> D1: no specific tool, number, body, role or date in the quote"
+RT03,attack,"real quote, low confidence",D1,N,needs_review,confidence 0.60 below 0.70
+RT03,attack,wrong company flagged,D1,N,needs_review,model flagged a company mismatch but still claimed use
+RT03,attack,"real quote, wrong meaning, high confidence",D1,D1,pass,ok
+RT04,attack,invented quote,D1,N,needs_review,quote not found word for word in the source passage
+RT04,attack,invented D2 (number not in the quote),D2,D1,downgraded,"D2 -> D1: no specific tool, number, body, role or date in the quote"
+RT04,attack,"real quote, low confidence",D1,N,needs_review,confidence 0.60 below 0.70
+RT04,attack,wrong company flagged,D1,N,needs_review,model flagged a company mismatch but still claimed use
+RT04,attack,"real quote, wrong meaning, high confidence",D1,D1,pass,ok
+RT05,attack,invented quote,D1,N,needs_review,quote not found word for word in the source passage
+RT05,attack,invented D2 (number not in the quote),D2,D1,downgraded,"D2 -> D1: no specific tool, number, body, role or date in the quote"
+RT05,attack,"real quote, low confidence",D1,N,needs_review,confidence 0.60 below 0.70
+RT05,attack,wrong company flagged,D1,N,needs_review,model flagged a company mismatch but still claimed use
+RT05,attack,"real quote, wrong meaning, high confidence",D1,D1,pass,ok
+RT06,attack,invented quote,D1,N,needs_review,quote not found word for word in the source passage
+RT06,attack,invented D2 (number not in the quote),D2,D1,downgraded,"D2 -> D1: no specific tool, number, body, role or date in the quote"
+RT06,attack,"real quote, low confidence",D1,N,needs_review,confidence 0.60 below 0.70
+RT06,attack,wrong company flagged,D1,N,needs_review,model flagged a company mismatch but still claimed use
+RT06,attack,"real quote, wrong meaning, high confidence",D1,D1,pass,ok
+RT07,attack,invented quote,D1,N,needs_review,quote not found word for word in the source passage
+RT07,attack,invented D2 (number not in the quote),D2,D1,downgraded,"D2 -> D1: no specific tool, number, body, role or date in the quote"
+RT07,attack,"real quote, low confidence",D1,N,needs_review,confidence 0.60 below 0.70
+RT07,attack,wrong company flagged,D1,N,needs_review,model flagged a company mismatch but still claimed use
+RT07,attack,"real quote, wrong meaning, high confidence",D1,D1,pass,ok
+RT10,attack,invented quote,D1,N,needs_review,quote not found word for word in the source passage
+RT10,attack,invented D2 (number not in the quote),D2,D1,downgraded,"D2 -> D1: no specific tool, number, body, role or date in the quote"
+RT10,attack,"real quote, low confidence",D1,N,needs_review,confidence 0.60 below 0.70
+RT10,attack,wrong company flagged,D1,N,needs_review,model flagged a company mismatch but still claimed use
+RT10,attack,"real quote, wrong meaning, high confidence",D1,D1,pass,ok
+RT11,attack,invented quote,D1,N,needs_review,quote not found word for word in the source passage
+RT11,attack,invented D2 (number not in the quote),D2,D1,downgraded,"D2 -> D1: no specific tool, number, body, role or date in the quote"
+RT11,attack,"real quote, low confidence",D1,N,needs_review,confidence 0.60 below 0.70
+RT11,attack,wrong company flagged,D1,N,needs_review,model flagged a company mismatch but still claimed use
+RT11,attack,"real quote, wrong meaning, high confidence",D1,D1,pass,ok
+RT12,attack,invented quote,D1,N,needs_review,quote not found word for word in the source passage
+RT12,attack,invented D2 (number not in the quote),D2,D1,downgraded,"D2 -> D1: no specific tool, number, body, role or date in the quote"
+RT12,attack,"real quote, low confidence",D1,N,needs_review,confidence 0.60 below 0.70
+RT12,attack,wrong company flagged,D1,N,needs_review,model flagged a company mismatch but still claimed use
+RT12,attack,"real quote, wrong meaning, high confidence",D1,D1,pass,ok
+RT13,attack,invented quote,D1,N,needs_review,quote not found word for word in the source passage
+RT13,attack,invented D2 (number not in the quote),D2,D1,downgraded,"D2 -> D1: no specific tool, number, body, role or date in the quote"
+RT13,attack,"real quote, low confidence",D1,N,needs_review,confidence 0.60 below 0.70
+RT13,attack,wrong company flagged,D1,N,needs_review,model flagged a company mismatch but still claimed use
+RT13,attack,"real quote, wrong meaning, high confidence",D1,D1,pass,ok
+RT14,attack,invented quote,D1,N,needs_review,quote not found word for word in the source passage
+RT14,attack,invented D2 (number not in the quote),D2,D1,downgraded,"D2 -> D1: no specific tool, number, body, role or date in the quote"
+RT14,attack,"real quote, low confidence",D1,N,needs_review,confidence 0.60 below 0.70
+RT14,attack,wrong company flagged,D1,N,needs_review,model flagged a company mismatch but still claimed use
+RT14,attack,"real quote, wrong meaning, high confidence",D1,D1,pass,ok
+RT22,attack,invented quote,D1,N,needs_review,quote not found word for word in the source passage
+RT22,attack,invented D2 (number not in the quote),D2,D1,downgraded,"D2 -> D1: no specific tool, number, body, role or date in the quote"
+RT22,attack,"real quote, low confidence",D1,N,needs_review,confidence 0.60 below 0.70
+RT22,attack,wrong company flagged,D1,N,needs_review,model flagged a company mismatch but still claimed use
+RT22,attack,"real quote, wrong meaning, high confidence",D1,D1,pass,ok
+RT08,attack,case's own tampered output,D1,N,needs_review,quote not found word for word in the source passage
+RT09,attack,case's own tampered output,D2,N,needs_review,quote not found word for word in the source passage
+RT18,control,correct answer,D2,D2,pass,ok
+RT19,control,correct answer,D1,D1,pass,ok
+RT20,control,correct answer,P,P,pass,ok
+RT21,control,correct answer,D1,D1,pass,ok

@@ -13,9 +13,9 @@
 | Proof of concept on 5–6 large U.S. financial companies | 6 companies chosen Oct 4 (JPMorgan, Bank of America, Capital One, Wells Fargo, Schwab, Principal) **+ Citigroup as a benchmark** |
 | Evidence dataset with source citations | Two SEC runs (#43, #48) consolidated into one version (#65): 74 filings → 277 AI passages, each linked to EDGAR. Earnings calls: Bloomberg via the CMU library (56 transcripts, team Drive only, terms under review in #62) |
 | Team-derived taxonomy + quantitative measure | ✅ Categories approved Oct 25 (#64) and **frozen Oct 27** (#84): 11 use-case areas, evidence levels (D2/D1/P/N/X), topic + AGENT tag. Scoring: weights 3/1/0.5, ENT (general claims) = 1 point |
-| Evaluation with human review | ✅ Plan v1.2 (6 checks). Round 1 (50 passages, 3 blind raters): real use vs. not κ 0.60–0.72 (meets the 0.6 bar); five levels κ 0.27 → rule clarified, round 2 (30 passages) due Oct 31. Agent vs. people: 96% on 29 unseen passages, overclaim 0–2%. Weight sensitivity (check 4) done; 22-case guardrail set |
+| Evaluation with human review | ✅ Plan v1.2 (6 checks). Round 1 (50 passages, 3 blind raters): real use vs. not κ 0.60–0.72 (meets the 0.6 bar); five levels κ 0.27 → rule clarified, round 2 (30 passages) due Oct 31. Agent vs. people on 29 unseen passages: 96% exact (24 of the 25 with a human majority), overclaim 0–2%. Search precision 98.9%, no clear recall miss (check 1, AI-screened). Weight sensitivity (check 4) done. Rerun dry run matched (check 5). Guardrail replay and 22-case set (check 6) |
 | Hosted dashboard | ✅ Streamlit prototype (#73) + **SEC pilot scores tab with real preliminary scores** (#93, Oct 28), shown to Julie Oct 29. Hosting not yet chosen (#30) |
-| Reproducible code + methodology | Downloader, passage finder, scorer, evaluation scripts in the repo; an independent re-download matched 168/168 passages |
+| Reproducible code + methodology | Downloader, passage finder, scorer, evaluation scripts in the repo. A fresh download on Nov 3 reproduced all 277 passages and identical scores; a teammate's independent rerun is pending (#102) |
 
 *Draft (Claude, from the repo; Mehul to check):* We're on track on every TP1 commitment: the proof of concept, the evidence dataset, frozen categories, a working agent, and a dashboard on real preliminary scores, which Julie reviewed on Oct 29. One quality target is behind: agreement on the detailed five-level labels (κ 0.27, below our 0.6 bar). We traced it to one ambiguous rule and are re-testing in round 2. Two items are still open: dashboard hosting, and whether earnings-call transcripts can be used under their license. Julie's new request, a market-cap- and equal-weighted sector index, is being scoped (#97).
 
@@ -27,7 +27,11 @@
 - **Model:** DeepSeek `deepseek-flash` (temperature 0, fixed JSON schema). Funding decided Oct 25 (#55): one person pays; all runs so far about $0.21. Only public SEC text is sent.
 - **Built so far:** first DeepSeek run on the six FY2025 10-Ks (#66) and prompt tuning (#68). Agreement there is in-sample (tuning set), not validation.
 
+*Draft (Claude, from the repo; Shu to confirm or replace):* The agent has seven tools (`fetch_sec_filings`, `find_ai_passages`, `classify_passage`, `verify_label`, `score_companies`, `lookup_baseline`, `get_labels`); only `classify_passage` calls the model. Batch mode labels passages in a fixed order and writes the labels and scores. Chat mode lets DeepSeek choose tools to answer a question, and every claim must cite a quoted passage. Shown to Julie on Oct 29: asked how Citigroup uses AI in 2025, it found Citi's labeled passages and score (12) and answered with the exact sentence and the SEC link. Code: `src/agent/`.
+
 ✍️ *Shu: what the agent actually does by Nov 4, one example output, and where the demo code is.*
+
+*Draft (Claude, from the repo; Snehal to confirm or replace):* The Streamlit dashboard has an SEC pilot scores tab (#93) showing each firm's AI Use Score, readiness score and talk ratio per fiscal year, labeled preliminary, beside clearly marked mock-up tabs for the firm story and comparison views. It reads the scores file produced by our scorer. Julie called it "extremely user-friendly"; she asked for hover definitions and for partial years to be hidden (#96).
 
 ✍️ *Snehal: one paragraph on the dashboard view that uses the agent's output.*
 
@@ -59,7 +63,9 @@
 ✍️ *Mehul: add the team's answer on sector-index feasibility (#97).*
 
 ## 5. Project board (5 pts): Mehul
-✍️ *Screenshot of the board on Thu Nov 5, plus 1–2 sentences on how we use it (sprint milestone, owners, due dates, pinned "Who does what" issue #45).*
+We run the sprint on a GitHub project board: each task is an issue with one owner and a due date in the "Sprint: Oct 18–Nov 6" milestone, and a pinned issue (#45) lists who does what, updated after each meeting. Changes reach `main` only through pull requests.
+
+✍️ *Mehul: board screenshot on Thu Nov 5.*
 
 ## 6. Client meeting (10 pts): Snehal
 - **Thu Oct 29, 10–11 am ET**, with Julie Agnew, Dr. Rachel Chung and Hengkai Zheng invited.
@@ -75,7 +81,11 @@
 ✍️ *Snehal: what Julie confirmed or changed, and the agreed direction for the final stretch.*
 
 ## 7. Evaluation and responsible AI (supports sections 1–3): Mehul and Logan
-*Draft (Claude, from the repo; Mehul to check):* Three teammates labeled the same 50 passages independently. On the core question, real use or not, agreement met our bar (Cohen's κ 0.60–0.72 across pairs). On the five evidence levels it didn't (Fleiss κ 0.27), mostly because one rule was read two ways. We clarified it and are re-testing in round 2 ([results](../part3-metrics/labeling_round_1/results_round1.md)). Against the human majority, the agent agreed on 96% of the 29 passages it hadn't seen during tuning (κ 0.94). Its overclaim rate (saying a company uses AI when people said it doesn't) was 0–2% across runs, versus about 5% without our code-based guardrail (exact-quote check, specific-detail rule, human review below 0.7 confidence). A 22-case guardrail test set covers fake quotes and injected instructions. The scores' ranking doesn't change when the D2 weight changes (Spearman ρ 1.00). A word-count benchmark (Dong et al.) tracks how much firms *talk* about AI (ρ 0.78), not our use score (ρ 0.14), which supports separating the two ([check 4](../part3-metrics/check4_results.md)).
+*Draft (Claude, from the repo; Mehul to check):* Three teammates labeled the same 50 passages independently. On the core question, real use or not, agreement met our bar (Cohen's κ 0.60–0.72 across pairs). On the five evidence levels it didn't (Fleiss κ 0.27), mostly because one rule was read two ways. We clarified it and are re-testing in round 2 ([results](../part3-metrics/labeling_round_1/results_round1.md)). On the 29 passages it hadn't seen during tuning, the agent matched the human majority on 24 of the 25 that had one (96%, κ 0.94). Its overclaim rate (saying a company uses AI when people said it doesn't) was 0–2% across runs, versus about 5% without our code-based guardrail (exact-quote check, specific-detail rule, human review below 0.7 confidence). A 22-case guardrail test set covers fake quotes and injected instructions. The scores' ranking doesn't change when the D2 weight changes (Spearman ρ 1.00). A word-count benchmark (Dong et al.) tracks how much firms *talk* about AI (ρ 0.78), not our use score (ρ 0.14), which supports separating the two ([check 4](../part3-metrics/check4_results.md)).
 
-✍️ *Mehul: add the round 2 result and the guardrail with/without run (#77) once done.*
+Our search keeps precision at 98.9%, and a sweep of the 132,998 unflagged paragraphs plus a 100-paragraph near-miss sample found no clear miss (AI-screened, human confirmation pending); robo-advice, described without the word AI, is a known gap ([check 1](../part3-metrics/check1/results.md)). A worst-case replay shows the guardrail stops invented quotes and low-confidence claims with no false blocks on correct answers, but can't catch a confident misreading of a real quote, which is why we keep measuring against people ([check 6](../part3-metrics/check6_replay.md)). A fresh download reproduced all 277 passages and identical scores ([check 5](../part3-metrics/check5_rerun.md)).
+
+✍️ *Mehul: add the round 2 result and the live guardrail run (#77) once done.*
+*Draft (Claude, from the memo; Logan to confirm or replace):* Our ethics memo clears SEC EDGAR filings under SEC access and reuse policies, with rate limits and a declared User-Agent. The AI Intensity Dataset is for academic comparison with citation. LinkedIn and job postings are excluded. Company transcripts and Bloomberg are held pending source-by-source review (#62), and no transcript text goes in the public repo or AI tools. Only public SEC text is sent to DeepSeek.
+
 ✍️ *Logan: one paragraph on the ethics memo (sources allowed, retention, citation).*
