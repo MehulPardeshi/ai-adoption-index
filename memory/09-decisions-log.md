@@ -369,3 +369,9 @@
 - **Supersedes:** the Oct 28 plan to ask for a follow-up on Thu Nov 12.
 - **Not decided:** whether to adopt market-cap weighting (the method stays equal-weighted until the team decides after the feasibility check), and how transcripts are used, if at all. Both go to the Sun Nov 1 meeting.
 - **Follow-ups:** Snehal sends the thank-you and proposes a date. The follow-up email also corrects "all annual" (the scores combine 10-K and 10-Q passages) and asks Mehul's strict-vs-broad question.
+
+### 2026-11-03 — Eval checks 1, 5 and 6 run; robo-advice flagged (facts, no decision)
+- **Results:** Check 1: search precision 98.9%; no clear recall miss (AI-screened, Mehul to confirm). Check 5 dry run: 277/277 passages and identical scores from a fresh download (not independent; a teammate still has to run it). Check 6 replay: the rules stop invented quotes and low-confidence claims, 0 false blocks, but can't catch a confident misreading of a real quote.
+- **Open for the team (not decided):** filings describe robo-advice (Schwab Intelligent Portfolios) without saying AI, so it isn't flagged. It's closest to Julie's chapter and Schwab scores 0. Counting it would change the frozen taxonomy scope, so it stays a documented limitation unless the team and Julie decide otherwise.
+- **Dates (Mehul, PM):** round 2 and TP2 paragraphs Wed Nov 4; compile Thu Nov 5.
+- **Decided by:** Mehul for the dates; the results are facts.
