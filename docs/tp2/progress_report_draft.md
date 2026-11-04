@@ -1,7 +1,7 @@
 # TP2 Progress Report: AI Adoption Index (Team 5): DRAFT OUTLINE
 
-> **Due:** Fri Nov 6, 2026, 5:00 pm (Yen-Chu submits on Canvas) · **Length:** 1–3 pages · **Compiled by:** Mehul (by Wed Nov 4)
-> **How we write it:** each owner writes **one short paragraph** for their section below by **Mon Nov 2**, replacing the `✍️` placeholders. Mehul combines and trims. Pre-filled facts come from the repo (last refreshed Oct 29); **update them with what actually happened by Nov 2.**
+> **Due:** Fri Nov 6, 2026, 5:00 pm (Yen-Chu submits on Canvas) · **Length:** 1–3 pages · **Compiled by:** Mehul (by Thu Nov 5)
+> **How we write it:** each owner writes **one short paragraph** for their section below by **Wed Nov 4**, replacing the `✍️` placeholders. Mehul combines and trims. Pre-filled facts come from the repo (last refreshed Oct 29); **update them with what actually happened by Nov 4.**
 > **Rubric (50 pts):** progress vs. plan 10 · working prototype 12 · blockers 8 · scope updates 5 · board upkeep 5 · client meeting 10. Section numbers below match.
 > **AI-use note (course GenAI policy):** this outline was drafted with Claude Code. Each author edits their own section, and the final report states how AI tools were used.
 
@@ -19,7 +19,7 @@
 
 *Draft (Claude, from the repo; Mehul to check):* We're on track on every TP1 commitment: the proof of concept, the evidence dataset, frozen categories, a working agent, and a dashboard on real preliminary scores, which Julie reviewed on Oct 29. One quality target is behind: agreement on the detailed five-level labels (κ 0.27, below our 0.6 bar). We traced it to one ambiguous rule and are re-testing in round 2. Two items are still open: dashboard hosting, and whether earnings-call transcripts can be used under their license. Julie's new request, a market-cap- and equal-weighted sector index, is being scoped (#97).
 
-✍️ *Mehul: check and trim the draft above after round 2 (Nov 1).*
+✍️ *Mehul: check and trim the draft above after round 2.*
 
 ## 2. Working prototype: the agentic AI component (12 pts): Shu
 - **Design:** 7 tools: `fetch_sec_filings`, `find_ai_passages`, `score_companies` (built); `fetch_transcripts`, `classify_passage`, `verify_label`, `lookup_baseline` (to build).
@@ -27,7 +27,7 @@
 - **Model:** DeepSeek `deepseek-flash` (temperature 0, fixed JSON schema). Funding decided Oct 25 (#55): one person pays; all runs so far about $0.21. Only public SEC text is sent.
 - **Built so far:** first DeepSeek run on the six FY2025 10-Ks (#66) and prompt tuning (#68). Agreement there is in-sample (tuning set), not validation.
 
-✍️ *Shu: what the agent actually does by Nov 2, one example output, and where the demo code is.*
+✍️ *Shu: what the agent actually does by Nov 4, one example output, and where the demo code is.*
 
 ✍️ *Snehal: one paragraph on the dashboard view that uses the agent's output.*
 
@@ -56,7 +56,7 @@
 
 - **Oct 29 with Julie:** check whether we can build a market-cap-weighted and an equal-weighted **sector index** on a defined public-company sample (a sector stock index or SIC codes). Sources limited to what we can legally get and verify (transcripts only if cleared, without giving extra points for having them). Partial years (FY2026) hidden until complete. Job postings stay out of scope.
 
-✍️ *Mehul: add the team's Nov 1 answer on sector-index feasibility.*
+✍️ *Mehul: add the team's answer on sector-index feasibility (#97).*
 
 ## 5. Project board (5 pts): Mehul
 ✍️ *Screenshot of the board on Thu Nov 5, plus 1–2 sentences on how we use it (sprint milestone, owners, due dates, pinned "Who does what" issue #45).*
