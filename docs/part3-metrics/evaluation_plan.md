@@ -37,7 +37,7 @@ Each check below tests one link in that chain. It's built around Yen-Chu's Taxon
 ## Status (Nov 3)
 | # | Status | Results |
 |---|---|---|
-| 1 | Precision 98.9% (meets the bar); no clear recall miss; AI-screened, human confirmation pending | [results](check1/results.md) |
+| 1 | Precision 98.9% (meets the bar); no clear recall miss; confirmed by Mehul | [results](check1/results.md) |
 | 2 | Round 1 done; round 2 waiting on raters (#95) | [results](labeling_round_1/results_round1.md) |
 | 3 | Done on the 50-passage sample | [results](labeling_round_1/check3_agent.md) |
 | 4 | First run done on draft labels; rerun needs the consensus labels (#101) | [results](check4_results.md) |
