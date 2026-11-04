@@ -1,0 +1,17 @@
+company,ticker,fiscal_year,ai_use_score,scenarios_with_use,readiness_score,talk_ratio_pct,substantive_ai_passages
+Bank of America,BAC,2024,0,,11,80,5
+Bank of America,BAC,2025,0,,0,67,3
+Citigroup,C,2024,3,PROD,0,0,1
+Citigroup,C,2025,45,CX DEV OPS PROD SURV,33,23,13
+Capital One,COF,2024,3,RISKM,0,50,2
+Capital One,COF,2025,3,RISKM,0,50,6
+JPMorgan Chase,JPM,2024,3,RISKM,11,20,5
+JPMorgan Chase,JPM,2025,0,,11,75,4
+Principal Financial Group,PFG,2024,0,,0,100,1
+Principal Financial Group,PFG,2025,0,,33,0,1
+Principal Financial Group,PFG,2026,0,,33,0,1
+Charles Schwab,SCHW,2024,0,,11,0,1
+Charles Schwab,SCHW,2025,0,,11,0,1
+Charles Schwab,SCHW,2026,0,,0,100,1
+Wells Fargo,WFC,2024,0,,0,0,1
+Wells Fargo,WFC,2025,0,,33,33,3

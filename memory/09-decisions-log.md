@@ -324,3 +324,54 @@
 - **Decided by:** Mehul (PM), recording teammates' confirmations.
 - **Supersedes:** nothing.
 - **Follow-ups:** Shu confirms the key is out of the how-to Google Doc and rotated. Logan reviews Bloomberg's academic terms on #62.
+
+### 2026-10-27 — Categories frozen; labeling round 1 and check 3 results (no meeting)
+- **Decision:**
+  - **Categories frozen** (#84, closes #33). ENT = 1 point is the scorer's default (`--no-ent` keeps the old rule as a sensitivity check). The three Capital One risk-factor sentences are D1, applied by default because #33 had no reply; Yen-Chu can reopen.
+  - **Labeling round 1 is the official record as submitted.** No labels were changed after submission; Logan's Numbers workbook was converted to `rater_logan.csv` without changes.
+- **Results (facts, not decisions):**
+  - Check 2: real use vs. not κ 0.60–0.72 (meets the bar); the five evidence levels, Fleiss κ 0.27 (0.49 with N/X merged). Most of the gap: one rater read "about AI" as "about AI use" ([results](../docs/part3-metrics/labeling_round_1/results_round1.md)).
+  - Check 3 (#85): on the 29 passages outside the tuning set, 96% exact, κ 0.94, overclaim 0% (0–2% across runs), about 5% without the guardrail. The clean set is 29, not 35: 6 sample passages are also among the 20 Citi tuning passages.
+  - DeepSeek: Prof. Chung told Logan after class that it's OK, since CMU hasn't banned it; Logan asked her to confirm by email.
+  - Bloomberg: Logan emailed the CMU business librarian about download, team sharing, external AI processing and publication. Full-text use stays paused until he replies.
+- **Context / why:** the planned Oct 27 steps (labels in → merge #66/#68 → scores) all happened.
+- **Decided by:** Shu (freeze, per the Oct 25 team vote); Mehul (PM/Evaluation lead) for the round-1 record.
+- **Supersedes:** "re-count Wells Fargo" (already dropped on Oct 25); the "35 non-tuning passages" figure in the eval plan.
+- **Follow-ups (for the Wed Oct 28 practice run):** clarify the "about AI" rule in the cheat sheet, go through the disagreements together, and run round 2 on 30 new passages (team to decide). Record Prof. Chung's email in ethics memo §6 when it arrives.
+
+### 2026-10-28 — Practice run: meeting format, round 2 timing, Julie follow-up
+- **Decision:**
+  - **Julie meeting format:** pause for questions after each section. Snehal opens by saying Julie can also stop us at any time. Simple transition slides go between sections; the deck order is as Snehal reordered it in the call. Shu keeps his agent-output example slide.
+  - **Labeling round 2** isn't needed before Julie. The raters aim for **Sat Oct 31 (afternoon)** and upload together.
+  - **Julie follow-up:** Snehal asks Julie on Thursday for **Thu Nov 12, 10 am**.
+- **Context / why:**
+  - The full run-through took about 27 minutes (target 40), leaving time for questions.
+  - Round 2 by Thursday was too tight with midterms. Mehul's script already says the second round is running.
+  - The follow-up gives Julie a second look after round 2 and Julie's feedback are in.
+- **Decided by:** the team at the Oct 28 practice run ([minutes](../meetings/2026-10-28-internal.md)). Round 2 timing: Yen-Chu proposed, Snehal agreed (Logan not recorded).
+- **Supersedes:**
+  - Round 2 "by Sun Nov 1" (now Sat Oct 31).
+  - The Oct 25 "schedule one more meeting with Julie" with no owner (now Snehal, proposing Nov 12).
+- **Follow-ups:**
+  - Snehal fixes the dashboard's data-transparency tab before Thursday.
+  - Mehul tells the raters which rule was unclear (the "about AI" N/X rule, not the use question) before Saturday.
+
+### 2026-10-29 — Client checkpoint with Julie: sector-index request, transcript caution, follow-up date
+- **Decision:**
+  - The team researches whether a **sector index** is feasible: **market-cap-weighted and equal-weighted** AI scores per sector, on a defined sample of public companies (e.g., a financial-sector stock index or SIC codes), keeping the per-firm drill-down. Julie accepts a realistic version if the full one isn't possible.
+  - **Sources:** Julie is fine with restricting the index to what we can legally get and verify. Manually pulled sources (Bloomberg at a terminal) don't fit an automated index. She expects the library to say no; we confirm with the librarian.
+  - **Follow-up meeting:** Nov 12 is off (Julie has a board meeting). The team picks Tue Nov 10, Fri Nov 13 or Thu Nov 19.
+- **Context / why:**
+  - Julie wants an index she can use in the chapter ("larger firms weigh more" vs. "how the whole industry is doing"), not only firm-by-firm views.
+  - She liked the dashboard and the "talk vs. use" finding. She asked for hover definitions and for partial years (FY2026) to be hidden. Citi's drop from 48 to 0 is a partial-year effect.
+  - All 7 firms' fiscal years end Dec 31 (checked from the 10-K periods), so the years line up.
+- **Decided by:** Julie (client) with Snehal for the team, at the Oct 29 checkpoint ([minutes](../meetings/2026-10-29-client.md)).
+- **Supersedes:** the Oct 28 plan to ask for a follow-up on Thu Nov 12.
+- **Not decided:** whether to adopt market-cap weighting (the method stays equal-weighted until the team decides after the feasibility check), and how transcripts are used, if at all. Both go to the Sun Nov 1 meeting.
+- **Follow-ups:** Snehal sends the thank-you and proposes a date. The follow-up email also corrects "all annual" (the scores combine 10-K and 10-Q passages) and asks Mehul's strict-vs-broad question.
+
+### 2026-11-03 — Eval checks 1, 5 and 6 run; robo-advice flagged (facts, no decision)
+- **Results:** Check 1: search precision 98.9%; no clear recall miss (confirmed by Mehul). Check 5 dry run: 277/277 passages and identical scores from a fresh download (not independent; a teammate still has to run it). Check 6 replay: the rules stop invented quotes and low-confidence claims, 0 false blocks, but can't catch a confident misreading of a real quote.
+- **Open for the team (not decided):** filings describe robo-advice (Schwab Intelligent Portfolios) without saying AI, so it isn't flagged. It's closest to Julie's chapter and Schwab scores 0. Counting it would change the frozen taxonomy scope, so it stays a documented limitation unless the team and Julie decide otherwise.
+- **Dates (Mehul, PM):** round 2 and TP2 paragraphs Wed Nov 4; compile Thu Nov 5.
+- **Decided by:** Mehul for the dates; the results are facts.

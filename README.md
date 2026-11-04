@@ -2,7 +2,7 @@
 
 **A living, quarterly-updated index of how financial services firms talk about and deploy AI, built only from public, legally accessible sources and shown on an interactive dashboard.**
 
-> 🔒 Private repo. Client identity is confidential by default under the course's policy. **Get the client's permission before making this repo public or naming the client in the final README.**
+> Public repo. Julie Agnew gave permission on Oct 1, 2026 to name her and the book chapter ([minutes](meetings/2026-10-01-client.md)). No transcript text or other licensed material goes in this repo.
 
 ## Context
 - **Course:** 95-891 Introduction to AI, CMU Heinz College, Fall 2026, Section C. Team 5 / Project 5.

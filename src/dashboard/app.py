@@ -1,5 +1,6 @@
-"""Interactive Streamlit journey built only from explicitly fictional demo records."""
+"""Streamlit dashboard with a preliminary SEC score view and fictional UI demo."""
 
+import csv
 from html import escape
 
 import pandas as pd
@@ -16,6 +17,7 @@ from src.dashboard.mock_data import (
     get_use_cases,
     summarize_use_cases,
 )
+from src.dashboard.score_data import load_company_scores, validate_firm_labels
 from src.dashboard.theme import (
     BODY_FONT,
     CHART_PALETTE,
@@ -26,7 +28,7 @@ from src.dashboard.theme import (
 )
 
 st.set_page_config(
-    page_title="AI Activity | Financial Services",
+    page_title="AI Adoption Index | SEC Pilot",
     layout="wide",
     initial_sidebar_state="expanded",
 )
@@ -65,22 +67,30 @@ def records_frame(records):
     ])
 
 
-st.markdown('<div class="eyebrow">Financial services · interactive demo</div>', unsafe_allow_html=True)
-st.title("AI Use Case Index (Demo)")
+st.markdown('<div class="eyebrow">Financial services · research preview</div>', unsafe_allow_html=True)
+st.title("AI Adoption Index | SEC pilot + envisioned demo")
 st.write(
-    "Follow one firm’s fictional example records, open a use case, then compare the same "
-    "kind of demo records across firms."
+    "Explore preliminary annual scores calculated from SEC filing labels, then switch to a "
+    "separate fictional walkthrough of an envisioned evidence-backed dashboard."
 )
 st.warning(
-    "**DEMO ONLY — NOT COMPANY CLAIMS.** Real firm names are used only to make the selector "
-    "familiar. Every use case, date, description, stage, summary, and comparison below is "
-    "invented for this interface. No real company data, sources, research rules, scoring, "
-    "model, or API are connected."
+    "**TWO DISTINCT DATA TRACKS.** The SEC pilot tab shows preliminary scores calculated from "
+    "SEC disclosure passages and AI-assisted v0 labels; these are not verified measures of "
+    "firm-wide adoption. The envisioned tabs use fictional records, dates, categories, and "
+    "stages for interface demonstration only. Never interpret those mock examples as company claims."
 )
+
+score_data = None
+score_data_error = None
+try:
+    score_data = load_company_scores()
+    validate_firm_labels(score_data, FIRMS)
+except (OSError, ValueError, csv.Error) as exc:
+    score_data_error = str(exc)
 
 sectors = sorted({firm["sector"] for firm in FIRMS})
 with st.sidebar:
-    st.markdown("### 1 · Choose a firm")
+    st.markdown("### Envisioned mockup filter")
     selected_sector = st.selectbox("Sector", ["All sectors", *sectors], index=0)
     sector_filter = None if selected_sector == "All sectors" else selected_sector
     sector_firms = get_firms(sector_filter)
@@ -89,11 +99,135 @@ with st.sidebar:
         "Company", list(firm_labels), format_func=lambda ticker: firm_labels[ticker]
     )
     selected_firm = next(firm for firm in sector_firms if firm["ticker"] == selected_ticker)
-    st.caption("Filters change the fictional records only.")
+    st.caption("This selector filters the fictional firm-story walkthrough only.")
 
-story_tab, compare_tab, about_tab = st.tabs(
-    ["Firm story", "Compare firms", "About this demo"]
+scores_tab, story_tab, compare_tab, about_tab = st.tabs(
+    ["SEC pilot scores", "Envisioned firm story", "Envisioned comparison", "About the data"]
 )
+
+with scores_tab:
+    st.subheader("Preliminary SEC disclosure scores")
+    st.write(
+        "Each row is a company–fiscal-year score calculated from labeled SEC filing passages. "
+        "These are disclosure-based pilot metrics, not a census of a firm's AI activity or a "
+        "final adoption index."
+    )
+    st.warning(
+        "**PRELIMINARY / AI-ASSISTED V0.** The current score file uses AI-assisted draft "
+        "passage labels and the v0 scoring method. A score of 0 means no scored use was found "
+        "in the available labeled disclosures; it does not establish that the firm does not use AI."
+    )
+    st.caption(
+        "The score file contains annual observations. FY2026 is partial (source filings through "
+        "June 30, 2026); Citi and Principal have no FY2023 score. Missing firm-years are shown "
+        "as unavailable, never as zero. This file has no evidence IDs or citations, so this view "
+        "does not provide passage-level drill-down."
+    )
+
+    if score_data_error:
+        st.error(f"Could not load the SEC score file: {score_data_error}")
+    elif score_data is not None:
+        score_years = sorted({score.fiscal_year for score in score_data})
+        score_tickers = sorted({score.ticker for score in score_data})
+        score_columns = {
+            "AI Use Score": "ai_use_score",
+            "Readiness Score": "readiness_score",
+            "Talk Ratio (%)": "talk_ratio_pct",
+        }
+        summary_columns = st.columns(3)
+        summary_columns[0].metric("Firm-year scores", len(score_data))
+        summary_columns[1].metric("Firms with scores", len(score_tickers))
+        summary_columns[2].metric(
+            "Fiscal-year coverage",
+            f"{score_years[0]}–{score_years[-1]}",
+        )
+
+        preferred_year = 2025 if 2025 in score_years else score_years[-1]
+        selected_year = st.selectbox(
+            "Fiscal year for firm comparison",
+            score_years,
+            index=score_years.index(preferred_year),
+        )
+        ticker_labels = {firm["ticker"]: firm["company"] for firm in FIRMS}
+        selected_score_tickers = st.multiselect(
+            "Firms to include",
+            score_tickers,
+            default=score_tickers,
+            format_func=lambda ticker: ticker_labels[ticker],
+        )
+
+        score_lookup = {
+            (score.ticker, score.fiscal_year): score for score in score_data
+        }
+        table_rows = []
+        for firm in FIRMS:
+            ticker = firm["ticker"]
+            if ticker not in selected_score_tickers:
+                continue
+            score = score_lookup.get((ticker, selected_year))
+            if score is None:
+                table_rows.append({
+                    "Company": firm["company"],
+                    "Ticker": ticker,
+                    "Fiscal year": selected_year,
+                    "Status": "No score available",
+                    "AI Use Score": None,
+                    "Scenarios with use": None,
+                    "Readiness Score": None,
+                    "Talk Ratio (%)": None,
+                    "Substantive passages": None,
+                })
+            else:
+                table_rows.append({
+                    "Company": score.company,
+                    "Ticker": score.ticker,
+                    "Fiscal year": score.fiscal_year,
+                    "Status": "Scored",
+                    "AI Use Score": score.ai_use_score,
+                    "Scenarios with use": ", ".join(score.scenarios_with_use) or "None scored",
+                    "Readiness Score": score.readiness_score,
+                    "Talk Ratio (%)": score.talk_ratio_pct,
+                    "Substantive passages": score.substantive_ai_passages,
+                })
+        st.dataframe(pd.DataFrame(table_rows), hide_index=True, width="stretch")
+
+        if selected_score_tickers:
+            selected_metric = st.selectbox("Annual trend metric", list(score_columns))
+            metric_column = score_columns[selected_metric]
+            trend_chart = go.Figure()
+            for ticker in selected_score_tickers:
+                by_year = {
+                    score.fiscal_year: score
+                    for score in score_data
+                    if score.ticker == ticker
+                }
+                trend_chart.add_trace(
+                    go.Scatter(
+                        name=ticker_labels[ticker],
+                        x=score_years,
+                        y=[
+                            getattr(by_year[year], metric_column)
+                            if year in by_year
+                            else None
+                            for year in score_years
+                        ],
+                        mode="lines+markers",
+                        connectgaps=False,
+                        hovertemplate="%{x}: %{y}<extra>%{fullData.name}</extra>",
+                    )
+                )
+            trend_chart.update_layout(
+                **chart_layout(f"Annual {selected_metric.lower()} · SEC pilot", selected_metric),
+            )
+            trend_chart.update_xaxes(dtick=1)
+            trend_chart.update_yaxes(rangemode="tozero")
+            st.plotly_chart(
+                trend_chart,
+                width="stretch",
+                config={"displayModeBar": False},
+            )
+        else:
+            st.info("Select at least one firm to view annual score trends.")
 
 with story_tab:
     records = sorted(
@@ -110,7 +244,7 @@ with story_tab:
     st.subheader(firm_label)
     st.caption(f"{selected_firm['sector']} · {selected_firm['ticker']} · fictional demo records")
 
-    st.markdown("### 2 · Get the overview")
+    st.markdown("### Envisioned demo overview")
     st.write(
         f"This walkthrough contains **{summary['record_count']} invented example records** "
         f"across **{summary['area_count']} example areas**. "
@@ -133,7 +267,7 @@ with story_tab:
             "Count of fictional records",
         )
 
-    st.markdown("### 3 · Browse the example use cases")
+    st.markdown("### Browse envisioned use cases")
     st.caption(
         "Open any card to explore its fictional summary and details. The area and stage labels "
         "are interface examples, not the project's approved categories or scoring rules."
@@ -163,7 +297,7 @@ with story_tab:
     timeline_chart.update_yaxes(dtick=1, rangemode="tozero")
     st.plotly_chart(timeline_chart, width="stretch", config={"displayModeBar": False})
 
-    st.markdown("#### 4 · Open a fictional use case")
+    st.markdown("#### Open a fictional use case")
     with st.container(key="use_case_stack"):
         for index, record in enumerate(records):
             expanded_key = f"expanded_use_case_{record['id']}"
@@ -232,7 +366,7 @@ with story_tab:
     )
 
 with compare_tab:
-    st.markdown("### 5 · Compare firms")
+    st.markdown("### Compare envisioned firms")
     st.write(
         "Select two or more firms to compare the areas, example records, and demo stages in their "
         "fictional walkthroughs. Real companies are not being compared on actual AI adoption."
@@ -331,17 +465,27 @@ with compare_tab:
         st.plotly_chart(area_chart, width="stretch", config={"displayModeBar": False})
 
 with about_tab:
-    st.markdown("### This is an interface walkthrough, not a result")
+    st.markdown("### What is real and scored")
     st.markdown(
-        "- The firm names and sectors are selector labels from the planned demo cohort.\n"
-        "- Every use-case title, date, area, stage, detail, count, and chart value is invented.\n"
-        "- The use-case areas and stages are interface examples—not the project's finalized "
-        "taxonomy, metrics, or scoring rules.\n"
-        "- This app reads only `src/dashboard/mock_data.py`; it does not load research datasets, "
-        "filings, source passages, labels, or citations.\n"
-        "- It does not call an agent, model, or API and does not write research outputs."
+        "- `data/processed/sec/company_scores_v0.csv` contains annual scores derived from SEC filing passages.\n"
+        "- AI Use Score, Readiness Score, Talk Ratio, scenario codes, and substantive-passage counts "
+        "are computed values from the current v0 scoring pipeline.\n"
+        "- The underlying v0 passage labels were AI-assisted drafts. Treat these as preliminary "
+        "disclosure-based scores, not verified firm-wide AI adoption or a final index.\n"
+        "- FY2026 is partial through June 30, 2026; Citi and Principal have no FY2023 score. "
+        "Unavailable years are not interpreted as zero.\n"
+        "- The score CSV does not include evidence IDs or citations, so the real-data view cannot "
+        "drill down to supporting passages."
     )
-    st.markdown("### Use-case records currently in the demo")
+    st.markdown("### What is envisioned / fictional")
+    st.markdown(
+        "- The firm-story and comparison tabs use invented use-case titles, summaries, details, "
+        "areas, stages, quarterly dates, counts, and chart values from `src/dashboard/mock_data.py`.\n"
+        "- These examples illustrate a possible future evidence-backed experience. They are not "
+        "research findings, company claims, or scores, and they are never joined to the SEC score table.\n"
+        "- The envisioned cards have no attached real sources or fabricated citations."
+    )
+    st.markdown("### Fictional example records used by the mockup")
     st.dataframe(
         records_frame(get_use_cases()),
         hide_index=True,
@@ -349,6 +493,6 @@ with about_tab:
     )
 
 st.caption(
-    "Explicitly fictional interface demo · Real firm names are not evidence · "
-    "Not for research or investment use"
+    "Preliminary SEC disclosure scores · Separate fictional interface examples · "
+    "Not for investment use"
 )

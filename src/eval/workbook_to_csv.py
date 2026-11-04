@@ -1,6 +1,6 @@
 """Convert a filled labeling workbook into rater_<name>.csv (for src/eval/irr.py), with checks.
 
-Usage (repo root):  python3 -m src.eval.workbook_to_csv path/to/labeling_<name>.xlsx <name>
+Usage (repo root):  python3 -m src.eval.workbook_to_csv path/to/labeling_<name>.xlsx <name> [round, default 1]
 Checks: every item has an evidence code; codes are valid; scenarios required on D2/D1/P and blank on N/X; scenario codes known.
 """
 import csv
@@ -9,13 +9,12 @@ from pathlib import Path
 
 from openpyxl import load_workbook
 
-ROUND = Path("docs/part3-metrics/labeling_round_1")
 LEVELS = {"D2", "D1", "P", "N", "X"}
 CODES = {"CX", "ADV", "CREDIT", "RISKM", "FRAUD", "SURV", "CYBER", "DEV", "PROD", "OPS", "MKT", "ENT",
          "GOV", "TALENT", "INVEST"}
 
 
-def main(path: str, name: str) -> None:
+def main(path: str, name: str, round_no: int = 1) -> None:
     ws = load_workbook(path, data_only=True)["Label here"]
     rows, problems = [], []
     for r in ws.iter_rows(min_row=3, values_only=True):
@@ -37,7 +36,7 @@ def main(path: str, name: str) -> None:
     if problems:
         print("Fix these first:\n  " + "\n  ".join(problems))
         sys.exit(1)
-    out = ROUND / f"rater_{name.lower()}.csv"
+    out = Path(f"docs/part3-metrics/labeling_round_{round_no}") / f"rater_{name.lower()}.csv"
     with out.open("w", newline="", encoding="utf-8") as f:
         w = csv.writer(f)
         w.writerow(["item", "passage_id", "about_ai", "evidence", "scenarios", "note"])
@@ -46,7 +45,7 @@ def main(path: str, name: str) -> None:
 
 
 if __name__ == "__main__":
-    if len(sys.argv) != 3:
+    if len(sys.argv) not in (3, 4):
         print(__doc__)
         sys.exit(2)
-    main(sys.argv[1], sys.argv[2])
+    main(sys.argv[1], sys.argv[2], int(sys.argv[3]) if len(sys.argv) == 4 else 1)

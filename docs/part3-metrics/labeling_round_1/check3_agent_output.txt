@@ -1,0 +1,19 @@
+CHECK #2: human agreement (3 raters: logan, snehal, yenchu; 50 items)
+
+pair                     kappa  weighted  use/no-use  scenario Jaccard
+logan vs snehal           0.21      0.49        0.72              0.39
+logan vs yenchu           0.61      0.67        0.72              0.32
+snehal vs yenchu          0.16      0.26        0.60              0.30
+
+Fleiss' kappa, all 3 human raters (evidence level): 0.27
+Provisional target: kappa >= 0.6. Revisit after round 1.
+Human disagreements written to docs\part3-metrics\labeling_round_1\disagreements.csv
+
+CHECK #3 preview: AI-assisted draft labels vs. human majority (43 of 50 items have a majority)
+
+  AI vs logan      kappa 0.80   use/no-use kappa 0.92
+  AI vs snehal     kappa 0.31   use/no-use kappa 0.80
+  AI vs yenchu     kappa 0.66   use/no-use kappa 0.72
+
+  vs majority: accuracy 95%, kappa 0.93, overclaim rate 0% (target <= 5%), underclaim rate 2%
+  AI-vs-human differences written to docs\part3-metrics\labeling_round_1\ai_vs_humans.csv

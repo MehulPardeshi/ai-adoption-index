@@ -1,1 +1,1 @@
-"""Streamlit dashboard proof of concept with synthetic-only data."""
+"""Streamlit dashboard with preliminary SEC scores and fictional UI examples."""

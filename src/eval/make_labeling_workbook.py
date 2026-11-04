@@ -1,13 +1,16 @@
-"""Build an Excel workbook for labeling round 1: dropdowns, progress counter, rule checks.
+"""Build an Excel workbook for a labeling round: dropdowns, progress counter, rule checks.
 
 The workbook contains NO labels: raters stay blind. Each rater saves a copy as
 labeling_<name>.xlsx, fills it in, then converts it with
     python3 -m src.eval.workbook_to_csv labeling_<name>.xlsx <name>
-which writes docs/part3-metrics/labeling_round_1/rater_<name>.csv for src/eval/irr.py.
+which writes docs/part3-metrics/labeling_round_1/rater_<name>.csv for src/eval/irr.py
+(add the round number for later rounds: ... labeling_<name>.xlsx <name> 2).
 
-Run from the repo root:  python3 -m src.eval.make_labeling_workbook
+Run from the repo root:  python3 -m src.eval.make_labeling_workbook [round, default 1]
+The cheat-sheet tab follows labeling_round_2/cheat_sheet.md (v2, Oct 27); the committed round-1 workbook keeps v1.
 """
 import csv
+import sys
 from pathlib import Path
 
 from openpyxl import Workbook
@@ -15,20 +18,24 @@ from openpyxl.formatting.rule import FormulaRule
 from openpyxl.styles import Alignment, Font, PatternFill
 from openpyxl.worksheet.datavalidation import DataValidation
 
-ROUND = Path("docs/part3-metrics/labeling_round_1")
 SCENARIOS = "CX, ADV, CREDIT, RISKM, FRAUD, SURV, CYBER, DEV, PROD, OPS, MKT, ENT, GOV, TALENT, INVEST"
 HEADER = ["item", "passage_id", "company", "form", "period", "section", "passage",
           "about_ai", "evidence", "scenarios", "note"]
 CHEAT = [
     ("EVIDENCE LEVEL: does THIS company say IT uses AI?", ""),
-    ("D2", "Deployed AND specific: names a tool, use, number, role or date. e.g. 'Our AI assistant answered 3 million customer questions this year.'"),
+    ("ABOUT AI?", "Y for anything about AI, INCLUDING AI risks, criminals' or competitors' AI, AI laws and trends (those get evidence N). "
+                  "N only if the keyword matched something that isn't AI (e.g. 'predictive models' for ordinary scorecards) -> evidence X."),
+    ("", ""),
+    ("D2", "Deployed AND specific: names a tool, use case, number, oversight body, role or date. e.g. 'Our AI assistant answered 3 million customer questions this year.'"),
     ("D1", "Deployed but general: says it uses or governs AI, no specifics. e.g. 'We use AI in parts of our business.'"),
     ("P", "Planned or expected use. e.g. 'We intend to expand our use of AI next year.'"),
     ("N", "No evidence of own use: risks, threats, competitors, laws, trends, hedged 'MAY use'. e.g. 'Criminals may use AI to commit fraud.'"),
     ("X", "Not substantive: definition, acronym list, heading, or not actually about AI (about_ai = N). e.g. 'AI: artificial intelligence.'"),
     ("", ""),
-    ("TIE-BREAKERS", "Mixed passage -> highest level. 'may use / could include' -> N. Other companies, criminals, the economy -> N. "
-                     "Forward-looking-statement lists ('...technology changes, including AI') -> N. Heading alone -> X. about_ai = N -> X."),
+    ("TIE-BREAKERS", "Mixed passage -> highest level. A risk-factor passage is still D1 if it says the company itself uses AI. "
+                     "'may use / could include' -> N. Other companies, criminals, the economy -> N. "
+                     "Forward-looking-statement lists ('...technology changes, including AI') -> N. "
+                     "Heading alone -> X, even if it says 'our use of AI'. about_ai = N -> X."),
     ("", ""),
     ("SCENARIOS (required for D2, D1 and P; blank for N/X; separate with ;)", SCENARIOS),
     ("CX", "customer service"), ("ADV", "advice / wealth / retirement"), ("CREDIT", "lending / underwriting"),
@@ -36,19 +43,21 @@ CHEAT = [
     ("CYBER", "cyber defense"), ("DEV", "software engineering"), ("PROD", "employee productivity tools"),
     ("OPS", "operations / data / reporting"), ("MKT", "markets & trading"), ("ENT", "enterprise-wide, area not named"),
     ("GOV / TALENT / INVEST", "enablers: governance & leadership / training & talent / investment & M&A"),
-    ("Proposed rule", "A general sentence listing several areas ('we use AI for A, B and C') counts ONCE, as ENT (pending Oct 22)."),
+    ("Rule (frozen Oct 27)", "A general sentence listing several areas ('we use AI for A, B and C') counts ONCE, as ENT."),
     ("", ""),
-    ("RULES OF THE ROUND", "Label on your own. Don't open passage_labels_v0.csv or company_scores_v0.csv. "
+    ("RULES OF THE ROUND", "Label on your own, with your own judgment (no AI suggestions). "
+                           "Don't open passage_labels_v0.csv, company_scores_v0.csv or agent_labels_*.csv. "
                            "Don't compare answers until all three raters are done. If unsure, pick your best answer and explain in 'note'."),
 ]
 
 
-def main() -> None:
+def main(round_no: int = 1) -> None:
+    ROUND = Path(f"docs/part3-metrics/labeling_round_{round_no}")
     sample = list(csv.DictReader((ROUND / "sample_passages.csv").open(encoding="utf-8")))
     wb = Workbook()
     ws = wb.active
     ws.title = "Label here"
-    ws.append(["Labeling round 1: fill the 4 yellow columns. Progress:", "", "", "", "", "",
+    ws.append([f"Labeling round {round_no}: fill the 4 yellow columns. Progress:", "", "", "", "", "",
                f'=COUNTA(I3:I{len(sample) + 2})&" / {len(sample)} labeled"'])
     ws["A1"].font = Font(bold=True, size=12)
     ws["G1"].font = Font(bold=True, size=12, color="1F4E78")
@@ -102,4 +111,4 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    main(int(sys.argv[1]) if len(sys.argv) > 1 else 1)

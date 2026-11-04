@@ -29,6 +29,8 @@ Build a reproducible, evidence-based index of how large U.S. financial instituti
 
 **Candidates for later phases**, subject to feasibility and client agreement: cross-subsector expansion, firm-size weighting, keyword-trend visualizations, and automated quarterly updates.
 
+> **Oct 29 client checkpoint ([minutes](../../meetings/2026-10-29-client.md)):** Julie asked us to check whether we can deliver a **market-cap-weighted and an equal-weighted index per sector** on a defined public-company sample. That covers the cross-subsector expansion and firm-size weighting above. She also confirmed that limiting sources to what we can legally get and verify is acceptable. Job postings remain out of scope (a possible future extension).
+
 ## 5. Acceptance criteria
 - The proof of concept can be demonstrated end to end, with traceable source evidence for every reported figure.
 - Firm inclusion, time coverage, treatment of missing evidence, category definitions and calculation choices are documented.

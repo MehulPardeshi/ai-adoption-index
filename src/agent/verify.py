@@ -29,6 +29,9 @@ def normalize(s: str) -> str:
     s = unicodedata.normalize("NFKC", s or "")
     s = (s.replace("‘", "'").replace("’", "'").replace("“", '"').replace("”", '"')
           .replace("–", "-").replace("—", "-").replace(" ", " "))
+    # SEC filings often use Unicode hyphens (U+2010 after NFKC, U+2012, U+2212) where the model
+    # writes "-"; e.g. BAC's FY2025 10-K writes "third‑party". Treat them as the same character.
+    s = re.sub("[\u2010\u2011\u2012\u2212]", "-", s)
     return re.sub(r"\s+", " ", s).strip()
 
 

@@ -81,6 +81,8 @@ class VerifyLabelTests(unittest.TestCase):
     def test_quote_matching_tolerates_typography_only(self):
         self.assertTrue(quote_in_source("We  also use AI across our operations.", SRC))
         self.assertTrue(quote_in_source("we deployed a generative AI assistant ... used by about 4,000 agents", SRC))
+        # Unicode hyphens in a filing match a plain "-" in the quote (BAC_2025-12-31_10-K_00247)
+        self.assertTrue(quote_in_source("reliance on third-party AI models", "and reliance on third\u2011party AI models further"))
         self.assertFalse(quote_in_source("used by about 4,000 agents ... we deployed a generative AI assistant", SRC))
         self.assertFalse(quote_in_source("AI", SRC))
 
