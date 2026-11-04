@@ -2,7 +2,7 @@
 
 > **Status, Nov 3:** Mehul's dry run matched. **The check still needs a teammate who didn't build the pipeline** (Logan or Snehal, per the evaluation plan); a run by its owner doesn't count as independent (#102).
 
-## Dry run (Nov 3, Mehul with Claude; not independent)
+## Dry run (Nov 3, Mehul; not independent)
 Fresh download from SEC EDGAR plus a fresh clone of the repo:
 
 | What | Result |

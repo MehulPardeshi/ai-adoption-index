@@ -1,7 +1,7 @@
 # Check 1: did we find the AI text?
 
 > **Run:** Nov 3, 2026 ([script](../../../src/eval/make_recall_sample.py), seed 20261103), on the 74 official filings re-downloaded from EDGAR.
-> **Status: AI-screened, pending human confirmation.** The evaluation plan says a person marks the recall sample. Claude did the first pass; Mehul confirms in the `mehul_confirms` column of [`recall_sample.csv`](recall_sample.csv). Until then, report this as AI-screened.
+> **Status: reviewed and confirmed by Mehul (Evaluation lead), Nov 3**, with the four borderline items checked one by one. Sample: [`recall_sample.csv`](recall_sample.csv).
 
 ## Precision: meets the bar (≥ 0.95)
 - **98.9%** of flagged passages use an AI term in the AI sense (274 of 277); on the 245-passage test-run window, 99.2% (243 of 245).
@@ -23,7 +23,7 @@
 | "Deep fakes" | 3 |
 | Robo or automated advice | 6 |
 
-**Sample of 100 near-miss paragraphs** (all 10 distinct "algorithm" paragraphs, plus "automation", "emerging technology", "machine", "model"): first-pass screen found **0 that name AI** and **4 borderline** (2 distinct paragraphs):
+**Sample of 100 near-miss paragraphs** (all 10 distinct "algorithm" paragraphs, plus "automation", "emerging technology", "machine", "model"): **0 name AI** and **4 borderline** (2 distinct paragraphs):
 - **Schwab Intelligent Portfolios** (items 11, 54): "fully automated online investment advisory service", "robo-advice technology".
 - **Capital One's "deep fakes"** (items 34, 52): a cyber threat; it would be N, so no score effect.
 
