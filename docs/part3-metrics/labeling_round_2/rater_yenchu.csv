@@ -1,0 +1,31 @@
+item,passage_id,about_ai,evidence,scenarios,note
+1,C_2025-12-31_10-K_00703,Y,N,,mentioning ai for threat & risk related statement
+2,C_2025-09-30_10-Q_02475,Y,X,,"A definition, not use case"
+3,COF_2024-12-31_10-K_00304,Y,D1,ENT,"specify having ""evolving use of AI"" but didn't give us usecases and date"
+4,COF_2025-12-31_10-K_00310,Y,D1,ENT,"specify having ""evolving use of AI"" but didn't give us usecases and date"
+5,COF_2023-12-31_10-K_00347,Y,D2,RISKM;SURV,The beginning sentences specify use case in risk and compliance
+6,BAC_2025-12-31_10-K_00264,Y,N,,this passage is about ai risk
+7,JPM_2024-12-31_10-K_00529,Y,N,,AI risk related 
+8,BAC_2023-12-31_10-K_00323,Y,N,,AI risk related 
+9,C_2025-12-31_10-K_00670,Y,N,,AI risk related 
+10,WFC_2026-03-31_10-Q_00660,Y,N,,"no sure what's talking about, but definitely not usecases"
+11,JPM_2025-12-31_10-K_00493,Y,N,,AI risk related 
+12,COF_2025-12-31_10-K_01271,Y,X,,
+13,COF_2023-12-31_10-K_00354,Y,N,,talking about regulatory  trend
+14,BAC_2024-12-31_10-K_00273,Y,N,,AI related risks
+15,JPM_2025-12-31_10-K_00547,Y,N,,its like talking about the influence of adopting AI but can't confirm whether its using AI in the fields they mentioned in the passage
+16,C_2025-09-30_10-Q_01151,Y,N,,ai related risks
+17,BAC_2023-12-31_10-K_00282,Y,D1,OPS,"""implement emerging technologies, such as AI"" for ""provess data in accurate timely manner"
+18,WFC_2023-12-31_10-K_01527,Y,D1,ENT,do say usecase but only mentioning a lot of fields without mentioning tools
+19,PFG_2024-12-31_10-K_00276,Y,N,,AI regulation
+20,COF_2023-12-31_10-K_00299,Y,D1,ENT,"do say model application in credit loss but can't confirm that model is AI, ""extensive use of moels, ai and data. Is vague"
+21,COF_2023-12-31_10-K_01181,Y,X,,
+22,BAC_2023-12-31_10-K_00208,Y,D1,ENT,"just saying they & their thrid parties use ai but not mentioning where, which use case"
+23,C_2026-03-31_10-Q_00951,Y,N,,ai risk
+24,COF_2025-12-31_10-K_00371,Y,D1,ENT,do said they're using AI but not specifying which field
+25,COF_2025-06-30_10-Q_01626,Y,N,,competitor analysis
+26,COF_2023-12-31_10-K_00349,Y,D2,ENT,"AI is used to generate regulatory information, but no specific compliance monitoring or risk management application is confirmed"
+27,JPM_2025-12-31_10-K_00501,Y,D1,ENT,it's vague but kind of mention they’re using
+28,COF_2025-06-30_10-Q_00758,Y,X,,
+29,COF_2025-12-31_10-K_00374,Y,D1,ENT,do mention but do not specify which field
+30,COF_2025-12-31_10-K_00469,Y,D1,ENT,did admit they’re using but the passage is about ai risk
