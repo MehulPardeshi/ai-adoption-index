@@ -382,3 +382,12 @@
 - **Decided by:** Logan (source-review decision), based on CMU Libraries' communication with Bloomberg; not a new team vote on index inclusion.
 - **Supersedes:** the Bloomberg permission holds recorded October 27 and the pending library confirmation from October 29, within the described project scope only.
 - **Follow-ups:** preserve CMU-only storage/sharing and no public transcript text. Provider retention/no-training guarantees are not established by this approval. Team inclusion/automation decisions and non-Bloomberg source reviews remain separate.
+
+### 2026-11-04 — Round 2 scored; TP2 paragraphs and agent re-run merged
+- **Results (facts, not decisions):** round 2 five-level Fleiss κ 0.32 (bar 0.60); Logan vs. Yen-Chu 0.67; use/no-use 0.45–0.71. The N/X rule is fixed (merging them no longer changes κ); disagreement moved to P vs. N, N vs. D1, and acronym lists. The sample targets hard cases, so it isn't like for like with round 1 ([results](../docs/part3-metrics/labeling_round_2/results_round2.md)).
+- **Sector index (#97):** Yen-Chu and Shu report it's feasible on the S&P 500 Financials (~75 firms; estimated ~73 min and ~$0.40 for one year of 10-Ks and 10-Qs; size from public float via SEC's free API). Market-cap weighting is still the team's decision.
+- **Agent:** `agent_labels_v1.csv` is now classify-v1.5 (#110); #35 closed. No FY2025 AI Use Score moved. The dashboard reads `company_scores_v0.csv`, so it doesn't change.
+- **Dates (Mehul, PM):** check 4 rerun (#101) moved to Mon Nov 9, since it waits for adjudication.
+- **Open for the team:** adjudicate the disagreements; whether transcripts go in the index (the Bloomberg permission is cleared, see the entry above; the team's Oct 25 acceptance of DeepSeek retention risk covered public SEC text only).
+- **`UNCLEAR:`** Julie's follow-up: Snehal reported on the group chat that Julie is requesting 7 pm on Tuesday. Assumed Tue Nov 10, the Tuesday she offered; not confirmed.
+- **Decided by:** Mehul for the date; the rest are facts or remain open.

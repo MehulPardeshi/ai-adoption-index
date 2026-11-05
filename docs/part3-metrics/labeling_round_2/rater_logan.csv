@@ -1,0 +1,31 @@
+item,passage_id,about_ai,evidence,scenarios,note
+1,C_2025-12-31_10-K_00703,Y,N,,Cyber threats involving AI; no assertion of Citi's own AI use.
+2,C_2025-09-30_10-Q_02475,Y,X,,Definition of generative AI only; still about AI (Y).
+3,COF_2024-12-31_10-K_00304,Y,N,,AI appears only in a cross-referenced heading. The paragraph does not establish AI use; do not import the unseen section.
+4,COF_2025-12-31_10-K_00310,Y,N,,"credit-loss models are discussed, but AI use appears only in a referenced heading. No substantive AI deployment claim in this passage."
+5,COF_2023-12-31_10-K_00347,Y,D1,ENT,Explicit reliance on AI across several areas. Apply the general multi-area ENT rule; current use outranks expected expansion.
+6,BAC_2025-12-31_10-K_00264,Y,N,,Conditional reputation-risk list; no clear statement of current or planned AI deployment.
+7,JPM_2024-12-31_10-K_00529,Y,N,,Lists harmful AI outcomes without identifying the company's own use.
+8,BAC_2023-12-31_10-K_00323,Y,N,,"Generic forward-looking risk list, not evidence of own deployment."
+9,C_2025-12-31_10-K_00670,Y,N,,"emerging-product development is asserted, but the AI example is conditional and does not clearly establish AI deployment."
+10,WFC_2026-03-31_10-Q_00660,Y,N,,Generic forward-looking statement about technological changes.
+11,JPM_2025-12-31_10-K_00493,Y,N,,Competitive and third-party technology risks; no explicit own AI deployment.
+12,COF_2025-12-31_10-K_01271,Y,X,,Acronym list only; AI mention makes about_ai Y.
+13,COF_2023-12-31_10-K_00354,Y,N,,"Regulatory environment and possible adoption challenges, not a clear claim of own AI use."
+14,BAC_2024-12-31_10-K_00273,Y,N,,Conditional risk if emerging technology initiatives fail; no concrete current or planned AI use claim.
+15,JPM_2025-12-31_10-K_00547,Y,N,,Potential workforce displacement and training needs are hypothetical.
+16,C_2025-09-30_10-Q_01151,Y,N,,Generic forward-looking AI risk list; no distinct assertion of current deployment.
+17,BAC_2023-12-31_10-K_00282,Y,D1,ENT,"Review: explicitly implements AI among technologies, with a broad list of data-management functions. Apply general multi-area ENT rule."
+18,WFC_2023-12-31_10-K_01527,Y,D1,ENT,"Explicitly uses AI across decisions, operations, risk and service. General multi-area sentence counts once as ENT."
+19,PFG_2024-12-31_10-K_00276,Y,N,,"AI regulation and compliance costs, not company AI adoption evidence."
+20,COF_2023-12-31_10-K_00299,Y,N,,AI appears in a referenced risk heading only; do not infer AI from ordinary credit-loss models.
+21,COF_2023-12-31_10-K_01181,Y,X,,Acronym list only; AI mention makes about_ai Y.
+22,BAC_2023-12-31_10-K_00208,Y,D1,ENT,"Explicit 'our ... use' of AI, but no particular deployment or business application is specified."
+23,C_2026-03-31_10-Q_00951,Y,N,,Generic forward-looking statement listing AI risks and costs.
+24,COF_2025-12-31_10-K_00371,Y,D1,ENT,"Explicit 'our use' of AI. Listed forecasts/risk consequences are general, not a specific deployment."
+25,COF_2025-06-30_10-Q_01626,Y,N,,Competitors may incorporate AI more quickly; does not clearly state this company's current use.
+26,COF_2023-12-31_10-K_00349,Y,D1,ENT,refers to own AI processes and AI used to generate information. Broad operational/risk/reporting functions rather than a specific deployment.
+27,JPM_2025-12-31_10-K_00501,Y,N,,regulatory challenges could restrict AI use; this isolated risk bullet does not clearly assert current deployment.
+28,COF_2025-06-30_10-Q_00758,Y,X,,Acronym list only; AI mention makes about_ai Y.
+29,COF_2025-12-31_10-K_00374,Y,D1,ENT,our ... AI ... processes' indicates general own activity. Conditional third-party use does not add a deployment scenario.
+30,COF_2025-12-31_10-K_00469,Y,D1,ENT,"output created by us using AI' and 'our use' indicate general own use, despite conditional intellectual-property consequences."

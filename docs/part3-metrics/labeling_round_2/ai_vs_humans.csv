@@ -1,0 +1,9 @@
+passage_id,ai_evidence,human_majority,type
+BAC_2023-12-31_10-K_00208,N,D1,underclaim
+COF_2023-12-31_10-K_00347,D1,D2,level differs
+COF_2023-12-31_10-K_00349,N,D2,underclaim
+COF_2024-12-31_10-K_00304,N,D1,underclaim
+COF_2025-12-31_10-K_00310,N,D1,underclaim
+COF_2025-12-31_10-K_00371,N,D1,underclaim
+COF_2025-12-31_10-K_00374,N,D1,underclaim
+COF_2025-12-31_10-K_00469,N,D1,underclaim

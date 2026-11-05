@@ -2,7 +2,7 @@
 
 > **Owner:** Shu Pu · **Run:** Wed Nov 4, 2026 · **Files:** [`agent_labels_v1.csv`](../../data/processed/sec/agent_labels_v1.csv), [`agent_scores_v1.csv`](../../data/processed/sec/agent_scores_v1.csv), [`agent_run_info.json`](../../data/processed/sec/agent_run_info.json)
 
-**Citi's labels and score did not change:** `C_2025-12-31_10-K_00131` is still D2 OPS, `C_2025-12-31_10-K_00673` is still D1 ENT, and Citi's FY2025 AI Use Score is still 12. **One quoted number did change:** the confidence on `C_2025-12-31_10-K_00131` went from 0.72 to 0.90. The TP2 example in PR #109 quotes 0.72.
+**Citi's labels and score did not change:** `C_2025-12-31_10-K_00131` is still D2 OPS, `C_2025-12-31_10-K_00673` is still D1 ENT, and Citi's FY2025 AI Use Score is still 12. **One quoted number did change:** the confidence on `C_2025-12-31_10-K_00131` went from 0.72 to 0.90. The TP2 example (#109) uses 0.90.
 
 The 110 passages are the six firms' FY2025 10-Ks (90) plus Citi's (20). Until now `agent_labels_v1.csv` was still labeled with v1.4, while check 3 used v1.5. Both now use the same prompt.
 
