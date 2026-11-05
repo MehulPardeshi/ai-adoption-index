@@ -43,7 +43,7 @@
 | #102 Check 5: get Logan or Snehal to run the [steps](../docs/part3-metrics/check5_rerun.md) (~20 min) | Thu Nov 5 |
 | ✅ Presented "how we check results" and Logan's data rules (Logan absent) to Julie | Done Oct 29 |
 | ✅ Follow-up-email points for Snehal (strict-vs-broad question; scores combine 10-K + 10-Q) are in #98 | Done Oct 29 |
-| #77 Live 22-case guardrail run: Shu runs it with the key, Mehul scores | Thu Nov 5 |
+| ✅ #77 Live 22-case guardrail run (Shu, #117) scored ([results](../docs/part3-metrics/check6_results.md)): 0/18 unsafe with the guardrail, 2/18 without; 0/4 false blocks | Done Nov 5 |
 | #39 / #40 TP2: combine the paragraphs and take the board snapshot (Thu Nov 5); backup submitter | Nov 5–6 |
 | TP2 sections 1, 3, 4, 7 updated through round 2; check the drafts and remove the markers at compile | Thu Nov 5 |
 
@@ -79,7 +79,6 @@
 | ✅ Re-ran the 110 passages with classify-v1.5, timed (#110; no FY2025 AI Use Score moved) | Done Nov 4 |
 | ✅ Check 3 on the 50-passage sample (#85) · shared slide deck | Done Oct 27–28 |
 | ✅ #35 Agent runs end to end (#66, #68, #84, #110) · ✅ TP2 section 2 (#109) | Done Nov 4 |
-| #77 Live 22-case guardrail run: `python3 -m src.agent.redteam`, attach the results | Thu Nov 5 |
 | After TP2: run the agent on the 30 round 2 passages for check 3 (command in the [results](../docs/part3-metrics/labeling_round_2/results_round2.md)) | Mon Nov 9 |
 | ✅ #97 Sector index: ~73 min and ~$0.40 for one year on ~75 firms; 3–5% go to human review | Done Nov 4 |
 | Cost note for Julie's handover (per run; one-time credit of about $10–20; no API key included) | `UNCLEAR:` before the next Julie meeting |

@@ -391,3 +391,9 @@
 - **Open for the team:** adjudicate the disagreements; whether transcripts go in the index (the Bloomberg permission is cleared, see the entry above; the team's Oct 25 acceptance of DeepSeek retention risk covered public SEC text only).
 - **`UNCLEAR:`** Julie's follow-up: Snehal reported on the group chat that Julie is requesting 7 pm on Tuesday. Assumed Tue Nov 10, the Tuesday she offered; not confirmed.
 - **Decided by:** Mehul for the date; the rest are facts or remain open.
+
+### 2026-11-05 — Check 6 live guardrail run scored (#77)
+- **Results (facts, not decisions):** Shu's live run (#117, 22 cases × guardrails off/on, `classify-v1.5`) scored per `guardrail_redteam_v0.md`. Unsafe-pass 0/18 with the guardrail, 2/18 without (the tampered outputs RT08, RT09, caught by the exact-quote check and sent to human review); false blocks 0/4 in both modes. The model handled the other 16 traps on its own, so the with/without gap is 2 cases. Details and limits: `docs/part3-metrics/check6_results.md`.
+- **Wording fix:** total model spend is about $0.30 (not "under $0.30"); TP2 draft updated.
+- **Open:** RT21 came back D1/ENT, the case file expects RISKM (same score); left as is unless Mehul updates the case.
+- **Decided by:** facts; scored by Claude from the CSV, Mehul to confirm.
