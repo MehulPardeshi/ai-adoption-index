@@ -375,3 +375,10 @@
 - **Open for the team (not decided):** filings describe robo-advice (Schwab Intelligent Portfolios) without saying AI, so it isn't flagged. It's closest to Julie's chapter and Schwab scores 0. Counting it would change the frozen taxonomy scope, so it stays a documented limitation unless the team and Julie decide otherwise.
 - **Dates (Mehul, PM):** round 2 and TP2 paragraphs Wed Nov 4; compile Thu Nov 5.
 - **Decided by:** Mehul for the dates; the results are facts.
+
+### 2026-11-04 — Bloomberg permission review cleared for the described project
+- **Decision:** Logan updates the 56 Bloomberg source records in #62 to approved for the described manual download/retention, CMU-only sharing, analysis (including the described paid DeepSeek workflow), and publication of methodology/citations/derived labels and scores without transcript text.
+- **Evidence:** Logan supplied Ryan Splenda's follow-up relaying that Bloomberg has no issues with the team's project and the team may proceed. Email date not supplied; November 4 is the review-update date. See `docs/part1-sourcing/transcript_review_decisions_logan.md`.
+- **Decided by:** Logan (source-review decision), based on CMU Libraries' communication with Bloomberg; not a new team vote on index inclusion.
+- **Supersedes:** the Bloomberg permission holds recorded October 27 and the pending library confirmation from October 29, within the described project scope only.
+- **Follow-ups:** preserve CMU-only storage/sharing and no public transcript text. Provider retention/no-training guarantees are not established by this approval. Team inclusion/automation decisions and non-Bloomberg source reviews remain separate.
