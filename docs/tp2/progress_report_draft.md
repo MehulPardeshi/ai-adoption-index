@@ -22,14 +22,12 @@
 ✍️ *Mehul: check and trim the draft above after round 2.*
 
 ## 2. Working prototype: the agentic AI component (12 pts): Shu
-- **Design:** 7 tools: `fetch_sec_filings`, `find_ai_passages`, `score_companies` (built); `fetch_transcripts`, `classify_passage`, `verify_label`, `lookup_baseline` (to build).
-- **Target for Oct 28:** runs end to end on the six FY2025 10-Ks: fetch → find AI passages → classify → verify quote → score → CSV for the dashboard.
-- **Model:** DeepSeek `deepseek-flash` (temperature 0, fixed JSON schema). Funding decided Oct 25 (#55): one person pays; all runs so far about $0.21. Only public SEC text is sent.
-- **Built so far:** first DeepSeek run on the six FY2025 10-Ks (#66) and prompt tuning (#68). Agreement there is in-sample (tuning set), not validation.
+- **Design:** 7 tools, all built and tested (#60): `fetch_sec_filings`, `find_ai_passages`, `classify_passage` (the only one that calls the model), `verify_label` (the guardrail), `score_companies`, `lookup_baseline` (Dong et al.), `get_labels`. A transcript tool waits for the license review (#62).
+- **Oct 28 target met:** runs end to end on the six FY2025 10-Ks plus Citi (110 passages): find AI passages → classify → verify the quote → score → CSV for the dashboard (#66, #68, #84).
+- **Model:** DeepSeek `deepseek-flash` (temperature 0, fixed JSON schema, answers cached). Funding decided Oct 25 (#55): one person pays; all runs so far cost under $0.30. Only public SEC text is sent.
+- **Evaluated:** on the 50-passage labeling sample (#85), on the 29 passages never used for tuning the agent matched the human majority on 24 of the 25 that had one (96%), with no overclaims (0–2% across runs); the guardrail held back 2 labels that would have been overclaims.
 
-*Draft (Claude, from the repo; Shu to confirm or replace):* The agent has seven tools (`fetch_sec_filings`, `find_ai_passages`, `classify_passage`, `verify_label`, `score_companies`, `lookup_baseline`, `get_labels`); only `classify_passage` calls the model. Batch mode labels passages in a fixed order and writes the labels and scores. Chat mode lets DeepSeek choose tools to answer a question, and every claim must cite a quoted passage. Shown to Julie on Oct 29: asked how Citigroup uses AI in 2025, it found Citi's labeled passages and score (12) and answered with the exact sentence and the SEC link. Code: `src/agent/`.
-
-✍️ *Shu: what the agent actually does by Nov 4, one example output, and where the demo code is.*
+The agent reads the AI passages in SEC filings, labels each one, and turns the labels into company scores. Only `classify_passage` calls the model; every label then passes a rule-based guardrail (`verify_label`): the quote must appear word for word in the filing, a "specific" label needs its detail inside the quote, and labels under 0.70 confidence go to a person. Batch mode labels passages in a fixed order and writes the files the dashboard reads; chat mode lets the model pick its own tools to answer a question, and every claim must cite a quoted passage. Example output, for Citi's FY2025 10-K (`C_2025-12-31_10-K_00131`): specific use (D2) in operations and reporting, quoting "applied technology solutions leveraging AI to support governance of data reported in key regulatory reports", confidence 0.90, guardrail passed. Code and demo: `src/agent/` (`run_batch.py`, `chat.py`, `redteam.py`), design in `docs/part6-agent/agent_design.md`; `python3 -m src.agent.chat --trace "How does Citigroup use AI in 2025?"` shows each tool call and the cited answer (add `AGENT_LLM_PROVIDER=mock` to run it offline).
 
 *Draft (Claude, from the repo; Snehal to confirm or replace):* The Streamlit dashboard has an SEC pilot scores tab (#93) showing each firm's AI Use Score, readiness score and talk ratio per fiscal year, labeled preliminary, beside clearly marked mock-up tabs for the firm story and comparison views. It reads the scores file produced by our scorer. Julie called it "extremely user-friendly"; she asked for hover definitions and for partial years to be hidden (#96).
 
@@ -48,6 +46,7 @@
 | Earnings-call transcripts: free sources not cleared; licensed data vs. a public repo | Bloomberg via the CMU library; transcript text stays out of the public repo and AI tools until the terms are reviewed (#62) |
 | SEC data collection: EDGAR blocked downloads from cloud servers; the big banks first returned only 4 filings (the "recent" index covers about a year); Wells Fargo's 10-K text sits in Exhibit 13 | Ran the script on a laptop with a declared User-Agent; paged through the full filing history; added Exhibit 13. All 7 firms now have 8 quarters (56 filings), and a second run reproduced the same passages (Yen-Chu) |
 | A team member's temporary absence | Tasks covered (Shu finalizes the taxonomy if needed); no deadline moved |
+| The cloud workspace we code in cannot reach the DeepSeek API or EDGAR | Model runs and downloads run on Shu's laptop; every model answer is cached and each run is logged (`agent_run_info.json`) |
 
 ✍️ *Each owner: add any blocker from your area (one line).*
 
