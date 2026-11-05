@@ -1,6 +1,6 @@
 # Check 6: do the guardrails work? (status, Nov 3)
 
-> **What's done:** two pieces of with/without evidence. **What's left:** the live run of all 22 cases (#77), which needs Shu's DeepSeek key.
+> **Update, Nov 5:** the live run of all 22 cases is done and scored: [check6_results.md](check6_results.md). The two pieces below were the evidence before it.
 
 ## 1. Real model, real passages (Shu, #85)
 On 43 passages with a human majority, the guardrail held back 2 labels that would have been overclaims. **Overclaim without it: 2/43 (5%). With it: 0/43.** ([check 3](labeling_round_1/check3_agent.md))
