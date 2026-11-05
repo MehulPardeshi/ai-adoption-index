@@ -29,7 +29,7 @@
 5. **Scenarios:** overlap is 0.75 for the closest pair and 0.07–0.11 with the third rater, who often listed 4–6 areas where the others used ENT (general claims). The ENT rule may need a clearer example.
 
 ## What this means for the AI side
-- **Draft labels vs. the human majority** (29 passages): 72% exact, κ 0.51, **overclaim 0%**, **underclaim 24%**. The draft labels say "no use" where most raters said D1 on 7 passages. They feed the dashboard's preliminary scores, so those scores may read low on this kind of sentence.
+- **Draft labels vs. the human majority** (29 passages): 72% exact, κ 0.51, **overclaim 0%**, **underclaim 24%**. The draft labels say N on 7 passages where most raters said D1 or D2. They feed the dashboard's preliminary scores, so those scores may read low on this kind of sentence.
 - **The agent:** only 11 of the 30 passages have agent labels, all in its tuning set. On the 10 with a majority it matches on 7, with no overclaims; the 3 misses are underclaims (one of them held at N by the guardrail for low confidence). Too few and in-sample, so this isn't a result. Check 3 on the other 19 needs a model run (Shu's key).
 
 ## Next steps (not decided here)
