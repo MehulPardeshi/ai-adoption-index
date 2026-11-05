@@ -1,7 +1,7 @@
 # Labeling round 2 (30 passages)
 
 > **Why a round 2:** round 1 met the bar on "real use vs. not" (κ 0.60–0.72) but not on the five evidence levels (Fleiss κ 0.27), mostly because the "about AI" rule was read two ways ([round-1 results](../labeling_round_1/results_round1.md)). Round 2 checks whether the clarified cheat sheet fixes that.
-> **Raters:** Logan, Yen-Chu, Snehal (same as round 1). **Time:** about 30 minutes. **Submit by Sun Nov 1, before the team meeting.**
+> **Raters:** Logan, Yen-Chu, Snehal (same as round 1). **Time:** about 30 minutes. **Submit by Wed Nov 4.**
 
 ## What's different from round 1
 - **Cheat sheet v2** ([`cheat_sheet.md`](cheat_sheet.md)): same rules, now word for word the frozen codebook. Changes are marked 🆕. The main one: **AI risks, threats and laws are still about AI** (`about_ai` = Y, evidence N).

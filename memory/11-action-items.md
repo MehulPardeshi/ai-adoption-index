@@ -1,13 +1,13 @@
 # 11 — Action Items (who is doing what, right now)
 
 > **Read this to answer "what should I work on next?"** Updated after every meeting from `meetings/` minutes ([procedure](../meetings/README.md)). The shared spreadsheet remains the source of truth for owners and deadlines; this file mirrors it for AI tools.
-> **Last updated:** 2026-10-29 (Julie checkpoint; repo + board check). Last meeting: [Oct 29 client checkpoint](../meetings/2026-10-29-client.md) (transcript). Previous: [Oct 28 practice run](../meetings/2026-10-28-internal.md).
+> **Last updated:** 2026-11-03 (eval checks run; repo + board check; no Nov 1 meeting record in `meetings/`). Last meeting: [Oct 29 client checkpoint](../meetings/2026-10-29-client.md) (transcript). Previous: [Oct 28 practice run](../meetings/2026-10-28-internal.md).
 > **Pinned summary for humans:** [#45 "Who does what"](https://github.com/MehulPardeshi/ai-adoption-index/issues/45), with @mentions per person.
 > **GitHub:** each task below is an issue in the **"Sprint: Oct 18–Nov 6 (TP2)"** milestone on the [project board](https://github.com/users/MehulPardeshi/projects/1).
 
 ## Where we are
 - ✅ TP1 submitted (Fri Oct 2).
-- 🏁 **Sprint: Sun Oct 18 → Fri Nov 6 (TP2).** ✅ Categories frozen, round 1 labels in, checks 2–4 run (Oct 27) → ✅ practice run Wed Oct 28 → ✅ **Julie Oct 29** (very positive; asked for a sector index, see below) → round 2 labels Sat Oct 31 → TP2 report → submit **Fri Nov 6, 5 pm** → Julie follow-up on Nov 10, 13 or 19 (team to pick).
+- 🏁 **Sprint: Sun Oct 18 → Fri Nov 6 (TP2).** ✅ Categories frozen, round 1 labels in, checks 2–4 run (Oct 27) → ✅ practice run Wed Oct 28 → ✅ **Julie Oct 29** (very positive; asked for a sector index, see below) → round 2 labels (Yen-Chu in; others due Wed Nov 4) → TP2 report → submit **Fri Nov 6, 5 pm** → Julie follow-up on Nov 10, 13 or 19 (team to pick).
 - **Julie's asks (Oct 29):** check whether a market-cap- and equal-weighted **sector index** on a defined public-company sample is feasible · dashboard hover definitions · hide partial years (FY2026) · sources we can legally get and verify only.
 - **PoC companies:** JPMorgan Chase, Bank of America, Capital One, Wells Fargo, Charles Schwab, Principal Financial Group · **Period:** 2024–2026 · **Sources:** SEC 10-K/10-Q (74 filings, 277 AI passages), Dong baseline; earnings calls from **Bloomberg (CMU library) if cleared**, with transcript text kept out of the public repo; no LinkedIn job postings. **Citigroup** kept as a benchmark.
 - **AI model:** DeepSeek (`deepseek-flash`), option B: one person pays (Shu), about $0.02 per run. Only public SEC text is sent. **Agent:** 7 tools.
@@ -19,10 +19,10 @@
 | ✅ Oct 26–27 | Bloomberg transcripts collected (team-only) · round 1 labels in · categories frozen (#84) · checks 2–4 run · agenda sent |
 | ✅ Wed Oct 28, 10 am | Practice run: ~27 min, pauses after each section, transition slides ([minutes](../meetings/2026-10-28-internal.md)) |
 | ✅ Thu Oct 29, 10–11 am ET | Julie checkpoint ([minutes](../meetings/2026-10-29-client.md)) |
-| Sat Oct 31 (afternoon) | Round 2 labels in (raters upload together) |
-| Sun Nov 1 | Team meeting: Julie's feedback, sector-index feasibility, transcripts yes/no, round 1 + 2 disagreements → TP2 |
-| Mon Nov 2 | Everyone's paragraph in the [TP2 outline](../docs/tp2/progress_report_draft.md) |
-| Wed Nov 4 / Thu Nov 5 | TP2 draft (Mehul) / board clean-up |
+| Wed Nov 4 (moved from Sat Oct 31) | Round 2 labels: Yen-Chu in (#104, held until all submit so it stays blind); Snehal, Logan due |
+| Sun Nov 1 | `UNCLEAR:` team meeting: no minutes in the repo. Open items from its agenda (sector-index feasibility, transcripts yes/no, disagreements) still need an answer |
+| Wed Nov 4 (moved from Mon Nov 2) | Everyone's paragraph in the [TP2 outline](../docs/tp2/progress_report_draft.md); so far only Yen-Chu's blocker (#105) |
+| Thu Nov 5 | TP2 draft combined + board snapshot (Mehul) |
 | **Fri Nov 6, 5 pm** | Yen-Chu submits TP2 (Mehul is the backup) |
 | Tue Nov 10, Fri Nov 13 or Thu Nov 19 | Julie follow-up (Nov 12 doesn't work for her; Snehal proposes one) |
 
@@ -36,14 +36,15 @@
 | ✅ Check 3 (Shu, #85): on the 29 passages outside the tuning set, 96% exact, κ 0.94, overclaim 0% (5% without the guardrail) | Done Oct 27 |
 | ✅ Round 1 lessons + round 2 built: cheat sheet v2 (matches the frozen codebook, practice set), 30-passage targeted sample, workbook; scripts take `--round 2` | Done Oct 27 |
 | ✅ Round 2 issue (#95) explains the unclear rule (the "about AI" N/X rule, not the use question) | Done Oct 28 |
-| #95 Score round 2 with `python3 -m src.eval.irr --round 2`; lead adjudication of the round 1 + 2 disagreements at the Nov 1 meeting | Sat Oct 31 → Sun Nov 1 |
+| #95 Once all raters submit: merge #104, score round 2 with `python3 -m src.eval.irr --round 2`, go through the disagreements | Thu Nov 5 |
 | ✅ Check 4 first run ([results](../docs/part3-metrics/check4_results.md)): ranking robust to weights; strict-only scores all 6 firms 0 from filings; Dong tracks talk (ρ 0.78) not use (0.14) · ✅ guardrail set reviewed against the frozen codebook (22 cases) | Done Oct 27 |
-| #101 Check 1: hand-check the search-recall sheet (~100 paragraphs, ~1 hour) · rerun check 4 on the consensus labels after adjudication | Tue Nov 3 |
-| #102 Check 5: find a teammate for the independent rerun (ask Sun Nov 1) | Wed Nov 4 |
+| ✅ Check 1 done and confirmed (precision 98.9%, no clear recall miss; [results](../docs/part3-metrics/check1/results.md)) · ✅ check 5 dry run matched · ✅ check 6 replay · ✅ TP2 sections drafted | Done Nov 3 |
+| #101 Rerun check 4 on the consensus labels after adjudication | Thu Nov 5 |
+| #102 Check 5: get Logan or Snehal to run the [steps](../docs/part3-metrics/check5_rerun.md) (~20 min) | Thu Nov 5 |
 | ✅ Presented "how we check results" and Logan's data rules (Logan absent) to Julie | Done Oct 29 |
 | ✅ Follow-up-email points for Snehal (strict-vs-broad question; scores combine 10-K + 10-Q) are in #98 | Done Oct 29 |
-| #77 First guardrail with/without run, with Shu | Tue Nov 3 |
-| #39 / #40 TP2: combine the paragraphs (Wed Nov 4); board snapshot (Thu Nov 5); backup submitter | Nov 4–6 |
+| #77 Live 22-case guardrail run: Shu runs it with the key, Mehul scores | Thu Nov 5 |
+| #39 / #40 TP2: combine the paragraphs and take the board snapshot (Thu Nov 5); backup submitter | Nov 5–6 |
 | Your own TP2 sections: 4 (scope), 5 (board), 7 (evaluation) in the [TP2 draft](../docs/tp2/progress_report_draft.md) | Mon Nov 2 |
 
 ### Yen-Chu Chen (Dataset Builder)
@@ -52,10 +53,10 @@
 | ✅ Category review (#33) · transcript source list (#62) | Done Oct 20–23 |
 | ✅ #62 revised per Logan's 5 points (source-review table, 7 firms × 8 quarters; Motley Fool not cleared; Capital One, Wells Fargo and Schwab IR sites have no transcripts) | Done Oct 24 |
 | ✅ Bloomberg transcripts collected (team Drive only) + Bloomberg rows in #62 · labels round 1 (#82) · Capital One sentences set to D1 by default in #84 (reopen #33 if you disagree) | Done Oct 26–27 |
-| Keep the transcripts team-only and out of every AI tool until the librarian replies; #34 decision on Sun Nov 1 | Sun Nov 1 |
-| #97 Sector index: which sample (index or SIC codes), how many firms, a free market-cap source | **Sun Nov 1** |
+| Keep the transcripts team-only and out of every AI tool until the librarian replies; #34 decision still open | Wed Nov 4 |
+| #97 Sector index: which sample (index or SIC codes), how many firms, a free market-cap source | **Wed Nov 4** |
 | ✅ Presented the test-run findings to Julie | Done Oct 29 |
-| **Labeling round 2:** 30 passages, on your own ([materials](../docs/part3-metrics/labeling_round_2/)); upload with the others | **Sat Oct 31 (afternoon)** |
+| ✅ Labeling round 2 submitted (#104, merge held until the others submit) · ✅ TP2 blocker (#105) | Done Nov 3 |
 | **Submit TP2 on Canvas** | **Fri Nov 6, 5 pm** |
 
 ### Logan Mai (Market & User Researcher / BA)
@@ -68,7 +69,7 @@
 | ✅ Labeling round 1 (converted to `rater_logan.csv`) | Done Oct 27 |
 | ✅ Practice run (~3½ min). Absent from the Julie meeting; Mehul presented the data rules | Done Oct 29 |
 | Bloomberg: Julie asked us to confirm with the librarian that the manual terminal downloads are allowed; share his reply on #62 | Waiting on reply |
-| Labeling round 2 (30 passages): `UNCLEAR:` not heard agreeing at the practice run | Sat Oct 31 (afternoon) |
+| Labeling round 2 (30 passages): `UNCLEAR:` not heard agreeing at the practice run | Wed Nov 4 |
 
 ### Shu Pu (AI Engineer / Solution Architect)
 | Task | Due |
@@ -79,8 +80,8 @@
 | ✅ Categories frozen (#33): ENT = 1 point is the scorer's default, taxonomy doc marked frozen, Capital One risk-factor sentences = D1 (default; Yen-Chu can reopen). Scores recomputed | Done Tue Oct 27 |
 | Re-run the agent on the 110 tuning passages with prompt classify-v1.5 (the #64 codebook text changed the prompt; see #85), so the dashboard scores and check 3 use the same prompt | Wed Oct 28 |
 | ✅ Check 3 on the 50-passage sample (#85) · shared slide deck | Done Oct 27–28 |
-| #35 **Agent runs end to end** on the six FY2025 10-Ks (TP2: 12 pts): link the PR and close #35 if done | **Sun Nov 1** |
-| #97 Sector index: agent time and DeepSeek cost for ~50–100 firms | **Sun Nov 1** |
+| #35 **Agent runs end to end** on the six FY2025 10-Ks (TP2: 12 pts): link the PR and close #35 if done | **Wed Nov 4** |
+| #97 Sector index: agent time and DeepSeek cost for ~50–100 firms | **Wed Nov 4** |
 | Cost note for Julie's handover (per run; one-time credit of about $10–20; no API key included) | `UNCLEAR:` before the next Julie meeting |
 | ✅ Presented the categories + agent demo to Julie | Done Oct 29 |
 
@@ -92,17 +93,16 @@
 | ✅ First dashboard view with PoC data: SEC pilot scores tab (#93, merged Oct 28; 40 tests pass) | Done Oct 28 |
 | ✅ Labels round 1 (#79) · agenda to Julie · practice-run invite · transition slides · dataset summary metrics on the SEC tab (#93) | Done Oct 27–29 |
 | ✅ Hosted the Julie meeting and showed the dashboard | Done Oct 29 |
-| #98 Thank-you email to Julie + propose the follow-up date (Tue Nov 10, Fri Nov 13 or Thu Nov 19) after the team replies on #98 | Fri Oct 30 |
+| #98 Thank-you email to Julie + propose the follow-up date (Tue Nov 10, Fri Nov 13 or Thu Nov 19) after the team replies on #98 (`UNCLEAR:` whether already sent; nothing recorded) | Wed Nov 4 |
 | #96 Dashboard (Julie's feedback): hover definitions for each metric; hide FY2026 / partial years; check the transparency tab loads | Mon Nov 9 |
-| **Labeling round 2:** 30 passages, on your own; upload with the others | **Sat Oct 31 (afternoon)** |
+| **Labeling round 2:** 30 passages, on your own | **Wed Nov 4** |
 | #30 Hosting choice (Streamlit Community Cloud vs. Vercel; TP3 needs a hosted app) | Fri Nov 13 |
 
 ### Everyone
-- Raters: round 2 by **Sat Oct 31 afternoon** (#95), **your own judgment on every label** (AI is fine for finding files, not for picking labels)
-- Team meeting **Sun Nov 1**
-- Your paragraph in the [TP2 outline](../docs/tp2/progress_report_draft.md): **Mon Nov 2**
+- Raters: round 2 by **Wed Nov 4** (#95), **your own judgment on every label** (AI is fine for finding files, not for picking labels)
+- Your paragraph in the [TP2 outline](../docs/tp2/progress_report_draft.md): **Wed Nov 4**
 - Julie follow-up: reply on #98 with which of Tue Nov 10, Fri Nov 13 or Thu Nov 19 work for you
-- Sector-index feasibility (Julie's ask, #97): Shu (agent time and cost at scale) + Yen-Chu (sample, market-cap source), assigned by Mehul Oct 29; answer at the Sun Nov 1 meeting
+- Sector-index feasibility (Julie's ask, #97): Shu (agent time and cost at scale) + Yen-Chu (sample, market-cap source), assigned by Mehul Oct 29; answer on #97 by Wed Nov 4
 - Finish your pending TP2 work this weekend (Mehul's ask)
 
 ## Deliverable owners (whole project)
