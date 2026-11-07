@@ -397,3 +397,10 @@
 - **Wording fix:** total model spend is about $0.30 (not "under $0.30"); TP2 draft updated.
 - **Open:** RT21 came back D1/ENT, the case file expects RISKM (same score); left as is unless Mehul updates the case.
 - **Decided by:** facts; scored by Claude from the CSV, Mehul to confirm.
+
+### 2026-11-07 — TP2 deadline moved to Fri Nov 13; Saturday check-in; "5 agents" is five agentic tools
+- **Deadline (fact, reported not documented):** on Fri Nov 6 a teammate couldn't find the TP2 submission on Canvas. Mehul and Snehal both said the instructor moved TP2 to "next Friday" in class, and the class slide lists "Due next Friday: Lab4, Team Project #2". So TP2 is now due **Fri Nov 13, 5 pm** (was Nov 6). The syllabus file still shows the old week; check Canvas when the submission opens.
+- **Re-plan (Mehul, PM):** adjudication Sun Nov 8 / Mon Nov 9 → Julie follow-up Tue Nov 10 (7 pm, unconfirmed) → check 4 rerun (#101) after adjudication → compile Thu Nov 12 → submit Fri Nov 13. TP2 can now include the Nov 10 meeting and the adjudicated labels.
+- **Team check-in:** Yen-Chu, Snehal and Logan agreed (Fri Nov 6) to a quick meeting "tomorrow at 5" (Sat Nov 7, 5 pm). `UNCLEAR:` whether Mehul and Shu were asked; the Sunday Nov 8 meeting for the disagreement review is separate.
+- **"5 agents" (Snehal's reminder):** the course requirement is **at least five custom agentic tools** with LLM-readable docstrings (requirement 3), not five agents. The agent has seven (`fetch_sec_filings`, `find_ai_passages`, `classify_passage`, `verify_label`, `score_companies`, `lookup_baseline`, `get_labels`). Requirement 4, a skill folder with a `SKILL.md` for the solution, has no agent skill folder yet (TP3 item).
+- **Decided by:** the instructor (deadline); Mehul for the re-plan.

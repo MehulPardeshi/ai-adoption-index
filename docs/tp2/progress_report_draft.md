@@ -1,6 +1,6 @@
 # TP2 Progress Report: AI Adoption Index (Team 5): DRAFT OUTLINE
 
-> **Due:** Fri Nov 6, 2026, 5:00 pm (Yen-Chu submits on Canvas) · **Length:** 1–3 pages · **Compiled by:** Mehul (by Thu Nov 5)
+> **Due:** Fri Nov 13, 2026, 5:00 pm (moved from Nov 6; Yen-Chu submits on Canvas) · **Length:** 1–3 pages · **Compiled by:** Mehul (by Thu Nov 12)
 > **How we write it:** each owner writes **one short paragraph** for their section below by **Wed Nov 4**, replacing the `✍️` placeholders. Mehul combines and trims. Pre-filled facts come from the repo (last refreshed Nov 4); **update them with what actually happened by Nov 4.**
 > **Rubric (50 pts):** progress vs. plan 10 · working prototype 12 · blockers 8 · scope updates 5 · board upkeep 5 · client meeting 10. Section numbers below match.
 > **AI-use note (course GenAI policy):** this outline was drafted with Claude Code. Each author edits their own section, and the final report states how AI tools were used.
