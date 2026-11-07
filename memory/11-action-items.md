@@ -36,7 +36,7 @@
 | ✅ Check 3 (Shu, #85): on the 29 passages outside the tuning set, 96% exact, κ 0.94, overclaim 0% (5% without the guardrail) | Done Oct 27 |
 | ✅ Round 1 lessons + round 2 built: cheat sheet v2 (matches the frozen codebook, practice set), 30-passage targeted sample, workbook; scripts take `--round 2` | Done Oct 27 |
 | ✅ Round 2 issue (#95) explains the unclear rule (the "about AI" N/X rule, not the use question) | Done Oct 28 |
-| ✅ #95 Round 2 merged and scored; Logan's Numbers file converted · Next: run adjudication with the raters (21 passages + round 1) | Done Nov 4 / date to set |
+| ✅ #95 Round 2 merged and scored; Logan's Numbers file converted · Next: adjudication with the raters, Yen-Chu leads with Logan and Snehal, Sun Nov 8 night (time to set), done Mon Nov 9 ([sheet](../docs/part3-metrics/adjudication/adjudication_sheet.xlsx)) | Done Nov 4 / Nov 8–9 |
 | ✅ Check 4 first run ([results](../docs/part3-metrics/check4_results.md)): ranking robust to weights; strict-only scores all 6 firms 0 from filings; Dong tracks talk (ρ 0.78) not use (0.14) · ✅ guardrail set reviewed against the frozen codebook (22 cases) | Done Oct 27 |
 | ✅ Check 1 done and confirmed (precision 98.9%, no clear recall miss; [results](../docs/part3-metrics/check1/results.md)) · ✅ check 5 dry run matched · ✅ check 6 replay · ✅ TP2 sections drafted | Done Nov 3 |
 | #101 Rerun check 4 on the consensus labels after adjudication | Mon Nov 9 |
@@ -98,7 +98,7 @@
 | #30 Hosting choice (Streamlit Community Cloud vs. Vercel; TP3 needs a hosted app) | Fri Nov 13 |
 
 ### Everyone
-- Raters: adjudication of the round 1 and 2 disagreements (date to set)
+- Raters: adjudication of the round 1 and 2 disagreements (Yen-Chu leads; Sun Nov 8 night, done Mon Nov 9)
 - Team decisions still open: transcripts in the index or not; market-cap weighting
 - Julie follow-up: confirm 7 pm Tuesday on the group or #98
 
