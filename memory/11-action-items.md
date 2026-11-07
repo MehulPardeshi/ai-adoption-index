@@ -1,7 +1,7 @@
 # 11 — Action Items (who is doing what, right now)
 
 > **Read this to answer "what should I work on next?"** Updated after every meeting from `meetings/` minutes ([procedure](../meetings/README.md)). The shared spreadsheet remains the source of truth for owners and deadlines; this file mirrors it for AI tools.
-> **Last updated:** 2026-11-04 (round 2 scored; TP2 paragraphs, agent re-run and Bloomberg review merged; no Nov 1 meeting record in `meetings/`). Last meeting: [Oct 29 client checkpoint](../meetings/2026-10-29-client.md) (transcript). Previous: [Oct 28 practice run](../meetings/2026-10-28-internal.md).
+> **Last updated:** 2026-11-07 (TP2 deadline moved to Fri Nov 13, see the Nov 7 decisions-log entry; the dates below are re-planned; earlier: round 2 scored; TP2 paragraphs, agent re-run and Bloomberg review merged; no Nov 1 meeting record in `meetings/`). Last meeting: [Oct 29 client checkpoint](../meetings/2026-10-29-client.md) (transcript). Previous: [Oct 28 practice run](../meetings/2026-10-28-internal.md).
 > **Pinned summary for humans:** [#45 "Who does what"](https://github.com/MehulPardeshi/ai-adoption-index/issues/45), with @mentions per person.
 > **GitHub:** each task below is an issue in the **"Sprint: Oct 18–Nov 6 (TP2)"** milestone on the [project board](https://github.com/users/MehulPardeshi/projects/1).
 
@@ -22,8 +22,8 @@
 | ✅ Wed Nov 4 | Round 2 labels all in and scored: Fleiss κ 0.32 ([results](../docs/part3-metrics/labeling_round_2/results_round2.md)) |
 | Sun Nov 1 | `UNCLEAR:` team meeting: no minutes in the repo. Open items from its agenda (sector-index feasibility, transcripts yes/no, disagreements) still need an answer |
 | ✅ Wed Nov 4 | TP2 paragraphs merged: Shu (#109), Snehal's dashboard (#112), Logan (#114), Yen-Chu (#105). Section 6 (client meeting) still needs Snehal's confirmation |
-| Thu Nov 5 | TP2 draft combined + board snapshot (Mehul) |
-| **Fri Nov 6, 5 pm** | Yen-Chu submits TP2 (Mehul is the backup) |
+| ~~Thu Nov 5~~ **Thu Nov 12** | TP2 draft combined + board snapshot (Mehul); includes the Nov 10 Julie follow-up, the adjudicated labels and the check 4 rerun if they land |
+| ~~Fri Nov 6, 5 pm~~ **Fri Nov 13, 5 pm** | Yen-Chu submits TP2 (Mehul is the backup). Deadline change per the instructor in class (Mehul, Snehal); not in the syllabus file. Check Canvas once the submission opens |
 | `UNCLEAR:` Tue Nov 10, 7 pm | Julie follow-up: Snehal says Julie asked for 7 pm Tuesday; team confirming (#98) |
 
 ## By person
@@ -40,12 +40,12 @@
 | ✅ Check 4 first run ([results](../docs/part3-metrics/check4_results.md)): ranking robust to weights; strict-only scores all 6 firms 0 from filings; Dong tracks talk (ρ 0.78) not use (0.14) · ✅ guardrail set reviewed against the frozen codebook (22 cases) | Done Oct 27 |
 | ✅ Check 1 done and confirmed (precision 98.9%, no clear recall miss; [results](../docs/part3-metrics/check1/results.md)) · ✅ check 5 dry run matched · ✅ check 6 replay · ✅ TP2 sections drafted | Done Nov 3 |
 | #101 Rerun check 4 on the consensus labels after adjudication | Mon Nov 9 |
-| #102 Check 5: get Logan or Snehal to run the [steps](../docs/part3-metrics/check5_rerun.md) (~20 min) | Thu Nov 5 |
+| #102 Check 5: get Logan or Snehal to run the [steps](../docs/part3-metrics/check5_rerun.md) (~20 min) | Mon Nov 9 |
 | ✅ Presented "how we check results" and Logan's data rules (Logan absent) to Julie | Done Oct 29 |
 | ✅ Follow-up-email points for Snehal (strict-vs-broad question; scores combine 10-K + 10-Q) are in #98 | Done Oct 29 |
 | ✅ #77 Live 22-case guardrail run (Shu, #117) scored ([results](../docs/part3-metrics/check6_results.md)): 0/18 unsafe with the guardrail, 2/18 without; 0/4 false blocks | Done Nov 5 |
-| #39 / #40 TP2: combine the paragraphs and take the board snapshot (Thu Nov 5); backup submitter | Nov 5–6 |
-| TP2 sections 1, 3, 4, 7 updated through round 2; check the drafts and remove the markers at compile | Thu Nov 5 |
+| #39 / #40 TP2: combine the paragraphs and take the board snapshot; backup submitter | Nov 12–13 |
+| TP2 sections 1, 3, 4, 7 updated through round 2; check the drafts and remove the markers at compile | Thu Nov 12 |
 
 ### Yen-Chu Chen (Dataset Builder)
 | Task | Due |
@@ -57,7 +57,7 @@
 | ✅ #97 Sector index: S&P 500 Financials, ~75 firms, public float from 10-K cover pages via SEC's API · Offered next: test the pull on our 7 firms, save the dated list | Done Nov 4 |
 | ✅ Presented the test-run findings to Julie | Done Oct 29 |
 | ✅ Labeling round 2 (#104, merged Nov 4) · ✅ TP2 blocker (#105) | Done Nov 3–4 |
-| **Submit TP2 on Canvas** | **Fri Nov 6, 5 pm** |
+| **Submit TP2 on Canvas** | **Fri Nov 13, 5 pm** |
 
 ### Logan Mai (Market & User Researcher / BA)
 | Task | Due |
@@ -93,7 +93,7 @@
 | ✅ Labels round 1 (#79) · agenda to Julie · practice-run invite · transition slides · dataset summary metrics on the SEC tab (#93) | Done Oct 27–29 |
 | ✅ Hosted the Julie meeting and showed the dashboard | Done Oct 29 |
 | #98 Confirm the Julie follow-up (she asked for 7 pm Tuesday) and send the calendar hold; the correction and strict-version points are in #98 (`UNCLEAR:` whether already included) | Thu Nov 5 |
-| TP2 section 6 (client meeting): confirm or replace the draft · ✅ dashboard paragraph (#112) · ✅ labels (#111) | Thu Nov 5 |
+| TP2 section 6 (client meeting): confirm or replace the draft (can now cover the Nov 10 follow-up too) · ✅ dashboard paragraph (#112) · ✅ labels (#111) | Wed Nov 11 |
 | #96 Dashboard (Julie's feedback): hover definitions for each metric; hide FY2026 / partial years; check the transparency tab loads | Mon Nov 9 |
 | #30 Hosting choice (Streamlit Community Cloud vs. Vercel; TP3 needs a hosted app) | Fri Nov 13 |
 

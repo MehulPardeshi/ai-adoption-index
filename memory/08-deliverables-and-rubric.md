@@ -32,7 +32,7 @@ The team project is **20% of the course grade** (200 pts), plus **peer evaluatio
 | First client requirements meeting | Late September |
 | **Team Project #1** (contract + client-meeting prep + scope doc with **kanban board link**) | **Fri Oct 2, 2026** |
 | Fall break (no class) | Oct 13 and Oct 15 |
-| **Team Project #2** (progress update: 1–3 page report + repo link + board snapshot) + early-Nov client meeting | **Fri Nov 6, 2026** |
+| **Team Project #2** (progress update: 1–3 page report + repo link + board snapshot) + early-Nov client meeting | ~~Fri Nov 6, 2026~~ **Fri Nov 13, 2026** (moved by the instructor in class, per Mehul and Snehal, Nov 6; confirm on Canvas) |
 | **Final project presentations** (TP3) | **Thu Dec 3, 2026** |
 
 ### TP1 before submitting (from the latest course instructions PDF)
