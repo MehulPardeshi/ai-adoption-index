@@ -71,7 +71,7 @@ def main() -> None:
     args = ap.parse_args()
     rows = read(args.labels)
 
-    print("CHECK #4a: sensitivity of the FY2025 AI Use Score (draft labels)\n")
+    print(f"CHECK #4a: sensitivity of the FY2025 AI Use Score (labels: {args.labels})\n")
     table = {v: {t: s["ai_use_score"] for t, s in use_scores(rows, "2025", v).items()} for v in VARIANTS}
     tickers = sorted(table["baseline"], key=lambda t: -table["baseline"][t])
     print(f"{'company':<8}" + "".join(f"{v:>10}" for v in VARIANTS))

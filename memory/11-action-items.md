@@ -38,10 +38,10 @@
 | ✅ Check 3 (Shu, #85): on the 29 passages outside the tuning set, 96% exact, κ 0.94, overclaim 0% (5% without the guardrail) | Done Oct 27 |
 | ✅ Round 1 lessons + round 2 built: cheat sheet v2 (matches the frozen codebook, practice set), 30-passage targeted sample, workbook; scripts take `--round 2` | Done Oct 27 |
 | ✅ Round 2 issue (#95) explains the unclear rule (the "about AI" N/X rule, not the use question) | Done Oct 28 |
-| ✅ #95 Round 2 merged and scored; Logan's Numbers file converted · Adjudication: Yen-Chu sorted the 58 into 6 groups ([sorted sheet](../docs/part3-metrics/adjudication/adjudication_sorted_yenchu.xlsx)); Yen-Chu, Logan and Snehal agreed the labels Sat Nov 7. Next: get the filled sheet and commit it | Done Nov 4 / Nov 8–9 |
+| ✅ #95 Round 2 merged and scored; Logan's Numbers file converted · Adjudication: ✅ agreed labels merged (#124, Yen-Chu); 80-passage consensus set built. 9 scenarios still to fill (raters) | Done Nov 4 / Nov 8–9 |
 | ✅ Check 4 first run ([results](../docs/part3-metrics/check4_results.md)): ranking robust to weights; strict-only scores all 6 firms 0 from filings; Dong tracks talk (ρ 0.78) not use (0.14) · ✅ guardrail set reviewed against the frozen codebook (22 cases) | Done Oct 27 |
 | ✅ Check 1 done and confirmed (precision 98.9%, no clear recall miss; [results](../docs/part3-metrics/check1/results.md)) · ✅ check 5 dry run matched · ✅ check 6 replay · ✅ TP2 sections drafted | Done Nov 3 |
-| #101 Rerun check 4 on the consensus labels after adjudication | Mon Nov 9 |
+| ✅ #101 Check 4 rerun on the human consensus labels ([results](../docs/part3-metrics/check4_results.md)): Capital One and Principal rise to 18, ranking robust (ρ 0.94–0.99), drafts understated use (18 of 80). Rerun once the raters add the 9 missing scenarios | Done Nov 8 |
 | #102 Check 5: get Logan or Snehal to run the [steps](../docs/part3-metrics/check5_rerun.md) (~20 min) | Mon Nov 9 |
 | ✅ Presented "how we check results" and Logan's data rules (Logan absent) to Julie | Done Oct 29 |
 | ✅ Follow-up-email points for Snehal (strict-vs-broad question; scores combine 10-K + 10-Q) are in #98 | Done Oct 29 |
@@ -101,7 +101,7 @@
 | #30 Hosting choice (Streamlit Community Cloud vs. Vercel; TP3 needs a hosted app) | Fri Nov 13 |
 
 ### Everyone
-- ✅ Raters: agreed labels for the round 1 and 2 disagreements (Sat Nov 7). Share the filled sheet so Mehul can commit it
+- ✅ Raters: agreed labels for the round 1 and 2 disagreements (Sat Nov 7; merged #124). Still to do: scenarios for the 9 passages listed in the [adjudication README](../docs/part3-metrics/adjudication/README.md)
 - Team decisions still open (Sun Nov 8 call, before Julie): transcripts in the index or not; market-cap or equal weighting as the headline
 - Julie follow-up Tue Nov 10, 7 pm: agenda and presenters on the Sun Nov 8 call ([prep](../docs/tp2/julie_nov10_prep.md))
 
