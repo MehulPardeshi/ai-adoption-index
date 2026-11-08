@@ -409,3 +409,11 @@
 - **Facts:** the Sat Nov 7, 5 pm check-in happened (Logan, Snehal and Yen-Chu on the call per the group chat). Yen-Chu then shared `adjudication_sorted_yenchu.xlsx`: the same 58 passages and rater labels (checked against the repo sheet, no differences), sorted into 6 groups by question (acronym lists; risk talk N vs. X; P vs. N; N vs. D1/D2; D1 vs. D2; mixed) with a ~60-minute plan. No agreed labels yet. Committed in `docs/part3-metrics/adjudication/`.
 - **`UNCLEAR:`** what else the Nov 7 check-in decided (no notes received); whether Mehul and Shu attended; the time of the Sunday review.
 - **Decided by:** facts only.
+
+### 2026-11-08 (later) — Julie confirmed for Tue Nov 10; agreed labels done; team call tonight
+- **Julie follow-up (fact):** Snehal's calendar invite "Checkpoint 2: AI Adoption Index [Team 5]" is set for **Tue Nov 10, 7–8 pm ET** on Zoom. Julie and Dr. Chung accepted it, as did all five of us; Hengkai hasn't replied (checked in Mehul's CMU calendar, Nov 8). Snehal proposed 6:30 pm by email on Nov 2 and Nov 4 and got no email reply, so the calendar acceptance is the confirmation. This resolves the `UNCLEAR:` in the Nov 4 entry. It is the TP2 client meeting.
+- **Still unanswered from Snehal's Nov 2 email:** whether the dashboard should show 10-K only or 10-K + 10-Q, and whether to show specific use cases next to each score. To ask on Tuesday ([prep](../docs/tp2/julie_nov10_prep.md)).
+- **Adjudication (fact):** Snehal posted on Nov 8 that Yen-Chu, Logan and she "did the agreed labeling" at the Sat Nov 7 check-in. The filled sheet hasn't been shared, so check 4's rerun (#101) waits for it.
+- **Team call:** Snehal invited the team to a Zoom check-in **Sun Nov 8, 8–9 pm** (Mehul accepted).
+- **`UNCLEAR:`** whether Mehul and Shu attended on Nov 7 (Snehal's reminder tagged only Logan and Yen-Chu); anything else decided there.
+- **Decided by:** facts only; scheduling by Snehal.

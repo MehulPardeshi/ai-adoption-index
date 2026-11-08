@@ -1,6 +1,7 @@
 # TP2 Progress Report: AI Adoption Index (Team 5): DRAFT OUTLINE
 
 > **Due:** Fri Nov 13, 2026, 5:00 pm (moved from Nov 6; Yen-Chu submits on Canvas) · **Length:** 1–3 pages · **Compiled by:** Mehul (by Thu Nov 12)
+> **Length check (Nov 8):** this draft is about 2,700 words with the notes and placeholders; the final must fit 1–3 pages (roughly 1,200–1,500 words), so trim at compile.
 > **How we write it:** each owner writes **one short paragraph** for their section below by **Wed Nov 4**, replacing the `✍️` placeholders. Mehul combines and trims. Pre-filled facts come from the repo (last refreshed Nov 4); **update them with what actually happened by Nov 4.**
 > **Rubric (50 pts):** progress vs. plan 10 · working prototype 12 · blockers 8 · scope updates 5 · board upkeep 5 · client meeting 10. Section numbers below match.
 > **AI-use note (course GenAI policy):** this outline was drafted with Claude Code. Each author edits their own section, and the final report states how AI tools were used.
@@ -58,7 +59,7 @@ The agent reads the AI passages in SEC filings, labels each one, and turns the l
 ## 5. Project board (5 pts): Mehul
 We run the sprint on a GitHub project board: each task is an issue with one owner and a due date in the "Sprint: Oct 18–Nov 6" milestone, and a pinned issue (#45) lists who does what, updated after each meeting. Changes reach `main` only through pull requests.
 
-✍️ *Mehul: board screenshot on Thu Nov 5.*
+✍️ *Mehul: board screenshot on Thu Nov 12.*
 
 ## 6. Client meeting (10 pts): Snehal
 - **Thu Oct 29, 10–11 am ET**, with Julie Agnew, Dr. Rachel Chung and Hengkai Zheng invited.
@@ -73,7 +74,7 @@ We run the sprint on a GitHub project board: each task is an issue with one owne
 
 *Draft (Claude, from the minutes; Snehal to confirm or replace):* Julie was very positive about the dashboard and most interested in the gap between how much firms talk about AI and what they say they do with it. She confirmed SEC EDGAR as the source for now and said limiting the index to sources we can legally get and verify is acceptable. She asked for hover definitions and for partial years to be hidden, and made one new request: market-cap- and equal-weighted sector indices on a defined sample of public companies, with drill-down to each firm. If that isn't realistic, she asked us to explain why and slice it another way. She decided against a risk-and-regulation sub-score, because that language is mostly written by lawyers and accountants. For the final stretch we'll report back on the sector index at the follow-up, apply her dashboard changes, and decide how transcripts fit.
 
-✍️ *Snehal: what Julie confirmed or changed, and the agreed direction for the final stretch.*
+✍️ *Snehal: what Julie confirmed or changed, and the agreed direction for the final stretch. The follow-up is confirmed for Tue Nov 10, 7 pm ([prep](julie_nov10_prep.md)), so write this after it, by Wed Nov 11. The rubric asks for "clear, confirmed direction," so record her answers to the open questions.*
 
 ## 7. Evaluation and responsible AI (supports sections 1–3): Mehul and Logan
 *Draft (Claude, from the repo; Mehul to check):* Three teammates labeled the same 50 passages independently. On the core question, real use or not, agreement met our bar (Cohen's κ 0.60–0.72 across pairs). On the five evidence levels it didn't (Fleiss κ 0.27), mostly because one rule was read two ways. We clarified it and ran round 2 on 30 new passages chosen from the hard cases ([results](../part3-metrics/labeling_round_2/results_round2.md)). The rule we fixed no longer causes disagreement, but agreement is still below the bar: five levels κ 0.32 (closest pair 0.67), and real use or not 0.45–0.71. The main gaps are now hedged risk sentences read as plans and sentences on the line between use and talk. The team will go through the 21 disagreements together, and those agreed labels become the consensus set. On the 29 passages it hadn't seen during tuning, the agent matched the human majority on 24 of the 25 that had one (96%, κ 0.94). Its overclaim rate (saying a company uses AI when people said it doesn't) was 0–2% across runs, versus about 5% without our code-based guardrail (exact-quote check, specific-detail rule, human review below 0.7 confidence). A live run of a 22-case test set (fake quotes, a tampered number, injected instructions, paywalled sources, investment advice) with the guardrail on and off had no unsafe outputs with it on and no wrongly blocked correct answers; without it, 2 of the 18 unsafe cases (the tampered outputs) were accepted as scored labels, and the model handled the other 16 on its own ([check 6](../part3-metrics/check6_results.md)). The scores' ranking doesn't change when the D2 weight changes (Spearman ρ 1.00). A word-count benchmark (Dong et al.) tracks how much firms *talk* about AI (ρ 0.78), not our use score (ρ 0.14), which supports separating the two ([check 4](../part3-metrics/check4_results.md)).

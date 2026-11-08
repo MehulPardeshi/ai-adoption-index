@@ -1,13 +1,13 @@
 # 11 — Action Items (who is doing what, right now)
 
 > **Read this to answer "what should I work on next?"** Updated after every meeting from `meetings/` minutes ([procedure](../meetings/README.md)). The shared spreadsheet remains the source of truth for owners and deadlines; this file mirrors it for AI tools.
-> **Last updated:** 2026-11-07 (TP2 deadline moved to Fri Nov 13, see the Nov 7 decisions-log entry; the dates below are re-planned; earlier: round 2 scored; TP2 paragraphs, agent re-run and Bloomberg review merged; no Nov 1 meeting record in `meetings/`). Last meeting: [Oct 29 client checkpoint](../meetings/2026-10-29-client.md) (transcript). Previous: [Oct 28 practice run](../meetings/2026-10-28-internal.md).
+> **Last updated:** 2026-11-08 (Julie confirmed Tue Nov 10, 7 pm; agreed labels done Sat Nov 7, file not yet shared; team call Sun Nov 8, 8 pm; see the Nov 8 decisions-log entries. Earlier: TP2 deadline moved to Fri Nov 13; earlier: round 2 scored; TP2 paragraphs, agent re-run and Bloomberg review merged; no Nov 1 meeting record in `meetings/`). Last meeting: [Oct 29 client checkpoint](../meetings/2026-10-29-client.md) (transcript). Previous: [Oct 28 practice run](../meetings/2026-10-28-internal.md).
 > **Pinned summary for humans:** [#45 "Who does what"](https://github.com/MehulPardeshi/ai-adoption-index/issues/45), with @mentions per person.
 > **GitHub:** each task below is an issue in the **"Sprint: Oct 18–Nov 6 (TP2)"** milestone on the [project board](https://github.com/users/MehulPardeshi/projects/1).
 
 ## Where we are
 - ✅ TP1 submitted (Fri Oct 2).
-- 🏁 **Sprint: Sun Oct 18 → Fri Nov 6 (TP2).** ✅ Categories frozen, round 1 labels in, checks 2–4 run (Oct 27) → ✅ practice run Wed Oct 28 → ✅ **Julie Oct 29** (very positive; asked for a sector index, see below) → ✅ round 2 labels and scoring (Nov 4) → TP2 report → submit **Fri Nov 6, 5 pm** → Julie follow-up (`UNCLEAR:` she asked for 7 pm Tuesday, assumed Nov 10; #98) → adjudication.
+- 🏁 **Sprint: Sun Oct 18 → Fri Nov 6 (TP2).** ✅ Categories frozen, round 1 labels in, checks 2–4 run (Oct 27) → ✅ practice run Wed Oct 28 → ✅ **Julie Oct 29** (very positive; asked for a sector index, see below) → ✅ round 2 labels and scoring (Nov 4) → ✅ agreed labels (Sat Nov 7) → team call **Sun Nov 8, 8 pm** → **Julie follow-up Tue Nov 10, 7 pm (confirmed;** [prep](../docs/tp2/julie_nov10_prep.md)**)** → TP2 compile Thu Nov 12 → submit **Fri Nov 13, 5 pm**.
 - **Julie's asks (Oct 29):** check whether a market-cap- and equal-weighted **sector index** on a defined public-company sample is feasible · dashboard hover definitions · hide partial years (FY2026) · sources we can legally get and verify only.
 - **PoC companies:** JPMorgan Chase, Bank of America, Capital One, Wells Fargo, Charles Schwab, Principal Financial Group · **Period:** 2024–2026 · **Sources:** SEC 10-K/10-Q (74 filings, 277 AI passages), Dong baseline; earnings calls from **Bloomberg (CMU library): permission cleared Nov 4 (#62), inclusion in the index not decided**, with transcript text kept out of the public repo and dashboard; no LinkedIn job postings. **Citigroup** kept as a benchmark.
 - **AI model:** DeepSeek (`deepseek-flash`), option B: one person pays (Shu), about $0.02 per run. Only public SEC text is sent. **Agent:** 7 tools.
@@ -24,7 +24,9 @@
 | ✅ Wed Nov 4 | TP2 paragraphs merged: Shu (#109), Snehal's dashboard (#112), Logan (#114), Yen-Chu (#105). Section 6 (client meeting) still needs Snehal's confirmation |
 | ~~Thu Nov 5~~ **Thu Nov 12** | TP2 draft combined + board snapshot (Mehul); includes the Nov 10 Julie follow-up, the adjudicated labels and the check 4 rerun if they land |
 | ~~Fri Nov 6, 5 pm~~ **Fri Nov 13, 5 pm** | Yen-Chu submits TP2 (Mehul is the backup). Deadline change per the instructor in class (Mehul, Snehal); not in the syllabus file. Check Canvas once the submission opens |
-| `UNCLEAR:` Tue Nov 10, 7 pm | Julie follow-up: Snehal says Julie asked for 7 pm Tuesday; team confirming (#98) |
+| ✅ Sat Nov 7, 5 pm | Check-in (Logan, Snehal, Yen-Chu); they agreed the labels for the 58 disagreements (per Snehal, Nov 8). The filled sheet isn't shared yet |
+| **Sun Nov 8, 8–9 pm** | Team call on Zoom (Snehal): Julie prep, transcripts and weighting decisions, TP2 owners ([prep](../docs/tp2/julie_nov10_prep.md)) |
+| **Tue Nov 10, 7–8 pm ET** | **Julie follow-up, confirmed** (Julie accepted Snehal's calendar invite; Dr. Chung also accepted). This is the TP2 client meeting (#98) |
 
 ## By person
 
@@ -36,7 +38,7 @@
 | ✅ Check 3 (Shu, #85): on the 29 passages outside the tuning set, 96% exact, κ 0.94, overclaim 0% (5% without the guardrail) | Done Oct 27 |
 | ✅ Round 1 lessons + round 2 built: cheat sheet v2 (matches the frozen codebook, practice set), 30-passage targeted sample, workbook; scripts take `--round 2` | Done Oct 27 |
 | ✅ Round 2 issue (#95) explains the unclear rule (the "about AI" N/X rule, not the use question) | Done Oct 28 |
-| ✅ #95 Round 2 merged and scored; Logan's Numbers file converted · Next: adjudication with the raters, Yen-Chu leads with Logan and Snehal, Sun Nov 8 night (time to set), done Mon Nov 9. Yen-Chu sorted the 58 into 6 groups (~60 min; [sorted sheet](../docs/part3-metrics/adjudication/adjudication_sorted_yenchu.xlsx)); agreed labels not filled in yet | Done Nov 4 / Nov 8–9 |
+| ✅ #95 Round 2 merged and scored; Logan's Numbers file converted · Adjudication: Yen-Chu sorted the 58 into 6 groups ([sorted sheet](../docs/part3-metrics/adjudication/adjudication_sorted_yenchu.xlsx)); Yen-Chu, Logan and Snehal agreed the labels Sat Nov 7. Next: get the filled sheet and commit it | Done Nov 4 / Nov 8–9 |
 | ✅ Check 4 first run ([results](../docs/part3-metrics/check4_results.md)): ranking robust to weights; strict-only scores all 6 firms 0 from filings; Dong tracks talk (ρ 0.78) not use (0.14) · ✅ guardrail set reviewed against the frozen codebook (22 cases) | Done Oct 27 |
 | ✅ Check 1 done and confirmed (precision 98.9%, no clear recall miss; [results](../docs/part3-metrics/check1/results.md)) · ✅ check 5 dry run matched · ✅ check 6 replay · ✅ TP2 sections drafted | Done Nov 3 |
 | #101 Rerun check 4 on the consensus labels after adjudication | Mon Nov 9 |
@@ -92,15 +94,16 @@
 | ✅ First dashboard view with PoC data: SEC pilot scores tab (#93, merged Oct 28; 40 tests pass) | Done Oct 28 |
 | ✅ Labels round 1 (#79) · agenda to Julie · practice-run invite · transition slides · dataset summary metrics on the SEC tab (#93) | Done Oct 27–29 |
 | ✅ Hosted the Julie meeting and showed the dashboard | Done Oct 29 |
-| #98 Confirm the Julie follow-up (she asked for 7 pm Tuesday) and send the calendar hold; the correction and strict-version points are in #98 (`UNCLEAR:` whether already included) | Thu Nov 5 |
+| ✅ #98 Julie follow-up set: Tue Nov 10, 7–8 pm, Zoom; Julie and Dr. Chung accepted. Her Nov 2 email questions (10-K vs. 10-Q on the dashboard; use cases next to scores) are unanswered, so ask them on Tuesday | Done Nov 4–8 |
+| Send Julie the agenda for Tuesday ([draft](../docs/tp2/julie_nov10_prep.md)) | Mon Nov 9 |
 | TP2 section 6 (client meeting): confirm or replace the draft (can now cover the Nov 10 follow-up too) · ✅ dashboard paragraph (#112) · ✅ labels (#111) | Wed Nov 11 |
 | #96 Dashboard (Julie's feedback): hover definitions for each metric; hide FY2026 / partial years; check the transparency tab loads | Mon Nov 9 |
 | #30 Hosting choice (Streamlit Community Cloud vs. Vercel; TP3 needs a hosted app) | Fri Nov 13 |
 
 ### Everyone
-- Raters: adjudication of the round 1 and 2 disagreements (Yen-Chu leads; Sun Nov 8 night, done Mon Nov 9)
-- Team decisions still open: transcripts in the index or not; market-cap weighting
-- Julie follow-up: confirm 7 pm Tuesday on the group or #98
+- ✅ Raters: agreed labels for the round 1 and 2 disagreements (Sat Nov 7). Share the filled sheet so Mehul can commit it
+- Team decisions still open (Sun Nov 8 call, before Julie): transcripts in the index or not; market-cap or equal weighting as the headline
+- Julie follow-up Tue Nov 10, 7 pm: agenda and presenters on the Sun Nov 8 call ([prep](../docs/tp2/julie_nov10_prep.md))
 
 ## Deliverable owners (whole project)
 | Deliverable | Owner | Support |

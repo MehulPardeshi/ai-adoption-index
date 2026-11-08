@@ -16,6 +16,8 @@ Two copies of the same 58 passages (37 from round 1, 21 from round 2). The passa
 | 5 Specific or general | D1 vs. D2 | 10 | 10 min |
 | 6 Mixed | other | 3 | 5 min |
 
+**Status (Nov 8):** Yen-Chu, Logan and Snehal agreed the labels on Sat Nov 7 (per Snehal). The filled file isn't in the repo yet.
+
 **How to finish:** the three raters (Yen-Chu leads, with Logan and Snehal) fill in `agreed_evidence`, `agreed_scenarios` and, where useful, `note` on the "Sorted for meeting" tab, then share the file. Mehul commits it and reruns check 4 (#101) on the consensus labels.
 
 **Rules:** the raters decide the labels themselves; no AI tool picks or suggests them. A passage with no agreement stays blank with a note; it is reported, not forced.
