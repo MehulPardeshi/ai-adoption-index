@@ -6,7 +6,10 @@ from pathlib import Path
 
 from src.dashboard.mock_data import FIRMS
 from src.dashboard.score_data import (
+    SCORE_METRIC_HELP,
     SCORE_COLUMNS,
+    complete_fiscal_year_scores,
+    format_scenario_code,
     load_company_scores,
     validate_firm_labels,
 )
@@ -34,6 +37,45 @@ class DashboardScoreDataTests(unittest.TestCase):
         self.assertNotIn(("C", 2023), score_keys)
         self.assertNotIn(("PFG", 2023), score_keys)
         self.assertIn(("C", 2024), score_keys)
+
+    def test_partial_fiscal_year_is_hidden_without_removing_source_data(self):
+        source_scores = load_company_scores()
+        displayed_scores = complete_fiscal_year_scores(source_scores)
+
+        self.assertIn(2026, {score.fiscal_year for score in source_scores})
+        self.assertNotIn(2026, {score.fiscal_year for score in displayed_scores})
+        self.assertEqual(
+            {score.fiscal_year for score in displayed_scores},
+            {2023, 2024, 2025},
+        )
+
+    def test_scenario_codes_show_frozen_codebook_names(self):
+        self.assertEqual(
+            format_scenario_code("CX"),
+            "CX — Customer service and digital assistants",
+        )
+        self.assertEqual(
+            format_scenario_code("ENT"),
+            "ENT — Enterprise-wide, area not named",
+        )
+
+    def test_unknown_scenario_codes_are_rejected(self):
+        row = self._row()
+        row["scenarios_with_use"] = "NOT_A_CODE"
+        with tempfile.TemporaryDirectory() as directory:
+            path = self._write_csv(Path(directory), [row])
+
+            with self.assertRaisesRegex(ValueError, "unknown taxonomy scenario code"):
+                load_company_scores(path)
+
+    def test_score_metric_help_defines_each_metric_and_limit(self):
+        self.assertEqual(
+            set(SCORE_METRIC_HELP),
+            {"AI Use Score", "Readiness Score", "Talk Ratio (%)"},
+        )
+        self.assertIn("not verified firm-wide adoption", SCORE_METRIC_HELP["AI Use Score"])
+        self.assertIn("governance, talent, and investment", SCORE_METRIC_HELP["Readiness Score"])
+        self.assertIn("percentage of substantive AI passages labeled N", SCORE_METRIC_HELP["Talk Ratio (%)"])
 
     def test_allows_blank_scenario_and_undefined_talk_ratio(self):
         row = {

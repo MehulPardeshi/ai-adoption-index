@@ -1,5 +1,8 @@
 """Executable visual theme for the dashboard prototype."""
 
+import re
+
+
 COLORS = {
     "accent": "#1A73E8",
     "accent_hover": "#155CB8",
@@ -30,6 +33,51 @@ STAGE_COLORS = {
     "In use": COLORS["chart_neutral"],
 }
 
+_LOWERCASE_TITLE_WORDS = {
+    "a",
+    "an",
+    "and",
+    "as",
+    "at",
+    "but",
+    "by",
+    "for",
+    "from",
+    "in",
+    "nor",
+    "of",
+    "on",
+    "or",
+    "the",
+    "to",
+    "with",
+    "yet",
+}
+
+
+def book_title(text: str) -> str:
+    """Apply book-style capitalization while preserving acronyms and names."""
+    words = list(re.finditer(r"[A-Za-z0-9]+", text))
+    if not words:
+        return text
+
+    result = text
+    for index in reversed(range(len(words))):
+        match = words[index]
+        word = match.group()
+        if (
+            index not in (0, len(words) - 1)
+            and word.lower() in _LOWERCASE_TITLE_WORDS
+        ):
+            replacement = word.lower()
+        elif word.isupper():
+            replacement = word
+        else:
+            replacement = word[0].upper() + word[1:]
+        result = result[:match.start()] + replacement + result[match.end():]
+    return result
+
+
 THEME_CSS = f"""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@600;700&display=swap');
@@ -49,8 +97,12 @@ html, body, [class*="css"] {{
     font-family: {BODY_FONT};
     color: var(--dashboard-text);
 }}
+html, body, #root, [data-testid="stAppViewContainer"],
+[data-testid="stMain"], [data-testid="stMainBlockContainer"], main {{
+    background-color: var(--dashboard-background) !important;
+}}
 .stApp {{
-    background: var(--dashboard-background);
+    background: var(--dashboard-background) !important;
     color: var(--dashboard-text);
     position: relative !important;
     height: auto !important;
@@ -159,6 +211,31 @@ a:focus-visible, button:focus-visible, [role="combobox"]:focus-visible {{
     color: var(--dashboard-structural);
     background: #F4F8FF;
     border-color: var(--dashboard-accent);
+}}
+.st-key-global_disclaimer [data-testid="stAlert"],
+.st-key-score_disclaimer [data-testid="stAlert"] {{
+    background: #FFF8DB !important;
+    padding: 0.4rem 0.7rem !important;
+}}
+.st-key-global_disclaimer [data-testid="stAlert"] p,
+.st-key-score_disclaimer [data-testid="stAlert"] p {{
+    font-size: 0.875rem !important;
+    line-height: 1.4 !important;
+    margin: 0.1rem 0 !important;
+}}
+.st-key-score_help_ai_use_score button,
+.st-key-score_help_readiness_score button,
+.st-key-score_help_talk_ratio button {{
+    width: 2rem;
+    min-width: 2rem;
+    height: 2rem;
+    min-height: 2rem;
+    padding: 0;
+    border-radius: 50% !important;
+    color: var(--dashboard-accent);
+    border-color: var(--dashboard-accent);
+    font-size: 1rem;
+    line-height: 1;
 }}
 div[data-testid="stTabs"] button[aria-selected="true"] {{
     color: var(--dashboard-structural);

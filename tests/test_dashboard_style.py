@@ -7,6 +7,7 @@ from src.dashboard.theme import (
     HEADING_FONT,
     STAGE_COLORS,
     THEME_CSS,
+    book_title,
 )
 
 
@@ -60,6 +61,35 @@ class DashboardStyleTests(unittest.TestCase):
         self.assertIn("transform: rotate(45deg)", THEME_CSS)
         self.assertIn("transform: rotate(225deg)", THEME_CSS)
         self.assertNotIn(".use-case-caret", THEME_CSS)
+
+    def test_scrolling_canvas_uses_consistent_light_background(self):
+        self.assertIn(
+            '[data-testid="stMainBlockContainer"], main',
+            THEME_CSS,
+        )
+        self.assertIn(
+            "background-color: var(--dashboard-background) !important",
+            THEME_CSS,
+        )
+        self.assertIn("background: var(--dashboard-surface)", THEME_CSS)
+
+    def test_disclaimers_are_compact_and_keep_the_yellow_fyi_surface(self):
+        self.assertIn(".st-key-global_disclaimer [data-testid=\"stAlert\"]", THEME_CSS)
+        self.assertIn(".st-key-score_disclaimer [data-testid=\"stAlert\"]", THEME_CSS)
+        self.assertIn("background: #FFF8DB !important", THEME_CSS)
+        self.assertIn("font-size: 0.875rem !important", THEME_CSS)
+        self.assertIn("padding: 0.4rem 0.7rem !important", THEME_CSS)
+
+    def test_book_titles_lowercase_minor_words_and_preserve_acronyms(self):
+        self.assertEqual(
+            book_title("cumulative records by demo quarter"),
+            "Cumulative Records by Demo Quarter",
+        )
+        self.assertEqual(
+            book_title("AI adoption in the SEC"),
+            "AI Adoption in the SEC",
+        )
+        self.assertEqual(book_title("the use of AI"), "The Use of AI")
 
     def test_compare_firm_chips_use_accessible_blue(self):
         self.assertIn('[data-testid="stMultiSelect"] [data-tag]', THEME_CSS)
