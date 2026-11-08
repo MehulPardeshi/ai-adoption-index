@@ -417,3 +417,9 @@
 - **Team call:** Snehal invited the team to a Zoom check-in **Sun Nov 8, 8–9 pm** (Mehul accepted).
 - **`UNCLEAR:`** whether Mehul and Shu attended on Nov 7 (Snehal's reminder tagged only Logan and Yen-Chu); anything else decided there.
 - **Decided by:** facts only; scheduling by Snehal.
+
+### 2026-11-08 (evening) — Agreed labels merged; check 4 rerun on the human consensus
+- **Facts:** Yen-Chu merged the raters' agreed labels (#124; only the agreed columns changed, all 58 have an evidence level). The consensus set is 80 passages: 58 agreed + 22 with unanimous evidence (their scenarios = those at least 2 of 3 raters chose; a counting rule, not a judgment). 9 passages still need a scenario (8 agreed P + one D1 with no majority).
+- **Check 4 rerun (#101):** with the 80 human labels swapped into the draft labels, FY2025 Capital One 3 → 18, Principal 0 → 18, Schwab 0 → 6, BAC 6 → 3, Citi 48 → 52. Ranking robust to weights (ρ 0.94–0.99). Drafts matched the consensus on 57/80 evidence levels; in 18 of the 23 differences people saw use or plans the draft didn't, so the draft-based scores (and the dashboard) understate use. The strict measure is no longer all zero (Principal 18). Dong vs. use score 0.58 (was 0.14), vs. talk 0.78: the talk-vs-use gap is smaller than first reported ([results](../docs/part3-metrics/check4_results.md)).
+- **Open (team):** whether to re-score the dashboard on the consensus-overlaid labels (mixes human and draft labels).
+- **Decided by:** facts; run by Claude for Mehul.

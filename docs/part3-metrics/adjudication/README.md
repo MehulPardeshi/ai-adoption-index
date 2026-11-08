@@ -23,3 +23,5 @@ Two copies of the same 58 passages (37 from round 1, 21 from round 2). The passa
 **How to finish:** the three raters (Yen-Chu leads, with Logan and Snehal) fill in `agreed_evidence`, `agreed_scenarios` and, where useful, `note` on the "Sorted for meeting" tab, then share the file. Mehul commits it and reruns check 4 (#101) on the consensus labels.
 
 **Rules:** the raters decide the labels themselves; no AI tool picks or suggests them. A passage with no agreement stays blank with a note; it is reported, not forced.
+
+**Consensus files (Nov 8):** [`consensus_labels.csv`](consensus_labels.csv) holds all 80 human-labeled passages (58 agreed here plus 22 where the evidence was unanimous; for those, the scenarios at least 2 of 3 raters chose). [`labels_v0_plus_consensus.csv`](labels_v0_plus_consensus.csv) is the draft label file with these 80 swapped in, used for the [check 4 rerun](../check4_results.md). Rebuild both after the missing scenarios are added: `python3 -m src.eval.make_consensus_labels`. Besides the 8 P passages listed above, `SCHW_2024-12-31_10-K_00562` (unanimous D1) needs a scenario, because no two raters picked the same one.
