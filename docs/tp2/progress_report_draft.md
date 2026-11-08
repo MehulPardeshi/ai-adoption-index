@@ -57,7 +57,7 @@ The agent reads the AI passages in SEC filings, labels each one, and turns the l
 - **Sector-index feasibility (#97, Yen-Chu and Shu):** feasible on the S&P 500 Financials, about 75 firms, using a free public list with a recorded date. Estimated from our 7 firms: one year of 10-Ks and 10-Qs is about 1,650 passages, about 73 minutes and $0.40 on the model, and 50–80 passages for human review. Firm size can come from each 10-K's cover page through SEC's free API; that's public float, measured mid-year and excluding insiders' shares, so it's below full market cap. The prompts were tuned on banks, so we'd spot-check insurers and payment firms first. Equal weighting stays the default; market-cap weighting is still the team's decision.
 
 ## 5. Project board (5 pts): Mehul
-We run the sprint on a GitHub project board: each task is an issue with one owner and a due date in the "Sprint: Oct 18–Nov 6" milestone, and a pinned issue (#45) lists who does what, updated after each meeting. Changes reach `main` only through pull requests.
+We run the sprint on a GitHub project board: each task is an issue with one owner and a due date in the "Sprint: Oct 18–Nov 13" milestone (extended from Nov 6 when the TP2 deadline moved), and a pinned issue (#45) lists who does what, updated after each meeting. Changes reach `main` only through pull requests.
 
 ✍️ *Mehul: board screenshot on Thu Nov 12.*
 
