@@ -404,3 +404,8 @@
 - **Team check-in:** Yen-Chu, Snehal and Logan agreed (Fri Nov 6) to a quick meeting "tomorrow at 5" (Sat Nov 7, 5 pm). `UNCLEAR:` whether Mehul and Shu were asked; the Sunday Nov 8 meeting for the disagreement review is separate.
 - **"5 agents" (Snehal's reminder):** the course requirement is **at least five custom agentic tools** with LLM-readable docstrings (requirement 3), not five agents. The agent has seven (`fetch_sec_filings`, `find_ai_passages`, `classify_passage`, `verify_label`, `score_companies`, `lookup_baseline`, `get_labels`). Requirement 4, a skill folder with a `SKILL.md` for the solution, has no agent skill folder yet (TP3 item).
 - **Decided by:** the instructor (deadline); Mehul for the re-plan.
+
+### 2026-11-08 — Saturday check-in held; adjudication sheet sorted
+- **Facts:** the Sat Nov 7, 5 pm check-in happened (Logan, Snehal and Yen-Chu on the call per the group chat). Yen-Chu then shared `adjudication_sorted_yenchu.xlsx`: the same 58 passages and rater labels (checked against the repo sheet, no differences), sorted into 6 groups by question (acronym lists; risk talk N vs. X; P vs. N; N vs. D1/D2; D1 vs. D2; mixed) with a ~60-minute plan. No agreed labels yet. Committed in `docs/part3-metrics/adjudication/`.
+- **`UNCLEAR:`** what else the Nov 7 check-in decided (no notes received); whether Mehul and Shu attended; the time of the Sunday review.
+- **Decided by:** facts only.
