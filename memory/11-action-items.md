@@ -42,7 +42,7 @@
 | ✅ Check 4 first run ([results](../docs/part3-metrics/check4_results.md)): ranking robust to weights; strict-only scores all 6 firms 0 from filings; Dong tracks talk (ρ 0.78) not use (0.14) · ✅ guardrail set reviewed against the frozen codebook (22 cases) | Done Oct 27 |
 | ✅ Check 1 done and confirmed (precision 98.9%, no clear recall miss; [results](../docs/part3-metrics/check1/results.md)) · ✅ check 5 dry run matched · ✅ check 6 replay · ✅ TP2 sections drafted | Done Nov 3 |
 | ✅ #101 Check 4 rerun on the human consensus labels ([results](../docs/part3-metrics/check4_results.md)): Capital One and Principal rise to 18, ranking robust (ρ 0.94–0.99), drafts understated use (18 of 80). Rerun once the raters add the 9 missing scenarios | Done Nov 8 |
-| #102 Check 5: get Logan or Snehal to run the [steps](../docs/part3-metrics/check5_rerun.md) (~20 min) | Mon Nov 9 |
+| ✅ #102 Check 5: Logan's independent rerun matched ([results](../docs/part3-metrics/check5_rerun.md)) | Done Nov 8 |
 | ✅ Presented "how we check results" and Logan's data rules (Logan absent) to Julie | Done Oct 29 |
 | ✅ Follow-up-email points for Snehal (strict-vs-broad question; scores combine 10-K + 10-Q) are in #98 | Done Oct 29 |
 | ✅ #77 Live 22-case guardrail run (Shu, #117) scored ([results](../docs/part3-metrics/check6_results.md)): 0/18 unsafe with the guardrail, 2/18 without; 0/4 false blocks | Done Nov 5 |
@@ -70,6 +70,8 @@
 | ✅ Labeling round 1 (converted to `rater_logan.csv`) | Done Oct 27 |
 | ✅ Practice run (~3½ min). Absent from the Julie meeting; Mehul presented the data rules | Done Oct 29 |
 | ✅ Labeling round 2 (converted to `rater_logan.csv`; please check it) · ✅ TP2 ethics paragraph (#114) | Done Nov 4 |
+| ✅ #102 Check 5 independent rerun: `RESULT: MATCH` · slides updated for Tuesday | Done Nov 8 |
+| Can't join the Sun Nov 8 call; sync him in the chat afterwards | Mon Nov 9 |
 
 ### Shu Pu (AI Engineer / Solution Architect)
 | Task | Due |
@@ -95,9 +97,9 @@
 | ✅ Labels round 1 (#79) · agenda to Julie · practice-run invite · transition slides · dataset summary metrics on the SEC tab (#93) | Done Oct 27–29 |
 | ✅ Hosted the Julie meeting and showed the dashboard | Done Oct 29 |
 | ✅ #98 Julie follow-up set: Tue Nov 10, 7–8 pm, Zoom; Julie and Dr. Chung accepted. Her Nov 2 email questions (10-K vs. 10-Q on the dashboard; use cases next to scores) are unanswered, so ask them on Tuesday | Done Nov 4–8 |
-| Send Julie the agenda for Tuesday ([draft](../docs/tp2/julie_nov10_prep.md)) | Mon Nov 9 |
 | TP2 section 6 (client meeting): confirm or replace the draft (can now cover the Nov 10 follow-up too) · ✅ dashboard paragraph (#112) · ✅ labels (#111) | Wed Nov 11 |
-| #96 Dashboard (Julie's feedback): hover definitions for each metric; hide FY2026 / partial years; check the transparency tab loads | Mon Nov 9 |
+| ✅ #96 Dashboard (Julie's feedback): click-to-open definitions, FY2026 hidden, story tab tidied (merged #126). Not yet on the human-agreed labels (see the Nov 8 decision) · ✅ agenda as a doc, email draft ready · ✅ slide deck copy in the Drive (client materials → TP2 checkpoint) | Done Nov 8 |
+| Send Julie the agenda (email draft ready) | Mon Nov 9 morning |
 | #30 Hosting choice (Streamlit Community Cloud vs. Vercel; TP3 needs a hosted app) | Fri Nov 13 |
 
 ### Everyone
