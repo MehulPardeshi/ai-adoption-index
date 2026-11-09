@@ -2,11 +2,23 @@ passage_id,round,set,kind,agreed,agreed_scenarios,agent,agent_scenarios,confiden
 BAC_2024-12-31_10-K_00279,1,unseen,underclaim,D1,ENT,N,,0.88,pass,N,D1,
 COF_2025-06-30_10-Q_01555,1,unseen,underclaim,D1,ENT,X,,0.62,pass,X,N,
 SCHW_2026-03-31_10-Q_00047,1,unseen,underclaim,D1,ENT,N,,0.72,pass,N,P,
+BAC_2023-12-31_10-K_00282,2,unseen,underclaim,D1,ENT,N,,0.6,needs_review,D1,D1,"we continually update our policies, programs, processes and practices and implement emerging technologies, such as automation, AI, machine learning and robotics"
+COF_2023-12-31_10-K_00349,2,unseen,underclaim,D1,CX;FRAUD;GOV;OPS;RISKM;TALENT,N,,0.66,needs_review,D1,N,"many of our data management, modeling, AI, aggregation and implementation processes are manual and may be subject to human error, data limitations, process delays or system failure"
+COF_2024-12-31_10-K_00304,2,unseen,underclaim,D1,ENT,X,,0.8,pass,X,N,
+C_2026-03-31_10-Q_00951,2,unseen,underclaim,D1,OPS;RISKM,N,,0.68,needs_review,D1,N,"risks to Citi from the development and use of AI, including ineffective, inadequate or faulty Generative AI development or deployment practices by Citi or third parties"
 BAC_2025-12-31_10-K_00281,1,tuning,underclaim,D1,ENT,N,,0.78,pass,N,D1,
+COF_2025-12-31_10-K_00310,2,tuning,underclaim,D1,ENT,X,,0.85,pass,X,N,
+COF_2025-12-31_10-K_00374,2,tuning,underclaim,D1,ENT,N,,0.74,pass,N,N,
+COF_2025-12-31_10-K_00469,2,tuning,underclaim,D1,ENT,N,,0.68,needs_review,D1,N,our use or adoption of AI may result in exposure to claims by third parties
 COF_2024-12-31_10-K_00357,1,unseen,level differs,P,CREDIT;FRAUD;MKT;OPS;RISKM,N,,0.6,needs_review,D1,N,business decisions based on information incorporating models and the use of AI
+COF_2023-12-31_10-K_00354,2,unseen,level differs,P,GOV;SURV,N,,0.88,pass,N,N,
 COF_2025-12-31_10-K_00480,1,tuning,level differs,P,OPS;PROD;TALENT,N,,0.84,pass,N,N,
 C_2025-12-31_10-K_00131,1,tuning,level differs,D1,ENT;GOV;OPS,D2,OPS,0.9,pass,D2,D2,applied technology solutions leveraging AI to support governance of data reported in key regulatory reports
 C_2025-12-31_10-K_00831,1,tuning,level differs,D1,GOV,D2,GOV,0.88,pass,D2,D2,"• Technology Committee provides oversight of Citigroup’s technology strategy, operating model, architecture and technology-based risk management (including cyber security), technology resource and talent planning, and technology third-party management policies. Its responsibilities include reviewing and assessing significant technology investments and expenditures, overseeing and reviewing information from management regarding Citi’s approach to Generative AI and reviewing reports on technology and data quality-related matters."
 C_2025-12-31_10-K_01476,1,tuning,level differs,N,,P,ENT,0.7,pass,P,P,productivity assumptions tied to AI-driven operation model changes may materialize more slowly than expected or require additional unforeseen upfront investment
 JPM_2025-12-31_10-K_00150,1,tuning,level differs,D2,TALENT,D1,TALENT,0.78,pass,D1,D1,"The Firm offers voluntary training programs and educational resources to all employees covering a broad variety of topics such as leadership and management, artificial intelligence, data literacy and operational and professional skills."
 WFC_2025-12-31_10-K_01394,1,tuning,level differs,P,ENT;PROD;TALENT,N,,0.85,pass,N,N,
+BAC_2025-12-31_10-K_00264,2,tuning,level differs,P,,N,,0.76,pass,N,N,
+C_2025-12-31_10-K_00670,2,tuning,level differs,P,CYBER;GOV;OPS;RISKM,N,,0.87,pass,N,N,
+JPM_2025-12-31_10-K_00493,2,tuning,level differs,P,GOV;OPS;SURV,N,,0.9,pass,N,N,
+JPM_2025-12-31_10-K_00547,2,tuning,level differs,P,OPS;TALENT,N,,0.8,pass,N,N,
