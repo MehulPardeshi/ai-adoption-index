@@ -50,7 +50,7 @@
 | TP2 sections 1, 3, 4, 7 updated through round 2; check the drafts and remove the markers at compile; trim everyone's paragraphs to 1–3 pages (agreed Nov 8) | Thu Nov 12 |
 | ✅ Slides 20–21 for Tuesday (how we check results; what the human labels changed) | Done Nov 8 |
 | Sync Logan in the chat on the Nov 8 call | Mon Nov 9 |
-| ✅ TP3: SKILL.md draft ([`skills/ai-adoption-index/`](../skills/ai-adoption-index/SKILL.md), Shu to review) · paper-discussion expectations + draft + proposed TP3 split ([plan](../docs/tp3/paper_discussion_plan.md); team to agree). ✅ Responsible AI section drafted ([responsible_ai.md](../docs/tp3/responsible_ai.md)) · ✅ board synced Nov 9 (#96, #97 closed; #132–#135 added; TP3 milestone) · still: review the paper write-up once Logan drafts it | Done Nov 9 |
+| ✅ TP3: SKILL.md draft ([`skills/ai-adoption-index/`](../skills/ai-adoption-index/SKILL.md), Shu to review) · paper-discussion expectations + draft + proposed TP3 split ([plan](../docs/tp3/paper_discussion_plan.md); team to agree). ✅ Responsible AI section drafted ([responsible_ai.md](../docs/tp3/responsible_ai.md)) · ✅ board synced Nov 9 (#96, #97 closed; #132–#135 and #137–#143 added; TP3 milestone; PR #131 merged; README rewritten #136) · still: review the paper write-up once Logan drafts it | Done Nov 9 |
 
 ### Yen-Chu Chen (Dataset Builder)
 | Task | Due |
@@ -119,6 +119,20 @@
 - All: slides in the deck by **Mon Nov 9 night**; anticipate Julie's questions on your part. No practice run
 - Open (blockers): handover plan (what Julie gets, where the data lives, auto-refresh or not, who links the agent to the dashboard). Ask Julie Tue; Dr. Chung if needed
 
+### TP3 issues (proposed split, Nov 9; milestone "TP3: Nov 14–Dec 3 (final)")
+| Issue | What | Who |
+|---|---|---|
+| #137 | Research paper write-up (Babina 2024) + Dong comparison | Logan (Shu: Dong lines; Mehul reviews) |
+| #138 | References list | Logan |
+| #139 | Responsible AI section (draft v0.1 done) | Mehul (Logan: retention + attribution) |
+| #140 | Code demo for the final presentation | Shu |
+| #141 | Poster / final deck | Snehal |
+| #142 | Handover plan for Julie (after Tue Nov 10) | Shu + Snehal |
+| #143 | Ask Dr. Chung: paper expectations + handover | Snehal |
+| #134 | Sector index (equal + market-cap-weighted) | Yen-Chu |
+| #135 | SKILL.md review (draft on main since PR #131) | Shu |
+| #30 | Host the dashboard on Streamlit Community Cloud (by Fri Nov 13) | Snehal |
+
 ## Deliverable owners (whole project)
 | Deliverable | Owner | Support |
 |---|---|---|
@@ -129,7 +143,7 @@
 | Index construction + methodology appendix | Mehul, Snehal | All |
 | Final presentation / poster | Snehal | All |
 | Evaluation & validation design | Mehul | — |
-| Research paper (TP3) | TBD; Julie to provide candidates | — |
+| Research paper discussion (TP3) | Logan (proposed Nov 9, #137) | Shu (Dong lines), Mehul (review) |
 
 ## Progress since Oct 4 (seen in the repo)
 - **Yen-Chu, PR #43 (✅ merged Oct 18 as a DRAFT):** SEC test run. #27 and #32 closed; #33 stays open until Shu reviews it and the team agrees.
