@@ -18,7 +18,7 @@ Two copies of the same 58 passages (37 from round 1, 21 from round 2). The passa
 
 **Status (Nov 8):** Yen-Chu, Logan and Snehal agreed the labels on Sat Nov 7. The filled file is now in the repo: `agreed_evidence` is filled for all 58 passages on the "Sorted for meeting" tab.
 
-**Still open:** 8 passages agreed as **P** have no `agreed_scenarios` yet (the rules require a scenario for D2/D1/P): `COF_2024-12-31_10-K_00357`, `COF_2025-12-31_10-K_00480`, `WFC_2025-12-31_10-K_01394`, `BAC_2025-12-31_10-K_00264`, `COF_2023-12-31_10-K_00354`, `C_2025-12-31_10-K_00670`, `JPM_2025-12-31_10-K_00493`, `JPM_2025-12-31_10-K_00547`. The raters add them.
+**Still open (Nov 8, 8:44 pm):** the raters added scenarios to 7 of the 8 P passages. `BAC_2025-12-31_10-K_00264` (P) still has no scenario, and `SCHW_2024-12-31_10-K_00562` (unanimous D1, see below) still needs one. The raters add them.
 
 **How to finish:** the three raters (Yen-Chu leads, with Logan and Snehal) fill in `agreed_evidence`, `agreed_scenarios` and, where useful, `note` on the "Sorted for meeting" tab, then share the file. Mehul commits it and reruns check 4 (#101) on the consensus labels.
 
