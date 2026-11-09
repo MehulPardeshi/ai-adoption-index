@@ -1,7 +1,22 @@
 # Check 4: do the scores make sense? (first run Oct 27; rerun on human labels Nov 8)
 
 > **Run:** `python3 -m src.eval.check4_sensitivity` ([script](../../src/eval/check4_sensitivity.py)), by Mehul. **Labels:** the AI-assisted v0 draft labels (the only labels covering every filing). Rerun with `--labels` on the human consensus set after adjudication (Nov 1).
-> **Status:** first run below; **rerun on the human consensus labels on Nov 8 (next section)**. Part (c), face validity, is covered by the deck's "what filings miss" slide (Erica and LLM Suite appear in no filing).
+> **Status:** first run below; rerun on the human consensus labels on Nov 8, **updated Nov 9 with 7 more scenarios (next section)**. Part (c), face validity, is covered by the deck's "what filings miss" slide (Erica and LLM Suite appear in no filing).
+
+## Update Nov 9: scenarios added for 7 of the 9 passages (#128)
+The raters added scenarios for 7 of the 9 passages that had none (#128, Yen-Chu, Logan and Snehal). Two still need one: `BAC_2025-12-31_10-K_00264` (P) and `SCHW_2024-12-31_10-K_00562` (D1). Same commands as below. The scores the dashboard can use are in [`company_scores_consensus.csv`](../../data/processed/sec/company_scores_consensus.csv).
+
+| Company (FY2025) | Draft | Consensus, Nov 8 | **Consensus, Nov 9** | ENT = 0 | D2 weight 2 | Strict |
+|---|---|---|---|---|---|---|
+| Citigroup (benchmark) | 48 | 52 | **53** | 44 | 38 | 45 |
+| Capital One | 3 | 18 | **20** | 17 | 20 | 0 |
+| Principal | 0 | 18 | **18** | 9 | 12 | 18 |
+| Wells Fargo | 9 | 9 | **11** | 8 | 11 | 0 |
+| JPMorgan Chase | 3 | 3 | **6** | 6 | 6 | 0 |
+| Schwab | 0 | 6 | **6** | 3 | 6 | 0 |
+| Bank of America | 6 | 3 | **3** | 0 | 3 | 0 |
+
+Rank agreement with the Nov 9 baseline (Spearman ρ, 7 firms): ENT = 0 **0.99** · D2 weight 2 **1.00** · strict 0.67 (6 PoC firms: 0.99 · 1.00 · 0.40). Dong vs. talk volume 0.78, vs. use score 0.58 (FY2023, unchanged). **Conclusions below still hold**; the new scenarios mostly add plan-level (0.5) credit, so scores rise by 1–3 points.
 
 ## Rerun on the human consensus labels (Nov 8, #101)
 

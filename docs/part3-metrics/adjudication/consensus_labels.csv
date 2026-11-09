@@ -1,6 +1,6 @@
 passage_id,round,evidence,scenarios,source,scenario_missing
 C_2025-03-31_10-Q_00095,1,D2,DEV;PROD,adjudicated Nov 7,
-WFC_2025-12-31_10-K_01394,1,P,,adjudicated Nov 7,yes
+WFC_2025-12-31_10-K_01394,1,P,ENT;PROD;TALENT,adjudicated Nov 7,
 COF_2025-12-31_10-K_00197,1,D1,ENT,"unanimous evidence, scenarios by 2-of-3",
 C_2025-03-31_10-Q_00096,1,D2,CX,"unanimous evidence, scenarios by 2-of-3",
 C_2025-12-31_10-K_00831,1,D1,GOV,adjudicated Nov 7,
@@ -40,9 +40,9 @@ PFG_2026-06-30_10-Q_01339,1,D2,INVEST;OPS,adjudicated Nov 7,
 JPM_2024-12-31_10-K_00470,1,D1,ENT,adjudicated Nov 7,
 JPM_2025-12-31_10-K_00498,1,N,,adjudicated Nov 7,
 PFG_2024-12-31_10-K_00351,1,N,,adjudicated Nov 7,
-COF_2025-12-31_10-K_00480,1,P,,adjudicated Nov 7,yes
+COF_2025-12-31_10-K_00480,1,P,OPS;PROD;TALENT,adjudicated Nov 7,
 C_2025-03-31_10-Q_00097,1,D2,SURV,"unanimous evidence, scenarios by 2-of-3",
-COF_2024-12-31_10-K_00357,1,P,,adjudicated Nov 7,yes
+COF_2024-12-31_10-K_00357,1,P,CREDIT;FRAUD;MKT;OPS;RISKM,adjudicated Nov 7,
 COF_2025-06-30_10-Q_01595,1,D1,RISKM,"unanimous evidence, scenarios by 2-of-3",
 JPM_2025-12-31_10-K_00499,1,N,,adjudicated Nov 7,
 JPM_2024-12-31_10-K_00155,1,D1,TALENT,adjudicated Nov 7,
@@ -57,13 +57,13 @@ COF_2023-12-31_10-K_00347,2,D1,FRAUD;GOV;RISKM;SURV,adjudicated Nov 7,
 BAC_2025-12-31_10-K_00264,2,P,,adjudicated Nov 7,yes
 JPM_2024-12-31_10-K_00529,2,N,,adjudicated Nov 7,
 BAC_2023-12-31_10-K_00323,2,N,,adjudicated Nov 7,
-C_2025-12-31_10-K_00670,2,P,,adjudicated Nov 7,yes
+C_2025-12-31_10-K_00670,2,P,CYBER;GOV;OPS;RISKM,adjudicated Nov 7,
 WFC_2026-03-31_10-Q_00660,2,N,,unanimous,
-JPM_2025-12-31_10-K_00493,2,P,,adjudicated Nov 7,yes
+JPM_2025-12-31_10-K_00493,2,P,GOV;OPS;SURV,adjudicated Nov 7,
 COF_2025-12-31_10-K_01271,2,X,,adjudicated Nov 7,
-COF_2023-12-31_10-K_00354,2,P,,adjudicated Nov 7,yes
+COF_2023-12-31_10-K_00354,2,P,GOV;SURV,adjudicated Nov 7,
 BAC_2024-12-31_10-K_00273,2,N,,unanimous,
-JPM_2025-12-31_10-K_00547,2,P,,adjudicated Nov 7,yes
+JPM_2025-12-31_10-K_00547,2,P,OPS;TALENT,adjudicated Nov 7,
 C_2025-09-30_10-Q_01151,2,D1,OPS;RISKM,adjudicated Nov 7,
 BAC_2023-12-31_10-K_00282,2,D1,ENT,"unanimous evidence, scenarios by 2-of-3",
 WFC_2023-12-31_10-K_01527,2,D1,ENT,"unanimous evidence, scenarios by 2-of-3",
