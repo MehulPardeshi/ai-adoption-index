@@ -50,7 +50,7 @@
 | TP2 sections 1, 3, 4, 7 updated through round 2; check the drafts and remove the markers at compile; trim everyone's paragraphs to 1–3 pages (agreed Nov 8) | Thu Nov 12 |
 | ✅ Slides 20–21 for Tuesday (how we check results; what the human labels changed) | Done Nov 8 |
 | Sync Logan in the chat on the Nov 8 call | Mon Nov 9 |
-| ✅ TP3: SKILL.md draft ([`skills/ai-adoption-index/`](../skills/ai-adoption-index/SKILL.md), Shu to review) · paper-discussion expectations + draft + proposed TP3 split ([plan](../docs/tp3/paper_discussion_plan.md); team to agree) | Done Nov 9 |
+| ✅ TP3: SKILL.md draft ([`skills/ai-adoption-index/`](../skills/ai-adoption-index/SKILL.md), Shu to review) · paper-discussion expectations + draft + proposed TP3 split ([plan](../docs/tp3/paper_discussion_plan.md); team to agree). Proposed for Mehul in TP3: Responsible AI section, review the paper write-up (Logan leads), board cleanup | Done Nov 9 |
 
 ### Yen-Chu Chen (Dataset Builder)
 | Task | Due |

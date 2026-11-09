@@ -34,9 +34,9 @@ Based on roles and what each person already owns. Final presentation **Thu Dec 3
 
 | Piece (from the TP3 requirements) | Proposed owner | Notes |
 |---|---|---|
-| Paper discussion: README section, poster panel, 1-minute talk | **Mehul** (Babina) + **Shu** (Dong comparison) | Draft above; Shu already reviewed Dong |
+| Paper discussion: README section, poster panel, 1-minute talk | **Logan** (Babina, how it shaped our approach) + **Shu** (a few lines comparing our method with Dong's); Mehul reviews | Start from the draft above; Shu already reviewed Dong |
 | References list, cited properly | **Logan** | Builds on the ethics memo sources and `docs/references.md` |
-| Responsible AI section | **Logan** + Mehul | Ethics memo + guardrail results (check 6) |
+| Responsible AI section | **Mehul** (Logan adds the data/legal-sourcing part from the ethics memo) | Guardrail results (check 6), overclaim checks, human agreement |
 | Skill folder (`skills/ai-adoption-index/`) | **Mehul** drafts (done Nov 9), **Shu** reviews | Requirement 4 |
 | Runnable code demo (one concept) | **Shu** | e.g., one passage → label → guardrail → score |
 | Hosted app (Streamlit Community Cloud) | **Snehal** | #30, decided Nov 8 |
