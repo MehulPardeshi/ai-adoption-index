@@ -5,6 +5,8 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Mapping, Sequence
 
+from src.nlp.taxonomy_v0 import ALL_SCENARIOS
+
 
 SCORES_FILE = (
     Path(__file__).resolve().parents[2]
@@ -24,6 +26,29 @@ SCORE_COLUMNS = (
     "talk_ratio_pct",
     "substantive_ai_passages",
 )
+
+PARTIAL_FISCAL_YEARS = frozenset({2026})
+
+SCORE_METRIC_HELP = {
+    "AI Use Score": (
+        "A preliminary 0–100 disclosure score: for each use-case scenario, strongest "
+        "specific deployed (D2), general deployed (D1), or planned (P) evidence is weighted "
+        "3, 1, or 0.5; enterprise-wide (ENT) evidence can count once. The total is scaled "
+        "by 33 and capped at 100. It measures scored disclosures, not verified firm-wide adoption."
+    ),
+    "Readiness Score": (
+        "A preliminary 0–100 disclosure score for AI governance, talent, and investment "
+        "enablers, using the same 3/1/0.5 weights for D2, D1, and P evidence and scaling "
+        "the total by 9. "
+        "It is not a comprehensive assessment of organizational readiness."
+    ),
+    "Talk Ratio (%)": (
+        "The percentage of substantive AI passages labeled N (no evidence of the firm's own "
+        "AI use, such as risk or regulation discussion) among all substantive AI passages "
+        "(all labels except X, which is not substantive). A higher value means more passages "
+        "lack evidence of the firm's own use; it does not measure total AI discussion volume."
+    ),
+}
 
 
 @dataclass(frozen=True)
@@ -88,6 +113,24 @@ def _optional_integer(
     )
 
 
+def complete_fiscal_year_scores(
+    scores: Sequence[CompanyYearScore],
+) -> tuple[CompanyYearScore, ...]:
+    """Keep only score rows for fiscal years known to be complete in this pilot."""
+    return tuple(
+        score for score in scores if score.fiscal_year not in PARTIAL_FISCAL_YEARS
+    )
+
+
+def format_scenario_code(code: str) -> str:
+    """Return a scenario code with its frozen codebook label."""
+    try:
+        description = ALL_SCENARIOS[code]
+    except KeyError as exc:
+        raise ValueError(f"unknown taxonomy scenario code {code!r}") from exc
+    return f"{code} — {description}"
+
+
 def load_company_scores(path: Path = SCORES_FILE) -> tuple[CompanyYearScore, ...]:
     """Load and validate annual company scores; never fills missing years with zero."""
     with path.open(newline="", encoding="utf-8-sig") as source:
@@ -133,13 +176,20 @@ def load_company_scores(path: Path = SCORES_FILE) -> tuple[CompanyYearScore, ...
             scenarios = _required_text(row, "scenarios_with_use", line) if row.get(
                 "scenarios_with_use"
             ) else ""
+            scenario_codes = tuple(scenarios.split())
+            unknown_codes = sorted(set(scenario_codes) - set(ALL_SCENARIOS))
+            if unknown_codes:
+                raise ValueError(
+                    f"line {line}: unknown taxonomy scenario code(s): "
+                    f"{', '.join(unknown_codes)}"
+                )
             scores.append(
                 CompanyYearScore(
                     company=company,
                     ticker=ticker,
                     fiscal_year=fiscal_year,
                     ai_use_score=ai_use_score,
-                    scenarios_with_use=tuple(scenarios.split()),
+                    scenarios_with_use=scenario_codes,
                     readiness_score=readiness_score,
                     talk_ratio_pct=talk_ratio_pct,
                     substantive_ai_passages=substantive_ai_passages,
