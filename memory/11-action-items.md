@@ -50,7 +50,8 @@
 | TP2 sections 1, 3, 4, 7 updated through round 2; check the drafts and remove the markers at compile; trim everyone's paragraphs to 1–3 pages (agreed Nov 8) | Thu Nov 12 |
 | ✅ Slides 20–21 for Tuesday (how we check results; what the human labels changed) | Done Nov 8 |
 | Sync Logan in the chat on the Nov 8 call | Mon Nov 9 |
-| TP3: draft SKILL.md (Shu reviews) · read the syllabus and project instructions for the paper-discussion expectations, then split the handover tasks | `UNCLEAR:` this week |
+| ✅ TP3: SKILL.md draft ([`skills/ai-adoption-index/`](../skills/ai-adoption-index/SKILL.md), Shu to review) · paper-discussion expectations + draft + proposed TP3 split ([plan](../docs/tp3/paper_discussion_plan.md); team to agree) | Done Nov 9 |
+| Ask Dr. Chung: is a README section + poster panel enough for the paper; does a working paper count? | Tue Nov 10 (or email) |
 
 ### Yen-Chu Chen (Dataset Builder)
 | Task | Due |
@@ -92,7 +93,7 @@
 | Run the agent on the 30 round 2 passages and compare with the agreed labels (command in the [results](../docs/part3-metrics/labeling_round_2/results_round2.md)) | Mon Nov 9 |
 | Finish the agent run on the ~75 S&P 500 Financials firms (Yen-Chu's index needs it) | Mon Nov 9 afternoon |
 | 1–2 slides for Tuesday: high-level pipeline (agent → scores → dashboard) and how the index will be shown | Before Tue Nov 10 |
-| Review Mehul's SKILL.md draft | After Mehul's draft |
+| Review Mehul's SKILL.md draft ([`skills/ai-adoption-index/SKILL.md`](../skills/ai-adoption-index/SKILL.md)) | `UNCLEAR:` this week |
 | ✅ #97 Sector index: ~73 min and ~$0.40 for one year on ~75 firms; 3–5% go to human review | Done Nov 4 |
 | Cost note for Julie: about an hour and under $1 a year for ~75 firms (per run; no API key included) | Tue Nov 10 |
 | ✅ Presented the categories + agent demo to Julie | Done Oct 29 |
