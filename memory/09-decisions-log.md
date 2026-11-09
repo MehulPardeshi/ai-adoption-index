@@ -423,3 +423,10 @@
 - **Check 4 rerun (#101):** with the 80 human labels swapped into the draft labels, FY2025 Capital One 3 → 18, Principal 0 → 18, Schwab 0 → 6, BAC 6 → 3, Citi 48 → 52. Ranking robust to weights (ρ 0.94–0.99). Drafts matched the consensus on 57/80 evidence levels; in 18 of the 23 differences people saw use or plans the draft didn't, so the draft-based scores (and the dashboard) understate use. The strict measure is no longer all zero (Principal 18). Dong vs. use score 0.58 (was 0.14), vs. talk 0.78: the talk-vs-use gap is smaller than first reported ([results](../docs/part3-metrics/check4_results.md)).
 - **Open (team):** whether to re-score the dashboard on the consensus-overlaid labels (mixes human and draft labels).
 - **Decided by:** facts; run by Claude for Mehul.
+
+### 2026-11-08 (night) — Check 5 passed; dashboard polish merged; Tuesday slides
+- **Check 5 (fact):** Logan, who didn't build the pipeline, reran it from a fresh clone (commit `4c3fd3e`, Python 3.12.4): 77 filings and 282 passages (the extra 3 Citi filings and 5 passages are expected), no sample text differences, identical scores, `RESULT: MATCH` (#102, closed). It covers redownloading and rescoring from saved labels, not a fresh AI-labeling run ([results](../docs/part3-metrics/check5_rerun.md)).
+- **Dashboard (fact):** Snehal's #126 merged (click-to-open metric definitions, FY2026 hidden, tidier story tab; 30 tests pass). It doesn't change scores, so the dashboard still shows the draft-label scores.
+- **Tuesday (fact):** Snehal put a slide deck copy in the team Drive (client materials → TP2 checkpoint folder) for everyone to add slides; the agenda is a doc and the email to Julie goes out Mon morning. Logan can't join the Sun Nov 8 call and asked to be synced in the chat.
+- **Open (team, tonight):** Snehal asked whether to put the agreed labels into the dashboard. Mehul's suggestion: yes, after the raters fill the 9 missing scenarios (Mon noon); Claude reruns the scores and Snehal points the dashboard at them with a note that 80 of 277 passages are human-checked.
+- **Decided by:** facts only.

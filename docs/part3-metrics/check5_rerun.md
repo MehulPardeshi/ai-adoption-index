@@ -1,6 +1,17 @@
 # Check 5: can someone else reproduce it?
 
-> **Status, Nov 3:** Mehul's dry run matched. **The check still needs a teammate who didn't build the pipeline** (Logan or Snehal, per the evaluation plan); a run by its owner doesn't count as independent (#102).
+> **Status, Nov 8: passed.** Logan, who didn't build the pipeline, reran it from a fresh clone and got `RESULT: MATCH` (#102). Mehul's Nov 3 dry run matched too.
+
+## Independent rerun (Nov 8, Logan)
+| What | Result |
+|---|---|
+| Setup | Fresh clone at commit `4c3fd3e`, Python 3.12.4 in a clean virtual environment, on a Mac; dependency check passed |
+| Fresh SEC download | 77 filings, 282 AI passages: the official 74 and 277 plus the 3 Citi filings and 5 passages expected below |
+| Labeling samples | No text differences |
+| Scores | Identical |
+| Final line | `RESULT: MATCH` |
+
+Logan followed the steps below with help from an AI coding assistant and hit no errors. **What this shows:** anyone can redownload the filings and rebuild the same passages and scores from the saved labels. **What it doesn't:** it doesn't rerun the AI labeling itself (that is checked against people in rounds 1 and 2).
 
 ## Dry run (Nov 3, Mehul; not independent)
 Fresh download from SEC EDGAR plus a fresh clone of the repo:

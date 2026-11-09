@@ -41,7 +41,7 @@ Each check below tests one link in that chain. It's built around Yen-Chu's Taxon
 | 2 | Rounds 1 and 2 done: use/no-use κ 0.60–0.72 in round 1, 0.45–0.71 in round 2 (hard cases on purpose); five levels Fleiss κ 0.27 and 0.32, below the bar. Adjudication pending | [round 1](labeling_round_1/results_round1.md), [round 2](labeling_round_2/results_round2.md) |
 | 3 | Done on the 50-passage sample; round 2 passages need a model run (Shu's key) | [results](labeling_round_1/check3_agent.md) |
 | 4 | First run done on draft labels; rerun waits for adjudication (#101) | [results](check4_results.md) |
-| 5 | Dry run matched; independent rerun by a teammate pending (#102) | [results](check5_rerun.md) |
+| 5 | ✅ Passed: Logan's independent rerun from a fresh clone matched (Nov 8, #102) | [results](check5_rerun.md) |
 | 6 | Done. Live 22-case run (Nov 5): unsafe-pass 0/18 with the guardrail on, 2/18 off (the tampered outputs RT08, RT09); false blocks 0/4. Also the real-data comparison and worst-case replay | [live run](check6_results.md), [replay](check6_replay.md) |
 
 ## Labeling round 1 (check 2) in detail
