@@ -430,3 +430,19 @@
 - **Tuesday (fact):** Snehal put a slide deck copy in the team Drive (client materials → TP2 checkpoint folder) for everyone to add slides; the agenda is a doc and the email to Julie goes out Mon morning. Logan can't join the Sun Nov 8 call and asked to be synced in the chat.
 - **Open (team, tonight):** Snehal asked whether to put the agreed labels into the dashboard. Mehul's suggestion: yes, after the raters fill the 9 missing scenarios (Mon noon); Claude reruns the scores and Snehal points the dashboard at them with a note that 80 of 277 passages are human-checked.
 - **Decided by:** facts only.
+
+### 2026-11-08 (meeting) — Team call: transcripts out, both index weightings, Tuesday plan
+Source: [minutes](../meetings/2026-11-08-internal.md) (filled capture form + Zoom transcript; Logan absent).
+- **Transcripts:** earnings-call transcripts are **left out of the index** and listed as future work (option A). Bloomberg stays cleared for team use only. This settles the open question from Nov 4; #34 can close or move to future work. Julie may still comment on Tuesday.
+- **Sector index:** show **both** equal-weighted and market-cap-weighted. Market cap comes from each 10-K's aggregate market value. Yen-Chu builds the calculation; on Tue Nov 10 we explain the plan and the high-level pipeline (Shu adds 1–2 slides); dashboard integration comes after Tuesday.
+- **Dashboard:** switches to the human-agreed labels after the raters' Monday-noon scenarios. Hosting: **Streamlit Community Cloud** (#30).
+- **Tuesday:** agenda and questions accepted, plus "definition of done" for handover. No practice run (midterms). We record the meeting. Slides in by Mon night.
+- **TP2:** owners confirmed (section 6 Snehal Wed; Mehul compiles, trims to 1–3 pages and takes the board snapshot Thu; Yen-Chu submits Fri 5 pm and checks Canvas Mon).
+- **TP3:** Mehul drafts SKILL.md and Shu reviews it. For the paper discussion, first find the expectations (and ask Dr. Chung), then Mehul splits it with the other handover tasks.
+- **DeepSeek:** fine to use (Dr. Chung's in-person OK, per Logan's Oct 27 message); the email confirmation is still not in the repo.
+- **Open:** handover scope (the repo includes internal notes), where the data lives (CSV in GitHub now; Supabase suggested, Shu thinks it isn't needed), who links the agent to the dashboard, and whether to auto-refresh. Ask Julie Tuesday, then Dr. Chung.
+- **Decided by:** the team on the call (Mehul, Snehal, Yen-Chu, Shu).
+
+### 2026-11-09 — Raters' scenarios added; check 4 updated
+- **Facts:** at the end of the Nov 8 call the raters added scenarios for 7 of the 9 passages (#128, Yen-Chu; codes from the rater columns). Still missing: `BAC_2025-12-31_10-K_00264` (P) and `SCHW_2024-12-31_10-K_00562` (D1). Check 4 rerun (#129): FY2025 Citi 53, Capital One 20, Principal 18, Wells Fargo 11, JPMorgan 6, Schwab 6, BofA 3; ranking robust (ρ 0.99–1.00); conclusions unchanged. `data/processed/sec/company_scores_consensus.csv` is ready for the dashboard.
+- **Decided by:** facts; run by Claude for Mehul.

@@ -1,9 +1,9 @@
-# Julie follow-up, Tue Nov 10: prep (DRAFT for the Sun Nov 8 team call)
+# Julie follow-up, Tue Nov 10: prep (agreed at the Sun Nov 8 team call)
 
 > **When:** Tue Nov 10, 7:00–8:00 pm ET, Zoom (Snehal hosts; link in the calendar invite, not here).
 > **Who has accepted (calendar, checked Sun Nov 8):** Julie, Dr. Chung, Snehal, Logan, Shu, Yen-Chu, Mehul. Hengkai hasn't replied.
 > **Why it matters:** this is the TP2 client meeting. The rubric gives **10 points** for "client meeting held; team came away with clear, confirmed direction." Section 6 of the TP2 report is written from it (Snehal, Wed Nov 11).
-> **Status:** a draft for the team to change on Sunday night. Presenters and the final agenda are the team's call.
+> **Status:** agenda and questions accepted at the Nov 8 call ([minutes](../../meetings/2026-11-08-internal.md)). Everyone checks the order of their slides; we record the meeting; no practice run.
 
 ## Still open from the email thread
 On Nov 2 Snehal emailed Julie a follow-up from the Oct 29 meeting with three questions. Julie hasn't answered them by email; she accepted the calendar invite instead. Ask them on Tuesday:
@@ -17,7 +17,7 @@ On Nov 2 Snehal emailed Julie a follow-up from the Oct 29 meeting with three que
 | 1 | What changed since Oct 29 | Snehal | 2 |
 | 2 | **Sector index: feasible** (#97). S&P 500 Financials, ~75 firms; size from public float (SEC's free API); about an hour of model time and under $1 per year of filings. Prompts were tuned on banks, so insurers and payment firms get spot-checked first | Yen-Chu, Shu | 8 |
 | 3 | Dashboard changes she asked for: hover definitions, FY2026 hidden (#96) | Snehal | 5 |
-| 4 | Transcripts: CMU Libraries cleared Bloomberg for the project (Nov 4). The team's recommendation (decide Sunday), with her Oct 29 guidance: manual pulls don't fit an automated index; no extra points just for having transcripts | Logan | 5 |
+| 4 | Transcripts: CMU Libraries cleared Bloomberg for the project (Nov 4). **Team decision (Nov 8): leave transcripts out of the index; future work.** Matches her Oct 29 guidance: manual pulls don't fit an automated index; no extra points just for having transcripts | Logan | 5 |
 | 5 | How reliable the labels are: the team adjudicated the disagreements (Nov 7) into a consensus set; agent vs. people 96% on passages it hadn't seen; guardrail test 0/18 unsafe | Mehul | 8 |
 | 6 | Questions for Julie (below) | All | 10 |
 | 7 | Next steps and dates to Dec 3 | Snehal | 2 |
@@ -26,7 +26,8 @@ On Nov 2 Snehal emailed Julie a follow-up from the Oct 29 meeting with three que
 - 10-K + 10-Q or 10-K only on the dashboard? (from the Nov 2 email)
 - Use cases next to each firm's score? (from the Nov 2 email)
 - Headline index: **market-cap-weighted or equal-weighted**? We'd show both if she wants; public float is below full market cap.
-- Transcripts: leave them out, or a base score plus a separate "with transcripts" view?
+- Transcripts: we're leaving them out (future work). Does she agree?
+- Handover, "definition of done": what does she want to receive (code, data, a how-to-update guide), and does it need to refresh itself? (Our main open question.)
 - What she'd like to receive at handover (the code, the run cost per year, the method write-up).
 - Research paper: she offered candidates (TP3 needs one high-quality paper from the last 3 years). Any she'd recommend?
 - Will she join the final presentation on Thu Dec 3?
@@ -34,12 +35,14 @@ On Nov 2 Snehal emailed Julie a follow-up from the Oct 29 meeting with three que
 ## Before Tuesday
 | What | Who | When |
 |---|---|---|
-| Decide on transcripts and the headline weighting (items 4 and 6) | Team | Sun Nov 8 call |
-| Agree on the agenda and presenters | Team | Sun Nov 8 call |
+| ✅ Transcripts out; index shows both weightings | Team | Sun Nov 8 call |
+| ✅ Agenda and questions agreed | Team | Sun Nov 8 call |
+| Slides in the deck; anticipate Julie's questions | All | Mon Nov 9 night |
+| 1–2 slides on the high-level pipeline and how the index will be shown | Shu | Before Tue |
 | Send the agenda to Julie (as on Oct 27) | Snehal | Mon Nov 9 |
-| Share the agreed-label sheet; Mehul commits it and reruns check 4 (#101) | Raters → Mehul | Mon Nov 9 |
+| ✅ Agreed labels committed and check 4 rerun (#124, #125, #128, #129) | Raters → Mehul | Done Nov 8–9 |
 | Dashboard changes (#96) | Snehal | Mon Nov 9 |
-| Short practice run (optional; Oct 28 ran ~27 min) | Team | `UNCLEAR:` Mon or Tue |
+| ~~Practice run~~ | Team | Not doing it (midterms; decided Nov 8) |
 
 ## Mehul's part (item 5, ~5 min): how reliable the labels are
 Plain-language points, from the repo results (check 4 rerun on the agreed labels: Nov 8, updated Nov 9). Slides 20–21 in the team deck.
