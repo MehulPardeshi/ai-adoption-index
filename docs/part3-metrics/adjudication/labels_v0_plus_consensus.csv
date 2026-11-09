@@ -46,7 +46,7 @@ BAC_2025-12-31_10-K_00215,Bank of America,BAC,10-K,2025-12-31,THREAT,N,,"Claude 
 BAC_2025-12-31_10-K_00230,Bank of America,BAC,10-K,2025-12-31,BOILER,N,,"Claude (AI-assisted draft, not yet reviewed)",,https://www.sec.gov/Archives/edgar/data/70858/000007085826000157/bac-20251231.htm
 BAC_2025-12-31_10-K_00234,Bank of America,BAC,10-K,2025-12-31,REG,N,,"Claude (AI-assisted draft, not yet reviewed)",,https://www.sec.gov/Archives/edgar/data/70858/000007085826000157/bac-20251231.htm
 BAC_2025-12-31_10-K_00247,Bank of America,BAC,10-K,2025-12-31,RISK-OWN,N,,human consensus (adjudicated Nov 7),,https://www.sec.gov/Archives/edgar/data/70858/000007085826000157/bac-20251231.htm
-BAC_2025-12-31_10-K_00264,Bank of America,BAC,10-K,2025-12-31,RISK-OWN,P,,human consensus (adjudicated Nov 7),,https://www.sec.gov/Archives/edgar/data/70858/000007085826000157/bac-20251231.htm
+BAC_2025-12-31_10-K_00264,Bank of America,BAC,10-K,2025-12-31,RISK-OWN,P,OPS;SURV,human consensus (adjudicated Nov 7),,https://www.sec.gov/Archives/edgar/data/70858/000007085826000157/bac-20251231.htm
 BAC_2025-12-31_10-K_00266,Bank of America,BAC,10-K,2025-12-31,REG,N,,"Claude (AI-assisted draft, not yet reviewed)",,https://www.sec.gov/Archives/edgar/data/70858/000007085826000157/bac-20251231.htm
 BAC_2025-12-31_10-K_00274,Bank of America,BAC,10-K,2025-12-31,COMP,N,,"Claude (AI-assisted draft, not yet reviewed)",,https://www.sec.gov/Archives/edgar/data/70858/000007085826000157/bac-20251231.htm
 BAC_2025-12-31_10-K_00275,Bank of America,BAC,10-K,2025-12-31,COMP,N,,"Claude (AI-assisted draft, not yet reviewed)",,https://www.sec.gov/Archives/edgar/data/70858/000007085826000157/bac-20251231.htm
@@ -214,7 +214,7 @@ SCHW_2025-12-31_10-K_00183,Charles Schwab,SCHW,10-K,2025-12-31,THREAT,N,,"Claude
 SCHW_2025-12-31_10-K_00268,Charles Schwab,SCHW,10-K,2025-12-31,BOILER,N,,"Claude (AI-assisted draft, not yet reviewed)",,https://www.sec.gov/Archives/edgar/data/316709/000031670926000009/schw-20251231.htm
 SCHW_2025-12-31_10-K_00551,Charles Schwab,SCHW,10-K,2025-12-31,GOV,D1,ENT;RISKM,human consensus (adjudicated Nov 7),,https://www.sec.gov/Archives/edgar/data/316709/000031670926000009/schw-20251231.htm
 SCHW_2024-12-31_10-K_00182,Charles Schwab,SCHW,10-K,2024-12-31,THREAT,N,,"Claude (AI-assisted draft, not yet reviewed)",,https://www.sec.gov/Archives/edgar/data/316709/000031670925000010/schw-20241231.htm
-SCHW_2024-12-31_10-K_00562,Charles Schwab,SCHW,10-K,2024-12-31,GOV,D1,,"human consensus (unanimous evidence, scenarios by 2-of-3)",,https://www.sec.gov/Archives/edgar/data/316709/000031670925000010/schw-20241231.htm
+SCHW_2024-12-31_10-K_00562,Charles Schwab,SCHW,10-K,2024-12-31,GOV,D1,CREDIT;FRAUD;OPS;RISKM,human consensus (adjudicated Nov 7),,https://www.sec.gov/Archives/edgar/data/316709/000031670925000010/schw-20241231.htm
 SCHW_2023-12-31_10-K_00193,Charles Schwab,SCHW,10-K,2023-12-31,THREAT,N,,"Claude (AI-assisted draft, not yet reviewed; #53 extension, Oct 22)",same as SCHW FY2024 00182,https://www.sec.gov/Archives/edgar/data/316709/000031670924000018/schw-20231231.htm
 PFG_2026-06-30_10-Q_01339,Principal Financial Group,PFG,10-Q,2026-06-30,DEAL,D2,INVEST;OPS,human consensus (adjudicated Nov 7),,https://www.sec.gov/Archives/edgar/data/1126328/000110465926088071/pfg-20260630x10q.htm
 PFG_2025-12-31_10-K_00183,Principal Financial Group,PFG,10-K,2025-12-31,WORK,D2,ENT;OPS;TALENT,human consensus (adjudicated Nov 7),,https://www.sec.gov/Archives/edgar/data/1126328/000110465926017031/pfg-20251231x10k.htm
