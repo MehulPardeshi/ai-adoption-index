@@ -51,7 +51,6 @@
 | ✅ Slides 20–21 for Tuesday (how we check results; what the human labels changed) | Done Nov 8 |
 | Sync Logan in the chat on the Nov 8 call | Mon Nov 9 |
 | ✅ TP3: SKILL.md draft ([`skills/ai-adoption-index/`](../skills/ai-adoption-index/SKILL.md), Shu to review) · paper-discussion expectations + draft + proposed TP3 split ([plan](../docs/tp3/paper_discussion_plan.md); team to agree) | Done Nov 9 |
-| Ask Dr. Chung: is a README section + poster panel enough for the paper; does a working paper count? | Tue Nov 10 (or email) |
 
 ### Yen-Chu Chen (Dataset Builder)
 | Task | Due |
@@ -112,6 +111,7 @@
 | Send Julie the agenda (add the Nov 8 changes, incl. "definition of done" for handover) | Mon Nov 9 morning |
 | Dashboard on the consensus scores (`data/processed/sec/company_scores_consensus.csv`, #129) with a "80 of 277 human-checked" note · screen-record the dashboard | Mon Nov 9 / before Tue |
 | #30 Host on **Streamlit Community Cloud** (decided Nov 8) | Fri Nov 13 |
+| Ask Dr. Chung (client-communication lead; Mehul asked Nov 9): is a README section + poster panel enough for the TP3 paper, does a working paper (Dong) count, and how should we hand over to Julie? | Tue Nov 10 (or email) |
 
 ### Everyone
 - ✅ Raters: agreed labels (#124) and 7 of 9 scenarios (#128). Still to do: `BAC_2025-12-31_10-K_00264` and `SCHW_2024-12-31_10-K_00562` (`UNCLEAR:` who), by Mon Nov 9 noon

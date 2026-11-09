@@ -12,7 +12,7 @@
 
 - **No length is given.** Plan on one README section (~250–400 words), one poster panel and about 1 minute in the talk.
 - The rubric grades the discussion **verbally and on the poster**, so the README text alone isn't enough.
-- **Ask Dr. Chung (Tue Nov 10 if she joins, otherwise by email):** is a README section plus a poster panel enough? Does a working paper (Dong et al.) count as a second reference, or only peer-reviewed work?
+- **Snehal asks Dr. Chung (Tue Nov 10 if she joins, otherwise by email):** is a README section plus a poster panel enough? Does a working paper (Dong et al.) count as a second reference, or only peer-reviewed work?
 
 ## Our papers (decided Oct 25)
 | Role | Paper | Why it qualifies |
