@@ -4,6 +4,7 @@ Run from the repo root:  python3 -m unittest discover -s tests -v
 """
 import csv
 import inspect
+import json
 import tempfile
 import unittest
 from pathlib import Path
@@ -137,6 +138,19 @@ class BatchContractTests(unittest.TestCase):
         with open(d / "s.csv", encoding="utf-8") as fh:
             scores = list(csv.DictReader(fh))
         self.assertEqual([(r["ticker"], r["fiscal_year"]) for r in scores], [("WFC", "2025")])
+
+    def test_run_info_out_records_the_run(self):
+        d = Path(tempfile.mkdtemp())
+        before = config.AGENT_RUN_INFO.read_text(encoding="utf-8") if config.AGENT_RUN_INFO.exists() else None
+        rc = run_batch.main(["--tickers", "WFC", "--year", "2025", "--forms", "10-K", "--labels-out", str(d / "l.csv"),
+                             "--scores-out", str(d / "s.csv"), "--run-info-out", str(d / "info.json")])
+        self.assertEqual(rc, 0)
+        info = json.loads((d / "info.json").read_text(encoding="utf-8"))
+        self.assertGreater(info["passages"], 0)
+        self.assertIn("wall_seconds", info)
+        self.assertIn("calls", info["usage"])
+        after = config.AGENT_RUN_INFO.read_text(encoding="utf-8") if config.AGENT_RUN_INFO.exists() else None
+        self.assertEqual(before, after)  # the main run log is never overwritten by a side run
 
 
 if __name__ == "__main__":

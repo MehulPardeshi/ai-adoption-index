@@ -50,6 +50,7 @@ cp .env.example .env                          # only needed for the agent: add D
 | Try the agent without a key | `AGENT_LLM_PROVIDER=mock python3 -m src.agent.run_batch --limit 20` |
 | Ask the agent a question | `python3 -m src.agent.chat --trace "How does JPMorgan use AI in FY2025?"` |
 | Rebuild the agreed labels | `python3 -m src.eval.make_consensus_labels` |
+| Compare the agent with the agreed labels (check 3) | `python3 -m src.eval.check3_consensus` |
 | Score companies | `python3 -m src.index.score_companies --labels docs/part3-metrics/adjudication/labels_v0_plus_consensus.csv --out data/processed/sec/company_scores_consensus.csv` |
 | Check how robust the ranking is | `python3 -m src.eval.check4_sensitivity --labels docs/part3-metrics/adjudication/labels_v0_plus_consensus.csv` |
 

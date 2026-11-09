@@ -17,6 +17,7 @@ scenarios so they never reach the score; the model's own call is in evidence_raw
 """
 import argparse
 import json
+import time
 from collections import Counter
 from datetime import datetime
 from pathlib import Path
@@ -76,6 +77,8 @@ def main(argv=None) -> int:
     ap.add_argument("--ent-counts", action="store_true", help=argparse.SUPPRESS)  # now the default (#33, Oct 27)
     ap.add_argument("--labels-out", help="labels CSV path")
     ap.add_argument("--scores-out", help="scores CSV path")
+    ap.add_argument("--run-info-out", help="write the run log (model, prompt, usage, time) here; "
+                                           "default: agent_run_info.json, only for the default labels file")
     a = ap.parse_args(argv)
 
     guard = not a.no_guardrails
@@ -95,10 +98,12 @@ def main(argv=None) -> int:
     print(f"Labeling {len(recs)} passages with {llm.model_tag()} (guardrails {'on' if guard else 'off'}) ...")
 
     rows = []
+    t0 = time.monotonic()
     for i, rec in enumerate(recs, 1):
         rows.append(label_one(rec, guard, run_at))
         if i % 25 == 0 or i == len(recs):
             print(f"  {i}/{len(recs)}")
+    wall = round(time.monotonic() - t0, 1)
 
     store.write_csv(labels_out, rows, FIELDS)
     scores = score_rows(rows, ent_counts=not a.no_ent)
@@ -110,9 +115,11 @@ def main(argv=None) -> int:
             "prompt_version": config.PROMPT_VERSION, "temperature": config.TEMPERATURE,
             "guardrails": guard, "min_confidence": config.MIN_CONFIDENCE, "ent_counts": not a.no_ent,
             "passages": len(rows), "evidence": dict(ev), "verify_status": dict(status),
-            "usage": dict(llm.USAGE), "labels_file": _rel(labels_out),
+            "usage": dict(llm.USAGE), "wall_seconds": wall, "labels_file": _rel(labels_out),
             "scores_file": _rel(scores_out)}
-    if guard and not a.labels_out:
+    if a.run_info_out:
+        Path(a.run_info_out).write_text(json.dumps(info, indent=2), encoding="utf-8")
+    elif guard and not a.labels_out:
         config.AGENT_RUN_INFO.write_text(json.dumps(info, indent=2), encoding="utf-8")
 
     print(f"\nEvidence: {dict(ev)}")
