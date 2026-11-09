@@ -1,0 +1,27 @@
+company,ticker,fiscal_year,ai_use_score,scenarios_with_use,readiness_score,talk_ratio_pct,substantive_ai_passages
+Bank of America,BAC,2023,3,ENT,0,75,8
+Bank of America,BAC,2024,6,ENT SURV,11,92,24
+Bank of America,BAC,2025,3,ENT,11,85,26
+Bank of America,BAC,2026,0,,0,100,2
+Citigroup,C,2024,3,ENT,0,89,9
+Citigroup,C,2025,53,CX CYBER DEV ENT OPS PROD RISKM SURV,11,62,29
+Citigroup,C,2026,6,OPS RISKM,0,86,7
+Capital One,COF,2023,15,CX FRAUD OPS RISKM SURV,22,73,11
+Capital One,COF,2024,12,CREDIT ENT FRAUD MKT OPS RISKM,0,84,19
+Capital One,COF,2025,20,DEV ENT FRAUD MKT OPS PROD RISKM,6,82,49
+Capital One,COF,2026,0,,0,100,2
+JPMorgan Chase,JPM,2023,3,RISKM,0,50,2
+JPMorgan Chase,JPM,2024,6,ENT RISKM,11,60,10
+JPMorgan Chase,JPM,2025,6,OPS RISKM SURV,39,79,19
+JPMorgan Chase,JPM,2026,0,,0,100,2
+Principal Financial Group,PFG,2024,0,,0,100,2
+Principal Financial Group,PFG,2025,18,ENT OPS,33,67,3
+Principal Financial Group,PFG,2026,9,OPS,33,0,1
+Charles Schwab,SCHW,2023,0,,0,100,1
+Charles Schwab,SCHW,2024,0,,0,50,2
+Charles Schwab,SCHW,2025,6,ENT RISKM,0,75,4
+Charles Schwab,SCHW,2026,3,ENT,0,67,3
+Wells Fargo,WFC,2023,3,ENT,0,50,2
+Wells Fargo,WFC,2024,6,CX ENT,0,67,3
+Wells Fargo,WFC,2025,11,ENT OPS PROD RISKM,39,57,7
+Wells Fargo,WFC,2026,0,,0,100,4
