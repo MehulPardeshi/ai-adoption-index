@@ -1,7 +1,7 @@
 company,ticker,fiscal_year,ai_use_score,scenarios_with_use,readiness_score,talk_ratio_pct,substantive_ai_passages
 Bank of America,BAC,2023,3,ENT,0,75,8
 Bank of America,BAC,2024,6,ENT SURV,11,92,24
-Bank of America,BAC,2025,3,ENT,11,85,26
+Bank of America,BAC,2025,6,ENT OPS SURV,11,85,26
 Bank of America,BAC,2026,0,,0,100,2
 Citigroup,C,2024,3,ENT,0,89,9
 Citigroup,C,2025,53,CX CYBER DEV ENT OPS PROD RISKM SURV,11,62,29
@@ -18,7 +18,7 @@ Principal Financial Group,PFG,2024,0,,0,100,2
 Principal Financial Group,PFG,2025,18,ENT OPS,33,67,3
 Principal Financial Group,PFG,2026,9,OPS,33,0,1
 Charles Schwab,SCHW,2023,0,,0,100,1
-Charles Schwab,SCHW,2024,0,,0,50,2
+Charles Schwab,SCHW,2024,12,CREDIT FRAUD OPS RISKM,0,50,2
 Charles Schwab,SCHW,2025,6,ENT RISKM,0,75,4
 Charles Schwab,SCHW,2026,3,ENT,0,67,3
 Wells Fargo,WFC,2023,3,ENT,0,50,2
