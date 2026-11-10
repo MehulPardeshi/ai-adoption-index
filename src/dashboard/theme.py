@@ -27,12 +27,6 @@ CHART_PALETTE = (
     COLORS["chart_blue"],
 )
 
-STAGE_COLORS = {
-    "Exploring": COLORS["structural"],
-    "Pilot": COLORS["accent"],
-    "In use": COLORS["chart_neutral"],
-}
-
 _LOWERCASE_TITLE_WORDS = {
     "a",
     "an",
@@ -212,30 +206,56 @@ a:focus-visible, button:focus-visible, [role="combobox"]:focus-visible {{
     background: #F4F8FF;
     border-color: var(--dashboard-accent);
 }}
-.st-key-global_disclaimer [data-testid="stAlert"],
-.st-key-score_disclaimer [data-testid="stAlert"] {{
+.st-key-global_disclaimer [data-testid="stAlert"] {{
     background: #FFF8DB !important;
     padding: 0.4rem 0.7rem !important;
 }}
-.st-key-global_disclaimer [data-testid="stAlert"] p,
-.st-key-score_disclaimer [data-testid="stAlert"] p {{
+.st-key-global_disclaimer [data-testid="stAlert"] p {{
     font-size: 0.875rem !important;
     line-height: 1.4 !important;
     margin: 0.1rem 0 !important;
 }}
 .st-key-score_help_ai_use_score button,
 .st-key-score_help_readiness_score button,
-.st-key-score_help_talk_ratio button {{
-    width: 2rem;
-    min-width: 2rem;
-    height: 2rem;
-    min-height: 2rem;
-    padding: 0;
+.st-key-score_help_talk_ratio button,
+div.st-key-sector_help_row [data-testid="stBaseButton-secondary"],
+div.st-key-sector_help_button_fiscal_year [data-testid="stBaseButton-secondary"],
+div.st-key-sector_help_button_firms_in_index [data-testid="stBaseButton-secondary"],
+div.st-key-sector_help_button_equal_weighted_score [data-testid="stBaseButton-secondary"],
+div.st-key-sector_help_button_market_cap_weighted_score [data-testid="stBaseButton-secondary"],
+div.st-key-sector_help_button_public_float_usd [data-testid="stBaseButton-secondary"],
+div.st-key-sector_help_fiscal_year [data-testid="stBaseButton-secondary"],
+div.st-key-sector_help_firms_in_index [data-testid="stBaseButton-secondary"],
+div.st-key-sector_help_equal_weighted_score [data-testid="stBaseButton-secondary"],
+div.st-key-sector_help_market_cap_weighted_score [data-testid="stBaseButton-secondary"],
+div.st-key-sector_help_public_float_usd [data-testid="stBaseButton-secondary"] {{
+    width: 2rem !important;
+    min-width: 2rem !important;
+    height: 2rem !important;
+    min-height: 2rem !important;
+    padding: 0 !important;
     border-radius: 50% !important;
-    color: var(--dashboard-accent);
-    border-color: var(--dashboard-accent);
-    font-size: 1rem;
-    line-height: 1;
+    color: var(--dashboard-accent) !important;
+    border: 1px solid var(--dashboard-accent) !important;
+    background: var(--dashboard-surface) !important;
+    font-size: 1rem !important;
+    line-height: 1 !important;
+}}
+.sector-help-heading {{
+    height: 4.5rem;
+    display: flex;
+    align-items: flex-end;
+    line-height: 1.25;
+    padding-bottom: 0.3rem;
+}}
+div.st-key-sector_help_row [data-testid="stHorizontalBlock"] {{
+    flex-wrap: nowrap !important;
+    align-items: flex-start !important;
+}}
+div.st-key-sector_help_row [data-testid="stColumn"] {{
+    flex: 1 1 0 !important;
+    width: 0 !important;
+    min-width: 0 !important;
 }}
 div[data-testid="stTabs"] button[aria-selected="true"] {{
     color: var(--dashboard-structural);
@@ -254,138 +274,6 @@ div[data-testid="stAlert"] {{
 [data-testid="stDataFrame"] {{
     background: var(--dashboard-surface);
     border: 1px solid var(--dashboard-border);
-}}
-.st-key-use_case_stack {{
-    padding: 0.8rem;
-    background: #EAF3FF;
-    border: 1px solid #D4E5FC;
-    border-radius: 0.35rem;
-}}
-.st-key-use_case_stack [class*="st-key-use_case_card"] {{
-    padding: 0.45rem 0.55rem 1rem;
-    margin-bottom: 0.45rem;
-    background: var(--dashboard-surface);
-    border: 1px solid var(--dashboard-border);
-    border-radius: 0.35rem;
-    transition: border-color 120ms ease, box-shadow 120ms ease;
-}}
-.st-key-use_case_stack [class*="st-key-use_case_card"]:hover {{
-    border-color: #A7C8F5;
-}}
-.st-key-use_case_stack [class*="st-key-use_case_card_open"] {{
-    border: 2px solid var(--dashboard-accent);
-    box-shadow: 0 1px 4px rgba(26, 115, 232, 0.12);
-}}
-.st-key-use_case_stack [class*="st-key-use_case_card"] .stButton button {{
-    position: relative;
-    min-height: 2.5rem;
-    max-height: 2.5rem;
-    height: 2.5rem;
-    justify-content: center;
-    color: transparent !important;
-    background: transparent;
-    border: 0;
-    padding: 0.2rem;
-    font-size: 0 !important;
-    box-shadow: none;
-}}
-.st-key-use_case_stack [class*="st-key-use_case_card"] .stButton button > div {{
-    position: absolute !important;
-    width: 1px !important;
-    height: 1px !important;
-    padding: 0 !important;
-    margin: -1px !important;
-    overflow: hidden !important;
-    clip: rect(0, 0, 0, 0) !important;
-    white-space: nowrap !important;
-    border: 0 !important;
-}}
-.st-key-use_case_stack [class*="st-key-use_case_card"] .stButton button:hover {{
-    background: #EAF3FF;
-}}
-.st-key-use_case_stack [class*="st-key-use_case_card"] .stButton button:focus-visible {{
-    outline: 3px solid var(--dashboard-accent);
-    outline-offset: 1px;
-}}
-.st-key-use_case_stack [class*="st-key-use_case_card"] .stButton button::after {{
-    content: "";
-    display: block;
-    width: 0.55rem;
-    height: 0.55rem;
-    color: var(--dashboard-accent);
-    border-right: 2px solid var(--dashboard-accent);
-    border-bottom: 2px solid var(--dashboard-accent);
-    transform: rotate(45deg) translate(-2px, -2px);
-    transition: transform 120ms ease;
-}}
-.st-key-use_case_stack [class*="st-key-use_case_card_open"] .stButton button::after {{
-    transform: rotate(225deg) translate(-2px, -2px);
-}}
-.st-key-use_case_stack [class*="st-key-use_case_card"] .stMarkdown {{
-    margin: 0;
-}}
-.st-key-use_case_stack [class*="st-key-use_case_card"] .stHorizontalBlock [data-testid="stMarkdownContainer"] {{
-    margin-bottom: 0 !important;
-}}
-.use-case-title {{
-    color: var(--dashboard-structural);
-    font-family: {BODY_FONT};
-    font-size: 0.98rem;
-    font-weight: 700;
-    line-height: 1.35;
-    text-align: left;
-}}
-.use-case-badge {{
-    padding: 0.18rem 0.45rem;
-    text-align: center;
-    white-space: nowrap;
-    font-family: {BODY_FONT};
-    font-size: 0.76rem;
-    line-height: 1.4;
-    border-radius: 0.3rem;
-}}
-.stage-exploring {{
-    color: #4D3A69;
-    background: #EEE8F6;
-}}
-.stage-pilot {{
-    color: #164F97;
-    background: #DCEBFF;
-}}
-.stage-in_use {{
-    color: #245B32;
-    background: #DDF2E1;
-}}
-.quarter-badge {{
-    color: #FFFFFF;
-    background: #70A7F8;
-}}
-.use-case-summary {{
-    padding: 0.35rem 0.45rem 0.15rem;
-    color: var(--dashboard-text);
-    font-size: 0.98rem;
-    line-height: 1.5;
-}}
-.use-case-evidence {{
-    box-sizing: border-box;
-    max-width: 100%;
-    margin: 0.3rem 0.45rem 0;
-    padding: 0.55rem 0.7rem;
-    color: var(--dashboard-muted);
-    background: #F8FAFD;
-    border-left: 3px solid var(--dashboard-border);
-    font-size: 0.82rem;
-    line-height: 1.45;
-    overflow-wrap: anywhere;
-}}
-@media (max-width: 760px) {{
-    .st-key-use_case_stack {{
-        padding: 0.45rem;
-    }}
-    .use-case-badge {{
-        font-size: 0.65rem;
-        padding: 0.16rem 0.25rem;
-    }}
 }}
 </style>
 """

@@ -1,7 +1,8 @@
-"""Validated reader for the preliminary annual SEC company score file."""
+"""Validated readers for consensus company scores and the sector index."""
 
 import csv
 from dataclasses import dataclass
+import math
 from pathlib import Path
 from typing import Mapping, Sequence
 
@@ -13,7 +14,15 @@ SCORES_FILE = (
     / "data"
     / "processed"
     / "sec"
-    / "company_scores_v0.csv"
+    / "company_scores_consensus.csv"
+)
+
+SECTOR_INDEX_FILE = (
+    Path(__file__).resolve().parents[2]
+    / "data"
+    / "processed"
+    / "sec"
+    / "sector_index.csv"
 )
 
 SCORE_COLUMNS = (
@@ -27,20 +36,43 @@ SCORE_COLUMNS = (
     "substantive_ai_passages",
 )
 
+SECTOR_INDEX_COLUMNS = (
+    "fiscal_year",
+    "n_firms",
+    "ai_ew",
+    "ai_cw",
+    "total_public_float_usd",
+    "firms",
+)
+
+FIRM_LABELS = {
+    "JPM": "JPMorgan Chase",
+    "BAC": "Bank of America",
+    "COF": "Capital One",
+    "WFC": "Wells Fargo",
+    "C": "Citigroup",
+    "SCHW": "Charles Schwab",
+    "PFG": "Principal Financial Group",
+}
+
+SECTOR_FIRM_TICKERS = frozenset({"JPM", "BAC", "COF", "WFC", "SCHW", "PFG"})
+
 PARTIAL_FISCAL_YEARS = frozenset({2026})
 
 SCORE_METRIC_HELP = {
     "AI Use Score": (
-        "A preliminary 0–100 disclosure score: for each use-case scenario, strongest "
+        "A 0–100 disclosure score: for each use-case scenario, strongest "
         "specific deployed (D2), general deployed (D1), or planned (P) evidence is weighted "
         "3, 1, or 0.5; enterprise-wide (ENT) evidence can count once. The total is scaled "
-        "by 33 and capped at 100. It measures scored disclosures, not verified firm-wide adoption."
+        "by 33 and capped at 100. It measures scored disclosures, not verified firm-wide adoption. "
+        "The current score file combines human-agreed labels for 80 of 277 passages with AI-draft labels."
     ),
     "Readiness Score": (
-        "A preliminary 0–100 disclosure score for AI governance, talent, and investment "
+        "A 0–100 disclosure score for AI governance, talent, and investment "
         "enablers, using the same 3/1/0.5 weights for D2, D1, and P evidence and scaling "
         "the total by 9. "
-        "It is not a comprehensive assessment of organizational readiness."
+        "It is not a comprehensive assessment of organizational readiness. The current score "
+        "file combines human-agreed labels for 80 of 277 passages with AI-draft labels."
     ),
     "Talk Ratio (%)": (
         "The percentage of substantive AI passages labeled N (no evidence of the firm's own "
@@ -61,6 +93,16 @@ class CompanyYearScore:
     readiness_score: int
     talk_ratio_pct: int | None
     substantive_ai_passages: int
+
+
+@dataclass(frozen=True)
+class SectorYearIndex:
+    fiscal_year: int
+    n_firms: int
+    ai_ew: float
+    ai_cw: float
+    total_public_float_usd: int
+    firms: tuple[str, ...]
 
 
 def _required_text(row: Mapping[str, str | None], column: str, line: int) -> str:
@@ -85,6 +127,31 @@ def _integer(
         parsed = int(value)
     except ValueError as exc:
         raise ValueError(f"line {line}: {column} must be an integer") from exc
+    if parsed < minimum or (maximum is not None and parsed > maximum):
+        bounds = f"{minimum} or greater"
+        if maximum is not None:
+            bounds = f"between {minimum} and {maximum}"
+        raise ValueError(f"line {line}: {column} must be {bounds}")
+    return parsed
+
+
+def _float(
+    row: Mapping[str, str | None],
+    column: str,
+    line: int,
+    *,
+    minimum: float,
+    maximum: float | None = None,
+) -> float:
+    value = row.get(column)
+    if value is None or not value.strip():
+        raise ValueError(f"line {line}: {column} must not be blank")
+    try:
+        parsed = float(value)
+    except ValueError as exc:
+        raise ValueError(f"line {line}: {column} must be a number") from exc
+    if not math.isfinite(parsed):
+        raise ValueError(f"line {line}: {column} must be finite")
     if parsed < minimum or (maximum is not None and parsed > maximum):
         bounds = f"{minimum} or greater"
         if maximum is not None:
@@ -122,6 +189,15 @@ def complete_fiscal_year_scores(
     )
 
 
+def complete_sector_index_years(
+    rows: Sequence[SectorYearIndex],
+) -> tuple[SectorYearIndex, ...]:
+    """Keep only sector index rows for fiscal years known to be complete."""
+    return tuple(
+        row for row in rows if row.fiscal_year not in PARTIAL_FISCAL_YEARS
+    )
+
+
 def format_scenario_code(code: str) -> str:
     """Return a scenario code with its frozen codebook label."""
     try:
@@ -132,7 +208,7 @@ def format_scenario_code(code: str) -> str:
 
 
 def load_company_scores(path: Path = SCORES_FILE) -> tuple[CompanyYearScore, ...]:
-    """Load and validate annual company scores; never fills missing years with zero."""
+    """Load consensus annual scores; never fills missing company-years with zero."""
     with path.open(newline="", encoding="utf-8-sig") as source:
         reader = csv.DictReader(source)
         if reader.fieldnames is None:
@@ -201,14 +277,71 @@ def load_company_scores(path: Path = SCORES_FILE) -> tuple[CompanyYearScore, ...
     return tuple(sorted(scores, key=lambda score: (score.ticker, score.fiscal_year)))
 
 
+def load_sector_index(path: Path = SECTOR_INDEX_FILE) -> tuple[SectorYearIndex, ...]:
+    """Load and validate the equal- and cap-weighted sector index."""
+    with path.open(newline="", encoding="utf-8-sig") as source:
+        reader = csv.DictReader(source)
+        if reader.fieldnames is None:
+            raise ValueError("sector index CSV is missing its header row")
+        missing_columns = set(SECTOR_INDEX_COLUMNS) - set(reader.fieldnames)
+        if missing_columns:
+            raise ValueError(
+                "sector index CSV is missing required columns: "
+                f"{', '.join(sorted(missing_columns))}"
+            )
+
+        rows = []
+        seen_years = set()
+        for line, row in enumerate(reader, start=2):
+            if None in row:
+                raise ValueError(
+                    f"line {line}: row contains more values than the header"
+                )
+
+            fiscal_year = _integer(row, "fiscal_year", line, minimum=1900)
+            if fiscal_year in seen_years:
+                raise ValueError(
+                    f"line {line}: duplicate sector index row for {fiscal_year}"
+                )
+            seen_years.add(fiscal_year)
+
+            n_firms = _integer(row, "n_firms", line, minimum=1)
+            firms = tuple(_required_text(row, "firms", line).split())
+            if len(firms) != n_firms or len(set(firms)) != n_firms:
+                raise ValueError(
+                    f"line {line}: firms must contain {n_firms} unique ticker(s)"
+                )
+            non_core_firms = sorted(set(firms) - SECTOR_FIRM_TICKERS)
+            if non_core_firms:
+                raise ValueError(
+                    f"line {line}: sector index includes non-core ticker(s): "
+                    f"{', '.join(non_core_firms)}"
+                )
+            rows.append(
+                SectorYearIndex(
+                    fiscal_year=fiscal_year,
+                    n_firms=n_firms,
+                    ai_ew=_float(row, "ai_ew", line, minimum=0, maximum=100),
+                    ai_cw=_float(row, "ai_cw", line, minimum=0, maximum=100),
+                    total_public_float_usd=_integer(
+                        row, "total_public_float_usd", line, minimum=1
+                    ),
+                    firms=firms,
+                )
+            )
+
+    if not rows:
+        raise ValueError("sector index CSV contains no fiscal-year rows")
+    return tuple(sorted(rows, key=lambda row: row.fiscal_year))
+
+
 def validate_firm_labels(
     scores: Sequence[CompanyYearScore],
-    firms: Sequence[Mapping[str, str]],
+    firm_labels: Mapping[str, str] = FIRM_LABELS,
 ) -> None:
     """Ensure every score ticker maps to the dashboard's firm selector labels."""
-    labels = {firm["ticker"]: firm["company"] for firm in firms}
     for score in scores:
-        expected_company = labels.get(score.ticker)
+        expected_company = firm_labels.get(score.ticker)
         if expected_company is None:
             raise ValueError(f"score file contains unknown ticker {score.ticker}")
         if expected_company != score.company:

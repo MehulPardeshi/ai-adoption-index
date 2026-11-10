@@ -1,6 +1,6 @@
 # Dashboard visual style guide
 
-This guide defines the visual direction for the Streamlit dashboard prototype. It is a
+This guide defines the visual direction for the Streamlit dashboard. It is a
 maintainable starting point, not a claim that the dashboard is a finished research product.
 The executable color tokens, font stacks, chart palette, and Streamlit CSS live in
 [`theme.py`](./theme.py); the app imports them rather than maintaining a second theme.
@@ -9,9 +9,8 @@ The executable color tokens, font stacks, chart palette, and Streamlit CSS live 
 
 - **Professional and research-oriented:** clear hierarchy, restrained color, readable tables.
 - **Minimalist, with straight edges:** use square corners and thin borders, not rounded cards.
-- **Explain the story:** visual hierarchy should make the selected firm, fictional records,
-  record details, and cross-firm comparison easy to follow.
-- **Demo-only boundary:** styling must not make invented examples look like verified findings.
+- **Explain the story:** make the six-firm sector trend and individual company scores easy to compare.
+- **Keep limits visible:** styling must not make disclosure scores look like verified firm-wide adoption.
 
 ## Color tokens
 
@@ -51,21 +50,12 @@ the blue token; body text remains charcoal.
 - Keep Streamlit's top toolbar controls available, but give the toolbar a transparent
   background and let the app use normal document scrolling so the toolbar scrolls away with
   the page instead of appearing as a persistent white strip.
-- Selected firm chips in the comparison multi-select use the dashboard blue accent with white,
+- Firm chips in the company multi-select use the dashboard blue accent with white,
   high-contrast labels and visible remove controls.
-- Present fictional use cases as independently expandable cards rather than a record table
-  plus a second selector. Use a pale-blue stack behind individual white cards. Each card
-  header has a left-aligned title and vertically centered stage and quarter badges, with a
-  single blue dropdown control on the right. Expanded cards get a stronger blue outline and
-  show the example area, fictional summary/detail, and no-source notice. Keep the evidence
-  preview within the card bounds and allow its copy to wrap on narrow screens. Cards remain
-  independently openable and the most recent starts open.
 - Tables should prioritize concise labels, clear column headings, and readable body text.
-- Charts use the executable palette in `theme.py`; label every series and describe demo counts as
-  fictional records, never as actual company adoption or performance.
-- Timeline lines represent cumulative counts of fictional fixture records only. Label both the
-  axis and chart description so they cannot be mistaken for adoption or performance trends.
-- Keep visible demo disclaimers and evidence limitations prominent throughout the journey.
+- Charts use the executable palette in `theme.py`; label each data series and describe the six-firm
+  coverage clearly. Do not frame the proof-of-concept sample as a financial-sector census.
+- Keep the mixed human/AI-draft label coverage and absence of passage-level citations visible.
 
 ## Streamlit implementation notes
 

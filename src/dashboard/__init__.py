@@ -1,1 +1,1 @@
-"""Streamlit dashboard with preliminary SEC scores and fictional UI examples."""
+"""Streamlit dashboard for consensus-based SEC scores and sector indexes."""

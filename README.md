@@ -6,7 +6,7 @@
 
 - **Course:** 95-891 Introduction to AI, CMU Heinz College, Fall 2026, Section C. Team 5 / Project 5. TA: Hengkai Zheng.
 - **Client:** Julie Agnew, William & Mary. The dataset feeds a book chapter on **AI in retirement**, so retirement plan providers and recordkeepers are the primary sector.
-- **Central caveat:** *mentioning* AI in a filing is not the same as *using* AI. The index scores evidence of use, and a person checks the AI's labels.
+- **Central caveat:** *mentioning* AI in a filing is not the same as *using* AI. Current scores use human-agreed labels for 80 of 277 passages; the rest retain AI-draft labels.
 
 ## 👋 Start here (everyone)
 1. **What should I do?** See the pinned issue [#45 "Who does what"](https://github.com/MehulPardeshi/ai-adoption-index/issues/45) or [`memory/11-action-items.md`](memory/11-action-items.md). Each task is an issue on the [project board](https://github.com/users/MehulPardeshi/projects/1).
@@ -22,7 +22,7 @@
 | Labels: 80 passages × 3 raters, agreed labels for the 58 disagreements | ✅ Nov 7 |
 | Agent (DeepSeek, 7 tools, guardrails) | ✅ runs end to end; round 2 scored against the agreed labels: 81% on unseen passages, 0 overclaims (#147); ~75-firm run next (#133) |
 | All 6 evaluation checks | ✅ done ([evaluation plan](docs/part3-metrics/evaluation_plan.md)) |
-| Dashboard (Streamlit) | ✅ prototype; switching to the human-agreed scores (#132); hosting on Streamlit Community Cloud (#30) |
+| Dashboard (Streamlit) | ✅ consensus-based company scores plus equal-/market-cap-weighted six-firm overview (#132); hosting on Streamlit Community Cloud (#30) |
 | Sector index (equal- and market-cap-weighted) | ✅ v0 on the 6 PoC firms (#146): FY2025 11.2 equal-weighted, 8.0 cap-weighted; ~75 firms + dashboard next (#134) |
 | **Julie follow-up** | **Tue Nov 10, 7 pm ET** ([prep](docs/tp2/julie_nov10_prep.md)) |
 | **TP2: progress report** | **due Fri Nov 13, 5 pm** ([draft](docs/tp2/progress_report_draft.md)) |
@@ -56,6 +56,8 @@ cp .env.example .env                          # only needed for the agent: add D
 | Check how robust the ranking is | `python3 -m src.eval.check4_sensitivity --labels docs/part3-metrics/adjudication/labels_v0_plus_consensus.csv` |
 
 The full refresh routine (download → agent → human review → score → dashboard → check) is in the skill file [`skills/ai-adoption-index/SKILL.md`](skills/ai-adoption-index/SKILL.md). Agent details are in [`docs/part6-agent/agent_design.md`](docs/part6-agent/agent_design.md).
+
+The dashboard reads individual annual scores from `data/processed/sec/company_scores_consensus.csv` and the six-firm sector series from `data/processed/sec/sector_index.csv`. It hides partial FY2026, keeps unavailable company-years distinct from zero, and does not provide passage-level evidence drill-down.
 
 ## Where things live
 | Folder | What's in it |

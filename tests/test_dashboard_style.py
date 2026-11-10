@@ -5,7 +5,6 @@ from src.dashboard.theme import (
     CHART_PALETTE,
     COLORS,
     HEADING_FONT,
-    STAGE_COLORS,
     THEME_CSS,
     book_title,
 )
@@ -46,21 +45,11 @@ class DashboardStyleTests(unittest.TestCase):
         self.assertIn("fonts.googleapis.com/css2", THEME_CSS)
         self.assertIn("border-radius: 0 !important", THEME_CSS)
         self.assertIn("outline: 3px solid var(--dashboard-accent)", THEME_CSS)
-        self.assertIn(".st-key-use_case_stack", THEME_CSS)
-        self.assertIn('[class*="st-key-use_case_card_open"]', THEME_CSS)
-        self.assertIn("border: 2px solid var(--dashboard-accent)", THEME_CSS)
-        self.assertIn(".stButton button:focus-visible", THEME_CSS)
-        self.assertIn(".stage-in_use", THEME_CSS)
-        self.assertIn(".quarter-badge", THEME_CSS)
+        self.assertIn(
+            "a:focus-visible, button:focus-visible, [role=\"combobox\"]:focus-visible",
+            THEME_CSS,
+        )
         self.assertIn("text-decoration: underline", THEME_CSS)
-        self.assertIn('[class*="st-key-use_case_card_open"] .stButton button::after', THEME_CSS)
-        self.assertIn('content: ""', THEME_CSS)
-        self.assertIn("clip: rect(0, 0, 0, 0) !important", THEME_CSS)
-        self.assertIn("border-right: 2px solid var(--dashboard-accent)", THEME_CSS)
-        self.assertIn('.stHorizontalBlock [data-testid="stMarkdownContainer"]', THEME_CSS)
-        self.assertIn("transform: rotate(45deg)", THEME_CSS)
-        self.assertIn("transform: rotate(225deg)", THEME_CSS)
-        self.assertNotIn(".use-case-caret", THEME_CSS)
 
     def test_scrolling_canvas_uses_consistent_light_background(self):
         self.assertIn(
@@ -75,7 +64,6 @@ class DashboardStyleTests(unittest.TestCase):
 
     def test_disclaimers_are_compact_and_keep_the_yellow_fyi_surface(self):
         self.assertIn(".st-key-global_disclaimer [data-testid=\"stAlert\"]", THEME_CSS)
-        self.assertIn(".st-key-score_disclaimer [data-testid=\"stAlert\"]", THEME_CSS)
         self.assertIn("background: #FFF8DB !important", THEME_CSS)
         self.assertIn("font-size: 0.875rem !important", THEME_CSS)
         self.assertIn("padding: 0.4rem 0.7rem !important", THEME_CSS)
@@ -98,17 +86,36 @@ class DashboardStyleTests(unittest.TestCase):
         self.assertIn("background: var(--dashboard-accent-hover) !important", THEME_CSS)
         self.assertIn("outline: 2px solid var(--dashboard-structural)", THEME_CSS)
 
-    def test_evidence_preview_stays_within_card_and_wraps(self):
-        self.assertIn("box-sizing: border-box", THEME_CSS)
-        self.assertIn("max-width: 100%", THEME_CSS)
-        self.assertIn("margin: 0.3rem 0.45rem 0", THEME_CSS)
-        self.assertIn("overflow-wrap: anywhere", THEME_CSS)
-        self.assertIn("padding: 0.45rem 0.55rem 1rem", THEME_CSS)
+    def test_sector_help_buttons_match_company_help_button_style(self):
+        self.assertIn(".st-key-score_help_ai_use_score button", THEME_CSS)
+        for key in (
+            "sector_help_button_fiscal_year",
+            "sector_help_button_firms_in_index",
+            "sector_help_button_equal_weighted_score",
+            "sector_help_button_market_cap_weighted_score",
+            "sector_help_button_public_float_usd",
+            "sector_help_fiscal_year",
+            "sector_help_firms_in_index",
+            "sector_help_equal_weighted_score",
+            "sector_help_market_cap_weighted_score",
+            "sector_help_public_float_usd",
+        ):
+            self.assertIn(
+                f'div.st-key-{key} [data-testid="stBaseButton-secondary"]',
+                THEME_CSS,
+            )
+        self.assertIn("width: 2rem !important", THEME_CSS)
+        self.assertIn("height: 2rem !important", THEME_CSS)
+        self.assertIn("border-radius: 50% !important", THEME_CSS)
+        self.assertIn("color: var(--dashboard-accent) !important", THEME_CSS)
+        self.assertIn(
+            'div.st-key-sector_help_row [data-testid="stHorizontalBlock"]',
+            THEME_CSS,
+        )
+        self.assertIn("flex-wrap: nowrap !important", THEME_CSS)
+        self.assertIn("height: 4.5rem", THEME_CSS)
 
-    def test_chart_stages_use_theme_colors(self):
-        self.assertEqual(STAGE_COLORS["Exploring"], COLORS["structural"])
-        self.assertEqual(STAGE_COLORS["Pilot"], COLORS["accent"])
-        self.assertEqual(STAGE_COLORS["In use"], COLORS["chart_neutral"])
+    def test_charts_use_the_theme_palette(self):
         self.assertEqual(len(CHART_PALETTE), 5)
         self.assertEqual(CHART_PALETTE[0], COLORS["structural"])
         self.assertEqual(CHART_PALETTE[1], COLORS["accent"])
