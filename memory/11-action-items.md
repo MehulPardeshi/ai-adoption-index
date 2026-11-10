@@ -36,7 +36,7 @@
 | ✅ Eval plan v1.2 final · labeling kit · red-team set v0 · TP2 outline · Julie talking points · Dong brief · Oct 23 repo check · merged #63–#65, #69–#72 | Done Oct 18–23 |
 | ✅ Labels collected (#79, #82, Logan's workbook converted); #66 and #68 merged; check 2 run: use/no-use κ 0.60–0.72 (meets bar), evidence-level Fleiss κ 0.27 (below bar; [results](../docs/part3-metrics/labeling_round_1/results_round1.md)) | Done Oct 27 |
 | ✅ Check 3 (Shu, #85): on the 29 passages outside the tuning set, 96% exact vs. the human majority, κ 0.94, overclaim 0% (5% without the guardrail) | Done Oct 27 |
-| ✅ Check 3 on the **agreed labels**, rounds 1+2 (Shu, #147): 48 unseen passages, 81% exact (κ 0.73), 85% use vs. no use, 0 overclaims, 7 cautious misses (3 already held by the guardrail → 90%); round 2 alone 74%. Replaces 96% in TP2, slide 20 and the Responsible AI section | Done Nov 9 |
+| ✅ Check 3 on the **agreed labels**, rounds 1+2 (Shu, #147): 48 unseen passages, 81% exact (κ 0.73), 85% use vs. no use, 0 overclaims, 7 cautious misses (3 already held by the guardrail → 90%); round 2 alone 74%. Replaces 96% in TP2, the slides (now 18–19) and the Responsible AI section | Done Nov 9 |
 | ✅ Round 1 lessons + round 2 built: cheat sheet v2 (matches the frozen codebook, practice set), 30-passage targeted sample, workbook; scripts take `--round 2` | Done Oct 27 |
 | ✅ Round 2 issue (#95) explains the unclear rule (the "about AI" N/X rule, not the use question) | Done Oct 28 |
 | ✅ #95 Round 2 merged and scored; Logan's Numbers file converted · Adjudication: ✅ agreed labels merged (#124, Yen-Chu); 80-passage consensus set built. 9 scenarios still to fill (raters) | Done Nov 4 / Nov 8–9 |
@@ -50,7 +50,7 @@
 | ✅ #77 Live 22-case guardrail run (Shu, #117) scored ([results](../docs/part3-metrics/check6_results.md)): 0/18 unsafe with the guardrail, 2/18 without; 0/4 false blocks | Done Nov 5 |
 | #39 / #40 TP2: combine the paragraphs and take the board snapshot; backup submitter | Nov 12–13 |
 | TP2 sections 1, 3, 4, 7 updated through round 2; check the drafts and remove the markers at compile; trim everyone's paragraphs to 1–3 pages (agreed Nov 8) | Thu Nov 12 |
-| ✅ Slides for Tuesday, now 18–19 after the Nov 10 reorder to match the agenda (how we check results; what the human labels changed; final numbers Nov 9) | Done Nov 8–10 |
+| ✅ Slides for Tuesday, now 18–19 after the Nov 10 reorder to match the agenda (how we check results; what the human labels changed; final numbers Nov 9) · ✅ deck check Nov 10: slide 15 now lists transcripts as "Future work" (Nov 8 decision), slide 21 has Julie's use-cases-next-to-scores question | Done Nov 8–10 |
 | Sync Logan in the chat on the Nov 8 call | Mon Nov 9 |
 | ✅ TP3: SKILL.md draft ([`skills/ai-adoption-index/`](../skills/ai-adoption-index/SKILL.md), Shu to review) · paper-discussion expectations + draft + proposed TP3 split ([plan](../docs/tp3/paper_discussion_plan.md); team to agree). ✅ Responsible AI section drafted ([responsible_ai.md](../docs/tp3/responsible_ai.md)) · ✅ board synced Nov 9 (#96, #97 closed; #132–#135 and #137–#143 added; TP3 milestone; PR #131 merged; README rewritten #136) · still: review the paper write-up once Logan drafts it | Done Nov 9 |
 
@@ -108,10 +108,10 @@
 | ✅ Labels round 1 (#79) · agenda to Julie · practice-run invite · transition slides · dataset summary metrics on the SEC tab (#93) | Done Oct 27–29 |
 | ✅ Hosted the Julie meeting and showed the dashboard | Done Oct 29 |
 | ✅ #98 Julie follow-up set: Tue Nov 10, 7–8 pm, Zoom; Julie and Dr. Chung accepted. Her Nov 2 email questions (10-K vs. 10-Q on the dashboard; use cases next to scores) are unanswered, so ask them on Tuesday | Done Nov 4–8 |
-| TP2 section 6 (client meeting): confirm or replace the draft (can now cover the Nov 10 follow-up too) · ✅ dashboard paragraph (#112) · ✅ labels (#111) | Wed Nov 11 |
+| TP2 section 6 (client meeting): confirm or replace the draft (can now cover the Nov 10 follow-up too) · ✅ dashboard paragraph (#112), but update it for #152 (fictional tabs are gone; consensus scores + sector tab now) · ✅ labels (#111) | Wed Nov 11 |
 | ✅ #96 Dashboard (Julie's feedback): click-to-open definitions, FY2026 hidden, story tab tidied (merged #126). Not yet on the human-agreed labels (see the Nov 8 decision) · ✅ agenda as a doc, email draft ready · ✅ slide deck copy in the Drive (client materials → TP2 checkpoint) | Done Nov 8 |
 | Send Julie the agenda (add the Nov 8 changes, incl. "definition of done" for handover) | Mon Nov 9 morning |
-| Dashboard on the consensus scores (`data/processed/sec/company_scores_consensus.csv`, #129) with a "80 of 277 human-checked" note · screen-record the dashboard | Mon Nov 9 / before Tue |
+| ✅ #132 Dashboard on the consensus scores (`data/processed/sec/company_scores_consensus.csv`) with the "80 of 277 human-checked" note, plus a sector-overview tab (equal- and cap-weighted, six firms); mock data removed (PR #152, merged Nov 10) · ✅ screen recording in the deck (slide 11) | Done Nov 10 |
 | #30 Host on **Streamlit Community Cloud** (decided Nov 8) | Fri Nov 13 |
 | Ask Dr. Chung (client-communication lead; Mehul asked Nov 9): is a README section + poster panel enough for the TP3 paper, does a working paper (Dong) count, and how should we hand over to Julie? | Tue Nov 10 (or email) |
 
