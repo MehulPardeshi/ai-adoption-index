@@ -52,6 +52,7 @@ cp .env.example .env                          # only needed for the agent: add D
 | Rebuild the agreed labels | `python3 -m src.eval.make_consensus_labels` |
 | Compare the agent with the agreed labels (check 3) | `python3 -m src.eval.check3_consensus` |
 | Score companies | `python3 -m src.index.score_companies --labels docs/part3-metrics/adjudication/labels_v0_plus_consensus.csv --out data/processed/sec/company_scores_consensus.csv` |
+| Sector index (AI-EW + AI-CW, #134) | `python3 -m src.index.sector_index` |
 | Check how robust the ranking is | `python3 -m src.eval.check4_sensitivity --labels docs/part3-metrics/adjudication/labels_v0_plus_consensus.csv` |
 
 The full refresh routine (download → agent → human review → score → dashboard → check) is in the skill file [`skills/ai-adoption-index/SKILL.md`](skills/ai-adoption-index/SKILL.md). Agent details are in [`docs/part6-agent/agent_design.md`](docs/part6-agent/agent_design.md).
