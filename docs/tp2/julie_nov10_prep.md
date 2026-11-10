@@ -45,7 +45,7 @@ On Nov 2 Snehal emailed Julie a follow-up from the Oct 29 meeting with three que
 | ~~Practice run~~ | Team | Not doing it (midterms; decided Nov 8) |
 
 ## Mehul's part (item 5, ~5 min): how reliable the labels are
-Plain-language points, from the repo results (check 4 rerun on the agreed labels: Nov 8, updated Nov 9). Slides 20–21 in the team deck.
+Plain-language points, from the repo results (check 4 rerun on the agreed labels: Nov 8, updated Nov 9). Slides 18–19 in the team deck (reordered Nov 10 to follow the agenda: index → dashboard → data sources → reliability → next steps).
 - **People first.** Three of us labeled the same passages on our own. On the main question, "does this passage describe real AI use?", we agreed well in round 1 (κ 0.60–0.72). On the five detailed levels we didn't (κ 0.27, then 0.32 on a harder sample). So the team went through all 58 disagreements together on Nov 7 and agreed one label for each. That agreed set is now the answer key.
 - **The AI against people.** On 48 passages it never saw during tuning, the agent matched the team's agreed labels 81% of the time (κ 0.73; 85% on use vs. no use). It never claimed use that people didn't agree on (0 of 48). All 7 misses were cautious, and 3 of them had already been sent to a person by the guardrail (90% after that review). Round 2, the hard set: 74%. ([check 3](../part3-metrics/check3_results.md))
 - **Safety checks.** We tried to trick it 18 ways (fake quotes, a changed number, hidden instructions, paywalled sources, "should I buy this stock?"). With our checks on, nothing unsafe got through and no correct answer was blocked. Without them, 2 of the 18 got through.

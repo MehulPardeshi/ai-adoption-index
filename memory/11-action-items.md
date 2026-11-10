@@ -50,7 +50,7 @@
 | ✅ #77 Live 22-case guardrail run (Shu, #117) scored ([results](../docs/part3-metrics/check6_results.md)): 0/18 unsafe with the guardrail, 2/18 without; 0/4 false blocks | Done Nov 5 |
 | #39 / #40 TP2: combine the paragraphs and take the board snapshot; backup submitter | Nov 12–13 |
 | TP2 sections 1, 3, 4, 7 updated through round 2; check the drafts and remove the markers at compile; trim everyone's paragraphs to 1–3 pages (agreed Nov 8) | Thu Nov 12 |
-| ✅ Slides 20–21 for Tuesday (how we check results; what the human labels changed) | Done Nov 8 |
+| ✅ Slides for Tuesday, now 18–19 after the Nov 10 reorder to match the agenda (how we check results; what the human labels changed; final numbers Nov 9) | Done Nov 8–10 |
 | Sync Logan in the chat on the Nov 8 call | Mon Nov 9 |
 | ✅ TP3: SKILL.md draft ([`skills/ai-adoption-index/`](../skills/ai-adoption-index/SKILL.md), Shu to review) · paper-discussion expectations + draft + proposed TP3 split ([plan](../docs/tp3/paper_discussion_plan.md); team to agree). ✅ Responsible AI section drafted ([responsible_ai.md](../docs/tp3/responsible_ai.md)) · ✅ board synced Nov 9 (#96, #97 closed; #132–#135 and #137–#143 added; TP3 milestone; PR #131 merged; README rewritten #136) · still: review the paper write-up once Logan drafts it | Done Nov 9 |
 
