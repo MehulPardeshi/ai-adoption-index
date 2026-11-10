@@ -1,0 +1,76 @@
+# Check 3: the agent vs. the team's agreed labels
+
+> **Generated** 2026-11-09 by `python3 -m src.eval.check3_consensus` (rerun it after any new agent run). **Answer key:** [`consensus_labels.csv`](adjudication/consensus_labels.csv), the evidence level the raters agreed for each of the 80 passages people labeled (round 1: 50, round 2: 30).
+> **Agent labels:** [`agent_labels_sample.csv`](../../data/processed/sec/agent_labels_sample.csv), [`agent_labels_round2.csv`](../../data/processed/sec/agent_labels_round2.csv). deepseek-flash@DeepSeek-V4.1-Flash-1017, prompt `classify-v1.5`, run 2026-10-27; deepseek-flash@DeepSeek-V4.1-Flash-1017, prompt `classify-v1.5`, run 2026-11-09. Guardrails on.
+> **Tuning set:** the 110 passages in [`agent_labels_v1.csv`](../../data/processed/sec/agent_labels_v1.csv) the prompt was tuned on (Oct 23). **Unseen** = the rest, the honest test.
+
+## Agent vs. agreed labels
+
+| Passages | n | Exact level | κ (level) | Use vs. no use | κ (use) | **Overclaim** | Underclaim | Overclaim without guardrail | Held for review | Scenario overlap |
+|---|---|---|---|---|---|---|---|---|---|---|
+| Round 1, **unseen** | 29 | 25/29 (86%) | 0.79 | 26/29 (90%) | 0.78 | 0/29 (0%) | 3/29 (10%) | 1/29 (3%) | 1 | 0.72 (n=16) |
+| Round 1, tuning set | 21 | 14/21 (67%) | 0.51 | 20/21 (95%) | 0.90 | 0/21 (0%) | 1/21 (5%) | 1/21 (5%) | 1 | 0.64 (n=11) |
+| Round 2, **unseen** | 19 | 14/19 (74%) | 0.60 | 15/19 (79%) | 0.54 | 0/19 (0%) | 4/19 (21%) | 0/19 (0%) | 3 | 0.55 (n=4) |
+| Round 2, tuning set | 11 | 4/11 (36%) | 0.22 | 8/11 (73%) | 0.30 | 0/11 (0%) | 3/11 (27%) | 0/11 (0%) | 1 | 0.00 (n=1) |
+| **All rounds, unseen** | 48 | 39/48 (81%) | 0.73 | 41/48 (85%) | 0.71 | 0/48 (0%) | 7/48 (15%) | 1/48 (2%) | 4 | 0.68 (n=20) |
+| All rounds, all passages | 80 | 57/80 (71%) | 0.59 | 69/80 (86%) | 0.73 | 0/80 (0%) | 11/80 (14%) | 2/80 (2%) | 6 | 0.65 (n=32) |
+
+**Overclaim** = the agent says use (D1/D2) where the agreed label is N, P or X; bar ≤ 5%. **Underclaim** = the reverse. κ = Cohen's kappa (bar ≥ 0.60); on small groups read it as a direction only. *Overclaim without guardrail* scores the model's own call before `verify_label`. *Scenario overlap* = mean Jaccard of the area codes where both sides gave D2/D1/P.
+
+## The draft labels on the same passages (what the dashboard's preliminary scores read)
+
+| Passages | n | Exact level | κ (level) | Use vs. no use | κ (use) | Overclaim | Underclaim | Scenario overlap |
+|---|---|---|---|---|---|---|---|---|
+| Round 1 | 50 | 41/50 (82%) | 0.73 | 48/50 (96%) | 0.92 | 0/50 (0%) | 2/50 (4%) | 0.58 (n=30) |
+| Round 2 | 30 | 16/30 (53%) | 0.34 | 21/30 (70%) | 0.29 | 0/30 (0%) | 9/30 (30%) | 0.00 (n=3) |
+| All rounds | 80 | 57/80 (71%) | 0.59 | 69/80 (86%) | 0.73 | 0/80 (0%) | 11/80 (14%) | 0.53 (n=33) |
+
+## Where the guardrail mattered
+
+| passage_id | Round | Set | Model's call | Confidence | Agreed | Effect |
+|---|---|---|---|---|---|---|
+| BAC_2025-12-31_10-K_00247 | 1 | tuning | D1 | 0.68 | N | stopped an overclaim |
+| COF_2024-12-31_10-K_00357 | 1 | unseen | D1 | 0.6 | P | stopped an overclaim |
+| BAC_2023-12-31_10-K_00282 | 2 | unseen | D1 | 0.6 | D1 | held a correct use (now an underclaim) |
+| C_2026-03-31_10-Q_00951 | 2 | unseen | D1 | 0.68 | D1 | held a correct use (now an underclaim) |
+| COF_2023-12-31_10-K_00349 | 2 | unseen | D1 | 0.66 | D1 | held a correct use (now an underclaim) |
+| COF_2025-12-31_10-K_00469 | 2 | tuning | D1 | 0.68 | D1 | held a correct use (now an underclaim) |
+
+## Every difference from the agreed label (23)
+
+Also in [`check3_differences.csv`](check3_differences.csv), with the agent's quote.
+
+| passage_id | Round | Set | Kind | Agent | Confidence | Guardrail | Agreed | Draft |
+|---|---|---|---|---|---|---|---|---|
+| BAC_2024-12-31_10-K_00279 | 1 | unseen | underclaim | N | 0.88 | pass | D1 ENT | D1 |
+| COF_2025-06-30_10-Q_01555 | 1 | unseen | underclaim | X | 0.62 | pass | D1 ENT | N |
+| SCHW_2026-03-31_10-Q_00047 | 1 | unseen | underclaim | N | 0.72 | pass | D1 ENT | P |
+| BAC_2023-12-31_10-K_00282 | 2 | unseen | underclaim | N | 0.6 | needs_review | D1 ENT | D1 |
+| COF_2023-12-31_10-K_00349 | 2 | unseen | underclaim | N | 0.66 | needs_review | D1 CX;FRAUD;GOV;OPS;RISKM;TALENT | N |
+| COF_2024-12-31_10-K_00304 | 2 | unseen | underclaim | X | 0.8 | pass | D1 ENT | N |
+| C_2026-03-31_10-Q_00951 | 2 | unseen | underclaim | N | 0.68 | needs_review | D1 OPS;RISKM | N |
+| BAC_2025-12-31_10-K_00281 | 1 | tuning | underclaim | N | 0.78 | pass | D1 ENT | D1 |
+| COF_2025-12-31_10-K_00310 | 2 | tuning | underclaim | X | 0.85 | pass | D1 ENT | N |
+| COF_2025-12-31_10-K_00374 | 2 | tuning | underclaim | N | 0.74 | pass | D1 ENT | N |
+| COF_2025-12-31_10-K_00469 | 2 | tuning | underclaim | N | 0.68 | needs_review | D1 ENT | N |
+| COF_2024-12-31_10-K_00357 | 1 | unseen | level differs | N | 0.6 | needs_review | P CREDIT;FRAUD;MKT;OPS;RISKM | N |
+| COF_2023-12-31_10-K_00354 | 2 | unseen | level differs | N | 0.88 | pass | P GOV;SURV | N |
+| COF_2025-12-31_10-K_00480 | 1 | tuning | level differs | N | 0.84 | pass | P OPS;PROD;TALENT | N |
+| C_2025-12-31_10-K_00131 | 1 | tuning | level differs | D2 OPS | 0.9 | pass | D1 ENT;GOV;OPS | D2 |
+| C_2025-12-31_10-K_00831 | 1 | tuning | level differs | D2 GOV | 0.88 | pass | D1 GOV | D2 |
+| C_2025-12-31_10-K_01476 | 1 | tuning | level differs | P ENT | 0.7 | pass | N | P |
+| JPM_2025-12-31_10-K_00150 | 1 | tuning | level differs | D1 TALENT | 0.78 | pass | D2 TALENT | D1 |
+| WFC_2025-12-31_10-K_01394 | 1 | tuning | level differs | N | 0.85 | pass | P ENT;PROD;TALENT | N |
+| BAC_2025-12-31_10-K_00264 | 2 | tuning | level differs | N | 0.76 | pass | P | N |
+| C_2025-12-31_10-K_00670 | 2 | tuning | level differs | N | 0.87 | pass | P CYBER;GOV;OPS;RISKM | N |
+| JPM_2025-12-31_10-K_00493 | 2 | tuning | level differs | N | 0.9 | pass | P GOV;OPS;SURV | N |
+| JPM_2025-12-31_10-K_00547 | 2 | tuning | level differs | N | 0.8 | pass | P OPS;TALENT | N |
+
+## Run facts
+
+- `data\processed\sec\agent_labels_round2.csv`: 30 passages, run 2026-11-09T17:28:36, deepseek-flash@DeepSeek-V4.1-Flash-1017, prompt `classify-v1.5`; 19 new model calls, 11 from the cache; tokens in 51706 (cached 43776), out 6636; 65.0 s.
+
+## Notes
+- Round 2's 30 passages were picked on purpose to be hard (the rule questions from round 1), so its numbers are expected to be lower than round 1's ([round 2 results](labeling_round_2/results_round2.md)).
+- The first check 3 compared the agent with the **human majority** (96% on 25 unseen passages, [report](labeling_round_1/check3_agent.md)). The agreed labels are stricter: they cover all passages, including the 3-way splits the majority left out.
+- Temperature 0 is not fully deterministic: a fresh run can move a label near the 0.70 threshold (round 1 overclaim was 0–2% across two runs). Cached answers make a rerun from the same machine identical.
