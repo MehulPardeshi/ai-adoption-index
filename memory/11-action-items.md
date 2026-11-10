@@ -35,7 +35,8 @@
 |---|---|
 | ✅ Eval plan v1.2 final · labeling kit · red-team set v0 · TP2 outline · Julie talking points · Dong brief · Oct 23 repo check · merged #63–#65, #69–#72 | Done Oct 18–23 |
 | ✅ Labels collected (#79, #82, Logan's workbook converted); #66 and #68 merged; check 2 run: use/no-use κ 0.60–0.72 (meets bar), evidence-level Fleiss κ 0.27 (below bar; [results](../docs/part3-metrics/labeling_round_1/results_round1.md)) | Done Oct 27 |
-| ✅ Check 3 (Shu, #85): on the 29 passages outside the tuning set, 96% exact, κ 0.94, overclaim 0% (5% without the guardrail) | Done Oct 27 |
+| ✅ Check 3 (Shu, #85): on the 29 passages outside the tuning set, 96% exact vs. the human majority, κ 0.94, overclaim 0% (5% without the guardrail) | Done Oct 27 |
+| ✅ Check 3 on the **agreed labels**, rounds 1+2 (Shu, #147): 48 unseen passages, 81% exact (κ 0.73), 85% use vs. no use, 0 overclaims, 7 cautious misses (3 already held by the guardrail → 90%); round 2 alone 74%. Replaces 96% in TP2, slide 20 and the Responsible AI section | Done Nov 9 |
 | ✅ Round 1 lessons + round 2 built: cheat sheet v2 (matches the frozen codebook, practice set), 30-passage targeted sample, workbook; scripts take `--round 2` | Done Oct 27 |
 | ✅ Round 2 issue (#95) explains the unclear rule (the "about AI" N/X rule, not the use question) | Done Oct 28 |
 | ✅ #95 Round 2 merged and scored; Logan's Numbers file converted · Adjudication: ✅ agreed labels merged (#124, Yen-Chu); 80-passage consensus set built. 9 scenarios still to fill (raters) | Done Nov 4 / Nov 8–9 |
