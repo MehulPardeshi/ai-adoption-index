@@ -28,7 +28,7 @@
 | **TP2: progress report** | **due Fri Nov 13, 5 pm** ([draft](docs/tp2/progress_report_draft.md)) |
 | **TP3: final presentation, paper discussion, SKILL.md, handover** | **Thu Dec 3** ([plan and split](docs/tp3/paper_discussion_plan.md)) |
 
-**Current scores (FY2025, human-agreed labels):** Citi 53 (benchmark), Capital One 20, Principal 18, Wells Fargo 11, JPMorgan 6, Schwab 6, Bank of America 3. Ranking is stable (ρ 0.99–1.00). See [check 4](docs/part3-metrics/check4_results.md).
+**Current scores (FY2025, human-agreed labels):** Citi 53 (benchmark), Capital One 20, Principal 18, Wells Fargo 11, JPMorgan 6, Schwab 6, Bank of America 6. All 80 human-checked passages complete. Ranking is stable when weights change (ρ 0.95–1.00). Sector index FY2025: 11.2 equal-weighted, 8.0 cap-weighted. See [check 4](docs/part3-metrics/check4_results.md).
 
 ## Setup (5 minutes)
 ```bash

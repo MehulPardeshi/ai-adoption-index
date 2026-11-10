@@ -1,7 +1,24 @@
 # Check 4: do the scores make sense? (first run Oct 27; rerun on human labels Nov 8)
 
 > **Run:** `python3 -m src.eval.check4_sensitivity` ([script](../../src/eval/check4_sensitivity.py)), by Mehul. **Labels:** the AI-assisted v0 draft labels (the only labels covering every filing). Rerun with `--labels` on the human consensus set after adjudication (Nov 1).
-> **Status:** first run below; rerun on the human consensus labels on Nov 8, **updated Nov 9 with 7 more scenarios (next section)**. Part (c), face validity, is covered by the deck's "what filings miss" slide (Erica and LLM Suite appear in no filing).
+> **Status:** first run below; rerun on the human consensus labels on Nov 8, **final Nov 9 with all 80 scenarios in (next section)**. Part (c), face validity, is covered by the deck's "what filings miss" slide (Erica and LLM Suite appear in no filing).
+
+## Final (Nov 9): all scenarios in (#145)
+The raters' last two scenarios (#145): `BAC_2025-12-31_10-K_00264` P → OPS;SURV and `SCHW_2024-12-31_10-K_00562` D1 → CREDIT;FRAUD;OPS;RISKM. Every one of the 80 consensus passages now has its scenarios. Rerun by Mehul; the output matches the scores file Yen-Chu committed in #145.
+
+| Company (FY2025) | Draft | Nov 9 (7 of 9) | **Final** | ENT = 0 | D2 weight 2 | Strict |
+|---|---|---|---|---|---|---|
+| Citigroup (benchmark) | 48 | 53 | **53** | 44 | 38 | 45 |
+| Capital One | 3 | 20 | **20** | 17 | 20 | 0 |
+| Principal | 0 | 18 | **18** | 9 | 12 | 18 |
+| Wells Fargo | 9 | 11 | **11** | 8 | 11 | 0 |
+| JPMorgan Chase | 3 | 6 | **6** | 6 | 6 | 0 |
+| Schwab | 0 | 6 | **6** | 3 | 6 | 0 |
+| Bank of America | 6 | 3 | **6** | 3 | 6 | 0 |
+
+Only Bank of America moves (3 → 6, the P passage's two scenarios). Schwab's FY2024 score goes from 0 to 12 (the D1 passage). Rank agreement with the final baseline (Spearman ρ, 7 firms): ENT = 0 **0.97** · D2 weight 2 **1.00** · strict 0.69 (6 PoC firms: 0.95 · 1.00 · 0.42). Dong benchmark unchanged (talk 0.78, use 0.58). **Conclusions hold:** weights and the ENT rule barely move the order; the strict rule (count only specific use) is the one choice that matters, which is the question for Julie.
+
+Sector index built on these scores (#146, Yen-Chu): FY2025 equal-weighted 11.2, cap-weighted 8.0 ([`sector_index.csv`](../../data/processed/sec/sector_index.csv)).
 
 ## Update Nov 9: scenarios added for 7 of the 9 passages (#128)
 The raters added scenarios for 7 of the 9 passages that had none (#128, Yen-Chu, Logan and Snehal). Two still need one: `BAC_2025-12-31_10-K_00264` (P) and `SCHW_2024-12-31_10-K_00562` (D1). Same commands as below. The scores the dashboard can use are in [`company_scores_consensus.csv`](../../data/processed/sec/company_scores_consensus.csv).
