@@ -43,6 +43,7 @@
 | ✅ Check 4 first run ([results](../docs/part3-metrics/check4_results.md)): ranking robust to weights; strict-only scores all 6 firms 0 from filings; Dong tracks talk (ρ 0.78) not use (0.14) · ✅ guardrail set reviewed against the frozen codebook (22 cases) | Done Oct 27 |
 | ✅ Check 1 done and confirmed (precision 98.9%, no clear recall miss; [results](../docs/part3-metrics/check1/results.md)) · ✅ check 5 dry run matched · ✅ check 6 replay · ✅ TP2 sections drafted | Done Nov 3 |
 | ✅ #101 Check 4 rerun on the human consensus labels ([results](../docs/part3-metrics/check4_results.md)); updated Nov 9 with 7 more scenarios (#129): Capital One 20, Principal 18, ranking robust (ρ 0.99–1.00); consensus scores file for the dashboard. Rerun once the last 2 scenarios are in | Done Nov 8–9 |
+| ✅ Check 4 final, all 80 scenarios in (#145; rerun Nov 9): FY2025 C 53, COF 20, PFG 18, WFC 11, JPM 6, SCHW 6, BAC 6 (was 3); ρ 0.95–1.00, strict 0.69. Sector index v0 merged (#146): FY2025 EW 11.2, CW 8.0 | Done Nov 9 |
 | ✅ #102 Check 5: Logan's independent rerun matched ([results](../docs/part3-metrics/check5_rerun.md)) | Done Nov 8 |
 | ✅ Presented "how we check results" and Logan's data rules (Logan absent) to Julie | Done Oct 29 |
 | ✅ Follow-up-email points for Snehal (strict-vs-broad question; scores combine 10-K + 10-Q) are in #98 | Done Oct 29 |
