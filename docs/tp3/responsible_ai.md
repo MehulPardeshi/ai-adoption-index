@@ -11,7 +11,7 @@ The main harm an AI adoption index can do is **overclaiming**: saying a company 
 - On the five detail levels we didn't (κ 0.27, then 0.32 on the harder sample). We found the unclear rule (AI risk talk marked "not about AI"), clarified it, then **met and agreed one label for every one of the 58 disagreements** (Nov 7). That 80-passage set is our answer key. ([round 1](../part3-metrics/labeling_round_1/results_round1.md), [round 2](../part3-metrics/labeling_round_2/results_round2.md))
 
 ## 2. People check the AI
-- On 29 passages the agent never saw during prompt tuning, it matched the people's majority 96% of the time (24 of 25 with a majority; κ 0.94). It overclaimed 0–2% of the time, against about 5% without our guardrails.
+- On the 48 passages the agent never saw during prompt tuning (both rounds), it matched the team's **agreed labels** 81% of the time (κ 0.73) and 85% on use vs. no use, with **0 overclaims** (1 of 48 without the guardrail; bar ≤ 5%). All 7 misses were cautious (underclaims), and 3 of them were labels the guardrail had already sent to a person; after that review it would be 90%. On round 2 alone (19 hard passages) it was 74%. ([check 3](../part3-metrics/check3_results.md); the earlier 96% was against the people's majority on 25 easier passages.)
 - **The AI errs on the cautious side.** On the 80 hardest passages, people found use or plans that the AI draft labels missed in 18; the reverse happened once. So scores built from AI labels alone lean **low**, never high. We say so on the dashboard ([check 4](../part3-metrics/check4_results.md)).
 
 ## 3. Guardrails, with vs. without (requirement 7a)
