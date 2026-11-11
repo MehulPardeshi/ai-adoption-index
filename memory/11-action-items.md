@@ -50,7 +50,7 @@
 | ✅ Presented "how we check results" and Logan's data rules (Logan absent) to Julie | Done Oct 29 |
 | ✅ Follow-up-email points for Snehal (strict-vs-broad question; scores combine 10-K + 10-Q) are in #98 | Done Oct 29 |
 | ✅ #77 Live 22-case guardrail run (Shu, #117) scored ([results](../docs/part3-metrics/check6_results.md)): 0/18 unsafe with the guardrail, 2/18 without; 0/4 false blocks | Done Nov 5 |
-| #39 / #40 TP2: combine the paragraphs and take the board snapshot; backup submitter | Nov 12–13 |
+| ✅ #39 TP2 compiled and trimmed into [`docs/tp2/progress_report.md`](../docs/tp2/progress_report.md) (~1,450 words; stale lines fixed, Nov 10 decisions in) · ✅ board cleaned (closed issues → Done) · still: Snehal's section 6 (#160), owners skim their parts, board screenshot (#40; board is private, so screenshot it or make it public), export to PDF; backup submitter | Nov 11–13 |
 | TP2 sections 1, 3, 4, 7 updated through round 2; check the drafts and remove the markers at compile; trim everyone's paragraphs to 1–3 pages (agreed Nov 8) | Thu Nov 12 |
 | ✅ Slides for Tuesday, now 18–19 after the Nov 10 reorder to match the agenda (how we check results; what the human labels changed; final numbers Nov 9) · ✅ deck check Nov 10: slide 15 now lists transcripts as "Future work" (Nov 8 decision), slide 21 has Julie's use-cases-next-to-scores question | Done Nov 8–10 |
 | Sync Logan in the chat on the Nov 8 call | Mon Nov 9 |

@@ -1,5 +1,7 @@
 # TP2 Progress Report: AI Adoption Index (Team 5): DRAFT OUTLINE
 
+> **Compiled Nov 11 into [`progress_report.md`](progress_report.md) (~1,450 words). Edit that file from now on; this draft is kept for history.**
+
 > **Due:** Fri Nov 13, 2026, 5:00 pm (moved from Nov 6; Yen-Chu submits on Canvas) · **Length:** 1–3 pages · **Compiled by:** Mehul (by Thu Nov 12)
 > **Length check (Nov 8):** this draft is about 2,700 words with the notes and placeholders; the final must fit 1–3 pages (roughly 1,200–1,500 words), so trim at compile.
 > **How we write it:** each owner writes **one short paragraph** for their section below by **Wed Nov 4**, replacing the `✍️` placeholders. Mehul combines and trims. Pre-filled facts come from the repo (last refreshed Nov 4); **update them with what actually happened by Nov 4.**
