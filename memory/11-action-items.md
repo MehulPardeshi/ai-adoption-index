@@ -62,15 +62,15 @@
 | ✅ Category review (#33) · transcript source list (#62) | Done Oct 20–23 |
 | ✅ #62 revised per Logan's 5 points (source-review table, 7 firms × 8 quarters; Motley Fool not cleared; Capital One, Wells Fargo and Schwab IR sites have no transcripts) | Done Oct 24 |
 | ✅ Bloomberg transcripts collected (team Drive only) + Bloomberg rows in #62 · labels round 1 (#82) · Capital One sentences set to D1 by default in #84 (reopen #33 if you disagree) | Done Oct 26–27 |
-| Keep the transcripts in CMU-only storage (no public text). Bloomberg cleared Nov 4 (#62); #34 waits for the team's decision on the index | Team decision |
+| Keep the transcripts in CMU-only storage (no public text). #34 closed Nov 11: transcripts out of the index (Nov 8), future work | Ongoing |
 | ✅ #97 Sector index: S&P 500 Financials, ~75 firms, public float from 10-K cover pages via SEC's API · Offered next: test the pull on our 7 firms, save the dated list | Done Nov 4 |
 | ✅ Presented the test-run findings to Julie | Done Oct 29 |
 | ✅ Labeling round 2 (#104, merged Nov 4) · ✅ TP2 blocker (#105) | Done Nov 3–4 |
 | ✅ Scenarios for 7 of the 9 passages (#128, with Logan and Snehal) | Done Nov 8 |
 | Check Canvas for the TP2 submission | Mon Nov 9 |
 | ✅ Sector index plan presented to Julie (Nov 10); v0 built on the 6 PoC firms (#146) · full ~75-firm version needs Shu's run (#134) | Done Nov 10 / full: after #133 |
-| Email Julie the cap-weighted worked example (one firm, numbers + 10-K page; Snehal: simplify, add greeting/sign-off, attach the scoring-logic slides). Julie may tweak the method | `UNCLEAR:` asap (Wed Nov 11) |
-| #157 Quick check of what the 10-Qs add beyond the 10-K (Julie prefers 10-K only if nothing material); owner `UNCLEAR:` (Yen-Chu raised it) | `UNCLEAR:` |
+| #159 Email Julie the cap-weighted worked example, with Snehal (one firm, numbers + 10-K page; Snehal: simplify, add greeting/sign-off, attach the scoring-logic slides). Julie may tweak the method | `UNCLEAR:` asap (Wed Nov 11) |
+| #157 Quick check of what the 10-Qs add beyond the 10-K (Julie prefers 10-K only if nothing material); owner `UNCLEAR:` (proposed: Yen-Chu, who raised it; also the method text for #156) | `UNCLEAR:` |
 | **Submit TP2 on Canvas** | **Fri Nov 13, 5 pm** |
 
 ### Logan Mai (Market & User Researcher / BA)
@@ -114,9 +114,9 @@
 | ✅ #98 Julie follow-up set: Tue Nov 10, 7–8 pm, Zoom; Julie and Dr. Chung accepted. Her Nov 2 email questions (10-K vs. 10-Q on the dashboard; use cases next to scores) are unanswered, so ask them on Tuesday | Done Nov 4–8 |
 | TP2 section 6 (client meeting): write it from the [Nov 10 minutes](../meetings/2026-11-10-client.md) · ✅ dashboard paragraph (#112), but update it for #152 (fictional tabs are gone; consensus scores + sector tab now) · ✅ labels (#111) | Wed Nov 11 |
 | ✅ #96 Dashboard (Julie's feedback): click-to-open definitions, FY2026 hidden, story tab tidied (merged #126). Not yet on the human-agreed labels (see the Nov 8 decision) · ✅ agenda as a doc, email draft ready · ✅ slide deck copy in the Drive (client materials → TP2 checkpoint) | Done Nov 8 |
-| ✅ Agenda to Julie; hosted the Nov 10 follow-up and demoed the dashboard | Done Nov 9–10 |
+| #160 TP2 section 6 from the Nov 10 minutes + dashboard paragraph (Wed Nov 11) · ✅ Agenda to Julie; hosted the Nov 10 follow-up and demoed the dashboard | Done Nov 9–10 |
 | #155 Dashboard: download button for the firm × year scores (CSV), agreed with Julie Nov 10 · #156 scoring-method explanation on the dashboard (owner `UNCLEAR:`; Yen-Chu has the content) | `UNCLEAR:` |
-| Follow-up email to Julie: Yen-Chu's cap-weighting example, transcripts stay out of the index, Dec 3 time + Zoom link once confirmed (owner `UNCLEAR:`; client communication is Snehal's) | `UNCLEAR:` this week |
+| #159 Follow-up email to Julie (with Yen-Chu): Yen-Chu's cap-weighting example, transcripts stay out of the index, Dec 3 time + Zoom link once confirmed (owner `UNCLEAR:`; client communication is Snehal's) | `UNCLEAR:` this week |
 | ✅ #132 Dashboard on the consensus scores (`data/processed/sec/company_scores_consensus.csv`) with the "80 of 277 human-checked" note, plus a sector-overview tab (equal- and cap-weighted, six firms); mock data removed (PR #152, merged Nov 10) · ✅ screen recording in the deck (slide 11) | Done Nov 10 |
 | #30 Host on **Streamlit Community Cloud** (decided Nov 8) | Fri Nov 13 |
 | Meet Dr. Chung (#143; Snehal said Nov 10 "we'll schedule some time with her"): handover preference (Julie defers to her), final-presentation format, TP3 paper expectations (does Dong count) | This week |
