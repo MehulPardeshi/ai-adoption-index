@@ -14,7 +14,7 @@
 3. **Using Claude Code, Cursor or Codex?** It reads [`CLAUDE.md`](CLAUDE.md) / [`AGENTS.md`](AGENTS.md) automatically. It turns on the team guardrails, keeps you off `main` and opens PRs for you. New to this? See [`ONBOARDING_FOR_NON_CODERS.md`](ONBOARDING_FOR_NON_CODERS.md).
 4. **Changing something?** Make a branch `<yourname>/<topic>`, then open a pull request. Never push to `main`. Details: [`CONTRIBUTING.md`](CONTRIBUTING.md).
 
-## Where we are (Nov 10, 2026)
+## Where we are (Nov 11, 2026)
 | Milestone | Status |
 |---|---|
 | TP1: project scope | ✅ submitted Oct 2 |
@@ -24,7 +24,7 @@
 | All 6 evaluation checks | ✅ done ([evaluation plan](docs/part3-metrics/evaluation_plan.md)) |
 | Dashboard (Streamlit) | ✅ consensus-based company scores plus equal-/market-cap-weighted six-firm overview (#132); hosting on Streamlit Community Cloud (#30) |
 | Sector index (equal- and market-cap-weighted) | ✅ v0 on the 6 PoC firms (#146): FY2025 11.2 equal-weighted, 8.0 cap-weighted; ~75 firms + dashboard next (#134) |
-| **Julie follow-up** | **Tue Nov 10, 7 pm ET** ([prep](docs/tp2/julie_nov10_prep.md)) |
+| Julie follow-up | ✅ Nov 10 ([minutes](meetings/2026-11-10-client.md)): broad headline agreed; next: 10-K-only check, data download + method page on the dashboard, handover per Dr. Chung |
 | **TP2: progress report** | **due Fri Nov 13, 5 pm** ([draft](docs/tp2/progress_report_draft.md)) |
 | **TP3: final presentation, paper discussion, SKILL.md, handover** | **Thu Dec 3** ([plan and split](docs/tp3/paper_discussion_plan.md)) |
 

@@ -1,13 +1,14 @@
 # 11 — Action Items (who is doing what, right now)
 
 > **Read this to answer "what should I work on next?"** Updated after every meeting from `meetings/` minutes ([procedure](../meetings/README.md)). The shared spreadsheet remains the source of truth for owners and deadlines; this file mirrors it for AI tools.
-> **Last updated:** 2026-11-09 (Nov 8 team call filed: transcripts out, both index weightings, Tuesday plan; 7 of 9 scenarios added (#128) and check 4 updated (#129). Earlier: Julie confirmed Tue Nov 10, 7 pm; agreed labels done Sat Nov 7. Earlier: TP2 deadline moved to Fri Nov 13; earlier: round 2 scored; TP2 paragraphs, agent re-run and Bloomberg review merged; no Nov 1 meeting record in `meetings/`). Last meeting: [Nov 8 team call](../meetings/2026-11-08-internal.md) (form + transcript). Previous: [Oct 29 client checkpoint](../meetings/2026-10-29-client.md).
+> **Last updated:** 2026-11-11 (Nov 10 Julie follow-up filed: broad headline agreed, category detail enough, 10-K-only check, download button + method page, handover via Dr. Chung, Julie joins Dec 3 remotely. Earlier: Nov 8 team call filed: transcripts out, both index weightings, Tuesday plan; 7 of 9 scenarios added (#128) and check 4 updated (#129). Earlier: Julie confirmed Tue Nov 10, 7 pm; agreed labels done Sat Nov 7. Earlier: TP2 deadline moved to Fri Nov 13; earlier: round 2 scored; TP2 paragraphs, agent re-run and Bloomberg review merged; no Nov 1 meeting record in `meetings/`). Last meeting: [Nov 10 Julie follow-up](../meetings/2026-11-10-client.md) (transcript). Previous: [Nov 8 team call](../meetings/2026-11-08-internal.md), [Oct 29 client checkpoint](../meetings/2026-10-29-client.md).
 > **Pinned summary for humans:** [#45 "Who does what"](https://github.com/MehulPardeshi/ai-adoption-index/issues/45), with @mentions per person.
 > **GitHub:** each task below is an issue in the **"Sprint: Oct 18–Nov 13 (TP2)"** milestone (renamed Nov 8; was "Oct 18–Nov 6") on the [project board](https://github.com/users/MehulPardeshi/projects/1).
 
 ## Where we are
 - ✅ TP1 submitted (Fri Oct 2).
-- 🏁 **Sprint: Sun Oct 18 → Fri Nov 13 (TP2; extended from Nov 6).** ✅ Categories frozen, round 1 labels in, checks 2–4 run (Oct 27) → ✅ practice run Wed Oct 28 → ✅ **Julie Oct 29** (very positive; asked for a sector index, see below) → ✅ round 2 labels and scoring (Nov 4) → ✅ agreed labels (Sat Nov 7) → ✅ team call Sun Nov 8 ([minutes](../meetings/2026-11-08-internal.md)) → **Julie follow-up Tue Nov 10, 7 pm (confirmed;** [prep](../docs/tp2/julie_nov10_prep.md)**)** → TP2 compile Thu Nov 12 → submit **Fri Nov 13, 5 pm**.
+- 🏁 **Sprint: Sun Oct 18 → Fri Nov 13 (TP2; extended from Nov 6).** ✅ Categories frozen, round 1 labels in, checks 2–4 run (Oct 27) → ✅ practice run Wed Oct 28 → ✅ **Julie Oct 29** (very positive; asked for a sector index, see below) → ✅ round 2 labels and scoring (Nov 4) → ✅ agreed labels (Sat Nov 7) → ✅ team call Sun Nov 8 ([minutes](../meetings/2026-11-08-internal.md)) → ✅ **Julie follow-up Tue Nov 10** ([minutes](../meetings/2026-11-10-client.md)) → TP2 compile Thu Nov 12 → submit **Fri Nov 13, 5 pm**.
+- **Julie's answers (Nov 10):** broad headline with strict beside it · category codes are enough (no extra use-case detail) · check what 10-Qs add, then likely 10-K only · add a data download and the scoring method to the dashboard · handover per Dr. Chung's preference (at least a deployed link + user guide) · she joins Dec 3 remotely.
 - **Julie's asks (Oct 29):** check whether a market-cap- and equal-weighted **sector index** on a defined public-company sample is feasible · dashboard hover definitions · hide partial years (FY2026) · sources we can legally get and verify only.
 - **PoC companies:** JPMorgan Chase, Bank of America, Capital One, Wells Fargo, Charles Schwab, Principal Financial Group · **Period:** 2024–2026 · **Sources:** SEC 10-K/10-Q (74 filings, 277 AI passages), Dong baseline; earnings calls from **Bloomberg (CMU library): permission cleared Nov 4 (#62); left out of the index (team, Nov 8), future work**, with transcript text kept out of the public repo and dashboard; no LinkedIn job postings. **Citigroup** kept as a benchmark.
 - **AI model:** DeepSeek (`deepseek-flash`), option B: one person pays (Shu), about $0.02 per run. Only public SEC text is sent. **Agent:** 7 tools.
@@ -26,7 +27,8 @@
 | ~~Fri Nov 6, 5 pm~~ **Fri Nov 13, 5 pm** | Yen-Chu submits TP2 (Mehul is the backup). Deadline change per the instructor in class (Mehul, Snehal); not in the syllabus file. Check Canvas once the submission opens |
 | ✅ Sat Nov 7, 5 pm | Check-in (Logan, Snehal, Yen-Chu); they agreed the labels for the 58 disagreements (per Snehal, Nov 8). The filled sheet isn't shared yet |
 | ✅ Sun Nov 8, 8–8:45 pm | Team call ([minutes](../meetings/2026-11-08-internal.md)): transcripts out, both index weightings, Tuesday plan, TP2 owners confirmed, no practice run |
-| **Tue Nov 10, 7–8 pm ET** | **Julie follow-up, confirmed** (Julie accepted Snehal's calendar invite; Dr. Chung also accepted). This is the TP2 client meeting (#98). We record it |
+| ✅ Tue Nov 10, 7–8 pm ET | Julie follow-up, the TP2 client meeting (#98) ([minutes](../meetings/2026-11-10-client.md)): very positive; agreed broad headline, category detail; 10-K check; download + method page; handover via Dr. Chung |
+| **Thu Dec 3, 5:00–6:20 pm ET** | **Final presentation** (Section C slot per the syllabus; confirm on Canvas). Julie joins remotely |
 
 ## By person
 
@@ -66,7 +68,9 @@
 | ✅ Labeling round 2 (#104, merged Nov 4) · ✅ TP2 blocker (#105) | Done Nov 3–4 |
 | ✅ Scenarios for 7 of the 9 passages (#128, with Logan and Snehal) | Done Nov 8 |
 | Check Canvas for the TP2 submission | Mon Nov 9 |
-| Sector index: present the plan (equal + market-cap-weighted, market cap from the 10-K) Tuesday; then build the calculation as a CSV for the dashboard (needs Shu's 75-firm run) | Tue Nov 10 / build `UNCLEAR:` after |
+| ✅ Sector index plan presented to Julie (Nov 10); v0 built on the 6 PoC firms (#146) · full ~75-firm version needs Shu's run (#134) | Done Nov 10 / full: after #133 |
+| Email Julie the cap-weighted worked example (one firm, numbers + 10-K page; Snehal: simplify, add greeting/sign-off, attach the scoring-logic slides). Julie may tweak the method | `UNCLEAR:` asap (Wed Nov 11) |
+| #157 Quick check of what the 10-Qs add beyond the 10-K (Julie prefers 10-K only if nothing material); owner `UNCLEAR:` (Yen-Chu raised it) | `UNCLEAR:` |
 | **Submit TP2 on Canvas** | **Fri Nov 13, 5 pm** |
 
 ### Logan Mai (Market & User Researcher / BA)
@@ -79,7 +83,8 @@
 | ✅ Practice run (~3½ min). Absent from the Julie meeting; Mehul presented the data rules | Done Oct 29 |
 | ✅ Labeling round 2 (converted to `rater_logan.csv`; please check it) · ✅ TP2 ethics paragraph (#114) | Done Nov 4 |
 | ✅ #102 Check 5 independent rerun: `RESULT: MATCH` · slides updated for Tuesday | Done Nov 8 |
-| Absent from the Sun Nov 8 call (Mehul syncs him in the chat). Tuesday: present the data rules / transcripts decision (out of the index) | Tue Nov 10 |
+| ✅ Presented the data rules to Julie (Nov 10). Julie asked whether Bloomberg will be added to the index: restate in the follow-up email that transcripts are out (Nov 8 decision, future work) | Done Nov 10 |
+| Share the research comparison (#137) with Julie as part of the deliverable (she asked for it Nov 10) | Dec 3 |
 
 ### Shu Pu (AI Engineer / Solution Architect)
 | Task | Due |
@@ -93,10 +98,9 @@
 | ✅ #35 Agent runs end to end (#66, #68, #84, #110) · ✅ TP2 section 2 (#109) | Done Nov 4 |
 | Run the agent on the 30 round 2 passages and compare with the agreed labels (command in the [results](../docs/part3-metrics/labeling_round_2/results_round2.md)) | Mon Nov 9 |
 | Finish the agent run on the ~75 S&P 500 Financials firms (Yen-Chu's index needs it) | Mon Nov 9 afternoon |
-| 1–2 slides for Tuesday: high-level pipeline (agent → scores → dashboard) and how the index will be shown | Before Tue Nov 10 |
+| ✅ Pipeline + cost slides presented to Julie (Nov 10): ~75 firms ≈ 1,650 passages, ~1 hour, under $1 a year, ~1 in 20 to a person; pilot 1 firm per new type first | Done Nov 10 |
 | Review Mehul's SKILL.md draft ([`skills/ai-adoption-index/SKILL.md`](../skills/ai-adoption-index/SKILL.md)) | `UNCLEAR:` this week |
 | ✅ #97 Sector index: ~73 min and ~$0.40 for one year on ~75 firms; 3–5% go to human review | Done Nov 4 |
-| Cost note for Julie: about an hour and under $1 a year for ~75 firms (per run; no API key included) | Tue Nov 10 |
 | ✅ Presented the categories + agent demo to Julie | Done Oct 29 |
 
 ### Snehal Paliwal (Dashboard PM + client communication)
@@ -108,18 +112,20 @@
 | ✅ Labels round 1 (#79) · agenda to Julie · practice-run invite · transition slides · dataset summary metrics on the SEC tab (#93) | Done Oct 27–29 |
 | ✅ Hosted the Julie meeting and showed the dashboard | Done Oct 29 |
 | ✅ #98 Julie follow-up set: Tue Nov 10, 7–8 pm, Zoom; Julie and Dr. Chung accepted. Her Nov 2 email questions (10-K vs. 10-Q on the dashboard; use cases next to scores) are unanswered, so ask them on Tuesday | Done Nov 4–8 |
-| TP2 section 6 (client meeting): confirm or replace the draft (can now cover the Nov 10 follow-up too) · ✅ dashboard paragraph (#112), but update it for #152 (fictional tabs are gone; consensus scores + sector tab now) · ✅ labels (#111) | Wed Nov 11 |
+| TP2 section 6 (client meeting): write it from the [Nov 10 minutes](../meetings/2026-11-10-client.md) · ✅ dashboard paragraph (#112), but update it for #152 (fictional tabs are gone; consensus scores + sector tab now) · ✅ labels (#111) | Wed Nov 11 |
 | ✅ #96 Dashboard (Julie's feedback): click-to-open definitions, FY2026 hidden, story tab tidied (merged #126). Not yet on the human-agreed labels (see the Nov 8 decision) · ✅ agenda as a doc, email draft ready · ✅ slide deck copy in the Drive (client materials → TP2 checkpoint) | Done Nov 8 |
-| Send Julie the agenda (add the Nov 8 changes, incl. "definition of done" for handover) | Mon Nov 9 morning |
+| ✅ Agenda to Julie; hosted the Nov 10 follow-up and demoed the dashboard | Done Nov 9–10 |
+| #155 Dashboard: download button for the firm × year scores (CSV), agreed with Julie Nov 10 · #156 scoring-method explanation on the dashboard (owner `UNCLEAR:`; Yen-Chu has the content) | `UNCLEAR:` |
+| Follow-up email to Julie: Yen-Chu's cap-weighting example, transcripts stay out of the index, Dec 3 time + Zoom link once confirmed (owner `UNCLEAR:`; client communication is Snehal's) | `UNCLEAR:` this week |
 | ✅ #132 Dashboard on the consensus scores (`data/processed/sec/company_scores_consensus.csv`) with the "80 of 277 human-checked" note, plus a sector-overview tab (equal- and cap-weighted, six firms); mock data removed (PR #152, merged Nov 10) · ✅ screen recording in the deck (slide 11) | Done Nov 10 |
 | #30 Host on **Streamlit Community Cloud** (decided Nov 8) | Fri Nov 13 |
-| Ask Dr. Chung (client-communication lead; Mehul asked Nov 9): is a README section + poster panel enough for the TP3 paper, does a working paper (Dong) count, and how should we hand over to Julie? | Tue Nov 10 (or email) |
+| Meet Dr. Chung (#143; Snehal said Nov 10 "we'll schedule some time with her"): handover preference (Julie defers to her), final-presentation format, TP3 paper expectations (does Dong count) | This week |
 
 ### Everyone
 - ✅ Raters: agreed labels (#124) and 7 of 9 scenarios (#128). Still to do: `BAC_2025-12-31_10-K_00264` and `SCHW_2024-12-31_10-K_00562` (`UNCLEAR:` who), by Mon Nov 9 noon
 - ✅ Decided Nov 8: transcripts out of the index; sector index shows both weightings
 - All: slides in the deck by **Mon Nov 9 night**; anticipate Julie's questions on your part. No practice run
-- Open (blockers): handover plan (what Julie gets, where the data lives, auto-refresh or not, who links the agent to the dashboard). Ask Julie Tue; Dr. Chung if needed
+- Open (blockers): handover plan (what Julie gets, where the data lives, auto-refresh or not, who links the agent to the dashboard). Julie deferred to Dr. Chung (Nov 10); committed so far: deployed link + user guide
 
 ### TP3 issues (proposed split, Nov 9; milestone "TP3: Nov 14–Dec 3 (final)")
 | Issue | What | Who |

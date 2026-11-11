@@ -26,5 +26,12 @@ Constraint from the course: TP3 requires an **externally hosted app/website with
 - **Don't show partial years** (FY2026) until complete; Citi's drop from 48 to 0 looked like a real change.
 - Requested later: sector-level index views (market-cap- and equal-weighted), with the per-firm drill-down kept.
 
+## Client feedback (Nov 10, [minutes](../meetings/2026-11-10-client.md))
+- "Outstanding"; the current version fulfils what she was looking for. Keep the **metric drop-down** (less scrolling).
+- Add a **download button** for the firm × year scores (CSV or plain text; team's choice) so researchers can run their own analysis.
+- Explain the **scoring method on the dashboard** (one count per category per year, highest level kept), so visitors understand it without us.
+- **Category codes are enough detail**: no extra use-case text beside each score.
+- Scores may move to **10-K only** after a quick check of what the 10-Qs add.
+
 ## Audience
 Non-technical (analysts, regulators, journalists, and the client). The team goal is a dashboard that **works end to end**, not just a mockup.

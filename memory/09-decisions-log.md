@@ -446,3 +446,14 @@ Source: [minutes](../meetings/2026-11-08-internal.md) (filled capture form + Zoo
 ### 2026-11-09 — Raters' scenarios added; check 4 updated
 - **Facts:** at the end of the Nov 8 call the raters added scenarios for 7 of the 9 passages (#128, Yen-Chu; codes from the rater columns). Still missing: `BAC_2025-12-31_10-K_00264` (P) and `SCHW_2024-12-31_10-K_00562` (D1). Check 4 rerun (#129): FY2025 Citi 53, Capital One 20, Principal 18, Wells Fargo 11, JPMorgan 6, Schwab 6, BofA 3; ranking robust (ρ 0.99–1.00); conclusions unchanged. `data/processed/sec/company_scores_consensus.csv` is ready for the dashboard.
 - **Decided by:** facts; run by Claude for Mehul.
+
+### 2026-11-10 (meeting) — Julie follow-up: broad headline, category detail, 10-K check, handover via Dr. Chung
+Source: [minutes](../meetings/2026-11-10-client.md) (Zoom transcript; the opening section isn't recorded).
+- **Headline measure:** broad AI Use Score as the headline, strict (specific use only) beside it. Julie agreed to the team's proposal.
+- **Use cases:** no detail beyond the category codes next to each score; filings aren't detailed enough and transcripts are out. Settles her Nov 2 question.
+- **10-K vs. 10-Q:** Julie prefers 10-Ks only. The team first runs a quick check of what the 10-Qs add; if nothing material, scores move to 10-K only. Until then the scores still combine both (each category counted once a year).
+- **Dashboard:** keep the metric drop-down; add a download of the firm × year scores (CSV; format is the team's choice) and a visible explanation of the scoring method.
+- **Handover:** Julie defers to Dr. Chung's preference. The team committed to a deployed link and a user guide; Julie was positive about the code being on GitHub for others to adapt.
+- **Also:** Julie wants the research comparison (TP3 paper) shared with her, and will join the Dec 3 presentation remotely (syllabus slot 5:00–6:20 pm ET, to confirm). Mehul corrected the human-review threshold to 0.70 (Oct 29 said 0.3).
+- **Open:** Julie may adjust the cap-weighting after Yen-Chu's worked example; the transcripts-out decision needs restating in the follow-up email (Julie asked whether Bloomberg would be added).
+- **Decided by:** Julie (client), on the team's proposals.
