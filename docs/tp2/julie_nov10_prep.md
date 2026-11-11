@@ -3,7 +3,8 @@
 > **When:** Tue Nov 10, 7:00–8:00 pm ET, Zoom (Snehal hosts; link in the calendar invite, not here).
 > **Who has accepted (calendar, checked Sun Nov 8):** Julie, Dr. Chung, Snehal, Logan, Shu, Yen-Chu, Mehul. Hengkai hasn't replied.
 > **Why it matters:** this is the TP2 client meeting. The rubric gives **10 points** for "client meeting held; team came away with clear, confirmed direction." Section 6 of the TP2 report is written from it (Snehal, Wed Nov 11).
-> **Status:** agenda and questions accepted at the Nov 8 call ([minutes](../../meetings/2026-11-08-internal.md)). Everyone checks the order of their slides; we record the meeting; no practice run.
+> **Outcome:** held Nov 10; see the [minutes](../../meetings/2026-11-10-client.md) for Julie's answers.
+> **Status (before the meeting):** agenda and questions accepted at the Nov 8 call ([minutes](../../meetings/2026-11-08-internal.md)). Everyone checks the order of their slides; we record the meeting; no practice run.
 
 ## Still open from the email thread
 On Nov 2 Snehal emailed Julie a follow-up from the Oct 29 meeting with three questions. Julie hasn't answered them by email; she accepted the calendar invite instead. Ask them on Tuesday:
