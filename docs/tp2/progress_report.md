@@ -5,7 +5,7 @@
 We are building a public, quarterly-refreshable index of how financial services firms *use* AI, as opposed to how much they *talk* about it, from SEC filings, with an agent that labels the evidence and a dashboard for researchers.
 
 ## 1. Progress against the TP1 plan
-| TP1 commitment | Status (Nov 11) |
+| TP1 commitment | Status (Nov 12) |
 |---|---|
 | Proof of concept on 5–6 large U.S. financial firms | ✅ JPMorgan, Bank of America, Capital One, Wells Fargo, Schwab, Principal; Citigroup as a benchmark |
 | Evidence dataset with citations | ✅ 74 SEC filings (10-K + 10-Q, FY2023–26) → 277 AI passages, each linked to EDGAR |
@@ -17,7 +17,7 @@ We are building a public, quarterly-refreshable index of how financial services 
 
 We met every TP1 commitment. One quality target is behind: three raters agreed well on the main question, real AI use or not (κ 0.60–0.72, above our 0.6 bar), but not on the five detailed levels (κ 0.27, then 0.32 on a harder round). Instead of a majority vote, the raters settled all 58 disagreements together on Nov 7. Those 80 human-agreed passages are now our answer key and replace the AI draft labels in the scores. Current FY2025 AI Use Scores: Citi 53 (benchmark), Capital One 20, Principal 18, Wells Fargo 11, JPMorgan 6, Schwab 6, Bank of America 6.
 
-## 2. Working prototype: the agent
+## 2. Working prototype
 The agent has 7 tools: fetch filings, find AI passages, classify a passage, verify the label, score companies, look up the Dong et al. baseline, and read labels. Only `classify_passage` calls the model (DeepSeek, temperature 0, fixed JSON schema, cached answers; all runs so far cost about $0.30, and only public SEC text is sent). Every label then passes a rule-based guardrail (`verify_label`): the quote must appear word for word in the filing, a "specific" label needs its detail inside the quote, and labels under 0.70 confidence are held for a person instead of being scored. Batch mode writes the score files the dashboard reads; chat mode lets the model choose its own tools to answer a question, and every claim must cite a quoted passage. Example: for Citi's Q3 2025 10-Q, the agent labels "Approximately 1 million automated code reviews completed by Citi's Generative AI tools year-to-date" as specific use in software engineering (confidence 0.95, guardrail passed), matching the team's agreed label. Demo: `python3 -m src.agent.chat --trace "How does Citigroup use AI in 2025?"` (add `AGENT_LLM_PROVIDER=mock` to run offline).
 
 **Dashboard.** The Streamlit dashboard now uses consensus-based company scores from SEC 10-K and 10-Q filings instead of mock data. It presents individual-firm scores and a six-firm sector overview with equal- and market-cap-weighted series; Citigroup remains a company-level benchmark, not part of the sector index. The Company Scores view includes score definitions and scenario categories, and the sector table explains each column. An About-the-Data view explains the sources and limitations. The dashboard notes that 80 of 277 AI-related passages have human-agreed labels and the rest use AI-draft labels; scores describe disclosures, not verified firm-wide AI adoption. Incomplete FY2026 is hidden, and missing company-years remain blank rather than zero. Julie’s follow-up requests—the broad and strict scores side by side, a check of what 10-Qs add, a data download, and the scoring method on-page—are captured in the next steps.
