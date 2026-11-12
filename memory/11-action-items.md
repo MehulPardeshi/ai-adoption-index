@@ -118,7 +118,7 @@
 | #155 Dashboard: download button for the firm × year scores (CSV), agreed with Julie Nov 10 · #156 scoring-method explanation on the dashboard (owner `UNCLEAR:`; Yen-Chu has the content) | `UNCLEAR:` |
 | #159 Follow-up email to Julie (with Yen-Chu): Yen-Chu's cap-weighting example, transcripts stay out of the index, Dec 3 time + Zoom link once confirmed (owner `UNCLEAR:`; client communication is Snehal's) | `UNCLEAR:` this week |
 | ✅ #132 Dashboard on the consensus scores (`data/processed/sec/company_scores_consensus.csv`) with the "80 of 277 human-checked" note, plus a sector-overview tab (equal- and cap-weighted, six firms); mock data removed (PR #152, merged Nov 10) · ✅ screen recording in the deck (slide 11) | Done Nov 10 |
-| #30 Host on **Streamlit Community Cloud** (decided Nov 8) | Fri Nov 13 |
+| #30 Host on **Streamlit Community Cloud** (decided Nov 8; not started as of Nov 12, moved to TP3) | By Dec 3 |
 | Meet Dr. Chung (#143; Snehal said Nov 10 "we'll schedule some time with her"): handover preference (Julie defers to her), final-presentation format, TP3 paper expectations (does Dong count) | This week |
 
 ### Everyone
@@ -139,7 +139,8 @@
 | #143 | Ask Dr. Chung: paper expectations + handover | Snehal |
 | #134 | Sector index (equal + market-cap-weighted) | Yen-Chu |
 | #135 | SKILL.md review (draft on main since PR #131) | Shu |
-| #30 | Host the dashboard on Streamlit Community Cloud (by Fri Nov 13) | Snehal |
+| #30 | Host the dashboard on Streamlit Community Cloud (by Dec 3; moved to TP3 Nov 12) | Snehal |
+| #166 | README as the final project report (scope, visuals, details, What's next, bios) | `UNCLEAR:` (proposed: Yen-Chu scope/details, Snehal visuals, everyone bios) |
 
 ## Deliverable owners (whole project)
 | Deliverable | Owner | Support |
