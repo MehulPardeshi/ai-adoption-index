@@ -12,7 +12,7 @@ We are building a public, quarterly-refreshable index of how financial services 
 | Team-derived categories + measure | ✅ Frozen Oct 27: 11 use-case areas; evidence levels D2 (specific use, 3 pts), D1 (general use, 1), P (plan, 0.5), N/X (talk, 0); each area counts once a year at its highest level |
 | Evaluation with human review | ✅ All 6 checks run (details in section 3) |
 | Working agent | ✅ Runs end to end (section 2) |
-| Dashboard | ✅ Streamlit, on the human-agreed scores, with a sector-index view; hosting on Streamlit Community Cloud in progress (#30) |
+| Dashboard | ✅ Streamlit, on the human-agreed scores, with a sector-index view; public link on Streamlit Community Cloud by Dec 3 (#30) |
 | Reproducible pipeline | ✅ A teammate who didn't build it reran everything from a fresh clone: same 277 passages, identical scores |
 
 We met every TP1 commitment. One quality target is behind: three raters agreed well on the main question, real AI use or not (κ 0.60–0.72, above our 0.6 bar), but not on the five detailed levels (κ 0.27, then 0.32 on a harder round). Instead of a majority vote, the raters settled all 58 disagreements together on Nov 7. Those 80 human-agreed passages are now our answer key and replace the AI draft labels in the scores. Current FY2025 AI Use Scores: Citi 53 (benchmark), Capital One 20, Principal 18, Wells Fargo 11, JPMorgan 6, Schwab 6, Bank of America 6.
