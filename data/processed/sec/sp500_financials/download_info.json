@@ -1,0 +1,35 @@
+{
+  "run_at": "2026-11-15T21:38:00",
+  "wall_seconds": 704.1,
+  "firms_file": "data\\processed\\sec\\sp500_financials\\firms.csv",
+  "firms": 76,
+  "forms": [
+    "10-K"
+  ],
+  "window": [
+    "2024-01-01",
+    "2025-12-31"
+  ],
+  "filings": 152,
+  "filings_ok": 152,
+  "ai_passages": 1876,
+  "public_floats": 151,
+  "user_agent": "CMU i2ai Team 5 <email>",
+  "search_rules": "download_sec_filings.py: html_to_paragraphs, ai_hits (strong terms only), ai_passages",
+  "fiscal_year_rule": "year of the period end; firms whose fiscal year doesn't end in December are listed",
+  "fiscal_year_end_not_december": {
+    "BEN": "0930",
+    "BRO": "0119",
+    "FDS": "0831",
+    "JKHY": "0630",
+    "RJF": "0930",
+    "V": "0930"
+  },
+  "problems": [
+    {
+      "ticker": "SPGI",
+      "where": "public float",
+      "problem": "2024-12-31 10-K 0000064040-25-000052: no public float tagged"
+    }
+  ]
+}
