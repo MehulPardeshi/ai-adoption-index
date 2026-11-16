@@ -194,11 +194,27 @@ def build(d: Path = DIR, passages_path: Path = PASSAGES, today: str | None = Non
                   f"{info.get('wall_seconds', '?')} s, run {info.get('run_at', '?')}.")
     if run:
         u = run.get("usage", {})
-        md.append(f"- Agent: {run.get('passages', '?')} passages, {u.get('calls', '?')} new model calls, "
-                  f"{u.get('cache_hits', '?')} from the cache, {run.get('wall_seconds', '?')} s with "
-                  f"{run.get('workers', 1)} at a time, run {run.get('run_at', '?')}; tokens in {u.get('prompt_tokens', '?')} "
-                  f"(cached {u.get('cached_prompt_tokens', '?')}), out {u.get('completion_tokens', '?')}, "
-                  f"{u.get('truncated', 0)} cut off.")
+        if run.get("earlier_passes"):
+            # a rerun into the same labels file: report every pass, and cost and tokens summed over all of them
+            t = run["all_passes"]
+            passes = run["earlier_passes"] + [{k: run.get(k) for k in ("run_at", "wall_seconds", "workers", "usage")}]
+            md.append(f"- Agent: {run.get('passages', '?')} passages in {t['passes']} passes (a rerun calls the model "
+                      f"only for what failed; the rest comes from the cache): {t['calls']} model calls and "
+                      f"{t['wall_seconds']} s in all; tokens in {t['prompt_tokens']} (cached {t['cached_prompt_tokens']}), "
+                      f"out {t['completion_tokens']}. Replies cut off: {t['truncated'] - u.get('truncated', 0)} in earlier "
+                      f"passes (retried), {u.get('truncated', 0)} in the last.")
+            for i, ps in enumerate(passes, 1):
+                pu = ps.get("usage") or {}
+                md.append(f"  - Pass {i}, run {ps.get('run_at', '?')}: {pu.get('calls', '?')} new model calls, "
+                          f"{pu.get('cache_hits', '?')} from the cache, {ps.get('wall_seconds', '?')} s with "
+                          f"{ps.get('workers', 1)} at a time, {pu.get('truncated', 0)} cut off.")
+            u = t
+        else:
+            md.append(f"- Agent: {run.get('passages', '?')} passages, {u.get('calls', '?')} new model calls, "
+                      f"{u.get('cache_hits', '?')} from the cache, {run.get('wall_seconds', '?')} s with "
+                      f"{run.get('workers', 1)} at a time, run {run.get('run_at', '?')}; tokens in {u.get('prompt_tokens', '?')} "
+                      f"(cached {u.get('cached_prompt_tokens', '?')}), out {u.get('completion_tokens', '?')}, "
+                      f"{u.get('truncated', 0)} cut off.")
         md.append(f"- Model cost: about **${cost(u):.2f}** at off-peak prices (about ${2 * cost(u):.2f} at peak).")
         md.append(f"- Guardrail: {run.get('verify_status', {})}.")
     md += ["", "## Next", "",

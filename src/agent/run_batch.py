@@ -17,6 +17,11 @@ Examples (from the repo root):
 --workers N sends N passages to the model at a time. The output order and the labels are the
 same as with one worker (each passage's answer is cached on its own); only the time changes.
 
+Rerunning the same command (say, after a reply was cut off) calls the model only for what failed;
+everything else comes from the cache. The run log keeps the earlier passes (earlier_passes) and
+their totals (all_passes), so the first pass's time and tokens aren't lost. Its top-level fields
+describe the last pass, the one the labels file now reflects.
+
 Output columns: the first eleven match passage_labels_v0.csv, so src/eval/irr.py and
 src/index/score_companies.py read the file unchanged (pass the new path with --ai-labels / --labels).
 evidence_v0 / scenarios_v0 hold the value AFTER the guardrail; needs_review rows are N with no
@@ -47,6 +52,31 @@ AGENT_FIELDS = ["quote", "specific", "confidence", "flags", "evidence_raw", "sce
 FIELDS = V0_FIELDS + AGENT_FIELDS
 SCORE_FIELDS = ["company", "ticker", "fiscal_year", "ai_use_score", "scenarios_with_use", "readiness_score",
                 "talk_ratio_pct", "substantive_ai_passages"]
+# A run log is continued (not restarted) when all of these match the previous one.
+SAME_RUN = ("model", "prompt_version", "guardrails", "passages_file", "labels_file", "passages")
+PASS_KEYS = ("run_at", "wall_seconds", "workers", "usage")
+SUM_KEYS = ("calls", "prompt_tokens", "cached_prompt_tokens", "completion_tokens", "reasoning_tokens", "truncated")
+
+
+def add_earlier_passes(info: dict, old: dict) -> dict:
+    """Return this pass's run log with the passes before it that wrote the same labels file.
+
+    A different model, prompt, guardrail setting or passage set starts a new log. all_passes sums
+    the calls, tokens and seconds of every pass (cache hits are left out: a rerun re-reads them).
+    """
+    same = bool(old) and all(old.get(k) == info.get(k) for k in SAME_RUN)
+    earlier = list(old.get("earlier_passes") or []) + [{k: old.get(k) for k in PASS_KEYS}] if same else []
+    passes = earlier + [{k: info.get(k) for k in PASS_KEYS}]
+    total = {k: sum((p.get("usage") or {}).get(k, 0) for p in passes) for k in SUM_KEYS}
+    total["wall_seconds"] = round(sum(p.get("wall_seconds") or 0 for p in passes), 1)
+    return {**info, "earlier_passes": earlier, "all_passes": {"passes": len(passes), **total}}
+
+
+def _read_json(path: Path) -> dict:
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return {}
 
 
 def label_one(rec: dict, guardrails: bool, run_at: str) -> dict:
@@ -86,7 +116,9 @@ def main(argv=None) -> int:
     ap.add_argument("--labels-out", help="labels CSV path")
     ap.add_argument("--scores-out", help="scores CSV path")
     ap.add_argument("--run-info-out", help="write the run log (model, prompt, usage, time) here; "
-                                           "default: agent_run_info.json, only for the default labels file")
+                                           "default: agent_run_info.json, only for the default labels file. "
+                                           "A rerun into the same labels file adds itself as a pass; "
+                                           "delete the log to start a new one")
     ap.add_argument("--passages", help="passage CSV to label (default: the 7-firm data/interim/sec/ai_passages.csv)")
     ap.add_argument("--workers", type=int, default=1, help="passages sent to the model at a time (default 1)")
     a = ap.parse_args(argv)
@@ -113,6 +145,7 @@ def main(argv=None) -> int:
     print(f"Labeling {len(recs)} passages with {llm.model_tag()} (guardrails {'on' if guard else 'off'}, "
           f"{workers} at a time) ...")
 
+    llm.reset_usage()  # the run log reports this pass only, also when main() runs twice in one process
     t0 = time.monotonic()
     step = 25 if len(recs) < 500 else 100
     with ThreadPoolExecutor(max_workers=workers) as pool:
@@ -136,15 +169,19 @@ def main(argv=None) -> int:
             "usage": dict(llm.USAGE), "wall_seconds": wall, "workers": workers,
             "passages_file": _rel(Path(config.PASSAGES)), "labels_file": _rel(labels_out),
             "scores_file": _rel(scores_out)}
-    if a.run_info_out:
-        Path(a.run_info_out).write_text(json.dumps(info, indent=2), encoding="utf-8")
-    elif guard and not a.labels_out:
-        config.AGENT_RUN_INFO.write_text(json.dumps(info, indent=2), encoding="utf-8")
+    log = Path(a.run_info_out) if a.run_info_out else (config.AGENT_RUN_INFO if guard and not a.labels_out else None)
+    if log:
+        info = add_earlier_passes(info, _read_json(log))
+        log.write_text(json.dumps(info, indent=2), encoding="utf-8")
 
     print(f"\nEvidence: {dict(ev)}")
     print(f"Guardrail: {dict(status)}")
     print(f"LLM calls {llm.USAGE['calls']}, cache hits {llm.USAGE['cache_hits']}, "
           f"tokens in {llm.USAGE['prompt_tokens']} (cached {llm.USAGE['cached_prompt_tokens']}), out {llm.USAGE['completion_tokens']}")
+    if info.get("earlier_passes"):
+        t = info["all_passes"]
+        print(f"All {t['passes']} passes into this labels file: LLM calls {t['calls']}, {t['wall_seconds']} s, "
+              f"tokens in {t['prompt_tokens']} (cached {t['cached_prompt_tokens']}), out {t['completion_tokens']}")
     print(f"-> {_rel(labels_out)}\n-> {_rel(scores_out)}")
     for s in scores:
         print(f"   {s['ticker']:5} FY{s['fiscal_year']}  use {s['ai_use_score']:>3}  readiness {s['readiness_score']:>3}"

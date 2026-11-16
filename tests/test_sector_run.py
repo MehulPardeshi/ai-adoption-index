@@ -281,6 +281,25 @@ class ReportTests(unittest.TestCase):
         self.assertIn("AFL [public float]", md)
 
 
+    def test_run_facts_cover_every_pass(self):
+        tmp = Path(tempfile.mkdtemp())
+        d = run_folder(tmp)
+        same = {"model": "m", "prompt_version": "classify-v1.5", "passages": 24, "workers": 6}
+        first = {**same, "run_at": "r1", "wall_seconds": 100.0,
+                 "usage": {"calls": 10, "cache_hits": 0, "prompt_tokens": 1_000_000, "cached_prompt_tokens": 800_000,
+                           "completion_tokens": 100_000, "truncated": 2}}
+        last = {**same, "run_at": "r2", "wall_seconds": 20.0,
+                "usage": {"calls": 2, "cache_hits": 10, "prompt_tokens": 1_000_000, "cached_prompt_tokens": 0,
+                          "completion_tokens": 100_000, "truncated": 0}}
+        (d / "agent_run_info.json").write_text(json.dumps(run_batch.add_earlier_passes(last, first)))
+        md, _ = sector_run_report.build(d, tmp / "passages.csv", today="2026-11-15")
+        self.assertIn("24 passages in 2 passes", md)
+        self.assertIn("12 model calls and 120.0 s in all", md)
+        self.assertIn("2 in earlier passes (retried), 0 in the last", md)
+        self.assertIn("Pass 1, run r1: 10 new model calls", md)
+        self.assertIn("about **$0.30**", md)  # both passes: $0.092 + 1M x 0.15 + 0.1M x 0.60 = $0.302
+
+
 class PilotSampleTests(unittest.TestCase):
     def test_blind_sample_per_new_type(self):
         tmp = Path(tempfile.mkdtemp())

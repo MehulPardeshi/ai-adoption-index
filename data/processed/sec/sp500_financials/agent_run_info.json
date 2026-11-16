@@ -33,5 +33,31 @@
   "workers": 6,
   "passages_file": "data\\interim\\sec\\sp500_financials\\ai_passages.csv",
   "labels_file": "data\\processed\\sec\\sp500_financials\\agent_labels.csv",
-  "scores_file": "data\\processed\\sec\\sp500_financials\\agent_scores.csv"
+  "scores_file": "data\\processed\\sec\\sp500_financials\\agent_scores.csv",
+  "earlier_passes": [
+    {
+      "run_at": "2026-11-15T21:38:24",
+      "wall_seconds": 1216.6,
+      "workers": 6,
+      "usage": {
+        "calls": 1746,
+        "cache_hits": 130,
+        "prompt_tokens": 4726835,
+        "cached_prompt_tokens": 4022912,
+        "completion_tokens": 662015,
+        "reasoning_tokens": 513000,
+        "truncated": 2
+      }
+    }
+  ],
+  "all_passes": {
+    "passes": 2,
+    "calls": 1748,
+    "prompt_tokens": 4732229,
+    "cached_prompt_tokens": 4027904,
+    "completion_tokens": 665228,
+    "reasoning_tokens": 515955,
+    "truncated": 2,
+    "wall_seconds": 1234.6
+  }
 }

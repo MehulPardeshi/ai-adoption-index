@@ -29,6 +29,13 @@ def _add(**counts) -> None:
             USAGE[k] += v
 
 
+def reset_usage() -> None:
+    """Zero the counters, so a caller can report the usage of one run."""
+    with _LOCK:
+        for k in USAGE:
+            USAGE[k] = 0
+
+
 def model_tag() -> str:
     if config.PROVIDER == "mock":
         return "mock (offline dry run, not an LLM)"

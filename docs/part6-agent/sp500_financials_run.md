@@ -95,8 +95,10 @@ python3 -m src.index.sector_index --scores data/processed/sec/sp500_financials/a
 ## Run facts
 
 - Download: 152/152 filings read, 1876 AI passages, 151 public floats, 704.1 s, run 2026-11-15T21:38:00.
-- Agent: 1876 passages, 2 new model calls, 1874 from the cache, 18.0 s with 6 at a time, run 2026-11-15T21:59:03; tokens in 5394 (cached 4992), out 3213, 0 cut off.
-- Model cost: about **$0.00** at off-peak prices (about $0.00 at peak).
+- Agent: 1876 passages in 2 passes (a rerun calls the model only for what failed; the rest comes from the cache): 1748 model calls and 1234.6 s in all; tokens in 4732229 (cached 4027904), out 665228. Replies cut off: 2 in earlier passes (retried), 0 in the last.
+  - Pass 1, run 2026-11-15T21:38:24: 1746 new model calls, 130 from the cache, 1216.6 s with 6 at a time, 2 cut off.
+  - Pass 2, run 2026-11-15T21:59:03: 2 new model calls, 1874 from the cache, 18.0 s with 6 at a time, 0 cut off.
+- Model cost: about **$0.52** at off-peak prices (about $1.03 at peak).
 - Guardrail: {'pass': 1705, 'needs_review': 170, 'downgraded': 1}.
 
 ## Next
