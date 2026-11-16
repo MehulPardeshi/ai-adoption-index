@@ -14,14 +14,21 @@
 | Insurers (incl. brokers, Berkshire) | 24 | 24 / 24 | 496 | 10.3 | 48 |
 | Asset managers and brokers | 18 | 18 / 18 | 436 | 12.1 | 36 |
 | Payments and consumer finance | 12 | 12 / 12 | 381 | 15.9 | 24 |
-| Exchanges and data | 9 | 9 / 9 | 309 | 17.2 | 17 |
-| **All** | 76 | 76 / 76 | 1876 | 12.3 | 151 |
+| Exchanges and data | 9 | 9 / 9 | 309 | 17.2 | 18 |
+| **All** | 76 | 76 / 76 | 1876 | 12.3 | 152 |
 
 **Problems in the download (1):**
 
 - SPGI [public float]: 2024-12-31 10-K 0000064040-25-000052: no public float tagged
 
-Fiscal years not ending in December (FY = the year it ends): BEN (09/30), BRO (01/19), FDS (08/31), JKHY (06/30), RJF (09/30), V (09/30).
+**Public float, checked by hand (4)** ([public_float_corrections.csv](../../data/processed/sec/sp500_financials/public_float_corrections.csv)):
+
+- ARES FY2025: **corrected to $32.7B** (estimate: the cover-page figure x 100, a typo in the filing). Cover page and tag both say 'approximately $326,653,262' at a $173.20 closing price, i.e. 1.9 million non-affiliate shares, while 220,902,613 Class A shares were outstanding (Feb 19, 2026) and the FY2024 float was $25.5B. x100 = $32.7B = 188.6 million shares. Estimate; confirm with Ares's own numbers if it matters.
+- SPGI FY2024: **corrected to $139.6B** (10-K cover page text (EntityPublicFloat not tagged)). Cover page: market value held by non-affiliates as of June 30, 2024 'was $139.6 billion' (closing price $446.00). Rounded to $0.1B as stated.
+- COF FY2025: kept as tagged. x2.6 from FY2024 is real: the cover says 'approximately $135.2 billion' on June 30, 2025 (Capital One bought Discover in 2025).
+- HOOD FY2025: kept as tagged. x4.4 from FY2024 is real: the cover says 'approximately $71.3 billion' on June 30, 2025.
+
+Fiscal years not ending in December (FY = the year it ends): BEN (09/30), FDS (08/31), JKHY (06/30), RJF (09/30), V (09/30).
 
 ## Agent labels by firm type
 
@@ -36,13 +43,13 @@ Use = D2 or D1 after the guardrail. *Use with no named area* = use labels whose 
 | Exchanges and data | 309 | 96 (31%) | 24 | 72 | 5 | 174 | 34 | 42 (14%) | 54 (56%) |
 | **All** | 1876 | 374 (20%) | 105 | 269 | 34 | 1253 | 215 | 170 (9%) | 188 (50%) |
 
-**Most-used areas** (D2/D1/P labels):
+**Most-used areas** (D2/D1/P labels; ENT = use with no named area), and the enablers (governance, talent, investment) that feed Readiness:
 
-- Banks: ENT 29, GOV 6, TALENT 6, RISKM 4, OPS 3
-- Insurers (incl. brokers, Berkshire): ENT 39, GOV 17, TALENT 11, OPS 5, INVEST 5
-- Asset managers and brokers: ENT 43, GOV 13, CX 8, ADV 8, FRAUD 5
-- Payments and consumer finance: ENT 54, GOV 14, INVEST 13, FRAUD 11, CYBER 7
-- Exchanges and data: ENT 60, TALENT 13, INVEST 9, GOV 7, FRAUD 6
+- Banks: ENT 29, RISKM 4, OPS 3, PROD 1 · enablers: GOV 6, TALENT 6
+- Insurers (incl. brokers, Berkshire): ENT 39, OPS 5, CREDIT 3, CX 3, PROD 2 · enablers: GOV 17, TALENT 11, INVEST 5
+- Asset managers and brokers: ENT 43, CX 8, ADV 8, FRAUD 5, DEV 3 · enablers: GOV 13, TALENT 4, INVEST 2
+- Payments and consumer finance: ENT 54, FRAUD 11, CYBER 7, OPS 4, CX 4 · enablers: GOV 14, INVEST 13, TALENT 1
+- Exchanges and data: ENT 60, FRAUD 6, MKT 5, OPS 5, PROD 3 · enablers: TALENT 13, INVEST 9, GOV 7
 
 ## AI Use Scores by firm type
 
@@ -79,7 +86,7 @@ Computed with `sector_index.build()` (#134) on the agent's 10-K scores. Draft: Y
 
 | Fiscal year | Firms | AI-EW (equal) | AI-CW (by public float) |
 |---|---|---|---|
-| 2024 | 75 | 5.6 | 6.3 |
+| 2024 | 76 | 5.6 | 6.3 |
 | 2025 | 76 | 6.5 | 8.6 |
 
 Yen-Chu's command for the index files:

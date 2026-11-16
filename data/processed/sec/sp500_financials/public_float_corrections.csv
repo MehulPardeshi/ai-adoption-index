@@ -1,0 +1,5 @@
+ticker,fiscal_year,action,public_float_usd,as_of,accession,source,note
+ARES,2025,correct,32665326200,2025-06-30,0001628280-26-011413,"estimate: the cover-page figure x 100, a typo in the filing","Cover page and tag both say 'approximately $326,653,262' at a $173.20 closing price, i.e. 1.9 million non-affiliate shares, while 220,902,613 Class A shares were outstanding (Feb 19, 2026) and the FY2024 float was $25.5B. x100 = $32.7B = 188.6 million shares. Estimate; confirm with Ares's own numbers if it matters."
+SPGI,2024,correct,139600000000,2024-06-30,0000064040-25-000052,10-K cover page text (EntityPublicFloat not tagged),"Cover page: market value held by non-affiliates as of June 30, 2024 'was $139.6 billion' (closing price $446.00). Rounded to $0.1B as stated."
+COF,2025,keep,,,,checked against the 10-K cover page,"x2.6 from FY2024 is real: the cover says 'approximately $135.2 billion' on June 30, 2025 (Capital One bought Discover in 2025)."
+HOOD,2025,keep,,,,checked against the 10-K cover page,"x4.4 from FY2024 is real: the cover says 'approximately $71.3 billion' on June 30, 2025."

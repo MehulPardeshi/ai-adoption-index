@@ -19,7 +19,9 @@ from collections import Counter, defaultdict
 from datetime import date
 from pathlib import Path
 
+from src.edgar import float_corrections
 from src.index import sector_index
+from src.nlp.taxonomy_v0 import ENABLERS
 
 DIR = Path("data/processed/sec/sp500_financials")
 PASSAGES = Path("data/interim/sec/sp500_financials/ai_passages.csv")
@@ -114,10 +116,21 @@ def build(d: Path = DIR, passages_path: Path = PASSAGES, today: str | None = Non
         if len(probs) > 60:
             md.append(f"- … {len(probs) - 60} more in `download_info.json`")
         md.append("")
-    off = info.get("fiscal_year_end_not_december") or {}
+    corr = float_corrections.read(d / "public_float_corrections.csv")
+    if corr:
+        md += [f"**Public float, checked by hand ({len(corr)})** "
+               "([public_float_corrections.csv](../../data/processed/sec/sp500_financials/public_float_corrections.csv)):", ""]
+        md += [f"- {c['ticker']} FY{c['fiscal_year']}: "
+               + (f"**corrected to ${float(c['public_float_usd']) / 1e9:,.1f}B** ({c['source']}). " if c.get("action") == "correct"
+                  else "kept as tagged. ") + c["note"] for c in corr] + [""]
+    flags = float_corrections.check(floats, corr)
+    if flags:
+        md += ["**Public floats still to check against the cover page:**", ""] + [f"- {f}" for f in flags] + [""]
+    # from the 10-K periods (SEC's fiscalYearEnd field can be wrong: it says 01/19 for Brown & Brown)
+    off = {r["ticker"]: r["period"][5:] for r in inv if r["form"] == "10-K" and not r["period"].endswith("-12-31")}
     if off:
         md += ["Fiscal years not ending in December (FY = the year it ends): "
-               + ", ".join(f"{t} ({v[:2]}/{v[2:]})" for t, v in sorted(off.items())) + ".", ""]
+               + ", ".join(f"{t} ({v[:2]}/{v[3:]})" for t, v in sorted(off.items())) + ".", ""]
 
     # labels
     held = [r for r in labels if r.get("verify_status") == "needs_review"]
@@ -136,13 +149,15 @@ def build(d: Path = DIR, passages_path: Path = PASSAGES, today: str | None = Non
                          ev["X"], pct(h, len(ls)), pct(ent_only, len(use))])
         md += table(["Firm type", "Passages", "Use", "D2", "D1", "P", "N", "X", "Held for review",
                      "Use with no named area"], rows) + [""]
-        area = defaultdict(Counter)
+        area, enab = defaultdict(Counter), defaultdict(Counter)
         for r in labels:
             if r["evidence_v0"] in USE | {"P"}:
                 for s in filter(None, r["scenarios_v0"].split(";")):
-                    area[ftype.get(r["ticker"], "other")][s] += 1
-        md += ["**Most-used areas** (D2/D1/P labels):", ""]
+                    (enab if s in ENABLERS else area)[ftype.get(r["ticker"], "other")][s] += 1
+        md += ["**Most-used areas** (D2/D1/P labels; ENT = use with no named area), and the enablers "
+               "(governance, talent, investment) that feed Readiness:", ""]
         md += [f"- {TYPE_NAME.get(t, t)}: " + (", ".join(f"{s} {k}" for s, k in area[t].most_common(5)) or "none")
+               + " · enablers: " + (", ".join(f"{s} {k}" for s, k in enab[t].most_common()) or "none")
                for t in types] + [""]
 
     # scores

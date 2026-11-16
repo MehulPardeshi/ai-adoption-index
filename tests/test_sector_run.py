@@ -16,7 +16,7 @@ config.CACHE_DIR = Path(tempfile.mkdtemp()) / "llm"
 
 from src.agent import run_batch  # noqa: E402
 from src.edgar import download_sec_filings as dl  # noqa: E402
-from src.edgar import download_sector, make_firm_list  # noqa: E402
+from src.edgar import download_sector, float_corrections, make_firm_list  # noqa: E402
 from src.eval import make_sector_pilot_sample as pilot  # noqa: E402
 from src.index import sector_run_report  # noqa: E402
 
@@ -146,10 +146,11 @@ class DownloaderTests(unittest.TestCase):
     def tearDown(self):
         dl.get = self.real_get
 
-    def run_once(self):
+    def run_once(self, corrections=None):
         out = self.tmp / "out"
         rc = download_sector.main([
             "--firms", str(self.firms), "--raw-dir", str(self.tmp / "raw"),
+            "--float-corrections", str(corrections or self.tmp / "no_corrections.csv"),
             "--passages-out", str(out / "p.csv"), "--inventory-out", str(out / "inv.csv"),
             "--float-out", str(out / "fl.csv"), "--info-out", str(out / "info.json")])
         self.assertEqual(rc, 0)
@@ -180,6 +181,20 @@ class DownloaderTests(unittest.TestCase):
         self.assertEqual(first[0], second[0])
         self.assertFalse([u for u in self.fake.calls if u.endswith(".htm")])  # no document downloaded again
         self.assertTrue(all(r["status"] == "ok (saved copy)" for r in second[1]))
+
+    def test_float_corrections_applied_on_every_run(self):
+        corr = write_csv(self.tmp / "corr.csv", [
+            {"ticker": "HIG", "fiscal_year": "2024", "action": "correct", "public_float_usd": "30000000000",
+             "as_of": "2024-06-30", "accession": "", "source": "cover page text", "note": "test"},
+            {"ticker": "SPGI", "fiscal_year": "2024", "action": "correct", "public_float_usd": "1",
+             "as_of": "2024-06-30", "accession": "", "source": "x", "note": "not in this run"}])
+        floats, info = self.run_once(corr)[2], self.run_once(corr)[3]
+        self.assertEqual([(f["ticker"], f["fiscal_year"], f["public_float_usd"]) for f in floats],
+                         [("HIG", "2024", "30000000000"), ("HIG", "2025", "35000000000")])  # SPGI not added
+        self.assertTrue(floats[0]["source"].startswith("correction: cover page text"))
+        # each download starts from the tag again, so each run re-applies the correction (and logs it)
+        self.assertEqual(len(info["public_float_corrections"]), 1)
+        self.assertIn("HIG FY2024: tag 29,000,000,000 -> 30,000,000,000", info["public_float_corrections"][0])
 
     def test_ticker_check(self):
         self.fake.pages["https://data.sec.gov/submissions/CIK0000874766.json"]["tickers"] = ["XXX"]
@@ -263,8 +278,47 @@ def run_folder(tmp: Path) -> Path:
                                                        "usage": {"calls": 10, "prompt_tokens": 1_000_000,
                                                                  "cached_prompt_tokens": 800_000, "completion_tokens": 100_000}}))
     (d / "download_info.json").write_text(json.dumps({"forms": ["10-K"], "window": ["2024-01-01", "2025-12-31"],
+                                                      "fiscal_year_end_not_december": {"BRO": "0119"},
                                                       "problems": [{"ticker": "AFL", "where": "public float", "problem": "x"}]}))
     return d
+
+
+class FloatCorrectionTests(unittest.TestCase):
+    def setUp(self):
+        self.floats = [{"ticker": "A", "cik": "1", "fiscal_year": "2024", "as_of": "2024-06-30", "public_float_usd": "25500000000",
+                        "form": "10-K", "filed": "2025-02-27", "accession": "a24", "source": "tag"},
+                       {"ticker": "A", "cik": "1", "fiscal_year": "2025", "as_of": "2025-06-30", "public_float_usd": "326653262",
+                        "form": "10-K", "filed": "2026-02-25", "accession": "a25", "source": "tag"},
+                       {"ticker": "B", "cik": "2", "fiscal_year": "2024", "as_of": "2024-06-30", "public_float_usd": "50000000000",
+                        "form": "10-K", "filed": "", "accession": "b24", "source": "tag"},
+                       {"ticker": "B", "cik": "2", "fiscal_year": "2025", "as_of": "2025-06-30", "public_float_usd": "135000000000",
+                        "form": "10-K", "filed": "", "accession": "b25", "source": "tag"}]
+        self.inv = [{"ticker": "C", "fiscal_year": "2024", "form": "10-K", "cik": "3", "filing_date": "2025-02-11",
+                     "accession": "c24"}]
+
+    def test_check_flags_tiny_and_jumps(self):
+        flags = float_corrections.check(self.floats)
+        self.assertTrue(any(f.startswith("A FY2025") and "under $1B" in f for f in flags))
+        self.assertTrue(any(f.startswith("B FY2025") for f in flags))           # x2.7
+        keep = [{"ticker": "B", "fiscal_year": "2025", "action": "keep"}]
+        self.assertFalse(any(f.startswith("B ") for f in float_corrections.check(self.floats, keep)))
+
+    def test_apply_replaces_adds_and_is_idempotent(self):
+        corr = [{"ticker": "A", "fiscal_year": "2025", "action": "correct", "public_float_usd": "32665326200",
+                 "as_of": "2025-06-30", "accession": "", "source": "estimate", "note": ""},
+                {"ticker": "C", "fiscal_year": "2024", "action": "correct", "public_float_usd": "139600000000",
+                 "as_of": "2024-06-30", "accession": "", "source": "cover page", "note": ""},
+                {"ticker": "B", "fiscal_year": "2025", "action": "keep", "public_float_usd": "", "as_of": "",
+                 "accession": "", "source": "checked", "note": ""}]
+        rows, done = float_corrections.apply(self.floats, corr, self.inv)
+        got = {(r["ticker"], r["fiscal_year"]): r for r in rows}
+        self.assertEqual(int(got[("A", "2025")]["public_float_usd"]), 32665326200)
+        self.assertEqual(got[("A", "2025")]["accession"], "a25")                 # kept from the tagged row
+        self.assertEqual((got[("C", "2024")]["accession"], got[("C", "2024")]["filed"]), ("c24", "2025-02-11"))
+        self.assertEqual(got[("B", "2025")]["public_float_usd"], "135000000000")  # keep = unchanged
+        self.assertEqual(len(done), 2)
+        again, done2 = float_corrections.apply([{k: str(v) for k, v in r.items()} for r in rows], corr, self.inv)
+        self.assertEqual(done2, [])
 
 
 class ReportTests(unittest.TestCase):
@@ -279,6 +333,8 @@ class ReportTests(unittest.TestCase):
         self.assertTrue(all(q["passage"] for q in queue))
         self.assertIn("about **$0.09**", md)                  # 0.8M x 0.003 + 0.2M x 0.15 + 0.1M x 0.60 = $0.092
         self.assertIn("AFL [public float]", md)
+        self.assertNotIn("Fiscal years not ending in December", md)  # from the periods, not SEC's fiscalYearEnd
+        self.assertIn("· enablers:", md)
 
 
     def test_run_facts_cover_every_pass(self):

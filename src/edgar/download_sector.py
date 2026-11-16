@@ -11,7 +11,8 @@ For every firm in data/processed/sec/sp500_financials/firms.csv (src/edgar/make_
      (html_to_paragraphs, ai_hits and ai_passages from download_sec_filings.py), so the passages
      are comparable with the 7-firm data and check 1
   4. read the cover-page public float (dei:EntityPublicFloat) of each of those 10-Ks from SEC's
-     free XBRL API, matched by accession number (it feeds the cap-weighted index)
+     free XBRL API, matched by accession number (it feeds the cap-weighted index), apply the hand
+     corrections in public_float_corrections.csv and flag implausible values (float_corrections.py)
 
 The run is resumable: each filing's paragraphs are kept under data/raw/sec/sp500_financials/
 (gitignored), and a rerun reads them instead of downloading again. A problem with one firm or
@@ -41,6 +42,7 @@ from datetime import datetime
 from pathlib import Path
 
 from src.edgar import download_sec_filings as dl
+from src.edgar import float_corrections
 
 FIRMS = Path("data/processed/sec/sp500_financials/firms.csv")
 RAW = Path("data/raw/sec/sp500_financials")
@@ -201,6 +203,8 @@ def main(argv=None) -> int:
     ap.add_argument("--passages-out", default=str(PASSAGES_OUT))
     ap.add_argument("--inventory-out", default=str(INVENTORY_OUT))
     ap.add_argument("--float-out", default=str(FLOAT_OUT))
+    ap.add_argument("--float-corrections", default=str(float_corrections.CORRECTIONS),
+                    help="hand corrections to the public float (applied on every run)")
     ap.add_argument("--info-out", default=str(INFO_OUT))
     a = ap.parse_args(argv)
 
@@ -273,17 +277,23 @@ def main(argv=None) -> int:
                 problems.append({"ticker": t, "where": "public float", "problem": str(e)[:300]})
         print(f"[{n}/{len(firms)}] {t:6} {'; '.join(line) or 'no filings in the window'}")
 
+    corrections = float_corrections.read(Path(a.float_corrections))
+    floats, corrected = float_corrections.apply(floats, corrections, inventory)
+    problems += [{"ticker": f.split()[0], "where": "public float check", "problem": f}
+                 for f in float_corrections.check(floats, corrections)]
     write_csv(Path(a.passages_out), passages, PASSAGE_FIELDS)
     write_csv(Path(a.inventory_out), inventory, INVENTORY_FIELDS)
     write_csv(Path(a.float_out), floats, FLOAT_FIELDS)
-    off_calendar = {t: m["fiscal_year_end"] for t, m in firm_meta.items() if m["fiscal_year_end"] not in ("", "1231")}
+    # from the 10-K periods, not SEC's fiscalYearEnd field (it says 0119 for Brown & Brown, whose year ends Dec 31)
+    off_calendar = {r["ticker"]: r["period"][5:7] + r["period"][8:10] for r in inventory
+                    if r["form"] == "10-K" and r["period"] and not r["period"].endswith("-12-31")}
     info = {"run_at": datetime.now().isoformat(timespec="seconds"), "wall_seconds": round(time.monotonic() - t0, 1),
             "firms_file": a.firms, "firms": len(firms), "forms": sorted(forms), "window": [a.start, a.end],
             "filings": len(inventory), "filings_ok": sum(r["status"].startswith("ok") for r in inventory),
-            "ai_passages": len(passages), "public_floats": len(floats),
+            "ai_passages": len(passages), "public_floats": len(floats), "public_float_corrections": corrected,
             "user_agent": EMAIL_RE.sub("<email>", ua),
             "search_rules": "download_sec_filings.py: html_to_paragraphs, ai_hits (strong terms only), ai_passages",
-            "fiscal_year_rule": "year of the period end; firms whose fiscal year doesn't end in December are listed",
+            "fiscal_year_rule": "year of the period end; firms whose 10-K period doesn't end Dec 31 are listed",
             "fiscal_year_end_not_december": off_calendar,
             "problems": problems}
     Path(a.info_out).parent.mkdir(parents=True, exist_ok=True)
