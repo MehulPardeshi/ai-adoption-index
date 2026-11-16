@@ -1,0 +1,77 @@
+ticker,company,cik,gics_sub_industry,firm_type,poc_firm,date_added,source,source_date
+ACGL,Arch Capital Group,0000947484,Property & Casualty Insurance,insurer,,2022-11-01,"github.com/datasets/s-and-p-500-companies (from Wikipedia), commit 05c998c",2026-11-05
+AFL,Aflac,0000004977,Life & Health Insurance,insurer,,1999-05-28,"github.com/datasets/s-and-p-500-companies (from Wikipedia), commit 05c998c",2026-11-05
+AIG,American International Group,0000005272,Multi-line Insurance,insurer,,1980-03-31,"github.com/datasets/s-and-p-500-companies (from Wikipedia), commit 05c998c",2026-11-05
+AIZ,Assurant,0001267238,Multi-line Insurance,insurer,,2007-04-10,"github.com/datasets/s-and-p-500-companies (from Wikipedia), commit 05c998c",2026-11-05
+AJG,Arthur J. Gallagher & Co.,0000354190,Insurance Brokers,insurer,,2016-05-31,"github.com/datasets/s-and-p-500-companies (from Wikipedia), commit 05c998c",2026-11-05
+ALL,Allstate,0000899051,Property & Casualty Insurance,insurer,,1995-07-13,"github.com/datasets/s-and-p-500-companies (from Wikipedia), commit 05c998c",2026-11-05
+AMP,Ameriprise Financial,0000820027,Asset Management & Custody Banks,asset_mgmt_broker,,2005-10-03,"github.com/datasets/s-and-p-500-companies (from Wikipedia), commit 05c998c",2026-11-05
+AON,Aon plc,0000315293,Insurance Brokers,insurer,,1996-04-23,"github.com/datasets/s-and-p-500-companies (from Wikipedia), commit 05c998c",2026-11-05
+APO,Apollo Global Management,0001858681,Asset Management & Custody Banks,asset_mgmt_broker,,2024-12-23,"github.com/datasets/s-and-p-500-companies (from Wikipedia), commit 05c998c",2026-11-05
+ARES,Ares Management,0001176948,Asset Management & Custody Banks,asset_mgmt_broker,,2025-12-11,"github.com/datasets/s-and-p-500-companies (from Wikipedia), commit 05c998c",2026-11-05
+AXP,American Express,0000004962,Consumer Finance,payments_consumer_finance,,1976-06-30,"github.com/datasets/s-and-p-500-companies (from Wikipedia), commit 05c998c",2026-11-05
+BAC,Bank of America,0000070858,Diversified Banks,bank,yes,1976-06-30,"github.com/datasets/s-and-p-500-companies (from Wikipedia), commit 05c998c",2026-11-05
+BEN,Franklin Resources,0000038777,Asset Management & Custody Banks,asset_mgmt_broker,,1998-04-30,"github.com/datasets/s-and-p-500-companies (from Wikipedia), commit 05c998c",2026-11-05
+BLK,BlackRock,0002012383,Asset Management & Custody Banks,asset_mgmt_broker,,2011-04-04,"github.com/datasets/s-and-p-500-companies (from Wikipedia), commit 05c998c",2026-11-05
+BNY,BNY Mellon,0001390777,Asset Management & Custody Banks,asset_mgmt_broker,,1995-03-31,"github.com/datasets/s-and-p-500-companies (from Wikipedia), commit 05c998c",2026-11-05
+BRK.B,Berkshire Hathaway,0001067983,Multi-Sector Holdings,insurer,,2010-02-16,"github.com/datasets/s-and-p-500-companies (from Wikipedia), commit 05c998c",2026-11-05
+BRO,Brown & Brown,0000079282,Insurance Brokers,insurer,,2021-09-20,"github.com/datasets/s-and-p-500-companies (from Wikipedia), commit 05c998c",2026-11-05
+BX,Blackstone Inc.,0001393818,Asset Management & Custody Banks,asset_mgmt_broker,,2023-09-18,"github.com/datasets/s-and-p-500-companies (from Wikipedia), commit 05c998c",2026-11-05
+C,Citigroup,0000831001,Diversified Banks,bank,yes,1988-05-31,"github.com/datasets/s-and-p-500-companies (from Wikipedia), commit 05c998c",2026-11-05
+CB,Chubb Limited,0000896159,Property & Casualty Insurance,insurer,,2010-07-15,"github.com/datasets/s-and-p-500-companies (from Wikipedia), commit 05c998c",2026-11-05
+CBOE,Cboe Global Markets,0001374310,Financial Exchanges & Data,exchange_data,,2017-03-01,"github.com/datasets/s-and-p-500-companies (from Wikipedia), commit 05c998c",2026-11-05
+CFG,Citizens Financial Group,0000759944,Regional Banks,bank,,2016-01-29,"github.com/datasets/s-and-p-500-companies (from Wikipedia), commit 05c998c",2026-11-05
+CINF,Cincinnati Financial,0000020286,Property & Casualty Insurance,insurer,,1997-12-18,"github.com/datasets/s-and-p-500-companies (from Wikipedia), commit 05c998c",2026-11-05
+CME,CME Group,0001156375,Financial Exchanges & Data,exchange_data,,2006-08-11,"github.com/datasets/s-and-p-500-companies (from Wikipedia), commit 05c998c",2026-11-05
+COF,Capital One,0000927628,Consumer Finance,payments_consumer_finance,yes,1998-07-01,"github.com/datasets/s-and-p-500-companies (from Wikipedia), commit 05c998c",2026-11-05
+COIN,Coinbase,0001679788,Financial Exchanges & Data,exchange_data,,2025-05-19,"github.com/datasets/s-and-p-500-companies (from Wikipedia), commit 05c998c",2026-11-05
+CPAY,Corpay,0001175454,Transaction & Payment Processing Services,payments_consumer_finance,,2018-06-20,"github.com/datasets/s-and-p-500-companies (from Wikipedia), commit 05c998c",2026-11-05
+EG,Everest Group,0001095073,Reinsurance,insurer,,2017-06-19,"github.com/datasets/s-and-p-500-companies (from Wikipedia), commit 05c998c",2026-11-05
+ERIE,Erie Indemnity,0000922621,Insurance Brokers,insurer,,2024-09-23,"github.com/datasets/s-and-p-500-companies (from Wikipedia), commit 05c998c",2026-11-05
+FDS,FactSet,0001013237,Financial Exchanges & Data,exchange_data,,2021-12-20,"github.com/datasets/s-and-p-500-companies (from Wikipedia), commit 05c998c",2026-11-05
+FIS,Fidelity National Information Services,0001136893,Transaction & Payment Processing Services,payments_consumer_finance,,2006-11-10,"github.com/datasets/s-and-p-500-companies (from Wikipedia), commit 05c998c",2026-11-05
+FISV,Fiserv,0000798354,Transaction & Payment Processing Services,payments_consumer_finance,,2001-04-02,"github.com/datasets/s-and-p-500-companies (from Wikipedia), commit 05c998c",2026-11-05
+FITB,Fifth Third Bancorp,0000035527,Regional Banks,bank,,1996-03-29,"github.com/datasets/s-and-p-500-companies (from Wikipedia), commit 05c998c",2026-11-05
+GL,Globe Life,0000320335,Life & Health Insurance,insurer,,1989-04-30,"github.com/datasets/s-and-p-500-companies (from Wikipedia), commit 05c998c",2026-11-05
+GPN,Global Payments,0001123360,Transaction & Payment Processing Services,payments_consumer_finance,,2016-04-25,"github.com/datasets/s-and-p-500-companies (from Wikipedia), commit 05c998c",2026-11-05
+GS,Goldman Sachs,0000886982,Investment Banking & Brokerage,asset_mgmt_broker,,2002-07-22,"github.com/datasets/s-and-p-500-companies (from Wikipedia), commit 05c998c",2026-11-05
+HBAN,Huntington Bancshares,0000049196,Regional Banks,bank,,1997-08-28,"github.com/datasets/s-and-p-500-companies (from Wikipedia), commit 05c998c",2026-11-05
+HIG,The Hartford,0000874766,Property & Casualty Insurance,insurer,,1957-03-04,"github.com/datasets/s-and-p-500-companies (from Wikipedia), commit 05c998c",2026-11-05
+HOOD,Robinhood Markets,0001783879,Investment Banking & Brokerage,asset_mgmt_broker,,2025-09-22,"github.com/datasets/s-and-p-500-companies (from Wikipedia), commit 05c998c",2026-11-05
+IBKR,Interactive Brokers,0001381197,Investment Banking & Brokerage,asset_mgmt_broker,,2025-08-28,"github.com/datasets/s-and-p-500-companies (from Wikipedia), commit 05c998c",2026-11-05
+ICE,Intercontinental Exchange,0001571949,Financial Exchanges & Data,exchange_data,,2007-09-26,"github.com/datasets/s-and-p-500-companies (from Wikipedia), commit 05c998c",2026-11-05
+IVZ,Invesco,0000914208,Asset Management & Custody Banks,asset_mgmt_broker,,2008-08-21,"github.com/datasets/s-and-p-500-companies (from Wikipedia), commit 05c998c",2026-11-05
+JKHY,Jack Henry & Associates,0000779152,Transaction & Payment Processing Services,payments_consumer_finance,,2018-11-13,"github.com/datasets/s-and-p-500-companies (from Wikipedia), commit 05c998c",2026-11-05
+JPM,JPMorgan Chase,0000019617,Diversified Banks,bank,yes,1975-06-30,"github.com/datasets/s-and-p-500-companies (from Wikipedia), commit 05c998c",2026-11-05
+KEY,KeyCorp,0000091576,Regional Banks,bank,,1994-03-01,"github.com/datasets/s-and-p-500-companies (from Wikipedia), commit 05c998c",2026-11-05
+KKR,KKR & Co.,0001404912,Asset Management & Custody Banks,asset_mgmt_broker,,2024-06-24,"github.com/datasets/s-and-p-500-companies (from Wikipedia), commit 05c998c",2026-11-05
+L,Loews Corporation,0000060086,Multi-line Insurance,insurer,,1995-05-31,"github.com/datasets/s-and-p-500-companies (from Wikipedia), commit 05c998c",2026-11-05
+MA,Mastercard,0001141391,Transaction & Payment Processing Services,payments_consumer_finance,,2008-07-18,"github.com/datasets/s-and-p-500-companies (from Wikipedia), commit 05c998c",2026-11-05
+MCO,Moody's Corporation,0001059556,Financial Exchanges & Data,exchange_data,,1998-07-01,"github.com/datasets/s-and-p-500-companies (from Wikipedia), commit 05c998c",2026-11-05
+MET,MetLife,0001099219,Life & Health Insurance,insurer,,2000-12-11,"github.com/datasets/s-and-p-500-companies (from Wikipedia), commit 05c998c",2026-11-05
+MRSH,Marsh McLennan,0000062709,Insurance Brokers,insurer,,1987-08-31,"github.com/datasets/s-and-p-500-companies (from Wikipedia), commit 05c998c",2026-11-05
+MS,Morgan Stanley,0000895421,Investment Banking & Brokerage,asset_mgmt_broker,,1993-07-29,"github.com/datasets/s-and-p-500-companies (from Wikipedia), commit 05c998c",2026-11-05
+MSCI,MSCI,0001408198,Financial Exchanges & Data,exchange_data,,2018-04-04,"github.com/datasets/s-and-p-500-companies (from Wikipedia), commit 05c998c",2026-11-05
+MTB,M&T Bank,0000036270,Regional Banks,bank,,2004-02-23,"github.com/datasets/s-and-p-500-companies (from Wikipedia), commit 05c998c",2026-11-05
+NDAQ,"Nasdaq, Inc.",0001120193,Financial Exchanges & Data,exchange_data,,2008-10-22,"github.com/datasets/s-and-p-500-companies (from Wikipedia), commit 05c998c",2026-11-05
+NTRS,Northern Trust,0000073124,Asset Management & Custody Banks,asset_mgmt_broker,,1998-01-30,"github.com/datasets/s-and-p-500-companies (from Wikipedia), commit 05c998c",2026-11-05
+PFG,Principal Financial Group,0001126328,Life & Health Insurance,insurer,yes,2002-07-22,"github.com/datasets/s-and-p-500-companies (from Wikipedia), commit 05c998c",2026-11-05
+PGR,Progressive Corporation,0000080661,Property & Casualty Insurance,insurer,,1997-08-04,"github.com/datasets/s-and-p-500-companies (from Wikipedia), commit 05c998c",2026-11-05
+PNC,PNC Financial Services,0000713676,Diversified Banks,bank,,1988-04-30,"github.com/datasets/s-and-p-500-companies (from Wikipedia), commit 05c998c",2026-11-05
+PRU,Prudential Financial,0001137774,Life & Health Insurance,insurer,,2002-07-22,"github.com/datasets/s-and-p-500-companies (from Wikipedia), commit 05c998c",2026-11-05
+PYPL,PayPal,0001633917,Transaction & Payment Processing Services,payments_consumer_finance,,2015-07-20,"github.com/datasets/s-and-p-500-companies (from Wikipedia), commit 05c998c",2026-11-05
+RF,Regions Financial Corporation,0001281761,Regional Banks,bank,,1998-08-28,"github.com/datasets/s-and-p-500-companies (from Wikipedia), commit 05c998c",2026-11-05
+RJF,Raymond James Financial,0000720005,Investment Banking & Brokerage,asset_mgmt_broker,,2017-03-20,"github.com/datasets/s-and-p-500-companies (from Wikipedia), commit 05c998c",2026-11-05
+SCHW,Charles Schwab,0000316709,Investment Banking & Brokerage,asset_mgmt_broker,yes,1997-06-02,"github.com/datasets/s-and-p-500-companies (from Wikipedia), commit 05c998c",2026-11-05
+SPGI,S&P Global,0000064040,Financial Exchanges & Data,exchange_data,,1957-03-04,"github.com/datasets/s-and-p-500-companies (from Wikipedia), commit 05c998c",2026-11-05
+STT,State Street Corporation,0000093751,Asset Management & Custody Banks,asset_mgmt_broker,,2003-03-14,"github.com/datasets/s-and-p-500-companies (from Wikipedia), commit 05c998c",2026-11-05
+SYF,Synchrony Financial,0001601712,Consumer Finance,payments_consumer_finance,,2015-11-18,"github.com/datasets/s-and-p-500-companies (from Wikipedia), commit 05c998c",2026-11-05
+TFC,Truist Financial,0000092230,Diversified Banks,bank,,1997-12-04,"github.com/datasets/s-and-p-500-companies (from Wikipedia), commit 05c998c",2026-11-05
+TROW,T. Rowe Price,0001113169,Asset Management & Custody Banks,asset_mgmt_broker,,2019-07-29,"github.com/datasets/s-and-p-500-companies (from Wikipedia), commit 05c998c",2026-11-05
+TRV,The Travelers Companies,0000086312,Property & Casualty Insurance,insurer,,2002-08-21,"github.com/datasets/s-and-p-500-companies (from Wikipedia), commit 05c998c",2026-11-05
+USB,U.S. Bancorp,0000036104,Diversified Banks,bank,,1999-11-01,"github.com/datasets/s-and-p-500-companies (from Wikipedia), commit 05c998c",2026-11-05
+V,Visa Inc.,0001403161,Transaction & Payment Processing Services,payments_consumer_finance,,2009-12-21,"github.com/datasets/s-and-p-500-companies (from Wikipedia), commit 05c998c",2026-11-05
+WFC,Wells Fargo,0000072971,Diversified Banks,bank,yes,1976-06-30,"github.com/datasets/s-and-p-500-companies (from Wikipedia), commit 05c998c",2026-11-05
+WRB,W. R. Berkley Corporation,0000011544,Property & Casualty Insurance,insurer,,2019-12-05,"github.com/datasets/s-and-p-500-companies (from Wikipedia), commit 05c998c",2026-11-05
+WTW,Willis Towers Watson,0001140536,Insurance Brokers,insurer,,2016-01-05,"github.com/datasets/s-and-p-500-companies (from Wikipedia), commit 05c998c",2026-11-05
+XYZ,"Block, Inc.",0001512673,Transaction & Payment Processing Services,payments_consumer_finance,,2025-07-23,"github.com/datasets/s-and-p-500-companies (from Wikipedia), commit 05c998c",2026-11-05

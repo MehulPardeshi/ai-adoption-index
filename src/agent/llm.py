@@ -9,6 +9,8 @@ Provider "mock" runs fully offline (tests, dry runs, machines without a key). Ca
 """
 import hashlib
 import json
+import os
+import threading
 import time
 from typing import Callable
 
@@ -18,6 +20,13 @@ from src.agent import config
 
 USAGE = {"calls": 0, "cache_hits": 0, "prompt_tokens": 0, "cached_prompt_tokens": 0, "completion_tokens": 0,
          "reasoning_tokens": 0, "truncated": 0}
+_LOCK = threading.Lock()  # run_batch --workers calls the model from several threads
+
+
+def _add(**counts) -> None:
+    with _LOCK:
+        for k, v in counts.items():
+            USAGE[k] += v
 
 
 def model_tag() -> str:
@@ -49,7 +58,7 @@ def complete(messages: list[dict], *, tools: list[dict] | None = None, json_mode
     key = _cache_key(payload)
     path = config.CACHE_DIR / f"{key}.json"
     if use_cache and path.exists():
-        USAGE["cache_hits"] += 1
+        _add(cache_hits=1)
         return {**json.loads(path.read_text(encoding="utf-8")), "cached": True}
 
     if config.PROVIDER == "mock":
@@ -62,8 +71,16 @@ def complete(messages: list[dict], *, tools: list[dict] | None = None, json_mode
     # A reply cut off by max_tokens, or with neither text nor tool calls, is not cached, so a rerun retries it.
     complete_reply = reply.get("finish_reason") != "length" and (reply.get("content") or reply.get("tool_calls"))
     if use_cache and complete_reply:
-        config.CACHE_DIR.mkdir(parents=True, exist_ok=True)
-        path.write_text(json.dumps(reply, ensure_ascii=False), encoding="utf-8")
+        tmp = path.with_name(f"{path.stem}.{os.getpid()}.{threading.get_ident()}.tmp")
+        try:
+            config.CACHE_DIR.mkdir(parents=True, exist_ok=True)
+            tmp.write_text(json.dumps(reply, ensure_ascii=False), encoding="utf-8")
+            os.replace(tmp, path)  # atomic: a reader never sees half a file
+        except OSError:  # e.g. a Windows file lock; costs one repeat call on a rerun, never the label
+            try:
+                tmp.unlink(missing_ok=True)
+            except OSError:
+                pass
     return {**reply, "cached": False}
 
 
@@ -87,16 +104,13 @@ def _call_deepseek(payload: dict) -> dict:
     else:
         raise RuntimeError(f"DeepSeek call failed after retries: {last}")
 
-    USAGE["calls"] += 1
     u = data.get("usage", {})
-    USAGE["prompt_tokens"] += u.get("prompt_tokens", 0)
-    USAGE["cached_prompt_tokens"] += u.get("prompt_cache_hit_tokens", 0)
-    USAGE["completion_tokens"] += u.get("completion_tokens", 0)
-    USAGE["reasoning_tokens"] += (u.get("completion_tokens_details") or {}).get("reasoning_tokens", 0)
-
     choice = data["choices"][0]
     msg = choice["message"]
-    USAGE["truncated"] += choice.get("finish_reason") == "length"
+    _add(calls=1, prompt_tokens=u.get("prompt_tokens", 0), cached_prompt_tokens=u.get("prompt_cache_hit_tokens", 0),
+         completion_tokens=u.get("completion_tokens", 0),
+         reasoning_tokens=(u.get("completion_tokens_details") or {}).get("reasoning_tokens", 0),
+         truncated=int(choice.get("finish_reason") == "length"))
     calls = [{"id": c["id"], "name": c["function"]["name"], "arguments": c["function"].get("arguments") or "{}"}
              for c in msg.get("tool_calls") or []]
     return {"content": msg.get("content"), "tool_calls": calls, "model_returned": data.get("model", ""),

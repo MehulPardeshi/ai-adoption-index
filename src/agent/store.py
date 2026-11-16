@@ -8,7 +8,8 @@ from src.agent import config
 
 
 def fiscal_year(period: str) -> int:
-    """All seven firms use calendar fiscal years, so FY = year of the period end (same rule as score_companies)."""
+    """FY = year of the period end (same rule as score_companies). Right for every 10-K; for the
+    10-Qs of a firm whose fiscal year doesn't end in December (e.g. Visa, September) it isn't."""
     return int(str(period)[:4])
 
 
@@ -25,14 +26,24 @@ def write_csv(path: Path, rows: list[dict], fields: list[str]) -> None:
         w.writerows(rows)
 
 
+def passages(path: str | None = None) -> tuple[dict, ...]:
+    """The passage store: config.PASSAGES unless a path is given. run_batch --passages points
+    config.PASSAGES at another file (e.g. the S&P 500 Financials run); it is read at call time."""
+    return _load(str(path or config.PASSAGES))
+
+
+def passage_index(path: str | None = None) -> dict[str, dict]:
+    return _index(str(path or config.PASSAGES))
+
+
 @lru_cache(maxsize=4)
-def passages(path: str = str(config.PASSAGES)) -> tuple[dict, ...]:
+def _load(path: str) -> tuple[dict, ...]:
     return tuple(read_csv(Path(path)))
 
 
 @lru_cache(maxsize=4)
-def passage_index(path: str = str(config.PASSAGES)) -> dict[str, dict]:
-    return {r["passage_id"]: r for r in passages(path)}
+def _index(path: str) -> dict[str, dict]:
+    return {r["passage_id"]: r for r in _load(path)}
 
 
 def get_passage(passage_id: str) -> dict | None:

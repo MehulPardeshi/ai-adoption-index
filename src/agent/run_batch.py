@@ -9,6 +9,13 @@ Examples (from the repo root):
     python3 -m src.agent.run_batch --ids docs/part3-metrics/labeling_round_1/sample_passages.csv
     python3 -m src.agent.run_batch --no-guardrails               # for the check 6 comparison
     AGENT_LLM_PROVIDER=mock python3 -m src.agent.run_batch --limit 20   # offline dry run
+    python3 -m src.agent.run_batch --passages data/interim/sec/sp500_financials/ai_passages.csv \
+        --labels-out data/processed/sec/sp500_financials/agent_labels.csv \
+        --scores-out data/processed/sec/sp500_financials/agent_scores.csv \
+        --run-info-out data/processed/sec/sp500_financials/agent_run_info.json --workers 6   # sector run
+
+--workers N sends N passages to the model at a time. The output order and the labels are the
+same as with one worker (each passage's answer is cached on its own); only the time changes.
 
 Output columns: the first eleven match passage_labels_v0.csv, so src/eval/irr.py and
 src/index/score_companies.py read the file unchanged (pass the new path with --ai-labels / --labels).
@@ -19,6 +26,7 @@ import argparse
 import json
 import time
 from collections import Counter
+from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime
 from pathlib import Path
 
@@ -79,8 +87,14 @@ def main(argv=None) -> int:
     ap.add_argument("--scores-out", help="scores CSV path")
     ap.add_argument("--run-info-out", help="write the run log (model, prompt, usage, time) here; "
                                            "default: agent_run_info.json, only for the default labels file")
+    ap.add_argument("--passages", help="passage CSV to label (default: the 7-firm data/interim/sec/ai_passages.csv)")
+    ap.add_argument("--workers", type=int, default=1, help="passages sent to the model at a time (default 1)")
     a = ap.parse_args(argv)
 
+    if a.passages:
+        if not a.labels_out or not a.scores_out:
+            ap.error("--passages needs --labels-out and --scores-out, so the 7-firm files aren't overwritten")
+        config.PASSAGES = Path(a.passages)
     guard = not a.no_guardrails
     ids = [r["passage_id"] for r in store.read_csv(Path(a.ids))] if a.ids else None
     recs = store.select_passages(tickers=a.tickers.split(",") if a.tickers else None, fiscal_years=a.year,
@@ -95,14 +109,18 @@ def main(argv=None) -> int:
     scores_out = Path(a.scores_out) if a.scores_out else (config.AGENT_SCORES if guard else
                                                            config.AGENT_SCORES.with_name("agent_scores_v1_noguard.csv"))
     run_at = datetime.now().isoformat(timespec="seconds")
-    print(f"Labeling {len(recs)} passages with {llm.model_tag()} (guardrails {'on' if guard else 'off'}) ...")
+    workers = max(1, a.workers)
+    print(f"Labeling {len(recs)} passages with {llm.model_tag()} (guardrails {'on' if guard else 'off'}, "
+          f"{workers} at a time) ...")
 
-    rows = []
     t0 = time.monotonic()
-    for i, rec in enumerate(recs, 1):
-        rows.append(label_one(rec, guard, run_at))
-        if i % 25 == 0 or i == len(recs):
-            print(f"  {i}/{len(recs)}")
+    step = 25 if len(recs) < 500 else 100
+    with ThreadPoolExecutor(max_workers=workers) as pool:
+        rows = []
+        for i, row in enumerate(pool.map(lambda rec: label_one(rec, guard, run_at), recs), 1):
+            rows.append(row)  # map() keeps the input order
+            if i % step == 0 or i == len(recs):
+                print(f"  {i}/{len(recs)}  ({round(time.monotonic() - t0)} s)", flush=True)
     wall = round(time.monotonic() - t0, 1)
 
     store.write_csv(labels_out, rows, FIELDS)
@@ -115,7 +133,8 @@ def main(argv=None) -> int:
             "prompt_version": config.PROMPT_VERSION, "temperature": config.TEMPERATURE,
             "guardrails": guard, "min_confidence": config.MIN_CONFIDENCE, "ent_counts": not a.no_ent,
             "passages": len(rows), "evidence": dict(ev), "verify_status": dict(status),
-            "usage": dict(llm.USAGE), "wall_seconds": wall, "labels_file": _rel(labels_out),
+            "usage": dict(llm.USAGE), "wall_seconds": wall, "workers": workers,
+            "passages_file": _rel(Path(config.PASSAGES)), "labels_file": _rel(labels_out),
             "scores_file": _rel(scores_out)}
     if a.run_info_out:
         Path(a.run_info_out).write_text(json.dumps(info, indent=2), encoding="utf-8")
