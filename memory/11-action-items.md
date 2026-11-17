@@ -1,12 +1,13 @@
 # 11 — Action Items (who is doing what, right now)
 
 > **Read this to answer "what should I work on next?"** Updated after every meeting from `meetings/` minutes ([procedure](../meetings/README.md)). The shared spreadsheet remains the source of truth for owners and deadlines; this file mirrors it for AI tools.
-> **Last updated:** 2026-11-12 (TP2 final PDF ready for Yen-Chu to submit Fri Nov 13, 5 pm. Earlier: Nov 10 Julie follow-up filed: broad headline agreed, category detail enough, 10-K-only check, download button + method page, handover via Dr. Chung, Julie joins Dec 3 remotely. Earlier: Nov 8 team call filed: transcripts out, both index weightings, Tuesday plan; 7 of 9 scenarios added (#128) and check 4 updated (#129). Earlier: Julie confirmed Tue Nov 10, 7 pm; agreed labels done Sat Nov 7. Earlier: TP2 deadline moved to Fri Nov 13; earlier: round 2 scored; TP2 paragraphs, agent re-run and Bloomberg review merged; no Nov 1 meeting record in `meetings/`). Last meeting: [Nov 10 Julie follow-up](../meetings/2026-11-10-client.md) (transcript). Previous: [Nov 8 team call](../meetings/2026-11-08-internal.md), [Oct 29 client checkpoint](../meetings/2026-10-29-client.md).
+> **Last updated:** 2026-11-17 (76-firm S&P 500 Financials run merged (#168, #133 closed): 152 10-Ks, 1,876 passages, 170 held for a person, draft index FY2025 6.5 EW / 8.6 CW; 10-Q finding for #157 (Citi 53 → 9 without 10-Qs); new #169 round 3 pilot and #170 held-label review, owners to agree; TP2 submission not yet confirmed on #41. Earlier: TP2 final PDF ready for Yen-Chu to submit Fri Nov 13, 5 pm. Earlier: Nov 10 Julie follow-up filed: broad headline agreed, category detail enough, 10-K-only check, download button + method page, handover via Dr. Chung, Julie joins Dec 3 remotely. Earlier: Nov 8 team call filed: transcripts out, both index weightings, Tuesday plan; 7 of 9 scenarios added (#128) and check 4 updated (#129). Earlier: Julie confirmed Tue Nov 10, 7 pm; agreed labels done Sat Nov 7. Earlier: TP2 deadline moved to Fri Nov 13; earlier: round 2 scored; TP2 paragraphs, agent re-run and Bloomberg review merged; no Nov 1 meeting record in `meetings/`). Last meeting: [Nov 10 Julie follow-up](../meetings/2026-11-10-client.md) (transcript). Previous: [Nov 8 team call](../meetings/2026-11-08-internal.md), [Oct 29 client checkpoint](../meetings/2026-10-29-client.md).
 > **Pinned summary for humans:** [#45 "Who does what"](https://github.com/MehulPardeshi/ai-adoption-index/issues/45), with @mentions per person.
 > **GitHub:** each task below is an issue in the **"Sprint: Oct 18–Nov 13 (TP2)"** milestone (renamed Nov 8; was "Oct 18–Nov 6") on the [project board](https://github.com/users/MehulPardeshi/projects/1).
 
 ## Where we are
-- ✅ TP1 submitted (Fri Oct 2).
+- ✅ TP1 submitted (Fri Oct 2). TP2 due Fri Nov 13: `UNCLEAR:` submission not yet confirmed by Yen-Chu (#41).
+- 🏁 **TP3 (Nov 14 → Thu Dec 3, 5:00–6:20 pm):** ✅ 76-firm run (#168) → held-label review (#170) + round 3 pilot (#169) → full sector index (#134) → dashboard, hosting, README report, paper, poster, demo, handover.
 - 🏁 **Sprint: Sun Oct 18 → Fri Nov 13 (TP2; extended from Nov 6).** ✅ Categories frozen, round 1 labels in, checks 2–4 run (Oct 27) → ✅ practice run Wed Oct 28 → ✅ **Julie Oct 29** (very positive; asked for a sector index, see below) → ✅ round 2 labels and scoring (Nov 4) → ✅ agreed labels (Sat Nov 7) → ✅ team call Sun Nov 8 ([minutes](../meetings/2026-11-08-internal.md)) → ✅ **Julie follow-up Tue Nov 10** ([minutes](../meetings/2026-11-10-client.md)) → TP2 compile Thu Nov 12 → submit **Fri Nov 13, 5 pm**.
 - **Julie's answers (Nov 10):** broad headline with strict beside it · category codes are enough (no extra use-case detail) · check what 10-Qs add, then likely 10-K only · add a data download and the scoring method to the dashboard · handover per Dr. Chung's preference (at least a deployed link + user guide) · she joins Dec 3 remotely.
 - **Julie's asks (Oct 29):** check whether a market-cap- and equal-weighted **sector index** on a defined public-company sample is feasible · dashboard hover definitions · hide partial years (FY2026) · sources we can legally get and verify only.
@@ -97,7 +98,7 @@
 | ✅ Check 3 on the 50-passage sample (#85) · shared slide deck | Done Oct 27–28 |
 | ✅ #35 Agent runs end to end (#66, #68, #84, #110) · ✅ TP2 section 2 (#109) | Done Nov 4 |
 | Run the agent on the 30 round 2 passages and compare with the agreed labels (command in the [results](../docs/part3-metrics/labeling_round_2/results_round2.md)) | Mon Nov 9 |
-| Finish the agent run on the ~75 S&P 500 Financials firms (Yen-Chu's index needs it) | Mon Nov 9 afternoon |
+| ✅ #133 76-firm S&P 500 Financials run merged (#168): 152 10-Ks FY2024–25, 1,876 passages, ~$1.03, 170 held; round 3 sample built; 10-Q finding for #157 | Done Nov 16 |
 | ✅ Pipeline + cost slides presented to Julie (Nov 10): ~75 firms ≈ 1,650 passages, ~1 hour, under $1 a year, ~1 in 20 to a person; pilot 1 firm per new type first | Done Nov 10 |
 | Review Mehul's SKILL.md draft ([`skills/ai-adoption-index/SKILL.md`](../skills/ai-adoption-index/SKILL.md)) | `UNCLEAR:` this week |
 | ✅ #97 Sector index: ~73 min and ~$0.40 for one year on ~75 firms; 3–5% go to human review | Done Nov 4 |
@@ -137,7 +138,10 @@
 | #141 | Poster / final deck | Snehal |
 | #142 | Handover plan for Julie (after Tue Nov 10) | Shu + Snehal |
 | #143 | Ask Dr. Chung: paper expectations + handover | Snehal |
-| #134 | Sector index (equal + market-cap-weighted) | Yen-Chu |
+| #134 | Sector index on 76 firms (run is in; decide Ares FY2025 float) | Yen-Chu |
+| #169 | Labeling round 3: sector pilot, 40 passages, 2 raters (human labels only) | `UNCLEAR:` two raters |
+| #170 | Review the 170 held labels from the 76-firm run | `UNCLEAR:` |
+| #157 | 10-K only? Data says Citi FY2025 53 → 9 without 10-Qs; team decision | `UNCLEAR:` (proposed: Yen-Chu) |
 | #135 | SKILL.md review (draft on main since PR #131) | Shu |
 | #30 | Host the dashboard on Streamlit Community Cloud (by Dec 3; moved to TP3 Nov 12) | Snehal |
 | #166 | README as the final project report (scope, visuals, details, What's next, bios) | `UNCLEAR:` (proposed: Yen-Chu scope/details, Snehal visuals, everyone bios) |
