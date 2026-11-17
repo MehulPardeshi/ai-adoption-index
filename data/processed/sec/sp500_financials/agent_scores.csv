@@ -1,0 +1,152 @@
+company,ticker,fiscal_year,ai_use_score,scenarios_with_use,readiness_score,talk_ratio_pct,substantive_ai_passages
+Arch Capital Group,ACGL,2024,21,CREDIT ENT RISKM,33,86,22
+Arch Capital Group,ACGL,2025,3,ENT,67,81,27
+Aflac,AFL,2024,3,ENT,0,67,3
+Aflac,AFL,2025,2,ENT,0,75,4
+American International Group,AIG,2024,2,ENT,0,92,12
+American International Group,AIG,2025,3,ENT,0,94,17
+Assurant,AIZ,2024,6,CX ENT,0,64,14
+Assurant,AIZ,2025,21,ENT OPS PROD,72,55,22
+Arthur J. Gallagher & Co.,AJG,2024,3,ENT,11,94,17
+Arthur J. Gallagher & Co.,AJG,2025,3,ENT,11,89,19
+Allstate,ALL,2024,12,CX ENT,0,57,7
+Allstate,ALL,2025,3,ENT,11,50,8
+Ameriprise Financial,AMP,2024,0,,0,100,3
+Ameriprise Financial,AMP,2025,3,ENT,11,86,7
+Aon plc,AON,2024,0,,22,86,7
+Aon plc,AON,2025,0,,22,92,13
+Apollo Global Management,APO,2024,3,ENT,0,62,8
+Apollo Global Management,APO,2025,0,,0,100,13
+Ares Management,ARES,2024,0,,0,100,14
+Ares Management,ARES,2025,3,ENT,0,96,23
+American Express,AXP,2024,3,ENT,11,83,18
+American Express,AXP,2025,6,CYBER ENT,0,89,28
+Bank of America,BAC,2024,0,,11,95,21
+Bank of America,BAC,2025,3,ENT,11,91,23
+Franklin Resources,BEN,2024,3,ENT,0,0,1
+Franklin Resources,BEN,2025,3,ENT,0,33,3
+BlackRock,BLK,2024,3,ENT,0,56,9
+BlackRock,BLK,2025,3,ENT,6,79,14
+BNY Mellon,BNY,2024,3,ENT,0,94,18
+BNY Mellon,BNY,2025,21,DEV ENT PROD,67,83,30
+Berkshire Hathaway,BRK.B,2025,0,,0,100,1
+Brown & Brown,BRO,2024,3,ENT,11,80,5
+Brown & Brown,BRO,2025,6,OPS PROD,11,88,8
+Blackstone Inc.,BX,2024,0,,0,100,5
+Blackstone Inc.,BX,2025,0,,0,100,10
+Citigroup,C,2024,3,PROD,0,88,8
+Citigroup,C,2025,12,ENT OPS,33,76,17
+Chubb Limited,CB,2024,3,ENT,0,60,5
+Chubb Limited,CB,2025,3,ENT,0,80,5
+Cboe Global Markets,CBOE,2024,2,ENT,0,67,3
+Cboe Global Markets,CBOE,2025,6,DEV PROD,0,67,3
+Citizens Financial Group,CFG,2024,3,ENT,0,60,5
+Citizens Financial Group,CFG,2025,0,,11,75,4
+Cincinnati Financial,CINF,2024,6,ENT OPS,0,67,6
+Cincinnati Financial,CINF,2025,0,,0,100,6
+CME Group,CME,2024,0,,0,100,8
+CME Group,CME,2025,3,ENT,0,90,10
+Capital One,COF,2024,3,RISKM,0,94,16
+Capital One,COF,2025,6,ENT RISKM,11,85,27
+Coinbase,COIN,2024,3,ENT,0,40,5
+Coinbase,COIN,2025,3,ENT,0,57,7
+Corpay,CPAY,2024,3,CREDIT,0,67,3
+Corpay,CPAY,2025,12,CREDIT OPS,0,71,7
+Everest Group,EG,2024,0,,0,100,3
+Everest Group,EG,2025,0,,0,100,5
+Erie Indemnity,ERIE,2024,0,,0,100,5
+Erie Indemnity,ERIE,2025,0,,0,100,5
+FactSet,FDS,2024,12,ENT MKT,33,25,8
+FactSet,FDS,2025,9,ENT,39,62,24
+Fidelity National Information Services,FIS,2024,6,ENT FRAUD,11,67,15
+Fidelity National Information Services,FIS,2025,6,ENT FRAUD,0,78,23
+Fiserv,FISV,2024,3,ENT,0,60,5
+Fiserv,FISV,2025,3,ENT,0,71,17
+Fifth Third Bancorp,FITB,2024,0,,0,100,5
+Fifth Third Bancorp,FITB,2025,3,ENT,33,67,9
+Globe Life,GL,2024,0,,0,100,1
+Globe Life,GL,2025,0,,0,100,3
+Global Payments,GPN,2024,3,ENT,0,75,8
+Global Payments,GPN,2025,3,ENT,6,82,11
+Goldman Sachs,GS,2024,3,ENT,33,69,13
+Goldman Sachs,GS,2025,3,ENT,33,75,16
+Huntington Bancshares,HBAN,2024,3,ENT,0,75,4
+Huntington Bancshares,HBAN,2025,3,ENT,33,57,7
+The Hartford,HIG,2024,5,CREDIT ENT,0,70,10
+The Hartford,HIG,2025,5,CREDIT ENT,0,86,14
+Robinhood Markets,HOOD,2024,39,ADV CX DEV ENT FRAUD,67,54,13
+Robinhood Markets,HOOD,2025,48,ADV CX DEV ENT FRAUD OPS,33,43,14
+Interactive Brokers,IBKR,2024,27,ADV CX PROD,0,50,6
+Interactive Brokers,IBKR,2025,36,ADV CX MKT PROD,11,50,10
+Intercontinental Exchange,ICE,2024,3,ENT,0,86,7
+Intercontinental Exchange,ICE,2025,5,ENT OPS,0,80,15
+Invesco,IVZ,2024,0,,0,100,4
+Invesco,IVZ,2025,3,ENT,0,88,8
+Jack Henry & Associates,JKHY,2024,20,CX ENT FRAUD,33,43,7
+Jack Henry & Associates,JKHY,2025,24,CX CYBER ENT FRAUD,33,43,7
+JPMorgan Chase,JPM,2024,6,ENT RISKM,11,60,10
+JPMorgan Chase,JPM,2025,3,RISKM,11,89,18
+KeyCorp,KEY,2024,3,ENT,0,75,4
+KeyCorp,KEY,2025,3,ENT,0,57,7
+KKR & Co.,KKR,2024,3,ENT,0,80,10
+KKR & Co.,KKR,2025,3,ENT,0,83,18
+Loews Corporation,L,2024,3,OPS,0,80,5
+Loews Corporation,L,2025,0,,0,100,11
+Mastercard,MA,2024,21,CYBER ENT FRAUD,33,58,26
+Mastercard,MA,2025,24,CX CYBER ENT OPS,33,66,29
+Moody's Corporation,MCO,2024,6,ENT PROD,11,76,17
+Moody's Corporation,MCO,2025,3,ENT,11,77,22
+MetLife,MET,2024,0,,33,83,6
+MetLife,MET,2025,0,,33,86,7
+Marsh McLennan,MRSH,2024,0,,100,83,18
+Marsh McLennan,MRSH,2025,9,ENT,44,83,24
+Morgan Stanley,MS,2024,0,,0,100,5
+Morgan Stanley,MS,2025,0,,0,100,10
+MSCI,MSCI,2024,30,ADV ENT MKT OPS,0,69,16
+MSCI,MSCI,2025,30,ENT MKT OPS RISKM,67,56,25
+M&T Bank,MTB,2024,0,,0,100,7
+M&T Bank,MTB,2025,0,,0,100,9
+"Nasdaq, Inc.",NDAQ,2024,21,ENT FRAUD MKT,56,44,16
+"Nasdaq, Inc.",NDAQ,2025,36,ENT FRAUD MKT SURV,50,54,41
+Northern Trust,NTRS,2024,24,ENT FRAUD OPS RISKM,11,56,9
+Northern Trust,NTRS,2025,6,ENT RISKM,33,62,13
+Principal Financial Group,PFG,2024,0,,0,100,2
+Principal Financial Group,PFG,2025,0,,33,67,3
+Progressive Corporation,PGR,2024,3,ENT,0,60,5
+Progressive Corporation,PGR,2025,3,ENT,33,67,6
+PNC Financial Services,PNC,2024,6,ENT OPS,0,50,6
+PNC Financial Services,PNC,2025,6,ENT OPS,0,80,10
+Prudential Financial,PRU,2024,2,ENT,0,90,10
+Prudential Financial,PRU,2025,2,ENT,0,90,10
+PayPal,PYPL,2024,3,ENT,0,80,5
+PayPal,PYPL,2025,3,ENT,0,75,8
+Regions Financial Corporation,RF,2024,3,ENT,0,67,3
+Regions Financial Corporation,RF,2025,6,ENT RISKM,0,50,8
+Raymond James Financial,RJF,2024,0,,0,100,5
+Raymond James Financial,RJF,2025,3,ENT,0,75,4
+Charles Schwab,SCHW,2024,0,,11,50,2
+Charles Schwab,SCHW,2025,0,,11,75,4
+S&P Global,SPGI,2024,6,ENT PROD,56,50,18
+S&P Global,SPGI,2025,3,ENT,56,63,30
+State Street Corporation,STT,2024,3,ENT,33,75,8
+State Street Corporation,STT,2025,3,ENT,0,83,12
+Synchrony Financial,SYF,2024,3,ENT,0,67,3
+Synchrony Financial,SYF,2025,3,ENT,11,80,10
+Truist Financial,TFC,2024,0,,0,100,6
+Truist Financial,TFC,2025,3,ENT,44,75,16
+T. Rowe Price,TROW,2024,3,ENT,0,67,6
+T. Rowe Price,TROW,2025,3,ENT,0,86,7
+The Travelers Companies,TRV,2024,2,OPS,0,93,14
+The Travelers Companies,TRV,2025,0,,11,95,20
+U.S. Bancorp,USB,2024,3,ENT,0,75,4
+U.S. Bancorp,USB,2025,3,ENT,33,50,6
+Visa Inc.,V,2024,30,CYBER ENT FRAUD PROD,33,58,19
+Visa Inc.,V,2025,45,CYBER ENT FRAUD OPS PROD,33,54,28
+Wells Fargo,WFC,2024,3,ENT,0,67,3
+Wells Fargo,WFC,2025,3,ENT,33,71,7
+W. R. Berkley Corporation,WRB,2024,0,,0,100,8
+W. R. Berkley Corporation,WRB,2025,3,ENT,0,88,8
+Willis Towers Watson,WTW,2024,0,,33,83,6
+Willis Towers Watson,WTW,2025,3,ENT,0,88,8
+"Block, Inc.",XYZ,2024,21,CX ENT FRAUD,0,50,12
+"Block, Inc.",XYZ,2025,6,ENT PROD,0,56,27

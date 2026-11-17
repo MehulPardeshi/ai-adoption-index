@@ -2,6 +2,7 @@
 
 > **Status:** reference tables pre-filled from the brief. **The firm list itself is not decided.** Finalize by majority vote and log it in [`memory/09-decisions-log.md`](../../memory/09-decisions-log.md).
 > Background and rationale: [`memory/03-sectors-and-firms.md`](../../memory/03-sectors-and-firms.md)
+> **Sector index (Nov 15, #133/#134):** the index sample is the **S&P 500 Financials**, 76 firms in the Nov 5, 2026 snapshot of a free public constituent list: [`firms.csv`](../../data/processed/sec/sp500_financials/firms.csv), built by `python3 -m src.edgar.make_firm_list` (refresh it before each yearly run).
 
 ## Targets
 - **Retirement Plan Providers / Recordkeepers: PRIMARY FOCUS, 10+ firms** (feeds the client's book chapter)

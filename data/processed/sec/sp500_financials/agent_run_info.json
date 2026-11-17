@@ -1,0 +1,63 @@
+{
+  "run_at": "2026-11-15T21:59:03",
+  "model": "deepseek-flash@DeepSeek-V4.1-Flash-1017",
+  "provider": "deepseek",
+  "prompt_version": "classify-v1.5",
+  "temperature": 0.0,
+  "guardrails": true,
+  "min_confidence": 0.7,
+  "ent_counts": true,
+  "passages": 1876,
+  "evidence": {
+    "N": 1253,
+    "D2": 105,
+    "D1": 269,
+    "P": 34,
+    "X": 215
+  },
+  "verify_status": {
+    "pass": 1705,
+    "needs_review": 170,
+    "downgraded": 1
+  },
+  "usage": {
+    "calls": 2,
+    "cache_hits": 1874,
+    "prompt_tokens": 5394,
+    "cached_prompt_tokens": 4992,
+    "completion_tokens": 3213,
+    "reasoning_tokens": 2955,
+    "truncated": 0
+  },
+  "wall_seconds": 18.0,
+  "workers": 6,
+  "passages_file": "data\\interim\\sec\\sp500_financials\\ai_passages.csv",
+  "labels_file": "data\\processed\\sec\\sp500_financials\\agent_labels.csv",
+  "scores_file": "data\\processed\\sec\\sp500_financials\\agent_scores.csv",
+  "earlier_passes": [
+    {
+      "run_at": "2026-11-15T21:38:24",
+      "wall_seconds": 1216.6,
+      "workers": 6,
+      "usage": {
+        "calls": 1746,
+        "cache_hits": 130,
+        "prompt_tokens": 4726835,
+        "cached_prompt_tokens": 4022912,
+        "completion_tokens": 662015,
+        "reasoning_tokens": 513000,
+        "truncated": 2
+      }
+    }
+  ],
+  "all_passes": {
+    "passes": 2,
+    "calls": 1748,
+    "prompt_tokens": 4732229,
+    "cached_prompt_tokens": 4027904,
+    "completion_tokens": 665228,
+    "reasoning_tokens": 515955,
+    "truncated": 2,
+    "wall_seconds": 1234.6
+  }
+}

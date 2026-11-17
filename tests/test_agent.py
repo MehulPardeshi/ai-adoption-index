@@ -152,6 +152,38 @@ class BatchContractTests(unittest.TestCase):
         after = config.AGENT_RUN_INFO.read_text(encoding="utf-8") if config.AGENT_RUN_INFO.exists() else None
         self.assertEqual(before, after)  # the main run log is never overwritten by a side run
 
+    def test_rerun_keeps_earlier_passes(self):
+        d = Path(tempfile.mkdtemp())
+        args = ["--tickers", "WFC", "--year", "2025", "--forms", "10-K", "--labels-out", str(d / "l.csv"),
+                "--scores-out", str(d / "s.csv"), "--run-info-out", str(d / "info.json")]
+        self.assertEqual(run_batch.main(args), 0)
+        first = json.loads((d / "info.json").read_text(encoding="utf-8"))
+        self.assertEqual(first["earlier_passes"], [])
+        self.assertEqual(first["all_passes"]["passes"], 1)
+        self.assertEqual(run_batch.main(args), 0)  # same command again, as after a cut-off reply
+        second = json.loads((d / "info.json").read_text(encoding="utf-8"))
+        self.assertEqual(second["earlier_passes"], [{k: first[k] for k in ("run_at", "wall_seconds", "workers", "usage")}])
+        self.assertEqual(second["usage"]["calls"], 0)  # everything came from the cache this time
+        self.assertEqual(second["all_passes"]["passes"], 2)
+        self.assertEqual(second["all_passes"]["calls"], first["usage"]["calls"])
+
+    def test_a_different_run_starts_a_new_log(self):
+        def run(at, wall, calls, truncated, prompt="classify-v1.5"):
+            return {"model": "m", "prompt_version": prompt, "guardrails": True, "passages_file": "p.csv",
+                    "labels_file": "l.csv", "passages": 3, "run_at": at, "wall_seconds": wall, "workers": 6,
+                    "usage": {"calls": calls, "cache_hits": 3 - calls, "prompt_tokens": 100 * calls,
+                              "cached_prompt_tokens": 0, "completion_tokens": 10 * calls, "truncated": truncated}}
+        log = run_batch.add_earlier_passes(run("a", 10.0, 3, 1), {})
+        log = run_batch.add_earlier_passes(run("b", 1.5, 1, 0), log)
+        log = run_batch.add_earlier_passes(run("c", 0.5, 0, 0), log)
+        self.assertEqual([p["run_at"] for p in log["earlier_passes"]], ["a", "b"])
+        self.assertEqual(log["run_at"], "c")  # top level = the last pass
+        self.assertEqual({k: log["all_passes"][k] for k in ("passes", "calls", "prompt_tokens", "truncated", "wall_seconds")},
+                         {"passes": 3, "calls": 4, "prompt_tokens": 400, "truncated": 1, "wall_seconds": 12.0})
+        fresh = run_batch.add_earlier_passes(run("d", 9.0, 3, 0, prompt="classify-v1.6"), log)
+        self.assertEqual(fresh["earlier_passes"], [])  # a new prompt is a new run, not another pass
+        self.assertEqual(fresh["all_passes"]["passes"], 1)
+
 
 if __name__ == "__main__":
     unittest.main()

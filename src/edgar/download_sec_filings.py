@@ -193,6 +193,33 @@ def ai_hits(text):
     return strong, weak
 
 
+def ai_passages(all_paras, stem, company, ticker, form, period, filing_date, base, include_weak=False):
+    """The AI paragraphs of one filing. all_paras = [(paragraph, doc_name)] in document order.
+    The id is <stem>_<paragraph index>, so the same filing always gives the same ids."""
+    out, section, seen_text = [], "", set()
+    for idx, (p, doc_name) in enumerate(all_paras):
+        if len(p) < 160 and SECTION_RE.match(p):
+            section = p[:80]
+        strong, weak = ai_hits(p)
+        if not strong and not (include_weak and weak):
+            continue
+        if len(p) < 40:     # table-of-contents crumbs etc.
+            continue
+        if p in seen_text:  # same text twice in one filing
+            continue
+        seen_text.add(p)
+        out.append({
+            "passage_id": f"{stem}_{idx:05d}",
+            "company": company, "ticker": ticker, "form": form,
+            "period": period, "filing_date": filing_date,
+            "section_guess": section, "matched_terms": "; ".join(sorted(strong | weak)),
+            "strength": "strong" if strong else "weak",
+            "words": len(p.split()), "passage": p,
+            "source_url": base + doc_name,
+        })
+    return out
+
+
 # ---------------------------------------------------------------- main
 def main():
     ap = argparse.ArgumentParser()
@@ -238,28 +265,10 @@ def main():
             (raw_text / f"{stem}.txt").write_text(
                 "\n\n".join(p for p, _ in all_paras), encoding="utf-8")
 
-            section, n_ai, seen_text = "", 0, set()
-            for idx, (p, doc_name) in enumerate(all_paras):
-                if len(p) < 160 and SECTION_RE.match(p):
-                    section = p[:80]
-                strong, weak = ai_hits(p)
-                if not strong and not (args.include_weak and weak):
-                    continue
-                if len(p) < 40:     # table-of-contents crumbs etc.
-                    continue
-                if p in seen_text:  # same text twice in one filing
-                    continue
-                seen_text.add(p)
-                n_ai += 1
-                passages.append({
-                    "passage_id": f"{stem}_{idx:05d}",
-                    "company": name, "ticker": ticker, "form": f["form"],
-                    "period": f["period"], "filing_date": f["filing_date"],
-                    "section_guess": section, "matched_terms": "; ".join(sorted(strong | weak)),
-                    "strength": "strong" if strong else "weak",
-                    "words": len(p.split()), "passage": p,
-                    "source_url": base + doc_name,
-                })
+            found = ai_passages(all_paras, stem, name, ticker, f["form"], f["period"], f["filing_date"],
+                                base, include_weak=args.include_weak)
+            passages += found
+            n_ai = len(found)
 
             inventory.append({
                 "company": name, "ticker": ticker, "cik": cik, **f,
