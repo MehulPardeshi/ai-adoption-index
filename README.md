@@ -25,7 +25,7 @@
 | Dashboard (Streamlit) | ✅ consensus-based company scores plus equal-/market-cap-weighted six-firm overview (#132); public link on Streamlit Community Cloud by Dec 3 (#30) |
 | Sector index (equal- and market-cap-weighted) | ✅ v0 on the 6 PoC firms (#146): FY2025 11.2 equal-weighted, 8.0 cap-weighted; 76-firm draft: FY2025 6.5 equal-weighted, 8.6 cap-weighted ([run report](docs/part6-agent/sp500_financials_run.md)); round 3 pilot (#169), then final index + dashboard (#134) |
 | Julie follow-up | ✅ Nov 10 ([minutes](meetings/2026-11-10-client.md)): broad headline agreed; next: 10-K-only check, data download + method page on the dashboard, handover per Dr. Chung |
-| **TP2: progress report** | ✅ due Fri Nov 13 ([PDF](docs/tp2/TP2_progress_report_Team5.pdf), [text](docs/tp2/progress_report.md)) |
+| **TP2: progress report** | ✅ submitted Fri Nov 13 ([PDF](docs/tp2/TP2_progress_report_Team5.pdf), [text](docs/tp2/progress_report.md)) |
 | **TP3: final presentation, paper discussion, SKILL.md, handover** | **Thu Dec 3** ([plan and split](docs/tp3/paper_discussion_plan.md); TP3 issues on the [board](https://github.com/users/MehulPardeshi/projects/1)) |
 
 **Current scores (FY2025, human-agreed labels):** Citi 53 (benchmark), Capital One 20, Principal 18, Wells Fargo 11, JPMorgan 6, Schwab 6, Bank of America 6. All 80 human-checked passages complete. Ranking is stable when weights change (ρ 0.95–1.00). Sector index FY2025: 11.2 equal-weighted, 8.0 cap-weighted. See [check 4](docs/part3-metrics/check4_results.md).
