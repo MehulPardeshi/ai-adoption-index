@@ -245,6 +245,18 @@ def build(d: Path = DIR, passages_path: Path = PASSAGES, today: str | None = Non
     return "\n".join(md) + "\n", queue
 
 
+def keep_reviews(queue: list[dict], path: Path) -> list[dict]:
+    """Carry over what people already filled in (review_* and reviewer), by passage_id, so that
+    rerunning the report never erases a human review (#170)."""
+    if not path.exists():
+        return queue
+    with path.open(encoding="utf-8") as fh:
+        old = {r["passage_id"]: r for r in csv.DictReader(fh)}
+    keep = ("review_evidence", "review_scenarios", "reviewer", "review_note")
+    return [{**r, **{k: old[r["passage_id"]].get(k, "") for k in keep}} if r["passage_id"] in old else r
+            for r in queue]
+
+
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     ap.add_argument("--dir", default=str(DIR))
@@ -259,7 +271,9 @@ def main(argv=None) -> int:
         pass
     Path(a.out_md).parent.mkdir(parents=True, exist_ok=True)
     Path(a.out_md).write_text(md, encoding="utf-8")
-    with (Path(a.dir) / "review_queue.csv").open("w", encoding="utf-8", newline="") as fh:
+    qpath = Path(a.dir) / "review_queue.csv"
+    queue = keep_reviews(queue, qpath)
+    with qpath.open("w", encoding="utf-8", newline="") as fh:
         w = csv.DictWriter(fh, fieldnames=REVIEW_FIELDS, extrasaction="ignore")
         w.writeheader()
         w.writerows(queue)

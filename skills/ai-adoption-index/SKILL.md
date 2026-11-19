@@ -5,7 +5,7 @@ description: Refresh, run or extend the AI Adoption Index for financial-services
 
 # AI Adoption Index skill
 
-> **Status: DRAFT v0.1 (Mehul, Nov 9; Shu to review).** TP3 course requirement 4: a skill folder the client (or her research assistants) can use to keep the index running after the project ends. Everything here points at code that already exists in this repo. Items not built yet are marked **(planned)**.
+> **Status: DRAFT v0.2 (Mehul, Nov 19; adds the 76-firm sector run and the human-review step; Shu to review).** TP3 course requirement 4: a skill folder the client (or her research assistants) can use to keep the index running after the project ends. Everything here points at code that already exists in this repo. Items not built yet are marked **(planned)**.
 
 ## What this skill does
 The index reads every paragraph in a firm's SEC filings that mentions AI and asks two questions:
@@ -45,7 +45,11 @@ Run each step from the repo root. Fill in one line of the [refresh log](template
    python3 -m src.agent.run_batch --year <fiscal year>
    ```
    Every label is checked by the guardrail. Rows that fail (quote not in the filing, low confidence, invalid code) are written as N with `verify_status = needs_review` and are **not scored** until a person looks at them.
-3. **A person reviews the flagged rows and a spot-check sample.** Use the [review checklist](templates/human_review_checklist.md). On the project, 3–5% of passages needed review.
+3. **A person reviews the flagged rows and a spot-check sample.** Use the [review checklist](templates/human_review_checklist.md). On the project, 3–9% of passages needed review (170 of 1,876 on the 76-firm run). For the sector run, held rows are listed in `review_queue.csv`; fill `review_evidence`, `review_scenarios`, `reviewer` (and `review_note`), then apply the decisions:
+   ```bash
+   python3 -m src.index.apply_review
+   ```
+   It writes `agent_labels_reviewed.csv` and `agent_scores_reviewed.csv` next to the agent's files, reports any row to fix, and never edits the agent's own labels. Rows nobody has reviewed stay N.
 4. **Score the companies:**
    ```bash
    python3 -m src.index.score_companies --labels data/processed/sec/agent_labels_v1.csv --out data/processed/sec/agent_scores_v1.csv
@@ -57,11 +61,30 @@ Run each step from the repo root. Fill in one line of the [refresh log](template
    ```
    The ranking should barely move when the weights change (on the project, ρ ≥ 0.94).
 
-## Task 2: Add firms
-- The pilot covers JPMorgan, Bank of America, Capital One, Wells Fargo, Schwab and Principal, with Citi as a benchmark. The sector version is planned on the S&P 500 Financials (about 75 firms, from a free public list with a recorded date; feasibility study in #97: about 73 minutes and $0.40 of model time per year of filings).
+## Task 2: Run the sector index (S&P 500 Financials) or add firms
+The pilot covers JPMorgan, Bank of America, Capital One, Wells Fargo, Schwab and Principal, with Citi as a benchmark. The sector version covers the 76 S&P 500 Financials firms (first run Nov 2026: 152 10-Ks for FY2024–25, 1,876 AI passages, about 32 minutes and $0.52–1.03 of model time). Full report: [`docs/part6-agent/sp500_financials_run.md`](../../docs/part6-agent/sp500_financials_run.md).
+1. **Firm list** (free public list, dated; S&P's own file is licensed): `python3 -m src.edgar.make_firm_list`
+2. **10-Ks, AI passages and public float** (resumable; checks each float and applies the hand fixes in `public_float_corrections.csv`): `python3 -m src.edgar.download_sector` (add `--forms 10-K,10-Q` only if the team decides 10-Qs are needed)
+3. **Label:**
+   ```bash
+   python3 -m src.agent.run_batch --passages data/interim/sec/sp500_financials/ai_passages.csv \
+       --labels-out data/processed/sec/sp500_financials/agent_labels.csv \
+       --scores-out data/processed/sec/sp500_financials/agent_scores.csv \
+       --run-info-out data/processed/sec/sp500_financials/agent_run_info.json --workers 6
+   ```
+   If a reply is cut off, run the same command again: only the failed passages call the model.
+4. **Report + review queue:** `python3 -m src.index.sector_run_report` (rerunning it keeps reviews already filled in). Then review the held labels and apply them (Task 1, step 3).
+5. **Index, equal- and float-weighted:**
+   ```bash
+   python3 -m src.index.sector_index --scores data/processed/sec/sp500_financials/agent_scores_reviewed.csv \
+       --floats data/processed/sec/sp500_financials/public_float.csv \
+       --inventory data/processed/sec/sp500_financials/filings_inventory.csv --tickers all \
+       --out data/processed/sec/sp500_financials/sector_index.csv \
+       --out-firms data/processed/sec/sp500_financials/sector_index_firms.csv
+   ```
 - Save the dated firm list with every run, so a later reader knows which firms an index value covers.
-- Prompts were tuned on banks, so **spot-check insurers and payment firms first** (at least 10 passages each) before trusting their scores.
-- **(planned)** Sector index, equal-weighted and market-cap-weighted, with market cap from the aggregate market value on each 10-K cover page (Yen-Chu).
+- Prompts were tuned on banks, so **check new firm types against people first** (labeling round 3: 10 passages per type, two people, same overclaim bar) before trusting their scores.
+- Public float: check any value under $1B or a jump outside ×0.4–×2.5 against the 10-K cover page (the run log flags them).
 
 ## Task 3: Answer a question with evidence (chat mode)
 ```bash
@@ -72,7 +95,7 @@ The agent chooses among 7 tools (`fetch_sec_filings`, `find_ai_passages`, `class
 
 ## Task 4: Check the agent against people
 Do this after any prompt or codebook change, and at least once a year:
-1. Draw a sample: `python3 -m src.eval.make_labeling_sample` (the hard cases on purpose, plus some random ones).
+1. Draw a sample: `python3 -m src.eval.make_labeling_sample` (the hard cases on purpose, plus some random ones), or `python3 -m src.eval.make_sector_pilot_sample` for new firm types (blind; raters don't open `agent_key.csv`).
 2. Two or three people label it on their own with the [labeling cheat sheet](../../docs/part3-metrics/labeling_round_2/cheat_sheet.md).
 3. Compare: `python3 -m src.eval.irr` (agreement between people); add `--ai-labels data/processed/sec/agent_labels_v1.csv` to score the agent against the people's majority.
 4. Bars from the [evaluation plan](../../docs/part3-metrics/evaluation_plan.md): people agree on use vs. no use at κ ≥ 0.6; agent overclaims ≤ 5%. If people disagree on detail levels, meet and agree one label per passage (as the team did on Nov 7, 2026).
@@ -93,10 +116,12 @@ Tested with 22 trick cases (`python3 -m src.agent.redteam`). With the guardrail 
 - Filings undercount AI use: tools such as Bank of America's Erica and JPMorgan's LLM Suite appear in no filing. Earnings calls name more tools, but they are out of scope (no automatable, licensed source).
 - `deepseek-flash` is an alias that DeepSeek updates. Labels record the model tag and the cache keeps old answers, but a fresh run may use a newer model. Check DeepSeek's change log before rerunning.
 - On the project's 80 hardest passages, people found use or plans that the AI drafts missed in 18 of them. Scores built only from AI labels lean **low**.
+- 10-K only misses firms that report AI use in 10-Qs: on the pilot, Citi FY2025 is 53 with 10-Qs and 9 without (team decision pending).
+- The codebook was written for banks. Firms that sell AI products to clients (payments, exchanges, brokers) may score high for products rather than internal use; the team is deciding how to count them.
 
 ## Files in this folder
 - `SKILL.md`: this guide
 - [`templates/refresh_log.md`](templates/refresh_log.md): one row per refresh
 - [`templates/human_review_checklist.md`](templates/human_review_checklist.md): how to review flagged and sampled passages
 
-**(planned)** A handover version for the client: this repo also holds team notes and coursework, so the code, this skill and the data may move to a separate repo. Decide with Julie (Nov 10).
+**(planned)** A handover version for the client: this repo also holds team notes and coursework, so the code, this skill and the data may move to a separate repo. Julie left the format to Dr. Chung (Nov 10); at minimum a deployed dashboard link and a user guide (#142, #143).

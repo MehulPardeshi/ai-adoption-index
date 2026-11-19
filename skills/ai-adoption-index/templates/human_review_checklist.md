@@ -15,6 +15,10 @@ For each passage, read the full paragraph and its filing section, then answer:
 5. **Is the quote really in the filing, word for word?** If not, the label can't count.
 6. **Unsure between two levels?** Pick the lower one and write one line why.
 
-Record each decision in the labels CSV (`evidence_v0`, `scenarios_v0`, `coder` = your name, `coder_note`). Then rescore (Task 1, step 4) and add the count to the [refresh log](refresh_log.md).
+**Where to record it.** For held rows, fill `review_queue.csv`: `review_evidence`, `review_scenarios` (codes separated by `;`, empty for N/X), `reviewer` = your name, `review_note` = one line why. Then run `python3 -m src.index.apply_review`; it lists any row to fix and writes the reviewed labels and scores. For spot-checks of scored rows, write any disagreement in a note and raise it with the team instead of editing the agent's labels. Add the counts to the [refresh log](refresh_log.md).
+
+**Questions that came up on the sector run (decide as a team, then write the answer here):**
+- AI in a product the firm sells to clients (e.g. a broker's AI assistant, a card network's fraud scoring): count as the firm's own use, or not?
+- Insurance claims handling and underwriting fit CREDIT/OPS today; note it when the fit is poor.
 
 Full definitions and examples: [labeling cheat sheet](../../../docs/part3-metrics/labeling_round_2/cheat_sheet.md) · [codebook](../../../docs/part2-taxonomy/taxonomy.md).
