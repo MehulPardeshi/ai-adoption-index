@@ -51,7 +51,7 @@
 | ✅ Presented "how we check results" and Logan's data rules (Logan absent) to Julie | Done Oct 29 |
 | ✅ Follow-up-email points for Snehal (strict-vs-broad question; scores combine 10-K + 10-Q) are in #98 | Done Oct 29 |
 | ✅ #77 Live 22-case guardrail run (Shu, #117) scored ([results](../docs/part3-metrics/check6_results.md)): 0/18 unsafe with the guardrail, 2/18 without; 0/4 false blocks | Done Nov 5 |
-| ✅ Nov 19: human-review step built (`src.index.apply_review`, 8 tests; the run report now keeps filled-in reviews) so #170 → #134 works · ✅ SKILL.md v0.2 (76-firm run, review step; #135, Shu to review) · ✅ Responsible AI v0.2 (sector run, held labels, new firm types, 10-Q limit; #139, Logan's retention/attribution part still open) · still: label round 3 with Logan (#169, by Nov 22; human labels only) · review Logan's paper write-up (#137) once drafted | Nov 19–29 |
+| ✅ Nov 19: drafts for the final README: [Evaluation section](../docs/tp3/evaluation_section.md) and [How we worked](../docs/tp3/how_we_worked.md) (board talking point), round 3 and #170 numbers pending · removed from round 3 labeling (Logan + a round 1–2 rater, suggested Yen-Chu) · ✅ human-review step built (`src.index.apply_review`, 8 tests; the run report now keeps filled-in reviews) so #170 → #134 works · ✅ SKILL.md v0.2 (76-firm run, review step; #135, Shu to review) · ✅ Responsible AI v0.2 (sector run, held labels, new firm types, 10-Q limit; #139, Logan's retention/attribution part still open) · still: review Logan's paper write-up (#137) once drafted | Nov 19–29 |
 | ✅ #39 TP2 compiled · ✅ section 6 confirmed by Snehal (#163) · ✅ board public, cleaned, snapshot taken (#40) · ✅ **final PDF: [`docs/tp2/TP2_progress_report_Team5.pdf`](../docs/tp2/TP2_progress_report_Team5.pdf)** (3 pages + board snapshot page); numbers re-checked against the data, 56 tests pass, dashboard and agent demo run. Backup submitter | Done Nov 12 |
 | TP2 sections 1, 3, 4, 7 updated through round 2; check the drafts and remove the markers at compile; trim everyone's paragraphs to 1–3 pages (agreed Nov 8) | Thu Nov 12 |
 | ✅ Slides for Tuesday, now 18–19 after the Nov 10 reorder to match the agenda (how we check results; what the human labels changed; final numbers Nov 9) · ✅ deck check Nov 10: slide 15 now lists transcripts as "Future work" (Nov 8 decision), slide 21 has Julie's use-cases-next-to-scores question | Done Nov 8–10 |
@@ -140,7 +140,7 @@
 | #142 | Handover plan for Julie (after Tue Nov 10) | Shu + Snehal |
 | #143 | Ask Dr. Chung: paper expectations + handover | Snehal |
 | #134 | Sector index on 76 firms (run is in; decide Ares FY2025 float) | Yen-Chu |
-| #169 | Labeling round 3: sector pilot, 40 passages, 2 raters (human labels only) | Logan + Mehul (assigned Nov 17; target Nov 22) |
+| #169 | Labeling round 3: sector pilot, 40 passages, 2 raters (human labels only) | Logan + one round 1–2 rater, suggested Yen-Chu (Nov 19; target Nov 22) |
 | #170 | Review the 170 held labels from the 76-firm run | Shu + Yen-Chu (assigned Nov 17; target Nov 22) |
 | #157 | 10-K only? Data says Citi FY2025 53 → 9 without 10-Qs; team decision | Yen-Chu (assigned Nov 17; target Nov 22) |
 | #135 | SKILL.md review (draft on main since PR #131) | Shu |
