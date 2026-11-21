@@ -14,17 +14,19 @@
 3. **Using Claude Code, Cursor or Codex?** It reads [`CLAUDE.md`](CLAUDE.md) / [`AGENTS.md`](AGENTS.md) automatically. It turns on the team guardrails, keeps you off `main` and opens PRs for you. New to this? See [`ONBOARDING_FOR_NON_CODERS.md`](ONBOARDING_FOR_NON_CODERS.md).
 4. **Changing something?** Make a branch `<yourname>/<topic>`, then open a pull request. Never push to `main`. Details: [`CONTRIBUTING.md`](CONTRIBUTING.md).
 
-## Where we are (Nov 17, 2026)
+**🌐 Live dashboard:** https://ai-adoption-index.streamlit.app (redeploys automatically on every merge to `main`).
+
+## Where we are (Nov 21, 2026)
 | Milestone | Status |
 |---|---|
 | TP1: project scope | ✅ submitted Oct 2 |
 | Categories (taxonomy) | ✅ frozen Oct 27 ([codebook](docs/part2-taxonomy/taxonomy.md)) |
 | Labels: 80 passages × 3 raters, agreed labels for the 58 disagreements | ✅ Nov 7 |
-| Agent (DeepSeek, 7 tools, guardrails) | ✅ runs end to end; round 2 scored against the agreed labels: 81% on unseen passages, 0 overclaims (#147); ✅ 76-firm S&P 500 Financials run done (#168): 1,876 passages, 170 held for a person (#170) |
+| Agent (DeepSeek, 7 tools, guardrails) | ✅ runs end to end; round 2 scored against the agreed labels: 81% on unseen passages, 0 overclaims (#147); ✅ 76-firm S&P 500 Financials run with 10-Ks **and 10-Qs** (#168, #176): 606 filings, 2,353 passages, 200 held for a person (#170) |
 | All 6 evaluation checks | ✅ done ([evaluation plan](docs/part3-metrics/evaluation_plan.md)) |
-| Dashboard (Streamlit) | ✅ consensus-based company scores plus equal-/market-cap-weighted six-firm overview (#132); public link on Streamlit Community Cloud by Dec 3 (#30) |
-| Sector index (equal- and market-cap-weighted) | ✅ v0 on the 6 PoC firms (#146): FY2025 11.2 equal-weighted, 8.0 cap-weighted; 76-firm draft: FY2025 6.5 equal-weighted, 8.6 cap-weighted ([run report](docs/part6-agent/sp500_financials_run.md)); round 3 pilot (#169), then final index + dashboard (#134) |
-| Julie follow-up | ✅ Nov 10 ([minutes](meetings/2026-11-10-client.md)): broad headline agreed; next: 10-K-only check, data download + method page on the dashboard, handover per Dr. Chung |
+| Dashboard (Streamlit) | ✅ consensus-based company scores plus equal-/market-cap-weighted six-firm overview (#132); ✅ live at [ai-adoption-index.streamlit.app](https://ai-adoption-index.streamlit.app) (#30) with CSV downloads (#155) |
+| Sector index (equal- and market-cap-weighted) | ✅ v0 on the 6 PoC firms (#146): FY2025 11.2 equal-weighted, 8.0 cap-weighted; 76-firm draft (10-K + 10-Q, before review): FY2025 7.2 equal-weighted, 9.4 cap-weighted ([run report](docs/part6-agent/sp500_financials_run.md)); round 3 pilot (#169), then final index + dashboard (#134) |
+| Julie follow-up | ✅ Nov 10 ([minutes](meetings/2026-11-10-client.md)): broad headline agreed; 10-Q check done: team keeps the 10-Qs (Nov 19, #157; Julie to be told); data download ✅; next: method page on the dashboard (#156), handover per Dr. Chung |
 | **TP2: progress report** | ✅ submitted Fri Nov 13 ([PDF](docs/tp2/TP2_progress_report_Team5.pdf), [text](docs/tp2/progress_report.md)) |
 | **TP3: final presentation, paper discussion, SKILL.md, handover** | **Thu Dec 3** ([plan and split](docs/tp3/paper_discussion_plan.md); TP3 issues on the [board](https://github.com/users/MehulPardeshi/projects/1)) |
 
