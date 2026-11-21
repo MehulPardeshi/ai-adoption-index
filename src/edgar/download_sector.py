@@ -1,11 +1,13 @@
-"""Download the sector firms' 10-Ks, pull their AI passages and their public float (#133, #134).
+"""Download the sector firms' 10-Ks (and 10-Qs), pull their AI passages and their public float (#133, #134, #157).
 
 For every firm in data/processed/sec/sp500_financials/firms.csv (src/edgar/make_firm_list.py):
   1. read SEC's submissions file for its CIK; check the ticker is SEC's, note SEC's name and
      fiscal-year end
-  2. pick the filings of --forms whose period ends between --start and --end (default: the
-     10-Ks for FY2024 and FY2025, i.e. periods 2024-01-01 to 2025-12-31; FY = year the fiscal
-     year ends, the same rule as the scores)
+  2. pick the filings of --forms in the fiscal years from --start's year to --end's year (default:
+     FY2024 and FY2025). FY = the year the fiscal year ends, the same rule as the scores: a 10-K
+     belongs to the year of its period end; a 10-Q to the fiscal year that ends on or after its
+     period, so Visa's quarter to Dec 31, 2024 (year ends Sep 30) is FY2025 (#157). The fiscal-
+     year end comes from the firm's 10-K periods, not SEC's fiscalYearEnd field (wrong for some)
   3. download the primary document, every part of it (stem_d2.htm ...) and Exhibit 13, split it
      into paragraphs and keep the AI paragraphs, with the SAME rules as the first run
      (html_to_paragraphs, ai_hits and ai_passages from download_sec_filings.py), so the passages
@@ -21,10 +23,11 @@ filing is written to the run log and the run goes on.
 Run from the repo root (needs internet and a SEC User-Agent with a contact email, e.g.
 SEC_USER_AGENT="CMU 95-891 Team 5 research you@andrew.cmu.edu" in .env):
     python3 -m src.edgar.download_sector                       # all firms, 10-K FY2024-FY2025
+    python3 -m src.edgar.download_sector --forms 10-K,10-Q     # 10-Ks and 10-Qs (#157)
     python3 -m src.edgar.download_sector --tickers AFL,V --limit-filings 1   # smoke test
 Writes:
     data/interim/sec/sp500_financials/ai_passages.csv          AI paragraphs, verbatim SEC text
-    data/processed/sec/sp500_financials/filings_inventory.csv  one row per filing (no text)
+    data/processed/sec/sp500_financials/filings_inventory.csv  one row per filing (no text), with its fiscal year
     data/processed/sec/sp500_financials/public_float.csv       one row per 10-K
     data/processed/sec/sp500_financials/download_info.json     when, how, and every problem
 
@@ -51,7 +54,7 @@ INVENTORY_OUT = Path("data/processed/sec/sp500_financials/filings_inventory.csv"
 FLOAT_OUT = Path("data/processed/sec/sp500_financials/public_float.csv")
 INFO_OUT = Path("data/processed/sec/sp500_financials/download_info.json")
 START, END = "2024-01-01", "2025-12-31"
-PASSAGE_FIELDS = ["passage_id", "company", "ticker", "form", "period", "filing_date", "section_guess",
+PASSAGE_FIELDS = ["passage_id", "company", "ticker", "form", "period", "fiscal_year", "filing_date", "section_guess",
                   "matched_terms", "strength", "words", "passage", "source_url"]
 INVENTORY_FIELDS = ["company", "ticker", "cik", "firm_type", "form", "filing_date", "period", "fiscal_year",
                     "accession", "primary_doc", "docs", "html_bytes", "paragraphs", "ai_passages", "url", "status"]
@@ -63,6 +66,25 @@ EMAIL_RE = re.compile(r"[\w.+-]+@[\w-]+(\.[\w-]+)+")
 def sec_ticker(t: str) -> str:
     """Our list writes class shares with a dot (BRK.B); SEC writes BRK-B."""
     return t.upper().replace(".", "-")
+
+
+def fiscal_year_end(filings: list[dict], sec_fye: str = "") -> str:
+    """MMDD the firm's fiscal year ends: from its latest 10-K period; else SEC's fiscalYearEnd field
+    (it can be wrong: 0119 for Brown & Brown, whose year ends Dec 31); else 1231."""
+    tenks = sorted(f["period"] for f in filings if f["form"] == "10-K" and f.get("period"))
+    if tenks:
+        return tenks[-1][5:7] + tenks[-1][8:10]
+    return sec_fye if re.fullmatch(r"\d{4}", sec_fye or "") else "1231"
+
+
+def fiscal_year(form: str, period: str, fye: str) -> str:
+    """FY = the year the fiscal year ends. A 10-K: the year of its period end. A 10-Q: the fiscal year
+    that ends on or after its period. With a Sep 30 year end, the quarter to Dec 31, 2024 is FY2025;
+    with Dec 31 it is always the period's year (the 7 PoC firms)."""
+    year = int(period[:4])
+    if form.startswith("10-K"):
+        return str(year)
+    return str(year if period[5:7] + period[8:10] <= fye else year + 1)
 
 
 def list_filings(cik: int, start: str, end: str, forms: set[str]) -> tuple[dict, list[dict]]:
@@ -195,8 +217,8 @@ def main(argv=None) -> int:
     ap.add_argument("--firms", default=str(FIRMS), help="firm list CSV (make_firm_list.py)")
     ap.add_argument("--tickers", help="only these tickers, comma-separated (default: all in the list)")
     ap.add_argument("--forms", default="10-K", help="10-K (default; Julie, Nov 10) or 10-K,10-Q")
-    ap.add_argument("--start", default=START, help="first period end, YYYY-MM-DD")
-    ap.add_argument("--end", default=END, help="last period end, YYYY-MM-DD")
+    ap.add_argument("--start", default=START, help="YYYY-MM-DD; its year is the first fiscal year")
+    ap.add_argument("--end", default=END, help="YYYY-MM-DD; its year is the last fiscal year")
     ap.add_argument("--limit-filings", type=int, help="at most N filings per firm (smoke test)")
     ap.add_argument("--keep-html", action="store_true", help="also save the raw HTML (several GB)")
     ap.add_argument("--raw-dir", default=str(RAW))
@@ -222,13 +244,17 @@ def main(argv=None) -> int:
         firms = [f for f in firms if f["ticker"].upper() in want]
     raw_dir = Path(a.raw_dir)
     t0 = time.monotonic()
-    print(f"{len(firms)} firms, forms {sorted(forms)}, periods {a.start} to {a.end}")
+    first_fy, last_fy = int(a.start[:4]), int(a.end[:4])
+    # a 10-Q of an off-calendar firm can end up to a year before its fiscal year's name (JKHY's FY2024
+    # starts Jul 2023), so read periods from a year earlier; the fiscal-year filter keeps the right ones
+    fetch_start = f"{first_fy - 1}{a.start[4:]}" if "10-Q" in forms else a.start
+    print(f"{len(firms)} firms, forms {sorted(forms)}, fiscal years {first_fy}-{last_fy}")
 
     passages, inventory, floats, problems, firm_meta = [], [], [], [], {}
     for n, firm in enumerate(firms, 1):
         t, cik = firm["ticker"], int(firm["cik"])
         try:
-            meta, filings = list_filings(cik, a.start, a.end, forms)
+            meta, filings = list_filings(cik, fetch_start, a.end, forms)
         except Exception as e:
             problems.append({"ticker": t, "where": "submissions", "problem": str(e)[:300]})
             print(f"[{n}/{len(firms)}] {t}: ERROR could not read SEC submissions ({e})")
@@ -237,12 +263,15 @@ def main(argv=None) -> int:
         if sec_ticker(t) not in {x.upper() for x in meta["sec_tickers"]}:
             problems.append({"ticker": t, "where": "ticker check",
                              "problem": f"CIK {cik} is '{meta['sec_name']}' with tickers {meta['sec_tickers']}"})
+        fye = fiscal_year_end(filings, meta["fiscal_year_end"])
+        filings = [f | {"fiscal_year": fiscal_year(f["form"], f["period"], fye)} for f in filings]
+        filings = [f for f in filings if first_fy <= int(f["fiscal_year"]) <= last_fy]
         if a.limit_filings:
             filings = filings[-a.limit_filings:]
-        years = Counter((f["form"], f["period"][:4]) for f in filings)
+        years = Counter((f["form"], f["fiscal_year"]) for f in filings)
         for (form, fy), k in years.items():
-            if k > 1:
-                problems.append({"ticker": t, "where": "fiscal year", "problem": f"{k} {form}s with periods in {fy}"})
+            if k > (3 if form == "10-Q" else 1):
+                problems.append({"ticker": t, "where": "fiscal year", "problem": f"{k} {form}s in FY{fy}"})
         if "10-K" in forms:
             have = {f["period"][:4] for f in filings if f["form"] == "10-K"}
             for fy in range(int(a.start[:4]), int(a.end[:4]) + 1):
@@ -252,7 +281,7 @@ def main(argv=None) -> int:
         for f in filings:
             stem = f"{t}_{f['period']}_{f['form']}"
             row = {"company": firm["company"], "ticker": t, "cik": firm["cik"], "firm_type": firm["firm_type"],
-                   **f, "fiscal_year": f["period"][:4], "url": f"{ARCHIVES}{cik}/{f['accession'].replace('-', '')}/{f['primary_doc']}"}
+                   **f, "url": f"{ARCHIVES}{cik}/{f['accession'].replace('-', '')}/{f['primary_doc']}"}
             try:
                 got = read_filing(firm, f, raw_dir, a.keep_html)
             except Exception as e:
@@ -262,6 +291,7 @@ def main(argv=None) -> int:
                 continue
             found = dl.ai_passages([tuple(p) for p in got["paragraphs"]], stem, firm["company"], t, f["form"],
                                    f["period"], f["filing_date"], got["base"])
+            found = [p | {"fiscal_year": f["fiscal_year"]} for p in found]
             passages += found
             inventory.append(row | {"docs": " | ".join(got["docs"]), "html_bytes": got["html_bytes"],
                                     "paragraphs": len(got["paragraphs"]), "ai_passages": len(found),
@@ -289,12 +319,15 @@ def main(argv=None) -> int:
                     if r["form"] == "10-K" and r["period"] and not r["period"].endswith("-12-31")}
     info = {"run_at": datetime.now().isoformat(timespec="seconds"), "wall_seconds": round(time.monotonic() - t0, 1),
             "firms_file": a.firms, "firms": len(firms), "forms": sorted(forms), "window": [a.start, a.end],
+            "fiscal_years": [first_fy, last_fy], "periods_read_from": fetch_start,
             "filings": len(inventory), "filings_ok": sum(r["status"].startswith("ok") for r in inventory),
             "ai_passages": len(passages), "public_floats": len(floats), "public_float_corrections": corrected,
             "user_agent": EMAIL_RE.sub("<email>", ua),
             "search_rules": "download_sec_filings.py: html_to_paragraphs, ai_hits (strong terms only), ai_passages",
-            "fiscal_year_rule": "year of the period end; firms whose 10-K period doesn't end Dec 31 are listed",
+            "fiscal_year_rule": "the year the fiscal year ends: a 10-K's period year; a 10-Q's fiscal year is the "
+                                "one ending on or after its period (year end from the firm's 10-Ks)",
             "fiscal_year_end_not_december": off_calendar,
+            "filings_in_next_fiscal_year": sum(r["fiscal_year"] != r["period"][:4] for r in inventory),
             "problems": problems}
     Path(a.info_out).parent.mkdir(parents=True, exist_ok=True)
     Path(a.info_out).write_text(json.dumps(info, indent=2), encoding="utf-8")

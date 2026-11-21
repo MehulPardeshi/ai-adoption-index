@@ -8,9 +8,15 @@ from src.agent import config
 
 
 def fiscal_year(period: str) -> int:
-    """FY = year of the period end (same rule as score_companies). Right for every 10-K; for the
-    10-Qs of a firm whose fiscal year doesn't end in December (e.g. Visa, September) it isn't."""
+    """FY = year of the period end. Right for every 10-K and for firms whose year ends in December;
+    for the 10-Qs of other firms (e.g. Visa, September) use row_fiscal_year."""
     return int(str(period)[:4])
+
+
+def row_fiscal_year(row: dict) -> int:
+    """A filing's, passage's or label's fiscal year: its fiscal_year column when it has one (the sector
+    downloader writes it, so Visa's quarter to Dec 31, 2024 is FY2025, #157), else the period's year."""
+    return int(row.get("fiscal_year") or fiscal_year(row["period"]))
 
 
 def read_csv(path: Path) -> list[dict]:
@@ -65,7 +71,7 @@ def select_passages(tickers=None, fiscal_years=None, forms=None, ids=None) -> li
     for r in passages():
         if tickers and r["ticker"].upper() not in tickers:
             continue
-        if years and fiscal_year(r["period"]) not in years:
+        if years and row_fiscal_year(r) not in years:
             continue
         if forms and r["form"].upper() not in forms:
             continue
