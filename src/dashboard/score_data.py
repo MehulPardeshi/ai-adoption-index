@@ -2,9 +2,10 @@
 
 import csv
 from dataclasses import dataclass
+from io import StringIO
 import math
 from pathlib import Path
-from typing import Mapping, Sequence
+from typing import Iterable, Mapping, Sequence
 
 from src.nlp.taxonomy_v0 import ALL_SCENARIOS
 
@@ -103,6 +104,51 @@ class SectorYearIndex:
     ai_cw: float
     total_public_float_usd: int
     firms: tuple[str, ...]
+
+
+def company_scores_csv(scores: Sequence[CompanyYearScore]) -> bytes:
+    """Serialize company scores using the source CSV schema."""
+    rows = (
+        {
+            "company": score.company,
+            "ticker": score.ticker,
+            "fiscal_year": score.fiscal_year,
+            "ai_use_score": score.ai_use_score,
+            "scenarios_with_use": " ".join(score.scenarios_with_use),
+            "readiness_score": score.readiness_score,
+            "talk_ratio_pct": score.talk_ratio_pct,
+            "substantive_ai_passages": score.substantive_ai_passages,
+        }
+        for score in scores
+    )
+    return _csv_bytes(SCORE_COLUMNS, rows)
+
+
+def sector_index_csv(rows: Sequence[SectorYearIndex]) -> bytes:
+    """Serialize sector-index rows using the source CSV schema."""
+    export_rows = (
+        {
+            "fiscal_year": row.fiscal_year,
+            "n_firms": row.n_firms,
+            "ai_ew": row.ai_ew,
+            "ai_cw": row.ai_cw,
+            "total_public_float_usd": row.total_public_float_usd,
+            "firms": " ".join(row.firms),
+        }
+        for row in rows
+    )
+    return _csv_bytes(SECTOR_INDEX_COLUMNS, export_rows)
+
+
+def _csv_bytes(
+    columns: Sequence[str],
+    rows: Iterable[dict[str, object]],
+) -> bytes:
+    output = StringIO(newline="")
+    writer = csv.DictWriter(output, fieldnames=columns, lineterminator="\n")
+    writer.writeheader()
+    writer.writerows(rows)
+    return output.getvalue().encode("utf-8")
 
 
 def _required_text(row: Mapping[str, str | None], column: str, line: int) -> str:
