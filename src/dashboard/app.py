@@ -1,10 +1,15 @@
 """Streamlit dashboard for consensus-based company scores and sector indexes."""
 
 import csv
+import sys
+from pathlib import Path
 
 import pandas as pd
 import plotly.graph_objects as go
 import streamlit as st
+
+# Streamlit Cloud runs this file directly; put the repo root on the path so `src.` imports work.
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
 from src.dashboard.score_data import (
     FIRM_LABELS,
