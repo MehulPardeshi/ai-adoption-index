@@ -5,7 +5,7 @@ description: Refresh, run or extend the AI Adoption Index for financial-services
 
 # AI Adoption Index skill
 
-> **Status: DRAFT v0.2 (Mehul, Nov 19; adds the 76-firm sector run and the human-review step; Shu to review).** TP3 course requirement 4: a skill folder the client (or her research assistants) can use to keep the index running after the project ends. Everything here points at code that already exists in this repo. Items not built yet are marked **(planned)**.
+> **Status: DRAFT v0.3 (Mehul, Nov 21; 10-K + 10-Q rerun, live dashboard link; Shu to review).** TP3 course requirement 4: a skill folder the client (or her research assistants) can use to keep the index running after the project ends. Everything here points at code that already exists in this repo. Items not built yet are marked **(planned)**.
 
 ## What this skill does
 The index reads every paragraph in a firm's SEC filings that mentions AI and asks two questions:
@@ -45,7 +45,7 @@ Run each step from the repo root. Fill in one line of the [refresh log](template
    python3 -m src.agent.run_batch --year <fiscal year>
    ```
    Every label is checked by the guardrail. Rows that fail (quote not in the filing, low confidence, invalid code) are written as N with `verify_status = needs_review` and are **not scored** until a person looks at them.
-3. **A person reviews the flagged rows and a spot-check sample.** Use the [review checklist](templates/human_review_checklist.md). On the project, 3–9% of passages needed review (170 of 1,876 on the 76-firm run). For the sector run, held rows are listed in `review_queue.csv`; fill `review_evidence`, `review_scenarios`, `reviewer` (and `review_note`), then apply the decisions:
+3. **A person reviews the flagged rows and a spot-check sample.** Use the [review checklist](templates/human_review_checklist.md). On the project, 3–9% of passages needed review (200 of 2,353 on the 76-firm 10-K + 10-Q run). For the sector run, held rows are listed in `review_queue.csv`; fill `review_evidence`, `review_scenarios`, `reviewer` (and `review_note`), then apply the decisions:
    ```bash
    python3 -m src.index.apply_review
    ```
@@ -54,7 +54,7 @@ Run each step from the repo root. Fill in one line of the [refresh log](template
    ```bash
    python3 -m src.index.score_companies --labels data/processed/sec/agent_labels_v1.csv --out data/processed/sec/agent_scores_v1.csv
    ```
-5. **Update the dashboard.** The Streamlit app reads the scores CSV ([`src/dashboard/score_data.py`](../../src/dashboard/score_data.py)). Hide fiscal years that are still incomplete.
+5. **Update the dashboard.** The Streamlit app (live at https://ai-adoption-index.streamlit.app) reads the scores CSV ([`src/dashboard/score_data.py`](../../src/dashboard/score_data.py)). Hide fiscal years that are still incomplete.
 6. **Check that it still holds up** (optional, but do it after any rule change):
    ```bash
    python3 -m src.eval.check4_sensitivity --labels <labels CSV>
@@ -62,7 +62,7 @@ Run each step from the repo root. Fill in one line of the [refresh log](template
    The ranking should barely move when the weights change (on the project, ρ ≥ 0.94).
 
 ## Task 2: Run the sector index (S&P 500 Financials) or add firms
-The pilot covers JPMorgan, Bank of America, Capital One, Wells Fargo, Schwab and Principal, with Citi as a benchmark. The sector version covers the 76 S&P 500 Financials firms (first run Nov 2026: 152 10-Ks for FY2024–25, 1,876 AI passages, about 32 minutes and $0.52–1.03 of model time). Full report: [`docs/part6-agent/sp500_financials_run.md`](../../docs/part6-agent/sp500_financials_run.md).
+The pilot covers JPMorgan, Bank of America, Capital One, Wells Fargo, Schwab and Principal, with Citi as a benchmark. The sector version covers the 76 S&P 500 Financials firms (first run Nov 2026: 152 10-Ks for FY2024–25, 1,876 AI passages, about 32 minutes and $0.52–1.03 of model time; rerun with 10-Qs Nov 21: 606 filings, 2,353 passages, about 17 minutes to download, $0.02 extra thanks to the cache). Full report: [`docs/part6-agent/sp500_financials_run.md`](../../docs/part6-agent/sp500_financials_run.md).
 1. **Firm list** (free public list, dated; S&P's own file is licensed): `python3 -m src.edgar.make_firm_list`
 2. **10-Ks, AI passages and public float** (resumable; checks each float and applies the hand fixes in `public_float_corrections.csv`): `python3 -m src.edgar.download_sector --forms 10-K,10-Q` (team decision Nov 19, #157: keep the 10-Qs). A 10-Q counts in the fiscal year it belongs to: for a firm whose year ends Sep 30 (Visa, Franklin, Raymond James), the quarter to Dec 31, 2024 is FY2025; the year end comes from the firm's 10-Ks
 3. **Label:**
@@ -124,4 +124,6 @@ Tested with 22 trick cases (`python3 -m src.agent.redteam`). With the guardrail 
 - [`templates/refresh_log.md`](templates/refresh_log.md): one row per refresh
 - [`templates/human_review_checklist.md`](templates/human_review_checklist.md): how to review flagged and sampled passages
 
-**(planned)** A handover version for the client: this repo also holds team notes and coursework, so the code, this skill and the data may move to a separate repo. Julie left the format to Dr. Chung (Nov 10); at minimum a deployed dashboard link and a user guide (#142, #143).
+**Live dashboard:** https://ai-adoption-index.streamlit.app (Streamlit Community Cloud, deployed from `main`; it redeploys on every merge, so updating the scores CSV and merging is enough).
+
+**(planned)** A handover version for the client: this repo also holds team notes and coursework, so the code, this skill and the data may move to a separate repo. Julie left the format to Dr. Chung (Nov 10); at minimum the dashboard link and a user guide (#142, #143).
