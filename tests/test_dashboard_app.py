@@ -101,6 +101,31 @@ class DashboardAppTests(unittest.TestCase):
         ):
             self.assertTrue(any(button.key == key for button in app.button))
 
+    def test_csv_download_controls_are_above_their_data_tables(self):
+        app = AppTest.from_file(str(APP_PATH)).run()
+
+        self.assertFalse(app.exception)
+        downloads = {button.key: button for button in app.get("download_button")}
+        self.assertEqual(
+            set(downloads),
+            {"download_company_scores_csv", "download_sector_index_csv"},
+        )
+        self.assertEqual(
+            downloads["download_company_scores_csv"].label,
+            "Download company scores (CSV)",
+        )
+        self.assertEqual(
+            downloads["download_sector_index_csv"].label,
+            "Download sector index (CSV)",
+        )
+        company_download = downloads["download_company_scores_csv"]
+        sector_download = downloads["download_sector_index_csv"]
+        self.assertIn("all firms and complete fiscal years", company_download.proto.help)
+        self.assertIn("Partial FY2026 is excluded", company_download.proto.help)
+        self.assertIn("complete-year sector-index table", sector_download.proto.help)
+        self.assertTrue(company_download.proto.url.endswith(".csv"))
+        self.assertTrue(sector_download.proto.url.endswith(".csv"))
+
     def test_sector_table_help_explains_the_selected_six_company_sample(self):
         app = AppTest.from_file(str(APP_PATH)).run()
         help_button = next(

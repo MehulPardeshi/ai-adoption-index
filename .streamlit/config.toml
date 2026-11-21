@@ -1,0 +1,4 @@
+# The dashboard CSS is designed for a light background; force it so dark-mode browsers
+# don't render dark text on dark boxes (e.g. the label-coverage disclaimer).
+[theme]
+base = "light"

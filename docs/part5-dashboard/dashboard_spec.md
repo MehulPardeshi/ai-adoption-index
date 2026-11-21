@@ -21,6 +21,7 @@ For this dashboard, “financial sector” means the selected six-company proof-
 ### Company scores
 
 - One row per `(ticker, fiscal_year)` from `company_scores_consensus.csv`; the fields are `company`, `ticker`, `fiscal_year`, `ai_use_score`, `scenarios_with_use`, `readiness_score`, `talk_ratio_pct`, and `substantive_ai_passages`.
+- Place a clearly labeled CSV download button immediately above the company-score table, without a redundant caption. Export all firms and complete fiscal years, independent of the selected comparison filters; omit partial FY2026. Preserve the source columns in `ai_adoption_index_company_scores.csv`.
 - Join company labels by ticker and reject unknown tickers, label mismatches, duplicate company-years, invalid scores, or unknown scenario codes.
 - **Label coverage is mixed:** human-agreed labels cover 80 of 277 passages; the remaining passages use AI-draft labels. The interface must say this wherever it presents the scores. Do not describe the full score file as human-labeled.
 - These are disclosure-based scores from SEC 10-K and 10-Q passages. They are not verified measures of firm-wide AI adoption.
@@ -35,6 +36,7 @@ For this dashboard, “financial sector” means the selected six-company proof-
 
 - Read existing annual aggregates from `data/processed/sec/sector_index.csv`; do not recalculate weighting in the UI.
 - Display both AI-EW and AI-CW series, the number of firms in each year, and the complete fiscal-year coverage.
+- Place a separate, clearly labeled CSV download button immediately above the sector summary table. Export all complete-year sector rows and source columns in `ai_adoption_index_sector_index.csv`.
 - AI-EW is the equal-weighted mean of the six core firms' AI Use Scores. AI-CW weights those same scores by public float from SEC filings. See `src/index/sector_index.py` for calculation and missing-data rules.
 - The sector index excludes Citigroup, which is retained as a benchmark in the individual company view.
 - The supplied index currently has complete-year rows for FY2023–FY2025. Do not show partial years.
@@ -56,6 +58,6 @@ For this dashboard, “financial sector” means the selected six-company proof-
 
 ## Validation
 
-- `tests/test_dashboard_scores.py` checks the consensus CSV, ticker and code validation, missing and partial years, and sector-index CSV.
-- `tests/test_dashboard_app.py` checks the company and sector views, both sector weighting series, the mixed-label disclosure, and missing-year behavior.
+- `tests/test_dashboard_scores.py` checks the consensus CSV, ticker and code validation, missing and partial years, sector-index CSV, and both complete-year exports.
+- `tests/test_dashboard_app.py` checks the company and sector views, both sector weighting series, both table-above download controls, the mixed-label disclosure, and missing-year behavior.
 - `tests/test_dashboard_style.py` checks the visual theme and accessibility-related style contracts.
