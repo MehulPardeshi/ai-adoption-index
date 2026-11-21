@@ -76,6 +76,7 @@ def build(d: Path = DIR, passages_path: Path = PASSAGES, today: str | None = Non
     run = read_json(d / "agent_run_info.json")
     floats = read(d / "public_float.csv")
     years = sorted({r["fiscal_year"] for r in inv if r["form"] == "10-K"})
+    has_q = any(r["form"] == "10-Q" for r in inv)  # #157: 10-Qs added to the 10-Ks
     types = [t for t in TYPE_ORDER if any(f["firm_type"] == t for f in firms)]
     text = {p["passage_id"]: p["passage"] for p in passages}
 
@@ -89,8 +90,9 @@ def build(d: Path = DIR, passages_path: Path = PASSAGES, today: str | None = Non
     md += [f"- **Firms:** {len(firms)} S&P 500 Financials constituents, from {src.get('source', '?')}, snapshot "
            f"{src.get('source_date', '?')} ([firms.csv](../../data/processed/sec/sp500_financials/firms.csv)).",
            f"- **Filings:** {', '.join(info.get('forms', ['10-K']))}s"
-           + (f" with periods {' to '.join(info['window'])}" if info.get("window") else "")
-           + f" (fiscal years {', '.join(years) or '?'}; FY = year the fiscal year ends). Same paragraph search as "
+           + (f" with periods {' to '.join(info['window'])}" if info.get("window") and not has_q else "")
+           + f" (fiscal years {', '.join(years) or '?'}; FY = year the fiscal year ends"
+           + ("; a 10-Q counts in the fiscal year it belongs to" if has_q else "") + "). Same paragraph search as "
            "the 7-firm data (check 1).",
            f"- **Agent:** {run.get('model', '?')}, prompt `{run.get('prompt_version', '?')}`, guardrails "
            f"{'on' if run.get('guardrails', True) else 'off'}, confidence bar {run.get('min_confidence', 0.7)}.", ""]
@@ -104,11 +106,17 @@ def build(d: Path = DIR, passages_path: Path = PASSAGES, today: str | None = Non
         tk = [r for r in inv if r["form"] == "10-K" and sel(r["ticker"]) and r["status"].startswith("ok")]
         per_year = " / ".join(str(sum(1 for r in tk if r["fiscal_year"] == y)) for y in years)
         ps = [p for p in passages if sel(p["ticker"])]
+        pk = [p for p in ps if p["form"] == "10-K"]
         fl = sum(1 for r in floats if sel(r["ticker"]) and r["fiscal_year"] in years)
-        mean = round(len(ps) / len(tk), 1) if tk else "–"
-        rows.append([TYPE_NAME.get(t, t), n_f, per_year, len(ps), mean, fl])
-    md += table(["Firm type", "Firms", f"10-Ks ({' / '.join('FY' + y for y in years)})", "AI passages",
-                 "Per 10-K", "Public floats"], rows) + [""]
+        mean = round(len(pk) / len(tk), 1) if tk else "–"
+        if has_q:
+            nq = sum(1 for r in inv if r["form"] == "10-Q" and sel(r["ticker"]) and r["status"].startswith("ok"))
+            rows.append([TYPE_NAME.get(t, t), n_f, per_year, nq, f"{len(pk)} / {len(ps) - len(pk)}", mean, fl])
+        else:
+            rows.append([TYPE_NAME.get(t, t), n_f, per_year, len(ps), mean, fl])
+    head = ["Firm type", "Firms", f"10-Ks ({' / '.join('FY' + y for y in years)})"]
+    head += ["10-Qs", "AI passages (10-K / 10-Q)"] if has_q else ["AI passages"]
+    md += table(head + ["Per 10-K", "Public floats"], rows) + [""]
     probs = info.get("problems", [])
     if probs:
         md += [f"**Problems in the download ({len(probs)}):**", ""]
@@ -130,7 +138,9 @@ def build(d: Path = DIR, passages_path: Path = PASSAGES, today: str | None = Non
     off = {r["ticker"]: r["period"][5:] for r in inv if r["form"] == "10-K" and not r["period"].endswith("-12-31")}
     if off:
         md += ["Fiscal years not ending in December (FY = the year it ends): "
-               + ", ".join(f"{t} ({v[:2]}/{v[3:]})" for t, v in sorted(off.items())) + ".", ""]
+               + ", ".join(f"{t} ({v[:2]}/{v[3:]})" for t, v in sorted(off.items())) + "."
+               + (" Their 10-Qs count in the fiscal year they belong to (with a Sep 30 year end, the quarter to "
+                  "Dec 31, 2024 is FY2025)." if has_q else ""), ""]
 
     # labels
     held = [r for r in labels if r.get("verify_status") == "needs_review"]
@@ -188,7 +198,8 @@ def build(d: Path = DIR, passages_path: Path = PASSAGES, today: str | None = Non
         index, _ = sector_index.build(scores, floats, inv, tickers=None)
         if index:
             md += ["## Sector index preview (all firms in the list)", "",
-                   "Computed with `sector_index.build()` (#134) on the agent's 10-K scores. Draft: Yen-Chu owns the "
+                   f"Computed with `sector_index.build()` (#134) on the agent's {'10-K and 10-Q' if has_q else '10-K'} "
+                   "scores. Draft: Yen-Chu owns the "
                    "index; held labels count as no use; new firm types not yet validated.", ""]
             md += table(["Fiscal year", "Firms", "AI-EW (equal)", "AI-CW (by public float)"],
                         [[r["fiscal_year"], r["n_firms"], r["ai_ew"], r["ai_cw"]] for r in index]) + [""]
@@ -237,8 +248,11 @@ def build(d: Path = DIR, passages_path: Path = PASSAGES, today: str | None = Non
            "2. **Labeling round 3 (sector pilot):** two people label the 40 sampled passages (10 per new firm type) "
            "on their own; same bar as check 3 (overclaim at most 5%). A type that misses gets its own rules and a rerun.",
            "3. **Index (#134):** Yen-Chu runs the command above once the pilot passes.",
-           "4. **10-Q question (#157):** this run is 10-K only, as Julie prefers. On our 7 firms, FY2024–25, the 10-Qs "
-           "change only Citi's FY2025 score (53 with them, 9 without); the team decides whether to add the 10-Qs.", ""]
+           ("4. **10-Qs (#157):** this run includes the 10-Qs (team decision Nov 19: Citi's specific AI uses are only "
+            "in its 10-Qs, and repeats add no points since each area counts once a year). Tell Julie why."
+            if has_q else
+            "4. **10-Q question (#157):** this run is 10-K only, as Julie prefers. On our 7 firms, FY2024–25, the 10-Qs "
+            "change only Citi's FY2025 score (53 with them, 9 without); the team decides whether to add the 10-Qs."), ""]
 
     queue = [{**r, "firm_type": ftype.get(r["ticker"], ""), "passage": text.get(r["passage_id"], ""),
               "review_evidence": "", "review_scenarios": "", "reviewer": "", "review_note": ""} for r in held]

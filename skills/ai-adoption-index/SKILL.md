@@ -64,7 +64,7 @@ Run each step from the repo root. Fill in one line of the [refresh log](template
 ## Task 2: Run the sector index (S&P 500 Financials) or add firms
 The pilot covers JPMorgan, Bank of America, Capital One, Wells Fargo, Schwab and Principal, with Citi as a benchmark. The sector version covers the 76 S&P 500 Financials firms (first run Nov 2026: 152 10-Ks for FY2024–25, 1,876 AI passages, about 32 minutes and $0.52–1.03 of model time). Full report: [`docs/part6-agent/sp500_financials_run.md`](../../docs/part6-agent/sp500_financials_run.md).
 1. **Firm list** (free public list, dated; S&P's own file is licensed): `python3 -m src.edgar.make_firm_list`
-2. **10-Ks, AI passages and public float** (resumable; checks each float and applies the hand fixes in `public_float_corrections.csv`): `python3 -m src.edgar.download_sector` (add `--forms 10-K,10-Q` only if the team decides 10-Qs are needed)
+2. **10-Ks, AI passages and public float** (resumable; checks each float and applies the hand fixes in `public_float_corrections.csv`): `python3 -m src.edgar.download_sector --forms 10-K,10-Q` (team decision Nov 19, #157: keep the 10-Qs). A 10-Q counts in the fiscal year it belongs to: for a firm whose year ends Sep 30 (Visa, Franklin, Raymond James), the quarter to Dec 31, 2024 is FY2025; the year end comes from the firm's 10-Ks
 3. **Label:**
    ```bash
    python3 -m src.agent.run_batch --passages data/interim/sec/sp500_financials/ai_passages.csv \
@@ -116,7 +116,7 @@ Tested with 22 trick cases (`python3 -m src.agent.redteam`). With the guardrail 
 - Filings undercount AI use: tools such as Bank of America's Erica and JPMorgan's LLM Suite appear in no filing. Earnings calls name more tools, but they are out of scope (no automatable, licensed source).
 - `deepseek-flash` is an alias that DeepSeek updates. Labels record the model tag and the cache keeps old answers, but a fresh run may use a newer model. Check DeepSeek's change log before rerunning.
 - On the project's 80 hardest passages, people found use or plans that the AI drafts missed in 18 of them. Scores built only from AI labels lean **low**.
-- 10-K only misses firms that report AI use in 10-Qs: on the pilot, Citi FY2025 is 53 with 10-Qs and 9 without (team decision pending).
+- 10-K only misses firms that report AI use in 10-Qs: on the pilot, Citi FY2025 is 53 with 10-Qs and 9 without. The team keeps the 10-Qs (Nov 19, #157); a run with `--forms 10-K` has this gap.
 - The codebook was written for banks. Firms that sell AI products to clients (payments, exchanges, brokers) may score high for products rather than internal use; the team is deciding how to count them.
 
 ## Files in this folder
