@@ -1,30 +1,40 @@
 {
-  "run_at": "2026-11-15T21:38:00",
-  "wall_seconds": 704.1,
+  "run_at": "2026-11-21T02:27:29",
+  "wall_seconds": 989.5,
   "firms_file": "data\\processed\\sec\\sp500_financials\\firms.csv",
   "firms": 76,
   "forms": [
-    "10-K"
+    "10-K",
+    "10-Q"
   ],
   "window": [
     "2024-01-01",
     "2025-12-31"
   ],
-  "filings": 152,
-  "filings_ok": 152,
-  "ai_passages": 1876,
-  "public_floats": 151,
+  "fiscal_years": [
+    2024,
+    2025
+  ],
+  "periods_read_from": "2023-01-01",
+  "filings": 606,
+  "filings_ok": 606,
+  "ai_passages": 2353,
+  "public_floats": 152,
+  "public_float_corrections": [
+    "ARES FY2025: tag 326,653,262 -> 32,665,326,200 (estimate: the cover-page figure x 100, a typo in the filing)",
+    "SPGI FY2024: not tagged -> 139,600,000,000 (10-K cover page text (EntityPublicFloat not tagged))"
+  ],
   "user_agent": "CMU i2ai Team 5 <email>",
   "search_rules": "download_sec_filings.py: html_to_paragraphs, ai_hits (strong terms only), ai_passages",
-  "fiscal_year_rule": "year of the period end; firms whose fiscal year doesn't end in December are listed",
+  "fiscal_year_rule": "the year the fiscal year ends: a 10-K's period year; a 10-Q's fiscal year is the one ending on or after its period (year end from the firm's 10-Ks)",
   "fiscal_year_end_not_december": {
     "BEN": "0930",
-    "BRO": "0119",
     "FDS": "0831",
     "JKHY": "0630",
     "RJF": "0930",
     "V": "0930"
   },
+  "filings_in_next_fiscal_year": 12,
   "problems": [
     {
       "ticker": "SPGI",
