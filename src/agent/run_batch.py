@@ -49,7 +49,9 @@ V0_FIELDS = ["passage_id", "company", "ticker", "form", "period", "topic_v0", "e
              "coder", "coder_note", "source_url"]
 AGENT_FIELDS = ["quote", "specific", "confidence", "flags", "evidence_raw", "scenarios_raw",
                 "verify_status", "verify_reason", "model", "prompt_version", "run_at"]
-FIELDS = V0_FIELDS + AGENT_FIELDS
+# fiscal_year last, so the file still starts with the v0 columns (irr.py reads them unchanged); it differs
+# from the period's year only for an off-calendar firm's 10-Q (#157)
+FIELDS = V0_FIELDS + AGENT_FIELDS + ["fiscal_year"]
 SCORE_FIELDS = ["company", "ticker", "fiscal_year", "ai_use_score", "scenarios_with_use", "readiness_score",
                 "talk_ratio_pct", "substantive_ai_passages"]
 # A run log is continued (not restarted) when all of these match the previous one.
@@ -90,7 +92,7 @@ def label_one(rec: dict, guardrails: bool, run_at: str) -> dict:
         checked.update(evidence="N", scenarios=[], verify_status="needs_review", verify_reason=raw["error"])
     return {
         "passage_id": rec["passage_id"], "company": rec["company"], "ticker": rec["ticker"],
-        "form": rec["form"], "period": rec["period"],
+        "form": rec["form"], "period": rec["period"], "fiscal_year": str(store.row_fiscal_year(rec)),
         "topic_v0": checked.get("topic", ""), "evidence_v0": checked.get("evidence", ""),
         "scenarios_v0": ";".join(checked.get("scenarios") or []),
         "coder": f"agent: {llm.model_tag()}", "coder_note": checked.get("reason", ""),

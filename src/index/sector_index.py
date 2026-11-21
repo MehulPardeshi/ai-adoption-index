@@ -41,7 +41,7 @@ def read(path):
 def build(scores, floats, inventory, tickers=None):
     fl = {(r["ticker"], r["fiscal_year"]): float(r["public_float_usd"]) for r in floats}
     sc = {(r["ticker"], r["fiscal_year"]): float(r["ai_use_score"]) for r in scores}
-    tenk = {(r["ticker"], r["period"][:4]) for r in inventory if r["form"].startswith("10-K")}
+    tenk = {(r["ticker"], r.get("fiscal_year") or r["period"][:4]) for r in inventory if r["form"].startswith("10-K")}
     years_scored = {fy for _, fy in sc}
     by_year = defaultdict(list)
     for key in sorted(tenk & set(fl)):

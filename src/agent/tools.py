@@ -53,7 +53,7 @@ def fetch_sec_filings(ticker: str, fiscal_year: int, forms: list[str] | None = N
     if live:
         return _fetch_live(t, fy, forms)
     rows = [r for r in store.read_csv(config.INVENTORY)
-            if r["ticker"] == t and store.fiscal_year(r["period"]) == fy and r["form"] in forms]
+            if r["ticker"] == t and store.row_fiscal_year(r) == fy and r["form"] in forms]
     filings = [{k: r[k] for k in ("form", "period", "filing_date", "accession", "url")} | {"ai_passages": int(r["ai_passages"])}
                for r in sorted(rows, key=lambda r: r["period"])]
     out = {"ticker": t, "fiscal_year": fy, "filings": filings}
@@ -275,7 +275,7 @@ def get_labels(ticker: str, fiscal_year: int | None = None, evidence: list[str] 
     ev = {e.upper() for e in evidence} if evidence else None
     rows = []
     for r in store.read_csv(path):
-        if r["ticker"] != t or (fiscal_year and store.fiscal_year(r["period"]) != int(fiscal_year)):
+        if r["ticker"] != t or (fiscal_year and store.row_fiscal_year(r) != int(fiscal_year)):
             continue
         if ev and r["evidence_v0"] not in ev:
             continue

@@ -32,7 +32,8 @@ def score(labels, ent_counts=True):
     talk = defaultdict(lambda: [0, 0])  # (ticker, year) -> [N count, substantive]
     names = {}
     for r in labels:
-        key = (r["ticker"], r["period"][:4])  # all 7 companies use calendar fiscal years
+        # the label's fiscal_year (#157: an off-calendar firm's 10-Q), else the year of the period end
+        key = (r["ticker"], str(r.get("fiscal_year") or r["period"][:4]))
         names[r["ticker"]] = r["company"]
         if r["evidence_v0"] != "X":
             talk[key][1] += 1
