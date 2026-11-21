@@ -1,4 +1,5 @@
 import csv
+from io import StringIO
 import tempfile
 import unittest
 from dataclasses import replace
@@ -11,11 +12,13 @@ from src.dashboard.score_data import (
     SCORE_METRIC_HELP,
     SECTOR_INDEX_COLUMNS,
     SECTOR_INDEX_FILE,
+    company_scores_csv,
     complete_fiscal_year_scores,
     complete_sector_index_years,
     format_scenario_code,
     load_company_scores,
     load_sector_index,
+    sector_index_csv,
     validate_firm_labels,
 )
 
@@ -59,6 +62,30 @@ class DashboardScoreDataTests(unittest.TestCase):
             {2023, 2024, 2025},
         )
 
+    def test_company_scores_csv_exports_all_complete_years_with_source_columns(self):
+        scores = complete_fiscal_year_scores(load_company_scores())
+        exported = list(csv.DictReader(StringIO(company_scores_csv(scores).decode("utf-8"))))
+
+        self.assertEqual(tuple(exported[0]), SCORE_COLUMNS)
+        self.assertEqual(len(exported), len(scores))
+        self.assertEqual(
+            {int(row["fiscal_year"]) for row in exported},
+            {2023, 2024, 2025},
+        )
+        self.assertEqual(
+            {(row["ticker"], int(row["fiscal_year"])) for row in exported},
+            {(score.ticker, score.fiscal_year) for score in scores},
+        )
+        self.assertIn("C", {row["ticker"] for row in exported})
+        self.assertEqual(
+            next(
+                row["scenarios_with_use"]
+                for row in exported
+                if row["ticker"] == "C" and row["fiscal_year"] == "2025"
+            ),
+            "CX CYBER DEV ENT OPS PROD RISKM SURV",
+        )
+
     def test_loads_sector_index_for_core_firms_and_both_weightings(self):
         rows = complete_sector_index_years(load_sector_index())
 
@@ -67,6 +94,17 @@ class DashboardScoreDataTests(unittest.TestCase):
         self.assertTrue(all(row.n_firms == 6 for row in rows))
         self.assertEqual((rows[-1].ai_ew, rows[-1].ai_cw), (11.2, 8.0))
         self.assertNotIn("C", rows[-1].firms)
+
+    def test_sector_index_csv_exports_complete_years_with_source_columns(self):
+        rows = complete_sector_index_years(load_sector_index())
+        exported = list(csv.DictReader(StringIO(sector_index_csv(rows).decode("utf-8"))))
+
+        self.assertEqual(tuple(exported[0]), SECTOR_INDEX_COLUMNS)
+        self.assertEqual([int(row["fiscal_year"]) for row in exported], [2023, 2024, 2025])
+        self.assertEqual([int(row["n_firms"]) for row in exported], [6, 6, 6])
+        self.assertEqual([float(row["ai_ew"]) for row in exported], [4.0, 7.0, 11.2])
+        self.assertEqual([float(row["ai_cw"]) for row in exported], [3.2, 6.7, 8.0])
+        self.assertEqual(exported[-1]["firms"], "BAC COF JPM PFG SCHW WFC")
 
     def test_sector_index_loader_validates_weightings_and_partial_years(self):
         rows = [

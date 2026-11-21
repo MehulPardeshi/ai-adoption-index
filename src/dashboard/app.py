@@ -17,9 +17,11 @@ from src.dashboard.score_data import (
     SectorYearIndex,
     complete_fiscal_year_scores,
     complete_sector_index_years,
+    company_scores_csv,
     format_scenario_code,
     load_company_scores,
     load_sector_index,
+    sector_index_csv,
     validate_firm_labels,
 )
 from src.dashboard.theme import (
@@ -172,6 +174,26 @@ def sector_index_frame(rows: tuple[SectorYearIndex, ...]) -> pd.DataFrame:
     )
 
 
+def render_table_download(
+    *,
+    key: str,
+    label: str,
+    data: bytes,
+    filename: str,
+    description: str,
+) -> None:
+    """Render a CSV download control above its corresponding table."""
+    st.download_button(
+        label,
+        data=data,
+        file_name=filename,
+        mime="text/csv",
+        key=key,
+        help=description,
+        width="content",
+    )
+
+
 st.markdown(
     '<div class="eyebrow">Financial Services · Research Preview</div>',
     unsafe_allow_html=True,
@@ -266,6 +288,16 @@ with sector_tab:
             "for that year. FY2026 is not included because it is incomplete."
         )
         render_sector_table_help()
+        render_table_download(
+            key="download_sector_index_csv",
+            label="Download sector index (CSV)",
+            data=sector_index_csv(sector_index),
+            filename="ai_adoption_index_sector_index.csv",
+            description=(
+                "Download the complete-year sector-index table shown below, including "
+                "both weighting methods, public float, and included firms."
+            ),
+        )
         st.dataframe(
             sector_index_frame(sector_index),
             column_config={
@@ -369,6 +401,16 @@ with company_tab:
                 )
 
         render_score_metric_help(score_columns)
+        render_table_download(
+            key="download_company_scores_csv",
+            label="Download company scores (CSV)",
+            data=company_scores_csv(score_data),
+            filename="ai_adoption_index_company_scores.csv",
+            description=(
+                "Download scores for all firms and complete fiscal years, independent "
+                "of the selected comparison filters. Partial FY2026 is excluded."
+            ),
+        )
         st.dataframe(
             pd.DataFrame(table_rows),
             column_config={
