@@ -457,3 +457,10 @@ Source: [minutes](../meetings/2026-11-10-client.md) (Zoom transcript; the openin
 - **Also:** Julie wants the research comparison (TP3 paper) shared with her, and will join the Dec 3 presentation remotely (syllabus slot 5:00–6:20 pm ET, to confirm). Mehul corrected the human-review threshold to 0.70 (Oct 29 said 0.3).
 - **Open:** Julie may adjust the cap-weighting after Yen-Chu's worked example; the transcripts-out decision needs restating in the follow-up email (Julie asked whether Bloomberg would be added).
 - **Decided by:** Julie (client), on the team's proposals.
+
+### 2026-11-19 (group chat) — Keep the 10-Qs in the scores and the sector index
+Source: team group chat, as recorded by Shu in PR #176 (Yen-Chu proposed, Shu confirmed). Not seen first-hand in the repo.
+- **Decision:** keep 10-K + 10-Q. On our 7 firms (FY2024–25), dropping the 10-Qs changed no score for the 6 PoC firms, but Citi FY2025 fell from 53 to 9 because its specific AI uses are only in its 10-Qs (#157). Repeats add no points, since each area counts once a year.
+- **Consequence:** the 76-firm run is redone with 10-Qs (#176; 10-Qs are assigned to the fiscal year they fall in, which matters for 5 firms with non-December year ends). New 10-Q passages add to the held-label queue (#170); reviews already filled in carry over.
+- **Open:** tell Julie, who preferred 10-K only if the 10-Qs added nothing material (Nov 10); they did for Citi.
+- **Decided by:** team (Yen-Chu, Shu), per the group chat.
