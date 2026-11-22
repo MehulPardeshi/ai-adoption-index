@@ -1,6 +1,6 @@
 # Evaluation (TP3 README section, DRAFT)
 
-> **Owner:** Mehul (Evaluation lead). **Status:** draft v0.2, Nov 21 (10-K + 10-Q rerun numbers), ready to paste into the final README (#166). Covers course requirement 5. Two numbers come later: labeling round 3 (#169) and the held-label review (#170); their placeholders are marked **[pending]**.
+> **Owner:** Mehul (Evaluation lead). **Status:** draft v0.3, Nov 22 (held-label review result), ready to paste into the final README (#166). Covers course requirement 5. One number comes later: labeling round 3 (#169), marked **[pending]**.
 
 We judge the system on one question: **can a reader trust a score?** That breaks into six checks, each with a bar set before we ran it ([evaluation plan](../part3-metrics/evaluation_plan.md)). The bar that matters most is **overclaims ≤ 5%**: we would rather miss a real use than claim one the filing doesn't support.
 
@@ -21,7 +21,7 @@ Details: [check 1](../part3-metrics/check1/results.md) · [round 1](../part3-met
 - **The strict score (specific use only) moves the ranking more** (ρ 0.69), so Julie chose the broad AI Use Score as the headline with the strict one beside it (Nov 10).
 
 ## People stay in the loop at scale
-On the 76-firm S&P 500 Financials run (10-Ks and 10-Qs, FY2024–25) the guardrail held **200 of 2,353** labels (8.5%) for a person: under 0.70 confidence, or a quote not found word for word. They count as no use until reviewed; reviewers' decisions are applied with their names, and the agent's own labels are never edited (#170). **[pending: how many held labels people changed, and the index after review.]**
+On the 76-firm S&P 500 Financials run (10-Ks and 10-Qs, FY2024–25) the guardrail held **200 of 2,353** labels (8.5%) for a person: under 0.70 confidence, or a quote not found word for word. They count as no use until reviewed; reviewers' decisions are applied with their names, and the agent's own labels are never edited (#170). **Review result (Shu and Yen-Chu, Nov 22; #182, #183):** 195 of the 200 reviewed (the other 5 are in the round 3 blind sample and wait for it). People kept the agent's evidence level on 140 (72%), raised 25 and lowered 30; 173 count as use after review, 22 don't (N or X). Since held labels count as no use until reviewed, the draft FY2025 index **rose from 7.2 to 8.6 equal-weighted and 9.4 to 10.2 cap-weighted**: the guardrail made the index cautious, as designed, and the review gave the use back where people confirmed it. Reviewers flagged 42 rows where the use is in a product sold to clients (#169). Final index: #134.
 
 Before trusting firm types the agent wasn't checked on (insurers, asset managers and brokers, payments, exchanges), two of us label 10 passages per type, blind to the agent, with the same overclaim bar (#169). **[pending: round 3 result per firm type.]**
 

@@ -1,6 +1,6 @@
 # Responsible AI (TP3 README section, DRAFT)
 
-> **Owner:** Mehul (Responsible AI + Evaluation lead); Logan adds the data and legal-sourcing part from the [ethics memo](../part1-sourcing/ethics_memo.md). **Status:** draft v0.3, Nov 21 (numbers from the 10-K + 10-Q rerun, #176; 10-Q decision). Covers course requirements 5 (evaluation), 6 (protecting data) and 7 (guardrails, with vs. without). Refresh the round 3 and held-label numbers (#169, #170) before the final README.
+> **Owner:** Mehul (Responsible AI + Evaluation lead); Logan adds the data and legal-sourcing part from the [ethics memo](../part1-sourcing/ethics_memo.md). **Status:** draft v0.4, Nov 22 (held-label review result, #170). Covers course requirements 5 (evaluation), 6 (protecting data) and 7 (guardrails, with vs. without). Round 3 numbers (#169) still to add.
 
 ## The risk we designed against
 The main harm an AI adoption index can do is **overclaiming**: saying a company uses AI when its filing doesn't support it. Readers (researchers, the client's book chapter) could repeat a false claim about a named company. So the whole system follows one rule: **rather miss a real use than claim one the filing doesn't support.** Our bar is overclaims ≤ 5%, measured against people.
@@ -28,7 +28,7 @@ We attacked the agent with **22 trick cases**: fake quotes, a changed number, hi
 | Unsafe outputs that got through (18 cases) | **2** (the two tampered answers) | **0** |
 | Correct answers wrongly blocked (4 controls) | 0 | 0 |
 
-**On the real 76-firm run** (10-Ks and 10-Qs, 606 filings) the guardrail held 200 of 2,353 labels (8.5%) for a person: 195 below 0.70 confidence and 5 whose quote wasn't in the filing word for word. Until someone reviews them they count as no use, so the index can only be too low, not too high. Reviewers record their decision next to each held label and `python3 -m src.index.apply_review` applies it, with the reviewer's name, without editing the agent's own file (#170).
+**On the real 76-firm run** (10-Ks and 10-Qs, 606 filings) the guardrail held 200 of 2,353 labels (8.5%) for a person: 195 below 0.70 confidence and 5 whose quote wasn't in the filing word for word. Until someone reviews them they count as no use, so the index can only be too low, not too high. Reviewers record their decision next to each held label and `python3 -m src.index.apply_review` applies it, with the reviewer's name, without editing the agent's own file (#170). **Result (Nov 22):** two of us reviewed 195 held labels (5 more wait for the round 3 blind sample). They kept the agent's level on 72%, raised 25 and lowered 30, and confirmed use in 173; the draft FY2025 index rose from 7.2 to 8.6 (equal-weighted). Holding uncertain labels cost the index some real use until people checked it, and never added a use nobody had confirmed.
 
 The model resisted most traps on its own. The guardrail's own job is narrow but essential: **nothing reaches a score unless a person could find the same sentence in the filing.** ([check 6](../part3-metrics/check6_results.md)). Still not caught: a confident misreading of a real quote. That's why we keep measuring against people.
 
