@@ -22,4 +22,4 @@ raters don't open it.
 3. `python3 -m src.eval.workbook_to_csv labeling_<name>.xlsx <name> 3` writes `rater_<name>.csv`.
 4. The two raters settle their disagreements together; the agreed label is the answer key.
 
-**Who and when:** to be agreed by the team (two people, about an hour each).
+**Raters and status:** Logan and Snehal were assigned as the two raters for issue #169. They label independently before comparing answers. Snehal's independent labels are in `rater_snehal.csv`; Logan's separate labels are in his pull request. **Disagreement settlement and the agreed answer key are still pending**; do not treat either individual file as the answer key.
