@@ -462,5 +462,11 @@ Source: [minutes](../meetings/2026-11-10-client.md) (Zoom transcript; the openin
 Source: team group chat, as recorded by Shu in PR #176 (Yen-Chu proposed, Shu confirmed). Not seen first-hand in the repo.
 - **Decision:** keep 10-K + 10-Q. On our 7 firms (FY2024–25), dropping the 10-Qs changed no score for the 6 PoC firms, but Citi FY2025 fell from 53 to 9 because its specific AI uses are only in its 10-Qs (#157). Repeats add no points, since each area counts once a year.
 - **Consequence:** the 76-firm run is redone with 10-Qs (#176; 10-Qs are assigned to the fiscal year they fall in, which matters for 5 firms with non-December year ends). New 10-Q passages add to the held-label queue (#170); reviews already filled in carry over.
-- **Open:** tell Julie, who preferred 10-K only if the 10-Qs added nothing material (Nov 10); they did for Citi.
+- ~~**Open:** tell Julie~~ ✅ Done Nov 23, see below.
 - **Decided by:** team (Yen-Chu, Shu), per the group chat.
+
+### 2026-11-23 (email) — Julie approves keeping the 10-Qs
+
+- Snehal emailed Julie the team's reasons (repeats add no points; Citi FY2025 falls from 53 to 9 without its 10-Qs). Julie replied: "really good justification. Keep the q's."
+- **Consequence:** the Nov 19 decision stands with client approval; scores, the 76-firm index (#187) and the dashboard keep 10-K + 10-Q.
+- **Also Nov 23:** Snehal met Dr. Chung (#143; notes in the team Drive, decisions to be filed once posted) and booked an in-person final poster prep + run-through for Tue Dec 1, 10–11 am.

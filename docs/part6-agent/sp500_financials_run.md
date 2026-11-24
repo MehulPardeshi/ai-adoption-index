@@ -111,5 +111,5 @@ python3 -m src.index.sector_index --scores data/processed/sec/sp500_financials/a
 1. **Review the 200 held labels** (`review_queue.csv`: fill review_evidence and review_scenarios).
 2. **Labeling round 3 (sector pilot):** two people label the 40 sampled passages (10 per new firm type) on their own; same bar as check 3 (overclaim at most 5%). A type that misses gets its own rules and a rerun.
 3. **Index (#134):** Yen-Chu runs the command above once the pilot passes.
-4. **10-Qs (#157):** this run includes the 10-Qs (team decision Nov 19: Citi's specific AI uses are only in its 10-Qs, and repeats add no points since each area counts once a year). Tell Julie why.
+4. **10-Qs (#157):** this run includes the 10-Qs (team decision Nov 19: Citi's specific AI uses are only in its 10-Qs, and repeats add no points since each area counts once a year). Julie approved on Nov 23.
 

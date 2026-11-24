@@ -16,7 +16,7 @@
 
 **🌐 Live dashboard:** https://ai-adoption-index.streamlit.app (redeploys automatically on every merge to `main`).
 
-## Where we are (Nov 21, 2026)
+## Where we are (Nov 23, 2026)
 | Milestone | Status |
 |---|---|
 | TP1: project scope | ✅ submitted Oct 2 |
@@ -25,10 +25,10 @@
 | Agent (DeepSeek, 7 tools, guardrails) | ✅ runs end to end; round 2 scored against the agreed labels: 81% on unseen passages, 0 overclaims (#147); ✅ 76-firm S&P 500 Financials run with 10-Ks **and 10-Qs** (#168, #176): 606 filings, 2,353 passages, 200 held for a person (#170) |
 | All 6 evaluation checks | ✅ done ([evaluation plan](docs/part3-metrics/evaluation_plan.md)) |
 | Dashboard (Streamlit) | ✅ consensus-based company scores plus equal-/market-cap-weighted six-firm overview (#132); ✅ live at [ai-adoption-index.streamlit.app](https://ai-adoption-index.streamlit.app) (#30) with CSV downloads (#155) |
-| Sector index (equal- and market-cap-weighted) | ✅ v0 on the 6 PoC firms (#146): FY2025 11.2 equal-weighted, 8.0 cap-weighted; 76-firm draft (10-K + 10-Q, before review): FY2025 7.2 equal-weighted, 9.4 cap-weighted ([run report](docs/part6-agent/sp500_financials_run.md)); round 3 pilot (#169), then final index + dashboard (#134) |
-| Julie follow-up | ✅ Nov 10 ([minutes](meetings/2026-11-10-client.md)): broad headline agreed; 10-Q check done: team keeps the 10-Qs (Nov 19, #157; Julie to be told); data download ✅; next: method page on the dashboard (#156), handover per Dr. Chung |
+| Sector index (equal- and market-cap-weighted) | ✅ v0 on the 6 PoC firms (#146): FY2025 11.2 equal-weighted, 8.0 cap-weighted; ✅ 76-firm index from the reviewed scores (#187): FY2025 **8.6 equal-weighted, 10.2 cap-weighted** (FY2024: 6.4 / 6.6; files in `data/processed/sec/sp500_financials/sector_index*.csv`, [run report](docs/part6-agent/sp500_financials_run.md)); next: round 3 pilot (#169), final rerun, and the 76-firm index on the dashboard (#134) |
+| Julie follow-up | ✅ Nov 10 ([minutes](meetings/2026-11-10-client.md)): broad headline agreed; 10-Q check done: team keeps the 10-Qs (Nov 19, #157; Julie approved Nov 23); data download ✅; next: method page on the dashboard (#156), handover per Dr. Chung |
 | **TP2: progress report** | ✅ submitted Fri Nov 13 ([PDF](docs/tp2/TP2_progress_report_Team5.pdf), [text](docs/tp2/progress_report.md)) |
-| **TP3: final presentation, paper discussion, SKILL.md, handover** | **Thu Dec 3** ([plan and split](docs/tp3/paper_discussion_plan.md); TP3 issues on the [board](https://github.com/users/MehulPardeshi/projects/1)) |
+| **TP3: final presentation, paper discussion, SKILL.md, handover** | In-person poster prep + run-through Tue Dec 1, 10–11 am · **final Thu Dec 3** ([plan and split](docs/tp3/paper_discussion_plan.md); TP3 issues on the [board](https://github.com/users/MehulPardeshi/projects/1)) |
 
 **Current scores (FY2025, human-agreed labels):** Citi 53 (benchmark), Capital One 20, Principal 18, Wells Fargo 11, JPMorgan 6, Schwab 6, Bank of America 6. All 80 human-checked passages complete. Ranking is stable when weights change (ρ 0.95–1.00). Sector index FY2025: 11.2 equal-weighted, 8.0 cap-weighted. See [check 4](docs/part3-metrics/check4_results.md).
 
