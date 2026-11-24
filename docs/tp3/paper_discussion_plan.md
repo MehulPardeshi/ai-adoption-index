@@ -1,5 +1,7 @@
 # TP3: research paper discussion and handover split (DRAFT, Mehul, Nov 9)
 
+> **Update Nov 23 (Dr. Chung, [minutes](../../meetings/2026-11-23-advisor.md)):** no formal paper. Keep it short: paper link, abstract, and a few talking points (motivation, how its method relates to ours, how we build on it: manual → agentic, what we add), plus a small research panel on the poster. Mention the [Evident AI Index](https://evidentinsights.com/ai-index/) as related work. Dec 3 is a walk-around poster session. Current owners and dates: [memory/11 "🎯 Now"](../../memory/11-action-items.md).
+
 > Agreed at the Nov 8 call: first find what the course expects, then Mehul splits the paper discussion along with the other handover tasks ([minutes](../../meetings/2026-11-08-internal.md)). **Status:** expectations confirmed from the course files below. The split is a **proposal for the team**, and the draft text is for the owners to rewrite.
 
 ## What the course asks for (from the [project instructions](../source-materials/i2ai-course-project-instructions-latest.md))

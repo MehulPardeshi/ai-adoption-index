@@ -1,7 +1,7 @@
 # 11 — Action Items (who is doing what, right now)
 
 > **Read this to answer "what should I work on next?"** Updated after every meeting from `meetings/` minutes ([procedure](../meetings/README.md)). The shared spreadsheet remains the source of truth for owners and deadlines; this file mirrors it for AI tools.
-> **Last updated:** 2026-11-23 evening (Dr. Chung via Snehal: **Dec 3 is a walk-around poster session in the rotunda**, so Julie can't simply join a talk remotely; open: a separate Zoom session with Julie and/or a recorded walkthrough, Snehal to ask Julie · TA's TP2 feedback only mentioned another team covering retirement providers and broker deals; team agreed not to add sectors 10 days out. Earlier Nov 23: ✅ Julie approved keeping the 10-Qs, replying to Snehal's email: "really good justification"; ✅ 76-firm sector index merged (#187, Yen-Chu): FY2025 8.6 EW / 10.2 CW, 76 firms, Ares float kept as Shu's estimate; ✅ Snehal met Dr. Chung Mon Nov 23 (handoff, poster, research inclusion; suggested Evident AI as related work), notes in the team Drive, key points to go on #143; Snehal booked **in-person final poster prep + run-through Tue Dec 1, 10–11 am**. Earlier Nov 22 night: round 3: Snehal is the second rater, settle Tue Nov 24; team meeting Sun Nov 29 = Dec 3 run-through. Earlier Nov 22: ✅ #170 review merged: 195 of 200, index 7.2 → 8.6 EW; 5 rows wait for round 3; Snehal: Dr. Chung meeting moved to Mon Nov 23, will email Julie about the 10-Qs and add the scoring method to the dashboard. Earlier Nov 21 evening: ✅ dashboard live at https://ai-adoption-index.streamlit.app, deployed by Mehul (#178 import fix, #180 light theme; #30 closed); ✅ Snehal's CSV downloads merged (#179, #155 closed); ✅ Shu's 10-Q rerun merged (#176): 606 filings, 2,353 passages, 200 held, draft FY2025 index 7.2 EW / 9.4 CW; #157 closed, still tell Julie; #170 split: Shu exchanges + payments (108 rows), Yen-Chu asset managers/brokers, insurers, banks (92). Earlier Nov 21: team kept the 10-Qs, Nov 19 group chat. Earlier Nov 19: no teammate pushes since Nov 17; Mehul's review step, SKILL.md v0.2 and Responsible AI v0.2 added. Earlier Nov 17: TP2 submission confirmed; all open TP3 issues assigned on GitHub with target dates, see #45; 76-firm S&P 500 Financials run merged (#168, #133 closed): 152 10-Ks, 1,876 passages, 170 held for a person, draft index FY2025 6.5 EW / 8.6 CW; 10-Q finding for #157 (Citi 53 → 9 without 10-Qs); new #169 round 3 pilot and #170 held-label review, owners to agree; TP2 submission not yet confirmed on #41. Earlier: TP2 final PDF ready for Yen-Chu to submit Fri Nov 13, 5 pm. Earlier: Nov 10 Julie follow-up filed: broad headline agreed, category detail enough, 10-K-only check, download button + method page, handover via Dr. Chung, Julie joins Dec 3 remotely. Earlier: Nov 8 team call filed: transcripts out, both index weightings, Tuesday plan; 7 of 9 scenarios added (#128) and check 4 updated (#129). Earlier: Julie confirmed Tue Nov 10, 7 pm; agreed labels done Sat Nov 7. Earlier: TP2 deadline moved to Fri Nov 13; earlier: round 2 scored; TP2 paragraphs, agent re-run and Bloomberg review merged; no Nov 1 meeting record in `meetings/`). Last meeting: [Nov 10 Julie follow-up](../meetings/2026-11-10-client.md) (transcript). Previous: [Nov 8 team call](../meetings/2026-11-08-internal.md), [Oct 29 client checkpoint](../meetings/2026-10-29-client.md).
+> **Last updated:** 2026-11-24 (**TP3 final sprint plan below: read "🎯 Now" first.** Dr. Chung's takeaways filed ([minutes](../meetings/2026-11-23-advisor.md)); new #190 final-product repo + add Dr. Chung, #191 Julie's walkthrough + invite Dr. Chung; both team meetings happen: Sun Nov 29 and Tue Dec 1 in person (Snehal). Earlier Nov 23 evening: Dr. Chung via Snehal: **Dec 3 is a walk-around poster session in the rotunda**, so Julie can't simply join a talk remotely; open: a separate Zoom session with Julie and/or a recorded walkthrough, Snehal to ask Julie · TA's TP2 feedback only mentioned another team covering retirement providers and broker deals; team agreed not to add sectors 10 days out. Earlier Nov 23: ✅ Julie approved keeping the 10-Qs, replying to Snehal's email: "really good justification"; ✅ 76-firm sector index merged (#187, Yen-Chu): FY2025 8.6 EW / 10.2 CW, 76 firms, Ares float kept as Shu's estimate; ✅ Snehal met Dr. Chung Mon Nov 23 (handoff, poster, research inclusion; suggested Evident AI as related work), notes in the team Drive, key points to go on #143; Snehal booked **in-person final poster prep + run-through Tue Dec 1, 10–11 am**. Earlier Nov 22 night: round 3: Snehal is the second rater, settle Tue Nov 24; team meeting Sun Nov 29 = Dec 3 run-through. Earlier Nov 22: ✅ #170 review merged: 195 of 200, index 7.2 → 8.6 EW; 5 rows wait for round 3; Snehal: Dr. Chung meeting moved to Mon Nov 23, will email Julie about the 10-Qs and add the scoring method to the dashboard. Earlier Nov 21 evening: ✅ dashboard live at https://ai-adoption-index.streamlit.app, deployed by Mehul (#178 import fix, #180 light theme; #30 closed); ✅ Snehal's CSV downloads merged (#179, #155 closed); ✅ Shu's 10-Q rerun merged (#176): 606 filings, 2,353 passages, 200 held, draft FY2025 index 7.2 EW / 9.4 CW; #157 closed, still tell Julie; #170 split: Shu exchanges + payments (108 rows), Yen-Chu asset managers/brokers, insurers, banks (92). Earlier Nov 21: team kept the 10-Qs, Nov 19 group chat. Earlier Nov 19: no teammate pushes since Nov 17; Mehul's review step, SKILL.md v0.2 and Responsible AI v0.2 added. Earlier Nov 17: TP2 submission confirmed; all open TP3 issues assigned on GitHub with target dates, see #45; 76-firm S&P 500 Financials run merged (#168, #133 closed): 152 10-Ks, 1,876 passages, 170 held for a person, draft index FY2025 6.5 EW / 8.6 CW; 10-Q finding for #157 (Citi 53 → 9 without 10-Qs); new #169 round 3 pilot and #170 held-label review, owners to agree; TP2 submission not yet confirmed on #41. Earlier: TP2 final PDF ready for Yen-Chu to submit Fri Nov 13, 5 pm. Earlier: Nov 10 Julie follow-up filed: broad headline agreed, category detail enough, 10-K-only check, download button + method page, handover via Dr. Chung, Julie joins Dec 3 remotely. Earlier: Nov 8 team call filed: transcripts out, both index weightings, Tuesday plan; 7 of 9 scenarios added (#128) and check 4 updated (#129). Earlier: Julie confirmed Tue Nov 10, 7 pm; agreed labels done Sat Nov 7. Earlier: TP2 deadline moved to Fri Nov 13; earlier: round 2 scored; TP2 paragraphs, agent re-run and Bloomberg review merged; no Nov 1 meeting record in `meetings/`). Last meeting: [Nov 10 Julie follow-up](../meetings/2026-11-10-client.md) (transcript). Previous: [Nov 8 team call](../meetings/2026-11-08-internal.md), [Oct 29 client checkpoint](../meetings/2026-10-29-client.md).
 > **Pinned summary for humans:** [#45 "Who does what"](https://github.com/MehulPardeshi/ai-adoption-index/issues/45), with @mentions per person.
 > **GitHub:** each task below is an issue in the **"Sprint: Oct 18–Nov 13 (TP2)"** milestone (renamed Nov 8; was "Oct 18–Nov 6") on the [project board](https://github.com/users/MehulPardeshi/projects/1).
 
@@ -13,6 +13,61 @@
 - **Julie's asks (Oct 29):** check whether a market-cap- and equal-weighted **sector index** on a defined public-company sample is feasible · dashboard hover definitions · hide partial years (FY2026) · sources we can legally get and verify only.
 - **PoC companies:** JPMorgan Chase, Bank of America, Capital One, Wells Fargo, Charles Schwab, Principal Financial Group · **Period:** 2024–2026 · **Sources:** SEC 10-K/10-Q (74 filings, 277 AI passages), Dong baseline; earnings calls from **Bloomberg (CMU library): permission cleared Nov 4 (#62); left out of the index (team, Nov 8), future work**, with transcript text kept out of the public repo and dashboard; no LinkedIn job postings. **Citigroup** kept as a benchmark.
 - **AI model:** DeepSeek (`deepseek-flash`), option B: one person pays (Shu), about $0.02 per run. Only public SEC text is sent. **Agent:** 7 tools.
+
+## 🎯 Now: TP3 final sprint (Tue Nov 24 → Thu Dec 3)
+
+**If you're a teammate's AI tool: find your person below, do their unchecked items in order, and post progress on the issue.** Everything else in this file is history and context.
+
+**Next milestone: Sun Nov 29 team meeting = first full draft.** Every TP3 piece exists as a draft by then, so Tue Dec 1 (in person, 10–11 am) is only for making the poster together and a run-through. Then **Thu Dec 3, 5:00–6:20 pm: walk-around poster session in the rotunda**; Julie gets a separate Zoom or a recording (#191).
+
+**What Dr. Chung expects (Nov 23, [minutes](../meetings/2026-11-23-advisor.md)):** a short research section, not a paper (link, abstract, a few talking points, how we build on it: manual → agentic); a small research panel on the poster; a creative, visual poster; handoff = Streamlit link + GitHub repo + user guide; Dr. Chung added to GitHub; a separate public repo with only the final product.
+
+**Done for TP3 so far:** 76-firm run with 10-Qs (#168, #176) · held-label review 195/200 (#170) · 76-firm index merged, FY2025 8.6 EW / 10.2 CW (#187) · dashboard live with CSV downloads (#30, #155) · 10-Q check, Julie approved (#157) · Dr. Chung met (#143) · drafts: SKILL.md v0.3, Evaluation v0.3, Responsible AI v0.4, How we worked v0.2.
+
+### Yen-Chu (@teddy0-0y)
+- [ ] #134 Put the 76-firm index on the dashboard as the headline sector index (keep the 6-firm pilot as a second view) · **Sun Nov 29**
+- [ ] #156 Scoring-method text on the dashboard (levels, 11 areas, highest level per area once a year, ÷33×100, EW/CW) · **Sun Nov 29**
+- [ ] #170 Fill your 2 round 3 rows (NTRS, TROW) once #169 is settled, then rerun `apply_review` + `sector_index` (#134) · **Fri Nov 27**
+- [ ] #166 README report: scope + project details sections · **Sun Nov 29** draft, final Tue Dec 1
+- [ ] Your bio + GitHub link in the README (#166)
+
+### Snehal (@snehalpaliwal)
+- [ ] #169 Label the 40 round 3 passages alone, then settle with Logan **today, Tue Nov 24 after class**; push your workbook + the agreed key
+- [ ] #191 Email Julie (Zoom Dec 2–4 or recording) and invite Dr. Chung to our poster · **Wed Nov 25**
+- [ ] #141 Poster draft: layout + visuals; one panel per section (problem, method/agent, evaluation, results, research, responsible AI, what's next, QR to dashboard + repo) · **Sun Nov 29**; made together Tue Dec 1
+- [ ] #142 User guide for Julie (`docs/user_guide.md`, with Shu): open the dashboard, read a score, download data, refresh with SKILL.md · **Sun Nov 29**
+- [ ] #166 README visuals · **Sun Nov 29**
+- [ ] Your bio + GitHub link in the README (#166)
+
+### Logan (@MaiJialong)
+- [ ] #169 Settle round 3 with Snehal **today, Tue Nov 24 after class**
+- [ ] #137 Short research section (per Dr. Chung): Babina et al. 2024 link + abstract + 3–4 talking points (motivation; method vs ours; manual → agentic; what we add) + 1–2 lines on Evident AI. Start from the draft in [paper_discussion_plan.md](../docs/tp3/paper_discussion_plan.md). Also the poster's research panel · **Sun Nov 29**
+- [ ] #138 References list (Babina, Dong, Evident AI, SEC sources, tools) · **Sun Nov 29**
+- [ ] #139 Data retention + attribution paragraph in [responsible_ai.md](../docs/tp3/responsible_ai.md) (from the ethics memo §§4–5) · **Sun Nov 29**
+- [ ] Your bio + GitHub link in the README (#166)
+
+### Shu (@seanpushu)
+- [ ] #170 Fill your 3 round 3 rows (FDS, FISV, XYZ) once #169 is settled · **Fri Nov 27**
+- [ ] #135 Review SKILL.md v0.3 (especially the run commands); small PR or comment · **Sun Nov 29**
+- [ ] #137 2–3 lines comparing our method with Dong et al. 2026 · **Sun Nov 29**
+- [ ] #190 Propose the file list for the public final-product repo · **Sun Nov 29**
+- [ ] #142 User guide with Snehal: the refresh part · **Sun Nov 29**
+- [ ] #140 Code demo (agent labels a passage → score → dashboard) + recorded backup; reuse for Julie (#191) · **Tue Dec 1**
+- [ ] Your bio + GitHub link in the README (#166)
+
+### Mehul (@MehulPardeshi)
+- [ ] #169 After the settle: merge #185 + Snehal's file, score the agent per firm type (bar: overclaim ≤5%), fill round 3 numbers into Evaluation + Responsible AI · **Thu Nov 26**
+- [ ] Decide with the round 3 results: does AI in a product sold to clients count as the firm's own use? (Visa = 7.8% of FY2025 float) · **Sun Nov 29**
+- [ ] #139 Finish Responsible AI after Logan's part · **Sun Nov 29**
+- [ ] #135 Finish SKILL.md after Shu's review · **Sun Nov 29**
+- [ ] #137 Review Logan's research section · **Mon Nov 30**
+- [ ] #190 Create the public final-product repo + add Dr. Chung (needs her GitHub username) · **Wed Dec 2**
+- [ ] #166 Merge the Evaluation, Responsible AI and How we worked drafts into the README; refresh numbers · **Tue Dec 1**
+- [ ] Your bio + GitHub link in the README (#166)
+
+### Everyone
+- **Sun Nov 29:** team meeting, walk through all drafts. **Tue Dec 1, 10–11 am, in person:** build the poster + run-through (Snehal's invite). **Thu Dec 3, 5:00 pm:** stand by the poster; each person can explain any panel.
+- Before you start: `git pull origin main`. Work on a branch, open a PR, post progress on the issue.
 
 ## Key dates
 | Date | What |
@@ -29,11 +84,11 @@
 | ✅ Sat Nov 7, 5 pm | Check-in (Logan, Snehal, Yen-Chu); they agreed the labels for the 58 disagreements (per Snehal, Nov 8). The filled sheet isn't shared yet |
 | ✅ Sun Nov 8, 8–8:45 pm | Team call ([minutes](../meetings/2026-11-08-internal.md)): transcripts out, both index weightings, Tuesday plan, TP2 owners confirmed, no practice run |
 | ✅ Tue Nov 10, 7–8 pm ET | Julie follow-up, the TP2 client meeting (#98) ([minutes](../meetings/2026-11-10-client.md)): very positive; agreed broad headline, category detail; 10-K check; download + method page; handover via Dr. Chung |
-| ✅ Mon Nov 23 | Snehal met Dr. Chung (#143): handoff expectations, poster, research inclusion, Evident AI. Notes in the team Drive · Julie approved keeping the 10-Qs (email reply to Snehal) · 76-firm index merged (#187) |
+| ✅ Mon Nov 23 | Snehal met Dr. Chung (#143, [minutes](../meetings/2026-11-23-advisor.md)): short research section, poster in the rotunda, handoff = Streamlit + repo + user guide, public final-product repo, Evident AI · Julie approved keeping the 10-Qs (email reply to Snehal) · 76-firm index merged (#187) |
 | Tue Nov 24, after class | Round 3 (#169): Snehal labels alone, then she and Logan settle disagreements |
-| Sun Nov 29 | Team meeting (group chat, Nov 22). `UNCLEAR:` whether it still happens now that Dec 1 is booked |
+| **Sun Nov 29** | Team meeting: first full draft of every TP3 piece (Snehal confirmed Nov 23: both meetings happen) |
 | **Tue Dec 1, 10–11 am, in person** | Final poster prep + run-through (Snehal's invite; all 5). Deck (#141), demo (#140) and README report (#166) drafts needed before |
-| **Thu Dec 3, 5:00–6:20 pm ET** | **Final presentation: walk-around poster session in the rotunda** (per Dr. Chung, Nov 23). Julie planned to join remotely; `UNCLEAR:` how: separate Zoom session with her and/or a recorded walkthrough (Snehal to ask Julie) |
+| **Thu Dec 3, 5:00–6:20 pm ET** | **Final presentation: walk-around poster session in the rotunda** (per Dr. Chung, Nov 23). Julie: separate Zoom (Dec 2–4) or a recording (#191, Snehal asks by Wed Nov 25) |
 
 ## By person
 
@@ -143,7 +198,9 @@
 | #140 | Code demo for the final presentation | Shu |
 | #141 | Poster / final deck (poster made together in person Tue Dec 1) | Snehal |
 | #142 | Handover plan for Julie (after Tue Nov 10) | Shu + Snehal |
-| #143 | Ask Dr. Chung: paper expectations + handover | Snehal |
+| #143 | ✅ Dr. Chung met Nov 23; takeaways filed | Done |
+| #190 | Final-product public repo + add Dr. Chung to GitHub | Mehul (Shu: file list) |
+| #191 | Julie's walkthrough (Zoom or recording) + invite Dr. Chung to the poster | Snehal (Shu: recording) |
 | #134 | ✅ 76-firm index merged Nov 23 (#187): FY2024 6.4 EW / 6.6 CW, FY2025 8.6 EW / 10.2 CW; Ares FY2025 float kept as Shu's estimate. Left: rerun after the 5 round 3 rows; put the 76-firm index on the dashboard (it still shows the 6-firm pilot) | Yen-Chu |
 | #169 | Labeling round 3: sector pilot, 40 passages, 2 raters (human labels only). Logan's labels done (PR #185, held open so Snehal labels blind); Snehal labels alone, then both settle disagreements **Tue Nov 24 after class** | Logan + Snehal (agreed Nov 22) |
 | #170 | ✅ 195 of 200 held labels reviewed and merged Nov 22 (Shu #183, Yen-Chu #182): level kept on 72%, 173 confirmed as use; draft FY2025 index 7.2 → 8.6 EW, 9.4 → 10.2 CW. Left: the 5 round 3 blind rows after #169 | Shu + Yen-Chu |
