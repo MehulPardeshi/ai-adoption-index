@@ -1,6 +1,6 @@
 # Responsible AI (TP3 README section, DRAFT)
 
-> **Owner:** Mehul (Responsible AI + Evaluation lead); Logan adds the data and legal-sourcing part from the [ethics memo](../part1-sourcing/ethics_memo.md). **Status:** draft v0.4, Nov 22 (held-label review result, #170). Covers course requirements 5 (evaluation), 6 (protecting data) and 7 (guardrails, with vs. without). Round 3 numbers (#169) still to add.
+> **Owner:** Mehul (Responsible AI + Evaluation lead); Logan adds the data and legal-sourcing part from the [ethics memo](../part1-sourcing/ethics_memo.md). **Status:** draft v0.5, Nov 24 (held-label review result, #170; public-sharing approval). Covers course requirements 5 (evaluation), 6 (protecting data) and 7 (guardrails, with vs. without). Round 3 numbers (#169) still to add.
 
 ## The risk we designed against
 The main harm an AI adoption index can do is **overclaiming**: saying a company uses AI when its filing doesn't support it. Readers (researchers, the client's book chapter) could repeat a false claim about a named company. So the whole system follows one rule: **rather miss a real use than claim one the filing doesn't support.** Our bar is overclaims ≤ 5%, measured against people.
@@ -41,7 +41,8 @@ The agent was checked on banks. The sector index adds insurers, asset managers a
 - **Bloomberg transcripts** were cleared through CMU Libraries for team use only. They stay in CMU-only storage, no transcript text appears in the repo or dashboard, and the team decided (Nov 8) to keep them out of the index.
 - **No personal data**, no job-posting scraping (LinkedIn excluded), and no paywall or login bypass.
 - **AI provider:** DeepSeek's terms give no fixed deletion deadline, so we send only public SEC text and no secrets. The team accepted that residual risk on Oct 25. The API key lives in a local `.env` file, never in the repo.
-- **No client data** is involved. The client's identity is shared only with her permission.
+- **No client data** is involved. The client's identity is shared only with her permission (given Oct 1).
+- **Public release:** our faculty advisor approved sharing the product and repo publicly (Nov 23). The public final-product repo (#190) leaves out team admin files (meeting notes, labeling workbooks).
 - *(Logan: add retention and attribution from ethics memo §§4–5.)*
 
 ## 6. Reproducible and auditable
@@ -51,7 +52,7 @@ The agent was checked on banks. The sector index adds insurers, asset managers a
 
 ## 7. Limits we tell readers
 - **Disclosure isn't deployment.** We measure what firms *say* in filings. Known tools (Bank of America's Erica, JPMorgan's LLM Suite) appear in no filing, so filings undercount use.
-- The checked core is small: 6 firms plus Citi, 80 passages labeled by people. The 76-firm index is a draft until round 3 and the held-label review are done. The comparison with Dong et al. (ρ 0.58 vs. 0.78) is a direction, not a finding.
-- **Which filings matters.** 10-Ks only (the client's preference) changes no score for our 6 firms, but Citi falls from 53 to 9 because its specific uses are only in its 10-Qs. So the team kept the 10-Qs (Nov 19, #157); repeats add nothing because each area counts once a year. We tell the client and say so next to the index.
+- The checked core is small: 6 firms plus Citi, 80 passages labeled by people. On the 76-firm index, people reviewed 195 of the 200 held labels; the scores for the new firm types (insurers, asset managers, payments, exchanges) stay a draft until round 3 checks the agent on them (#169). The comparison with Dong et al. (ρ 0.58 vs. 0.78) is a direction, not a finding.
+- **Which filings matters.** 10-Ks only (the client's preference) changes no score for our 6 firms, but Citi falls from 53 to 9 because its specific uses are only in its 10-Qs. So the team kept the 10-Qs (Nov 19, #157) and the client agreed (Nov 23); repeats add nothing because each area counts once a year.
 - The model alias (`deepseek-flash`) can change under us. A rerun after a provider update may differ; the cache keeps old answers.
 - **No investment advice.** The agent declines "should I buy?" questions, and the score is not a rating of a company.
