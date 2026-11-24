@@ -475,3 +475,11 @@ Source: team group chat, as recorded by Shu in PR #176 (Yen-Chu proposed, Shu co
 
 - **No sector expansion beyond the 76 S&P 500 Financials.** The TA's TP2 feedback only noted another team covering retirement providers and broker deals; the team agreed it isn't needed or worth it 10 days out.
 - **Format:** Dr. Chung said Dec 3 is a walk-around poster session in the rotunda. `UNCLEAR:` how Julie takes part (she planned to join remotely): a separate Zoom session and/or a recorded walkthrough. Snehal to ask Julie.
+
+### 2026-11-23 (advisor, Dr. Chung via Snehal) — TP3 format and handoff
+- **Research:** no formal paper. A short section (paper link, abstract, a few talking points: motivation, method vs. ours, manual → agentic, what we add) and a small research panel on the poster. Supersedes the length guess in `docs/tp3/paper_discussion_plan.md`.
+- **Dec 3:** walk-around poster session in the rotunda; poster should be creative and visual. Online presentation may be recorded or scheduled; Julie gets a Zoom or a recording (#191).
+- **Handoff:** Streamlit link + GitHub repo + user guide. Add Dr. Chung to GitHub; separate public repo with only the final product (#190). Product and repo approved for public sharing.
+- **Related work:** cite the Evident AI Index (#137, #138).
+- **Team meetings:** both Sun Nov 29 (first full draft) and Tue Dec 1, 10–11 am in person (poster + run-through). [Minutes](../meetings/2026-11-23-advisor.md)
+
