@@ -483,3 +483,7 @@ Source: team group chat, as recorded by Shu in PR #176 (Yen-Chu proposed, Shu co
 - **Related work:** cite the Evident AI Index (#137, #138).
 - **Team meetings:** both Sun Nov 29 (first full draft) and Tue Dec 1, 10–11 am in person (poster + run-through). [Minutes](../meetings/2026-11-23-advisor.md)
 
+### 2026-11-24 (email + group chat) — Julie's session: our choice
+- Snehal offered Julie a recording or a separate meeting Dec 2–4; Julie replied that the group has done an excellent job and should decide what it prefers.
+- **Proposed (Snehal, group chat):** one proper live Zoom with Julie on **Thu Dec 3, 10 am**, used as the handover meeting; record it. Pending the group's OK (#191).
+
