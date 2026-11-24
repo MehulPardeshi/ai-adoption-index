@@ -470,3 +470,8 @@ Source: team group chat, as recorded by Shu in PR #176 (Yen-Chu proposed, Shu co
 - Snehal emailed Julie the team's reasons (repeats add no points; Citi FY2025 falls from 53 to 9 without its 10-Qs). Julie replied: "really good justification. Keep the q's."
 - **Consequence:** the Nov 19 decision stands with client approval; scores, the 76-firm index (#187) and the dashboard keep 10-K + 10-Q.
 - **Also Nov 23:** Snehal met Dr. Chung (#143; notes in the team Drive, decisions to be filed once posted) and booked an in-person final poster prep + run-through for Tue Dec 1, 10–11 am.
+
+### 2026-11-23 (group chat) — No new sectors; Dec 3 is a poster session
+
+- **No sector expansion beyond the 76 S&P 500 Financials.** The TA's TP2 feedback only noted another team covering retirement providers and broker deals; the team agreed it isn't needed or worth it 10 days out.
+- **Format:** Dr. Chung said Dec 3 is a walk-around poster session in the rotunda. `UNCLEAR:` how Julie takes part (she planned to join remotely): a separate Zoom session and/or a recorded walkthrough. Snehal to ask Julie.
