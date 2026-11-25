@@ -1,0 +1,17 @@
+passage_id,firm_type,agent,agent_before_guardrail,held,agreed,logan,snehal,kind
+MA_2024-12-31_10-K_00101,payments_consumer_finance,D1,D1,no,D2,D2,D2,level differs
+TRV_2024-12-31_10-K_00178,insurer,P,P,no,D1,D2,D1,underclaim
+HOOD_2025-12-31_10-K_00563,asset_mgmt_broker,D2,D2,no,D1,D1,D1,level differs
+FIS_2024-12-31_10-K_00181,payments_consumer_finance,D1,D1,no,N,X,N,overclaim
+XYZ_2025-12-31_10-K_00400,payments_consumer_finance,N,P,yes,N,N,D1,"held, agent matched"
+CBOE_2024-12-31_10-K_00435,exchange_data,N,N,no,P,N,P,level differs
+TROW_2025-12-31_10-K_00188,asset_mgmt_broker,N,D1,yes,D2,D1,D2,underclaim
+CPAY_2024-12-31_10-K_00220,payments_consumer_finance,D1,D1,no,D2,D2,X,level differs
+FISV_2025-12-31_10-K_00134,payments_consumer_finance,N,D1,yes,D1,D1,N,underclaim
+CBOE_2025-12-31_10-K_00225,exchange_data,D1,D1,no,D2,D1,D2,level differs
+MCO_2025-12-31_10-K_00175,exchange_data,N,N,no,D1,N,D1,underclaim
+NTRS_2025-12-31_10-K_00298,asset_mgmt_broker,N,D1,yes,D1,D1,N,underclaim
+FDS_2025-08-31_10-K_00085,exchange_data,N,P,yes,D2,D1,X,underclaim
+NTRS_2024-12-31_10-K_00359,asset_mgmt_broker,D1,D1,no,X,D1,X,overclaim
+PYPL_2025-12-31_10-K_00118,payments_consumer_finance,D1,D1,no,D2,D1,D2,level differs
+CINF_2024-12-31_10-K_00634,insurer,D1,D1,no,D2,D2,D2,level differs

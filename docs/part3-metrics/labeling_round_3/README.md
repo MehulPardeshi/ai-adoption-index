@@ -22,4 +22,6 @@ raters don't open it.
 3. `python3 -m src.eval.workbook_to_csv labeling_<name>.xlsx <name> 3` writes `rater_<name>.csv`.
 4. The two raters settle their disagreements together; the agreed label is the answer key.
 
-**Raters and status:** Logan and Snehal were assigned as the two raters for issue #169. They label independently before comparing answers. Snehal's independent labels are in `rater_snehal.csv`; Logan's separate labels are in his pull request. **Disagreement settlement and the agreed answer key are still pending**; do not treat either individual file as the answer key.
+**Raters and status:** Logan and Snehal were assigned as the two raters for issue #169. They label independently before comparing answers. Snehal's independent labels are in `rater_snehal.csv`; Logan's are in `Labeling3_workbook_Logan.csv`. They settled their disagreements on Nov 24: the agreed labels (the answer key) are in `Labeling3_final.csv`.
+
+**Results:** [results_round3.md](results_round3.md) (`python3 -m src.eval.round3_results`): 2 overclaims in 40 (5%, at the bar).

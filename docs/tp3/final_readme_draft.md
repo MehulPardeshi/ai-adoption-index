@@ -34,7 +34,7 @@
 - **Talk ≠ use:** on the pilot, Dong et al.'s AI word count tracks talk (ρ 0.78) more than use (ρ 0.58).
 
 ## 4. Evaluation · owner: Mehul ✅
-Full text: [evaluation_section.md](evaluation_section.md) (v0.3; round 3 numbers added after #169). Short version: six checks, each with a bar set in advance; the one that matters most is **overclaims ≤ 5%**. The agent matched people on 81% of unseen passages with **0 overclaims**; scores reproduce exactly from a fresh copy; the guardrail stopped all 18 unsafe trick cases (2 got through without it); people reviewed 195 of the 200 held labels and kept the agent's level on 72%.
+Full text: [evaluation_section.md](evaluation_section.md) (v0.4, with round 3). Short version: six checks, each with a bar set in advance; the one that matters most is **overclaims ≤ 5%**. The agent matched people on 81% of unseen passages with **0 overclaims**; scores reproduce exactly from a fresh copy; the guardrail stopped all 18 unsafe trick cases (2 got through without it); people reviewed 195 of the 200 held labels and kept the agent's level on 72%.
 
 ## 5. Responsible AI · owner: Mehul ✅ (+ Logan: retention and attribution)
 Full text: [responsible_ai.md](responsible_ai.md) (v0.5). Short version: designed against overclaiming named companies; people check the AI at every scale; only public SEC text goes to the model; transcripts stay out; every score traces to a quoted sentence; no investment advice.

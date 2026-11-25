@@ -1,13 +1,13 @@
 # Poster panel text from Mehul (for Snehal, #141)
 
-> Nov 24. Short on purpose (≤ 60 words per panel). Edit freely to fit the layout. Numbers are final except round 3 (#169), which I'll add by Thu Nov 26.
+> Nov 24. Short on purpose (≤ 60 words per panel). Edit freely to fit the layout. All numbers final (round 3 added Nov 24).
 
 ## Can you trust a score? (Evaluation)
 - Bar set first: **overclaims ≤ 5%**. We'd rather miss a real use than invent one.
 - Agent vs. people on unseen passages: **81% exact, 0 overclaims**.
 - Rerun from scratch by a teammate: **identical scores**.
 - People reviewed **195 of 200** flagged labels; kept the agent's level on 72%.
-- Round 3 on new firm types: *[after #169]*
+- New firm types (insurers, asset managers, payments, exchanges): **2 overclaims in 40 (5%)**, both borderline risk talk.
 
 *Visual idea:* a row of 6 check marks (one per check), each with its number.
 
