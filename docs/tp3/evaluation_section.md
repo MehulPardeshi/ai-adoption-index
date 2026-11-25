@@ -1,6 +1,6 @@
 # Evaluation (TP3 README section, DRAFT)
 
-> **Owner:** Mehul (Evaluation lead). **Status:** draft v0.3, Nov 22 (held-label review result), ready to paste into the final README (#166). Covers course requirement 5. One number comes later: labeling round 3 (#169), marked **[pending]**.
+> **Owner:** Mehul (Evaluation lead). **Status:** draft v0.4, Nov 24 (round 3 result added), ready to paste into the final README (#166). Covers course requirement 5.
 
 We judge the system on one question: **can a reader trust a score?** That breaks into six checks, each with a bar set before we ran it ([evaluation plan](../part3-metrics/evaluation_plan.md)). The bar that matters most is **overclaims ≤ 5%**: we would rather miss a real use than claim one the filing doesn't support.
 
@@ -13,7 +13,7 @@ We judge the system on one question: **can a reader trust a score?** That breaks
 | 5 | Anyone can reproduce it | A teammate who didn't build it reran everything from a fresh clone | Same 277 passages, **identical scores** | identical ✅ |
 | 6 | The guardrail holds | 22 trick cases: fake quotes, tampered numbers, hidden instructions, "should I buy?" | Unsafe outputs: **0 of 18** with the guardrail, 2 without; correct answers blocked: 0 of 4 | 0 unsafe ✅ |
 
-Details: [check 1](../part3-metrics/check1/results.md) · [round 1](../part3-metrics/labeling_round_1/results_round1.md) and [round 2](../part3-metrics/labeling_round_2/results_round2.md) · [check 3](../part3-metrics/check3_results.md) · [check 4](../part3-metrics/check4_results.md) · [check 5](../part3-metrics/check5_rerun.md) · [check 6](../part3-metrics/check6_results.md).
+Details: [round 3](../part3-metrics/labeling_round_3/results_round3.md) · [check 1](../part3-metrics/check1/results.md) · [round 1](../part3-metrics/labeling_round_1/results_round1.md) and [round 2](../part3-metrics/labeling_round_2/results_round2.md) · [check 3](../part3-metrics/check3_results.md) · [check 4](../part3-metrics/check4_results.md) · [check 5](../part3-metrics/check5_rerun.md) · [check 6](../part3-metrics/check6_results.md).
 
 ## What the checks changed
 - **Check 2 failed on detail, so we changed the process, not the bar.** We found the rule people read two ways (AI risk talk marked "not about AI"), clarified it, ran a harder second round, then settled every disagreement together. Those 80 agreed labels became our answer key.
@@ -23,9 +23,9 @@ Details: [check 1](../part3-metrics/check1/results.md) · [round 1](../part3-met
 ## People stay in the loop at scale
 On the 76-firm S&P 500 Financials run (10-Ks and 10-Qs, FY2024–25) the guardrail held **200 of 2,353** labels (8.5%) for a person: under 0.70 confidence, or a quote not found word for word. They count as no use until reviewed; reviewers' decisions are applied with their names, and the agent's own labels are never edited (#170). **Review result (Shu and Yen-Chu, Nov 22; #182, #183):** 195 of the 200 reviewed (the other 5 are in the round 3 blind sample and wait for it). People kept the agent's evidence level on 140 (72%), raised 25 and lowered 30; 173 count as use after review, 22 don't (N or X). Since held labels count as no use until reviewed, the draft FY2025 index **rose from 7.2 to 8.6 equal-weighted and 9.4 to 10.2 cap-weighted**: the guardrail made the index cautious, as designed, and the review gave the use back where people confirmed it. Reviewers flagged 42 rows where the use is in a product sold to clients (#169). Final index: #134.
 
-Before trusting firm types the agent wasn't checked on (insurers, asset managers and brokers, payments, exchanges), two of us label 10 passages per type, blind to the agent, with the same overclaim bar (#169). **[pending: round 3 result per firm type.]**
+**New firm types (round 3, #169).** The agent was tuned on banks, so before trusting insurers, asset managers and brokers, payments and exchanges, Logan and Snehal each labeled 10 passages per type alone, blind to the agent, and then agreed one label per passage (Nov 24). They agreed on use vs. no use at κ 0.60 (bar 0.6). Against their agreed labels the agent made **2 overclaims in 40 (5%, at the bar)**, matched the use call on 80% and the exact level on 62%, and was cautious again: 6 underclaims. Insurers: 0 overclaims, 80% exact. One overclaim each came from asset managers and payments. Both were AI risk-factor sentences ("our use of AI") that the agent read as general use, the same borderline as in round 2, and neither was a specific-use claim. With 10 passages a type, one passage is 10%, so the sample can't rank the types against each other. ([round 3](../part3-metrics/labeling_round_3/results_round3.md))
 
 ## Limits of the evaluation
-- The human answer key is small (80 passages, 7 firms); κ on detail levels stayed below our bar until we agreed labels together.
+- The human answer key is small (80 passages from 7 firms, plus 40 from the new firm types in round 3); κ on detail levels stayed below our bar until we agreed labels together.
 - Check 3 measures agreement with *our* reading of the codebook, which was written for banks.
 - Filings undercount use: tools known from the press (Bank of America's Erica, JPMorgan's LLM Suite) appear in no filing, so no check here can catch that.
