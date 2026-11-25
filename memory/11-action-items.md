@@ -32,7 +32,8 @@
 - [ ] Your bio + GitHub link in the README (#166)
 
 ### Snehal (@snehalpaliwal)
-- [ ] #169 Label the 40 round 3 passages alone, then settle with Logan **today, Tue Nov 24 after class**; push your workbook + the agreed key
+- [x] #169 Independently label the 40 round 3 passages; uploaded as [rater_snehal.csv](../docs/part3-metrics/labeling_round_3/rater_snehal.csv)
+- [ ] #169 Settle differences with Logan and create the agreed answer key; scheduled Tue Nov 24 after class (settlement not yet recorded)
 - [x] #191 Emailed Julie (Nov 24); she left the choice to us · [ ] send Julie the Zoom for **Thu Dec 3, 10 am** once the group confirms · [ ] invite Dr. Chung to our poster · **Wed Nov 25**
 - [ ] #141 Poster draft: layout + visuals; one panel per section (problem, method/agent, evaluation, results, research, responsible AI, what's next, QR to dashboard + repo) · **Sun Nov 29**; made together Tue Dec 1
 - [ ] #142 User guide for Julie (`docs/user_guide.md`, with Shu): open the dashboard, read a score, download data, refresh with SKILL.md · **Sun Nov 29**
