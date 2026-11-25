@@ -24,4 +24,4 @@ raters don't open it.
 
 **Raters and status:** Logan and Snehal were assigned as the two raters for issue #169. They label independently before comparing answers. Snehal's independent labels are in `rater_snehal.csv`; Logan's are in `Labeling3_workbook_Logan.csv`. They settled their disagreements on Nov 24: the agreed labels (the answer key) are in `Labeling3_final.csv`.
 
-**Results:** [results_round3.md](results_round3.md) (`python3 -m src.eval.round3_results`): 2 overclaims in 40 (5%, at the bar).
+**Results:** [results_round3.md](results_round3.md) (`python3 -m src.eval.round3_results`): 2 overclaims in 40 (5%, at the bar). Decision (Nov 24): no per-type rules or rerun; the 1-in-10 result for two types is noted as a limit (memory/09).

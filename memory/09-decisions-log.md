@@ -487,3 +487,13 @@ Source: team group chat, as recorded by Shu in PR #176 (Yen-Chu proposed, Shu co
 - Snehal offered Julie a recording or a separate meeting Dec 2–4; Julie replied that the group has done an excellent job and should decide what it prefers.
 - **Proposed (Snehal, group chat):** one proper live Zoom with Julie on **Thu Dec 3, 10 am**, used as the handover meeting; record it. Pending the group's OK (#191).
 
+
+### 2026-11-24 (Mehul, PM + Evaluation lead) — Open TP3 decisions settled
+- **Decision 1, AI in products sold to clients:** counts as the firm's own use (the codebook is unchanged and the 76-firm index stays as computed). The README, dashboard method text (#156) and Responsible AI section say plainly that payment firms, exchanges and brokers score high partly for AI in products they sell to clients. The 42 rows reviewers flagged (#170) stay in the repo, so the rule can be revisited.
+- **Decision 2, round 3 per-type result:** no new rules and no rerun. Overall 2 overclaims in 40 (5%) meets the bar; the one overclaim each for asset managers and payments is the known risk-talk borderline, and 10 passages per type is too few to judge a single type. Noted as a limit in the Evaluation and Responsible AI sections. Supersedes the "a type that misses gets its own rules and a rerun" plan in `docs/part3-metrics/labeling_round_3/README.md`.
+- **Decision 3, dashboard headline:** the 76-firm S&P 500 Financials index is the headline sector index; the 6-firm pilot stays as a second view (#134).
+- **Decision 4, public final-product repo:** approved; name `ai-adoption-index-final`, public, created by Mehul on Wed Dec 2 from Shu's file list (#190). Add Dr. Chung to GitHub once Snehal gets her username.
+- **Context / why:** Mehul asked (Nov 24) to settle open decisions with the recommended option. Decision 1 avoids rewriting the codebook 9 days before the final and keeps the numbers already checked; the transparency note handles the fairness concern.
+- **Decided by:** Mehul (PM; evaluation process is his call).
+- **Supersedes:** —
+- **Follow-ups:** Yen-Chu (#134, #156 note), Snehal (Dr. Chung's GitHub username), Shu (#190 file list), Mehul (#190 repo Dec 2).
