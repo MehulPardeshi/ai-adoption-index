@@ -230,8 +230,8 @@ try:
 except (OSError, ValueError, csv.Error) as exc:
     sector_index_error = str(exc)
 
-sector_tab, company_tab, about_tab = st.tabs(
-    ["Sector Overview", "Company Scores", "About the Data"]
+sector_tab, company_tab, scoring_tab, about_tab = st.tabs(
+    ["Sector Overview", "Company Scores", "Scoring Method", "About the Data"]
 )
 
 with sector_tab:
@@ -487,6 +487,33 @@ with company_tab:
             )
         else:
             st.info("Select at least one firm to view annual score trends.")
+
+with scoring_tab:
+    st.subheader("How the Scores Are Calculated")
+    st.markdown(
+        "Company filing passages receive one of five evidence labels:\n\n"
+        "| Evidence | Meaning | Points |\n"
+        "| --- | --- | ---: |\n"
+        "| **D2** | Specific AI use is described. | 3 |\n"
+        "| **D1** | AI use is stated with few details. | 1 |\n"
+        "| **P** | The company describes a plan to use AI. | 0.5 |\n"
+        "| **N** | No evidence of the company’s own AI use, such as risk or regulation discussion. | 0 |\n"
+        "| **X** | Not substantive AI evidence; excluded from scoring. | — |\n\n"
+        "### Company AI Use Score\n\n"
+        "For each firm and fiscal year, the score keeps the strongest evidence in each of "
+        "11 AI use areas. Repeated mentions in an area do not add points. Enterprise-wide "
+        "(ENT) evidence can contribute once. The points are divided by 33 (11 areas × 3) "
+        "and multiplied by 100, with the result capped at 100. This measures what firms "
+        "disclose in SEC filings, not verified firm-wide adoption.\n\n"
+        "AI use in products a firm sells to clients counts as the firm’s own use. This "
+        "means payment firms, exchanges, and brokers can score higher partly because of "
+        "AI-enabled products they offer.\n\n"
+        "### Sector Index\n\n"
+        "The equal-weighted index (AI-EW) is the average of the included firms’ AI Use "
+        "Scores. The market-cap-weighted index (AI-CW) weights each firm’s score by its "
+        "public float reported in SEC filings, so firms with larger public floats have "
+        "more influence."
+    )
 
 with about_tab:
     st.subheader("Data Sources and Limits")
