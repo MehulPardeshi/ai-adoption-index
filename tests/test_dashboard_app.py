@@ -17,7 +17,7 @@ class DashboardAppTests(unittest.TestCase):
         self.assertEqual(app.title[0].value, "AI Adoption Index | Financial Firms")
         self.assertEqual(
             [tab.label for tab in app.tabs],
-            ["Sector Overview", "Company Scores", "About the Data"],
+            ["Sector Overview", "Company Scores", "Scoring Method", "About the Data"],
         )
         self.assertIn("80 of 277 passages", app.warning[0].value)
         self.assertIn("AI-draft labels", app.warning[0].value)
@@ -49,6 +49,17 @@ class DashboardAppTests(unittest.TestCase):
         self.assertIn("sector_index.csv", about_text)
         self.assertIn("Citigroup is a benchmark and is excluded", about_text)
         self.assertIn("does not provide passage-level drill-down", about_text)
+
+        scoring_text = "\n".join(element.value for element in app.markdown)
+        for method_detail in (
+            "11 AI use areas",
+            "Enterprise-wide",
+            "divided by 33 (11 areas × 3)",
+            "payment firms, exchanges, and brokers",
+            "equal-weighted index (AI-EW)",
+            "market-cap-weighted index (AI-CW)",
+        ):
+            self.assertIn(method_detail, scoring_text)
 
         for key in (
             "score_help_ai_use_score",
